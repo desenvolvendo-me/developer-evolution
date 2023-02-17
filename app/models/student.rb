@@ -10,4 +10,10 @@ class Student < ApplicationRecord
   enum challenge: { one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, }
   enum knowledge: { m0: 0, m3: 3, m6: 6, a1: 12, a2: 24, a5: 60, a10: 120 }
 
+  before_save :before_save
+
+  def before_save
+    Levels::Number.call({ resource: self })
+  end
+
 end
