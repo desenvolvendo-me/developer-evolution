@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_17_175724) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_17_181853) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,46 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_175724) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "class_name"
+    t.date "enrollment_date"
+    t.string "knowledge"
+    t.string "profile_hotmart"
+    t.string "profile_discord"
+    t.integer "level_number"
+    t.string "level_potencial"
+    t.string "level_testimony"
+    t.integer "class_progress"
+    t.string "meeting_situation"
+    t.date "meeting_last"
+    t.date "meeting_next"
+    t.integer "meeting_number"
+    t.string "meeting_link"
+    t.string "github_link"
+    t.string "github_intensity"
+    t.string "wakatime_link"
+    t.integer "wakatime_time"
+    t.string "wakatime_intensity"
+    t.string "linkedin_link"
+    t.integer "linkedin_followers"
+    t.integer "linkedin_post_last_month"
+    t.string "linkedin_intensity"
+    t.integer "challenge"
+    t.string "mission_future"
+    t.integer "mission_future_point"
+    t.string "mission_base"
+    t.integer "mission_base_point"
+    t.string "mission_vacancy"
+    t.integer "mission_vacancy_point"
+    t.string "mission_startup"
+    t.integer "mission_startup_point"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,4 +92,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_175724) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "students", "users"
 end
