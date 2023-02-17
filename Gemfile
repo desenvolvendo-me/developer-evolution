@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.0"
+ruby "2.7.5"
 
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem "sprockets-rails"
@@ -23,6 +23,7 @@ gem 'sass-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0'
+  gem 'shoulda-matchers', '~> 5.0'
   gem 'database_cleaner'
   gem 'binding_of_caller'
   gem 'annotate'
@@ -33,7 +34,6 @@ group :development, :test do
   gem 'cpf_faker'
   gem 'rubycritic', require: false
   gem 'simplecov'
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
@@ -49,10 +49,9 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-  gem 'chromedriver-helper'
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
   gem 'rspec-benchmark'
   gem 'database_cleaner'
 end
