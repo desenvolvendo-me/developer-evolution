@@ -13,6 +13,13 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
+#Admin
+gem 'devise'
+gem 'activeadmin'
+gem 'activeadmin_sidekiq_stats'
+gem "chartkick", '~> 2.2.0'
+gem 'groupdate'
+gem 'sass-rails'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0'
