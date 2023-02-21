@@ -1,5 +1,9 @@
 ActiveAdmin.register Student do
-  permit_params :name, :class_name, :enrollment_date, :user_id
+  controller do
+    def permitted_params
+      params.permit!
+    end
+  end
 
   index do
     column :name
