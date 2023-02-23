@@ -64,7 +64,7 @@ class Student < ApplicationRecord
   before_save :before_save
 
   def before_save
-    Levels::Number.call({ resource: self })
+    Profiles::Level.call({ resource: self })
     Intensity::Github.call({ resource: self })
     Intensity::Wakatime.call({ resource: self })
     Intensity::Linkedin.call({ resource: self })

@@ -1,5 +1,5 @@
-module Levels
-  class Number < BusinessApplication
+module Profiles
+  class Level < BusinessApplication
     NOTE_LEVEL_UP = 7
 
     def initialize(**params)
