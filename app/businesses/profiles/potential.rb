@@ -8,7 +8,7 @@ module Profiles
     end
 
     def call
-      if @student.class_progress < 15
+      if @student.class_progress < 10
         level_potencial = "not_started"
       end
 
