@@ -57,6 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_181853) do
     t.integer "meeting_number"
     t.string "meeting_link"
     t.string "github_link"
+    t.float "github_commit"
     t.string "github_intensity"
     t.string "wakatime_link"
     t.integer "wakatime_time"
