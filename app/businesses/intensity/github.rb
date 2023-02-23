@@ -7,8 +7,14 @@ module Intensity
     end
 
     def call
-      unless @student.github_link.to_s.include? "github.com"
+      github_link_present = @student.github_link.to_s.include? "github.com"
+
+      unless github_link_present
         github_intensity = "not_found"
+      end
+
+      if @student.github_commit >= 1 and github_link_present
+        github_intensity = "very_weak"
       end
 
       @student.github_intensity = github_intensity
