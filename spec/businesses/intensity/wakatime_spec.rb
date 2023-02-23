@@ -31,6 +31,12 @@ RSpec.describe Intensity::Wakatime do
       expect(@student.wakatime_intensity).to eq("medium")
     end
 
+    it 'strong' do
+      @student.update(wakatime_time: 180)
+
+      expect(@student.wakatime_intensity).to eq("strong")
+    end
+
   end
 
 end
