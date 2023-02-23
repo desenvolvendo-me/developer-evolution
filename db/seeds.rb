@@ -24,6 +24,7 @@ if Rails.env.development?
 
   #Evaluation Social
   student.github_link = "https://github.com/jhonesaly"
+  student.github_commit = 10
   student.github_intensity = "very_strong"
   student.wakatime_link = "https://wakatime.com/@98661d52-a1fd-4e23-a39b-ba76d31fdfdd"
   student.wakatime_time = 78
