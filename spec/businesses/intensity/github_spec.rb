@@ -19,6 +19,12 @@ RSpec.describe Intensity::Github do
       expect(@student.github_intensity).to eq("very_weak")
     end
 
+    it 'weak' do
+      @student.update(github_commit: 2)
+
+      expect(@student.github_intensity).to eq("weak")
+    end
+
   end
 
 end
