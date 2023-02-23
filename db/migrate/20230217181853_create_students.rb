@@ -4,6 +4,9 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :class_name
       t.date :enrollment_date
+      t.string :type_career
+      t.string :description_career
+      t.float :salary
 
       t.string :knowledge
       t.string :profile_hotmart

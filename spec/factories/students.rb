@@ -3,57 +3,51 @@
 # Table name: students
 #
 #  id                       :bigint           not null, primary key
-#  challenge                :integer
+#  name                     :string
 #  class_name               :string
-#  class_progress           :integer
 #  enrollment_date          :date
-#  github_commit            :float
-#  github_intensity         :string
-#  github_link              :string
 #  knowledge                :string
+#  profile_hotmart          :string
+#  profile_discord          :string
 #  level_number             :integer
 #  level_potencial          :string
 #  level_testimony          :string
-#  linkedin_followers       :integer
-#  linkedin_intensity       :string
-#  linkedin_link            :string
-#  linkedin_post_last_month :integer
+#  class_progress           :integer
+#  meeting_situation        :string
 #  meeting_last             :date
-#  meeting_link             :string
 #  meeting_next             :date
 #  meeting_number           :integer
-#  meeting_situation        :string
-#  mission_base             :string
-#  mission_base_point       :integer
-#  mission_future           :string
-#  mission_future_point     :integer
-#  mission_startup          :string
-#  mission_startup_point    :integer
-#  mission_vacancy          :string
-#  mission_vacancy_point    :integer
-#  name                     :string
-#  profile_discord          :string
-#  profile_hotmart          :string
-#  wakatime_intensity       :string
+#  meeting_link             :string
+#  github_link              :string
+#  github_intensity         :string
 #  wakatime_link            :string
 #  wakatime_time            :integer
+#  wakatime_intensity       :string
+#  linkedin_link            :string
+#  linkedin_followers       :integer
+#  linkedin_post_last_month :integer
+#  linkedin_intensity       :string
+#  challenge                :integer
+#  mission_future           :string
+#  mission_future_point     :integer
+#  mission_base             :string
+#  mission_base_point       :integer
+#  mission_vacancy          :string
+#  mission_vacancy_point    :integer
+#  mission_startup          :string
+#  mission_startup_point    :integer
+#  user_id                  :bigint           not null
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
-#  user_id                  :bigint           not null
-#
-# Indexes
-#
-#  index_students_on_user_id  (user_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (user_id => users.id)
 #
 FactoryBot.define do
   factory :student do
     name { "Alyson Jhones" }
     class_name { "13" }
     enrollment_date { "16/01/2023".to_date }
+    type_career { "not_technology" }
+    description_career { "Engenheiro" }
+    salary { 0 }
 
     knowledge { "m0" }
     profile_hotmart { "https://desenvolvendome-spd.club.hotmart.com/admin/beta/users/detail/PeAyaZA3eW" }

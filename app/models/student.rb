@@ -52,8 +52,9 @@
 class Student < ApplicationRecord
   belongs_to :user
 
-  enum level_potencial: { low: "low", medium: "medium", high: "high", give_up: "give_up", not_started: "not_started", no_testimony: "no_testimony", succeed: "succeed" }, _suffix: true
-  enum level_testimony: { good: "good", excellent: "excellent", almost_goal: "almost_goal", goal: "goal" }
+  enum type_career: { technology: "technology", not_technology: "not_technology" }, _suffix: true
+  enum level_potencial: { low: "low", medium: "medium", high: "high", almost_goal: "almost_goal", goal: "goal", not_started: "not_started", no_testimony: "no_testimony", give_up: "give_up" }, _suffix: true
+  enum level_testimony: { excellent: "excellent", great: "great", good: "good" }
   enum meeting_situation: { bought: "bought", won: "won", not_bought: "not_bought" }
   enum github_intensity: { not_found: "not_found", very_weak: "very_weak", weak: "weak", medium: "medium", strong: "strong", very_strong: "very_strong" }, _prefix: :github
   enum wakatime_intensity: { not_found: "not_found", very_weak: "very_weak", weak: "weak", medium: "medium", strong: "strong", very_strong: "very_strong" }, _prefix: :wakatime
@@ -65,6 +66,7 @@ class Student < ApplicationRecord
 
   def before_save
     Profiles::Level.call({ resource: self })
+    Profiles::Potential.call({ resource: self })
     Intensity::Github.call({ resource: self })
     Intensity::Wakatime.call({ resource: self })
     Intensity::Linkedin.call({ resource: self })

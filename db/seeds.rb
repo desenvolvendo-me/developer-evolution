@@ -7,6 +7,9 @@ if Rails.env.development?
   student.name = "Alyson Jhones"
   student.class_name = "13"
   student.enrollment_date = "16/01/2023".to_date
+  student.type_career = "not_technology"
+  student.description_career = "Engenheiro"
+  student.salary = 0
 
   student.knowledge = "m0"
   student.profile_hotmart = "https://desenvolvendome-spd.club.hotmart.com/admin/beta/users/detail/PeAyaZA3eW"
