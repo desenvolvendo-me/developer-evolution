@@ -13,6 +13,12 @@ RSpec.describe Intensity::Wakatime do
       expect(@student.wakatime_intensity).to eq("not_found")
     end
 
+    it 'very_weak' do
+      @student.update(wakatime_time: 15)
+
+      expect(@student.wakatime_intensity).to eq("very_weak")
+    end
+
   end
 
 end
