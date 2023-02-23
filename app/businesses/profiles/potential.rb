@@ -4,26 +4,27 @@ module Profiles
 
     def initialize(**params)
       @params = params
+      @student = @params[:resource]
     end
 
     def call
-      if @params[:resource].type_career.eql?("technology") and @params[:resource].salary >= 5000
-        level_potencial = "no_testimony"
-      end
-
-      if @params[:resource].type_career.eql?("technology") and @params[:resource].salary < 5000 and @params[:resource].class_progress >= 33
-        level_potencial = "almost_goal"
-      end
-
-      if @params[:resource].type_career.eql?("not_technology") and @params[:resource].salary >= 5000 and @params[:resource].class_progress >= 50
-        level_potencial = "goal"
-      end
-
-      if @params[:resource].class_progress < 15
+      if @student.class_progress < 15
         level_potencial = "not_started"
       end
 
-      @params[:resource].level_potencial = level_potencial
+      if @student.type_career.eql?("technology") and @student.salary < 5000 and @student.class_progress >= 33
+        level_potencial = "almost_goal"
+      end
+
+      if @student.type_career.eql?("not_technology") and @student.salary >= 5000 and @student.class_progress >= 50
+        level_potencial = "goal"
+      end
+
+      if @student.type_career.eql?("technology") and @student.salary >= 5000
+        level_potencial = "no_testimony"
+      end
+
+      @student.level_potencial = level_potencial
     end
 
   end
