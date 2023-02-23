@@ -7,6 +7,12 @@ RSpec.describe Profiles::Potential do
       @student = create(:student)
     end
 
+    it 'not_started' do
+      @student.update(class_progress: 9)
+
+      expect(@student.level_potencial).to eq("not_started")
+    end
+
     it 'almost_goal' do
       @student.update(type_career: "technology", salary: 3001, class_progress: 33)
 
