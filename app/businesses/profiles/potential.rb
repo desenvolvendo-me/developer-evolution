@@ -15,6 +15,10 @@ module Profiles
         level_potencial = "almost_goal"
       end
 
+      if @params[:resource].class_progress < 15
+        level_potencial = "not_started"
+      end
+
       @params[:resource].level_potencial = level_potencial
     end
 
