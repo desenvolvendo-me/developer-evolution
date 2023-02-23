@@ -13,6 +13,12 @@ RSpec.describe Intensity::Github do
       expect(@student.github_intensity).to eq("not_found")
     end
 
+    it 'very_weak' do
+      @student.update(github_commit: 1)
+
+      expect(@student.github_intensity).to eq("very_weak")
+    end
+
   end
 
 end
