@@ -7,6 +7,12 @@ RSpec.describe Profiles::Potential do
       @student = create(:student)
     end
 
+    it 'almost_goal' do
+      @student.update(type_career: "technology", salary: 3001, class_progress: 33)
+
+      expect(@student.level_potencial).to eq("almost_goal")
+    end
+
     it 'no_testimony' do
       @student.update(type_career: "technology", salary: 5001)
 
