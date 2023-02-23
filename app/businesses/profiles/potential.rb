@@ -16,6 +16,10 @@ module Profiles
         level_potencial = "gave_up_career"
       end
 
+      if @student.class_progress >= 10 and @student.class_progress < 15 and @student.wakatime_time > 15
+        level_potencial = "gave_up_mentoring"
+      end
+
       if @student.type_career.eql?("technology") and @student.salary < 5000 and @student.class_progress >= 33
         level_potencial = "almost_goal"
       end
