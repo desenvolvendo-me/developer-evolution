@@ -19,6 +19,12 @@ RSpec.describe Profiles::Potential do
 
         expect(@student.level_potencial).to eq("gave_up_career")
       end
+
+      it 'mentoring' do
+        @student.update(class_progress: 14, wakatime_time: 60)
+
+        expect(@student.level_potencial).to eq("gave_up_mentoring")
+      end
     end
 
     it 'almost_goal' do
