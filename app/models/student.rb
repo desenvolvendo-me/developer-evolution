@@ -66,6 +66,7 @@ class Student < ApplicationRecord
   def before_save
     Levels::Number.call({ resource: self })
     Intensity::Github.call({ resource: self })
+    Intensity::Wakatime.call({ resource: self })
   end
 
 end
