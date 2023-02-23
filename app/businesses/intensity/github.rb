@@ -21,6 +21,10 @@ module Intensity
         github_intensity = "weak"
       end
 
+      if @student.github_commit >= 4 and github_link_present
+        github_intensity = "medium"
+      end
+
       @student.github_intensity = github_intensity
     end
 
