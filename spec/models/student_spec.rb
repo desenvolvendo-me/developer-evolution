@@ -6,8 +6,8 @@
 #  challenge                :integer
 #  class_name               :string
 #  class_progress           :integer
+#  description_career       :string
 #  enrollment_date          :date
-#  github_commit            :float
 #  github_intensity         :string
 #  github_link              :string
 #  knowledge                :string
@@ -34,6 +34,8 @@
 #  name                     :string
 #  profile_discord          :string
 #  profile_hotmart          :string
+#  salary                   :float
+#  type_career              :string
 #  wakatime_intensity       :string
 #  wakatime_link            :string
 #  wakatime_time            :integer
