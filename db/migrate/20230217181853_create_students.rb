@@ -20,6 +20,7 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.string :meeting_link
 
       t.string :github_link
+      t.float :github_commit
       t.string :github_intensity
       t.string :wakatime_link
       t.integer :wakatime_time
