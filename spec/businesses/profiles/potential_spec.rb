@@ -13,6 +13,14 @@ RSpec.describe Profiles::Potential do
       expect(@student.level_potencial).to eq("not_started")
     end
 
+    context "gave_up" do
+      it 'career' do
+        @student.update(class_progress: 14, wakatime_time: 15)
+
+        expect(@student.level_potencial).to eq("gave_up_career")
+      end
+    end
+
     it 'almost_goal' do
       @student.update(type_career: "technology", salary: 3001, class_progress: 33)
 
