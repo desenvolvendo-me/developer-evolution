@@ -15,6 +15,10 @@ module Profiles
         level_potencial = "almost_goal"
       end
 
+      if @params[:resource].type_career.eql?("not_technology") and @params[:resource].salary >= 5000 and @params[:resource].class_progress >= 50
+        level_potencial = "goal"
+      end
+
       if @params[:resource].class_progress < 15
         level_potencial = "not_started"
       end
