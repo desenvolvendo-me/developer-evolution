@@ -25,6 +25,11 @@ module Intensity
         wakatime_intensity = "medium"
       end
 
+      if @student.wakatime_time >= 180 and wakatime_link_present
+        wakatime_intensity = "strong"
+      end
+
+
       @student.wakatime_intensity = wakatime_intensity
     end
 
