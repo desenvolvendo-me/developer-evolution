@@ -45,25 +45,30 @@ RSpec.describe Profiles::Potential do
       expect(@student.level_potencial).to eq("no_testimony")
     end
 
-    it 'low' do
-      @student.update(type_career: "not_technology", salary: 2000)
-      @student.update(wakatime_time: 15)
+    context "low" do
+      it 'wakatime' do
+        @student.update(type_career: "not_technology", salary: 2000)
+        @student.update(wakatime_time: 15)
 
-      expect(@student.level_potencial).to eq("low")
+        expect(@student.level_potencial).to eq("low")
+      end
+    end
+    context "medium" do
+      it 'wakatime' do
+        @student.update(type_career: "not_technology", salary: 2000)
+        @student.update(wakatime_time: 60)
+
+        expect(@student.level_potencial).to eq("medium")
+      end
     end
 
-    it 'medium' do
-      @student.update(type_career: "not_technology", salary: 2000)
-      @student.update(wakatime_time: 60)
+    context 'high' do
+      it 'wakatime' do
+        @student.update(type_career: "not_technology", salary: 2000)
+        @student.update(wakatime_time: 180)
 
-      expect(@student.level_potencial).to eq("medium")
-    end
-
-    it 'high' do
-      @student.update(type_career: "not_technology", salary: 2000)
-      @student.update(wakatime_time: 180)
-
-      expect(@student.level_potencial).to eq("high")
+        expect(@student.level_potencial).to eq("high")
+      end
     end
 
   end
