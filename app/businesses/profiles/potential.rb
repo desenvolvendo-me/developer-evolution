@@ -8,6 +8,11 @@ module Profiles
     end
 
     def call
+      Profiles::Level.call({ resource: @student })
+      Intensity::Github.call({ resource: @student })
+      Intensity::Wakatime.call({ resource: @student })
+      Intensity::Linkedin.call({ resource: @student })
+
       if @student.class_progress < 10
         level_potencial = "not_started"
       end
@@ -31,6 +36,8 @@ module Profiles
       if @student.type_career.eql?("technology") and @student.salary >= 5000
         level_potencial = "no_testimony"
       end
+
+
 
       @student.level_potencial = level_potencial
     end
