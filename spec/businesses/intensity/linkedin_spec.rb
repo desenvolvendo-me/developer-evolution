@@ -29,6 +29,14 @@ RSpec.describe Intensity::Linkedin do
       expect(@student.linkedin_intensity).to eq("weak")
     end
 
+    it 'medium' do
+      @student.update(enrollment_date: Date.today - 10)
+      @student.update(linkedin_followers: 60)
+      @student.update(linkedin_post_last_month: 12)
+
+      expect(@student.linkedin_intensity).to eq("medium")
+    end
+
   end
 
 end
