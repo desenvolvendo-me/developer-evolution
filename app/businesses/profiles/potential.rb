@@ -18,6 +18,11 @@ module Profiles
         level_potencial = "low" if wakatime_intensity_status.include? @student.wakatime_intensity
       end
 
+      if @student.type_career.eql?("not_technology")
+        wakatime_intensity_status = ["weak", "medium"]
+        level_potencial = "medium" if wakatime_intensity_status.include? @student.wakatime_intensity
+      end
+
       if @student.class_progress < 10
         level_potencial = "not_started"
       end
