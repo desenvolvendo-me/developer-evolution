@@ -31,6 +31,10 @@ module Intensity
         linkedin_intensity = "strong"
       end
 
+      if linkedin_followers_per_day >= 10 and @student.linkedin_post_last_month >= 20 and linkedin_link_present
+        linkedin_intensity = "very_strong"
+      end
+
       @student.linkedin_intensity = linkedin_intensity
     end
 
