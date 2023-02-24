@@ -13,7 +13,7 @@
 #  github_link              :string
 #  knowledge                :string
 #  level_number             :integer
-#  level_potencial          :string
+#  level_potential          :string
 #  level_testimony          :string
 #  linkedin_followers       :integer
 #  linkedin_intensity       :string
@@ -65,7 +65,7 @@ FactoryBot.define do
     profile_hotmart { "https://desenvolvendome-spd.club.hotmart.com/admin/beta/users/detail/PeAyaZA3eW" }
     profile_discord { "https://discord.com/channels/998951206242234421/1007249425200058468/1067486414587052093" }
     level_number { 1 }
-    level_potencial { "high" }
+    level_potential { "high" }
     level_testimony { "good" }
     class_progress { 37 }
 

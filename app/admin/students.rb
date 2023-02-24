@@ -14,7 +14,7 @@ ActiveAdmin.register Student do
     column :class_progress
     column :meeting_situation
     column :level_number
-    column :level_potencial
+    column :level_potential
     actions
   end
 
@@ -38,7 +38,7 @@ ActiveAdmin.register Student do
         link_to "Discord", student.profile_discord, target: "_blank"
       end
       row :level_number
-      row :level_potencial
+      row :level_potential
       row :level_testimony
       row :class_progress
     end

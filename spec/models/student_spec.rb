@@ -13,7 +13,7 @@
 #  github_link              :string
 #  knowledge                :string
 #  level_number             :integer
-#  level_potencial          :string
+#  level_potential          :string
 #  level_testimony          :string
 #  linkedin_followers       :integer
 #  linkedin_intensity       :string

@@ -12,7 +12,7 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.string :profile_hotmart
       t.string :profile_discord
       t.integer :level_number
-      t.string :level_potencial
+      t.string :level_potential
       t.string :level_testimony
       t.integer :class_progress
 
