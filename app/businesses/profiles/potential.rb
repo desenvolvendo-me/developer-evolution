@@ -13,6 +13,11 @@ module Profiles
       Intensity::Wakatime.call({ resource: @student })
       Intensity::Linkedin.call({ resource: @student })
 
+      if @student.type_career.eql?("not_technology")
+        wakatime_intensity_status = ["not_found", "very_weak"]
+        level_potencial = "low" if wakatime_intensity_status.include? @student.wakatime_intensity
+      end
+
       if @student.class_progress < 10
         level_potencial = "not_started"
       end
