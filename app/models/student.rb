@@ -8,6 +8,7 @@
 #  class_progress           :integer
 #  description_career       :string
 #  enrollment_date          :date
+#  github_commit            :integer
 #  github_intensity         :string
 #  github_link              :string
 #  knowledge                :string
