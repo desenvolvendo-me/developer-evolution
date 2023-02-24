@@ -9,8 +9,14 @@ module Intensity
     def call
       linkedin_link_present = @student.linkedin_link.to_s.include? "linkedin.com"
 
+      linkedin_followers_per_day = @student.linkedin_followers / (Date.today.mjd - @student.enrollment_date.mjd)
+
       unless linkedin_link_present
         linkedin_intensity = "not_found"
+      end
+
+      if linkedin_followers_per_day >= 2 and @student.linkedin_post_last_month >= 4 and linkedin_link_present
+        linkedin_intensity = "very_weak"
       end
 
       @student.linkedin_intensity = linkedin_intensity
