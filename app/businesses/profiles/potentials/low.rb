@@ -11,9 +11,11 @@ module Profiles
         return unless @student.type_career.eql?("not_technology")
 
         wakatime_intensity_status = ["not_found", "very_weak"]
+        wakatime_intensity_not_acceptable =  wakatime_intensity_status.include? @student.wakatime_intensity
 
-        return unless wakatime_intensity_status.include? @student.wakatime_intensity
-        level_potential = "low"
+        if wakatime_intensity_not_acceptable
+          level_potential = "low"
+        end
 
         @student.level_potential = level_potential
       end
