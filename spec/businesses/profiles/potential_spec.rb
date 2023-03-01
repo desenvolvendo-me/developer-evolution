@@ -105,5 +105,18 @@ RSpec.describe Profiles::Potential do
         expect(@student.level_potential).to eq("medium")
       end
     end
+
+    context "high" do
+      before do
+        @student.update(type_career: "not_technology", salary: 2000)
+      end
+
+      it 'wakatime s' do
+        @student.update(wakatime_time: 180)
+
+        expect(@student.level_potential).to eq("high")
+      end
+
+    end
   end
 end
