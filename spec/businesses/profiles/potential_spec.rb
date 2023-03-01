@@ -51,17 +51,17 @@ RSpec.describe Profiles::Potential do
         @student.update(wakatime_time: 15)
       end
 
-      it 'wakatime very weak' do
+      it 'wakatime vw' do
         expect(@student.level_potential).to eq("low")
       end
 
-      it 'github strong' do
+      it 'github s' do
         @student.update(github_commit: 10)
 
         expect(@student.level_potential).to eq("low")
       end
 
-      it 'linkedin strong' do
+      it 'linkedin s' do
         @student.update(enrollment_date: Date.today - 10)
         @student.update(linkedin_followers: 100)
         @student.update(linkedin_post_last_month: 20)
@@ -69,6 +69,5 @@ RSpec.describe Profiles::Potential do
         expect(@student.level_potential).to eq("low")
       end
     end
-    
   end
 end
