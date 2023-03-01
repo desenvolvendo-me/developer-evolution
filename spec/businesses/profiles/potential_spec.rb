@@ -81,6 +81,18 @@ RSpec.describe Profiles::Potential do
         expect(@student.level_potential).to eq("medium")
       end
 
+      it 'wakatime w + github m + linkedin m' do
+        @student.update(wakatime_time: 60)
+
+        @student.update(github_commit: 4)
+
+        @student.update(enrollment_date: Date.today - 10)
+        @student.update(linkedin_followers: 60)
+        @student.update(linkedin_post_last_month: 12)
+
+        expect(@student.level_potential).to eq("medium")
+      end
+
     end
   end
 end
