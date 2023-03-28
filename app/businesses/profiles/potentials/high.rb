@@ -14,9 +14,9 @@ module Profiles
 
         wakatime_intensity_status = ["very_weak", "weak"]
         github_intensity_status = ["very_weak", "weak"]
-        linkedin_intensity_status = ["very_weak", "weak", "medium"]
+        linkedin_intensity_status = ["very_weak"]
 
-        return if (wakatime_intensity_status.include? @student.wakatime_intensity) and !wakatime_power.include? @student.wakatime_intensity
+        return if wakatime_intensity_status.include? @student.wakatime_intensity and !wakatime_power.include? @student.wakatime_intensity
         return if github_intensity_status.include? @student.github_intensity and !wakatime_power.include? @student.wakatime_intensity
         return if linkedin_intensity_status.include? @student.linkedin_intensity and !wakatime_power.include? @student.wakatime_intensity
 
