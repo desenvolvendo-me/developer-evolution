@@ -117,6 +117,31 @@ RSpec.describe Profiles::Potential do
         expect(@student.level_potential).to eq("high")
       end
 
+      it 'wakatime m + github s + linkedin w' do
+        student_attributes = {
+          wakatime_time: 90,
+          github_commit: 10,
+          enrollment_date: Date.today - 10,
+          linkedin_followers: 40,
+          linkedin_post_last_month: 8
+        }
+        @student.update(student_attributes)
+
+        expect(@student.level_potential).to eq("high")
+      end
+
+      it 'wakatime m + github m + linkedin s' do
+        @student.update(wakatime_time: 90)
+
+        @student.update(github_commit: 4)
+
+        @student.update(enrollment_date: Date.today - 10)
+        @student.update(linkedin_followers: 80)
+        @student.update(linkedin_post_last_month: 16)
+
+        expect(@student.level_potential).to eq("high")
+      end
+
     end
   end
 end
