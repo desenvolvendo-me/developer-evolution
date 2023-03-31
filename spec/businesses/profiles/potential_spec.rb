@@ -7,6 +7,14 @@ RSpec.describe Profiles::Potential do
       @student = create(:student)
     end
 
+    it "not_found" do
+      @student.update(github_link: nil)
+
+      Profiles::Potential.call({ resource: @student })
+
+      expect(@student.level_potential).to eq("not_started")
+    end
+
     it 'not_started' do
       @student.update(class_progress: 9)
 
