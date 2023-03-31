@@ -10,6 +10,8 @@ RSpec.describe Intensity::Linkedin do
     it 'not_found' do
       @student.update(linkedin_link: nil)
 
+      Profiles::Potential.call({ resource: @student })
+
       expect(@student.linkedin_intensity).to eq("not_found")
     end
 
@@ -17,6 +19,8 @@ RSpec.describe Intensity::Linkedin do
       @student.update(enrollment_date: Date.today - 10)
       @student.update(linkedin_followers: 20)
       @student.update(linkedin_post_last_month: 4)
+
+      Profiles::Potential.call({ resource: @student })
 
       expect(@student.linkedin_intensity).to eq("very_weak")
     end
@@ -26,6 +30,8 @@ RSpec.describe Intensity::Linkedin do
       @student.update(linkedin_followers: 40)
       @student.update(linkedin_post_last_month: 8)
 
+      Profiles::Potential.call({ resource: @student })
+
       expect(@student.linkedin_intensity).to eq("weak")
     end
 
@@ -33,6 +39,8 @@ RSpec.describe Intensity::Linkedin do
       @student.update(enrollment_date: Date.today - 10)
       @student.update(linkedin_followers: 60)
       @student.update(linkedin_post_last_month: 12)
+
+      Profiles::Potential.call({ resource: @student })
 
       expect(@student.linkedin_intensity).to eq("medium")
     end
@@ -42,6 +50,8 @@ RSpec.describe Intensity::Linkedin do
       @student.update(linkedin_followers: 80)
       @student.update(linkedin_post_last_month: 16)
 
+      Profiles::Potential.call({ resource: @student })
+
       expect(@student.linkedin_intensity).to eq("strong")
     end
 
@@ -49,6 +59,8 @@ RSpec.describe Intensity::Linkedin do
       @student.update(enrollment_date: Date.today - 10)
       @student.update(linkedin_followers: 100)
       @student.update(linkedin_post_last_month: 20)
+
+      Profiles::Potential.call({ resource: @student })
 
       expect(@student.linkedin_intensity).to eq("very_strong")
     end

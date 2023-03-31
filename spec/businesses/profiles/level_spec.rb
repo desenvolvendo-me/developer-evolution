@@ -12,11 +12,15 @@ RSpec.describe Profiles::Level do
         it 'one' do
           @student.update(challenge: "one")
 
+          Profiles::Potential.call({ resource: @student })
+
           expect(@student.level_number).to eq(2)
         end
 
         it 'seven' do
           @student.update(challenge: "seven")
+
+          Profiles::Potential.call({ resource: @student })
 
           expect(@student.level_number).to eq(8)
         end
@@ -27,11 +31,15 @@ RSpec.describe Profiles::Level do
             it 'note >= 7' do
               @student.update(challenge: nil, mission_future_point: 7, mission_future: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
 
+              Profiles::Potential.call({ resource: @student })
+
               expect(@student.level_number).to eq(2)
             end
 
             it 'note < 7' do
               @student.update(challenge: nil, mission_future_point: 5, mission_future: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
+
+              Profiles::Potential.call({ resource: @student })
 
               expect(@student.level_number).to eq(1)
             end
@@ -41,11 +49,15 @@ RSpec.describe Profiles::Level do
           it 'note >= 7' do
             @student.update(challenge: nil, mission_base_point: 7, mission_base: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
 
+            Profiles::Potential.call({ resource: @student })
+
             expect(@student.level_number).to eq(2)
           end
 
           it 'note < 7' do
             @student.update(challenge: nil, mission_base_point: 5, mission_base: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
+
+            Profiles::Potential.call({ resource: @student })
 
             expect(@student.level_number).to eq(1)
           end
@@ -55,11 +67,15 @@ RSpec.describe Profiles::Level do
           it 'note >= 7' do
             @student.update(challenge: nil, mission_vacancy_point: 7, mission_vacancy: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
 
+            Profiles::Potential.call({ resource: @student })
+
             expect(@student.level_number).to eq(2)
           end
 
           it 'note < 7' do
             @student.update(challenge: nil, mission_vacancy_point: 5, mission_vacancy: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
+
+            Profiles::Potential.call({ resource: @student })
 
             expect(@student.level_number).to eq(1)
           end
@@ -69,11 +85,15 @@ RSpec.describe Profiles::Level do
           it 'note >= 7' do
             @student.update(challenge: nil, mission_startup_point: 7, mission_startup: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
 
+            Profiles::Potential.call({ resource: @student })
+
             expect(@student.level_number).to eq(1)
           end
 
           it 'note < 7' do
             @student.update(challenge: nil, mission_startup_point: 5, mission_startup: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
+
+            Profiles::Potential.call({ resource: @student })
 
             expect(@student.level_number).to eq(0)
           end
@@ -87,6 +107,8 @@ RSpec.describe Profiles::Level do
             @student.update(challenge: nil, mission_vacancy_point: 7, mission_vacancy: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
             @student.update(challenge: nil, mission_startup_point: 7, mission_startup: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
 
+            Profiles::Potential.call({ resource: @student })
+
             expect(@student.level_number).to eq(4)
           end
 
@@ -95,6 +117,8 @@ RSpec.describe Profiles::Level do
             @student.update(challenge: nil, mission_base_point: 5, mission_base: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
             @student.update(challenge: nil, mission_vacancy_point: 5, mission_vacancy: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
             @student.update(challenge: nil, mission_startup_point: 5, mission_startup: "https://drive.google.com/drive/u/0/folders/1-Yr4qbL4ypisQ3mJwqCNAJzShq0hisy_")
+
+            Profiles::Potential.call({ resource: @student })
 
             expect(@student.level_number).to eq(0)
           end
