@@ -22,6 +22,8 @@ module Profiles
       Potentials::AlmostGoal.call({ resource: @student, level_potential: LEVEL_POTENTIAL })
       Potentials::Goal.call({ resource: @student, level_potential: LEVEL_POTENTIAL })
       Potentials::NoTestimony.call({ resource: @student, level_potential: LEVEL_POTENTIAL })
+
+      @student.save
     end
 
   end

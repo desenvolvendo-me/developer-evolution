@@ -7,8 +7,18 @@ RSpec.describe Profiles::Potential do
       @student = create(:student)
     end
 
+    it "not_found" do
+      @student.update(github_link: nil)
+
+      Profiles::Potential.call({ resource: @student })
+
+      expect(@student.level_potential).to eq("not_started")
+    end
+
     it 'not_started' do
       @student.update(class_progress: 9)
+
+      Profiles::Potential.call({ resource: @student })
 
       expect(@student.level_potential).to eq("not_started")
     end
@@ -17,11 +27,15 @@ RSpec.describe Profiles::Potential do
       it 'career' do
         @student.update(class_progress: 14, wakatime_time: 15)
 
+        Profiles::Potential.call({ resource: @student })
+
         expect(@student.level_potential).to eq("gave_up_career")
       end
 
       it 'mentoring' do
         @student.update(class_progress: 14, wakatime_time: 60)
+
+        Profiles::Potential.call({ resource: @student })
 
         expect(@student.level_potential).to eq("gave_up_mentoring")
       end
@@ -30,17 +44,23 @@ RSpec.describe Profiles::Potential do
     it 'almost_goal' do
       @student.update(type_career: "technology", salary: 3001, class_progress: 33)
 
+      Profiles::Potential.call({ resource: @student })
+
       expect(@student.level_potential).to eq("almost_goal")
     end
 
     it 'goal' do
       @student.update(type_career: "not_technology", salary: 5001, class_progress: 51)
 
+      Profiles::Potential.call({ resource: @student })
+
       expect(@student.level_potential).to eq("goal")
     end
 
     it 'no_testimony' do
       @student.update(type_career: "technology", salary: 5001)
+
+      Profiles::Potential.call({ resource: @student })
 
       expect(@student.level_potential).to eq("no_testimony")
     end
@@ -52,19 +72,29 @@ RSpec.describe Profiles::Potential do
       end
 
       it 'wakatime vw' do
+
+        Profiles::Potential.call({ resource: @student })
+
         expect(@student.level_potential).to eq("low")
       end
 
       it 'github s' do
         @student.update(github_commit: 10)
 
+        Profiles::Potential.call({ resource: @student })
+
         expect(@student.level_potential).to eq("low")
       end
 
       it 'linkedin s' do
-        @student.update(enrollment_date: Date.today - 10)
-        @student.update(linkedin_followers: 100)
-        @student.update(linkedin_post_last_month: 20)
+        student_attributes = {
+          enrollment_date: Date.today - 10,
+          linkedin_followers: 100,
+          linkedin_post_last_month: 20
+        }
+        @student.update(student_attributes)
+
+        Profiles::Potential.call({ resource: @student })
 
         expect(@student.level_potential).to eq("low")
       end
@@ -78,29 +108,37 @@ RSpec.describe Profiles::Potential do
       it 'wakatime m' do
         @student.update(wakatime_time: 90)
 
+        Profiles::Potential.call({ resource: @student })
+
         expect(@student.level_potential).to eq("medium")
       end
 
       it 'wakatime w + github m + linkedin m' do
-        @student.update(wakatime_time: 60)
+        student_attributes = {
+          wakatime_time: 60,
+          github_commit: 4,
+          enrollment_date: Date.today - 10,
+          linkedin_followers: 60,
+          linkedin_post_last_month: 12
+        }
+        @student.update(student_attributes)
 
-        @student.update(github_commit: 4)
-
-        @student.update(enrollment_date: Date.today - 10)
-        @student.update(linkedin_followers: 60)
-        @student.update(linkedin_post_last_month: 12)
+        Profiles::Potential.call({ resource: @student })
 
         expect(@student.level_potential).to eq("medium")
       end
 
       it 'wakatime w + github w + linkedin s' do
-        @student.update(wakatime_time: 60)
+        student_attributes = {
+          wakatime_time: 60,
+          github_commit: 2,
+          enrollment_date: Date.today - 10,
+          linkedin_followers: 80,
+          linkedin_post_last_month: 16
+        }
+        @student.update(student_attributes)
 
-        @student.update(github_commit: 2)
-
-        @student.update(enrollment_date: Date.today - 10)
-        @student.update(linkedin_followers: 80)
-        @student.update(linkedin_post_last_month: 16)
+        Profiles::Potential.call({ resource: @student })
 
         expect(@student.level_potential).to eq("medium")
       end
@@ -113,6 +151,8 @@ RSpec.describe Profiles::Potential do
 
       it 'wakatime s' do
         @student.update(wakatime_time: 180)
+
+        Profiles::Potential.call({ resource: @student })
 
         expect(@student.level_potential).to eq("high")
       end
@@ -127,17 +167,22 @@ RSpec.describe Profiles::Potential do
         }
         @student.update(student_attributes)
 
+        Profiles::Potential.call({ resource: @student })
+
         expect(@student.level_potential).to eq("high")
       end
 
       it 'wakatime m + github m + linkedin s' do
-        @student.update(wakatime_time: 90)
+        student_attributes = {
+          wakatime_time: 90,
+          github_commit: 4,
+          enrollment_date: Date.today - 10,
+          linkedin_followers: 80,
+          linkedin_post_last_month: 16
+        }
+        @student.update(student_attributes)
 
-        @student.update(github_commit: 4)
-
-        @student.update(enrollment_date: Date.today - 10)
-        @student.update(linkedin_followers: 80)
-        @student.update(linkedin_post_last_month: 16)
+        Profiles::Potential.call({ resource: @student })
 
         expect(@student.level_potential).to eq("high")
       end

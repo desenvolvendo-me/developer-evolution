@@ -8,7 +8,7 @@ module Profiles
 
       def call
         return unless @params[:level_potential].eql?("undefined")
-        return unless @student.class_progress < 10
+        return unless @student.class_progress < 10 or @student.github_link.blank? or @student.wakatime_link.blank?
 
         level_potential = "not_started"
 

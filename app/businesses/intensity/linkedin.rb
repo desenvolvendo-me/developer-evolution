@@ -9,7 +9,7 @@ module Intensity
     def call
       linkedin_link_present = @student.linkedin_link.to_s.include? "linkedin.com"
 
-      linkedin_followers_per_day = @student.linkedin_followers / (Date.today.mjd - @student.enrollment_date.mjd)
+      linkedin_followers_per_day = @student.linkedin_followers.to_i / (Date.today.mjd - @student.enrollment_date.mjd)
 
       unless linkedin_link_present
         linkedin_intensity = "not_found"
