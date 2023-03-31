@@ -6,13 +6,14 @@
 #  challenge                :integer
 #  class_name               :string
 #  class_progress           :integer
+#  description_career       :string
 #  enrollment_date          :date
-#  github_commit            :float
+#  github_commit            :integer
 #  github_intensity         :string
 #  github_link              :string
 #  knowledge                :string
 #  level_number             :integer
-#  level_potencial          :string
+#  level_potential          :string
 #  level_testimony          :string
 #  linkedin_followers       :integer
 #  linkedin_intensity       :string
@@ -34,6 +35,8 @@
 #  name                     :string
 #  profile_discord          :string
 #  profile_hotmart          :string
+#  salary                   :float
+#  type_career              :string
 #  wakatime_intensity       :string
 #  wakatime_link            :string
 #  wakatime_time            :integer
@@ -52,8 +55,9 @@
 class Student < ApplicationRecord
   belongs_to :user
 
-  enum level_potencial: { low: "low", medium: "medium", high: "high", give_up: "give_up", not_started: "not_started", no_testimony: "no_testimony", succeed: "succeed" }, _suffix: true
-  enum level_testimony: { good: "good", excellent: "excellent", almost_goal: "almost_goal", goal: "goal" }
+  enum type_career: { technology: "technology", not_technology: "not_technology" }, _suffix: true
+  enum level_potential: { low: "low", medium: "medium", high: "high", almost_goal: "almost_goal", goal: "goal", not_started: "not_started", no_testimony: "no_testimony", gave_up_career: "gave_up_career", gave_up_mentoring: "gave_up_mentoring" }, _suffix: true
+  enum level_testimony: { excellent: "excellent", great: "great", good: "good" }
   enum meeting_situation: { bought: "bought", won: "won", not_bought: "not_bought" }
   enum github_intensity: { not_found: "not_found", very_weak: "very_weak", weak: "weak", medium: "medium", strong: "strong", very_strong: "very_strong" }, _prefix: :github
   enum wakatime_intensity: { not_found: "not_found", very_weak: "very_weak", weak: "weak", medium: "medium", strong: "strong", very_strong: "very_strong" }, _prefix: :wakatime
@@ -64,10 +68,7 @@ class Student < ApplicationRecord
   before_save :before_save
 
   def before_save
-    Levels::Number.call({ resource: self })
-    Intensity::Github.call({ resource: self })
-    Intensity::Wakatime.call({ resource: self })
-    Intensity::Linkedin.call({ resource: self })
+    Profiles::Potential.call({ resource: self })
   end
 
 end

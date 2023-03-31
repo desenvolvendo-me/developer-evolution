@@ -6,13 +6,14 @@
 #  challenge                :integer
 #  class_name               :string
 #  class_progress           :integer
+#  description_career       :string
 #  enrollment_date          :date
-#  github_commit            :float
+#  github_commit            :integer
 #  github_intensity         :string
 #  github_link              :string
 #  knowledge                :string
 #  level_number             :integer
-#  level_potencial          :string
+#  level_potential          :string
 #  level_testimony          :string
 #  linkedin_followers       :integer
 #  linkedin_intensity       :string
@@ -34,6 +35,8 @@
 #  name                     :string
 #  profile_discord          :string
 #  profile_hotmart          :string
+#  salary                   :float
+#  type_career              :string
 #  wakatime_intensity       :string
 #  wakatime_link            :string
 #  wakatime_time            :integer
@@ -54,12 +57,15 @@ FactoryBot.define do
     name { "Alyson Jhones" }
     class_name { "13" }
     enrollment_date { "16/01/2023".to_date }
+    type_career { "not_technology" }
+    description_career { "Engenheiro" }
+    salary { 0 }
 
     knowledge { "m0" }
     profile_hotmart { "https://desenvolvendome-spd.club.hotmart.com/admin/beta/users/detail/PeAyaZA3eW" }
     profile_discord { "https://discord.com/channels/998951206242234421/1007249425200058468/1067486414587052093" }
     level_number { 1 }
-    level_potencial { "high" }
+    level_potential { "high" }
     level_testimony { "good" }
     class_progress { 37 }
 

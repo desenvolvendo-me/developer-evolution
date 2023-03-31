@@ -4,12 +4,15 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :class_name
       t.date :enrollment_date
+      t.string :type_career
+      t.string :description_career
+      t.float :salary
 
       t.string :knowledge
       t.string :profile_hotmart
       t.string :profile_discord
       t.integer :level_number
-      t.string :level_potencial
+      t.string :level_potential
       t.string :level_testimony
       t.integer :class_progress
 
@@ -20,7 +23,7 @@ class CreateStudents < ActiveRecord::Migration[7.0]
       t.string :meeting_link
 
       t.string :github_link
-      t.float :github_commit
+      t.integer :github_commit
       t.string :github_intensity
       t.string :wakatime_link
       t.integer :wakatime_time

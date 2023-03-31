@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Levels::Number do
+RSpec.describe Profiles::Level do
 
   context 'levels' do
     before do

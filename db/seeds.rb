@@ -7,12 +7,15 @@ if Rails.env.development?
   student.name = "Alyson Jhones"
   student.class_name = "13"
   student.enrollment_date = "16/01/2023".to_date
+  student.type_career = "not_technology"
+  student.description_career = "Engenheiro"
+  student.salary = 0
 
   student.knowledge = "m0"
   student.profile_hotmart = "https://desenvolvendome-spd.club.hotmart.com/admin/beta/users/detail/PeAyaZA3eW"
   student.profile_discord = "https://discord.com/channels/998951206242234421/1007249425200058468/1067486414587052093"
   student.level_number = 1
-  student.level_potencial = "high"
+  student.level_potential = "high"
   student.level_testimony = "good"
   student.class_progress = 37
 
