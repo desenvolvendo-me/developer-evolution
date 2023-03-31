@@ -13,23 +13,23 @@ module Intensity
         wakatime_intensity = "not_found"
       end
 
-      if @student.wakatime_time >= 15 and wakatime_link_present
+      if @student.wakatime_time.to_i >= 15 and wakatime_link_present
         wakatime_intensity = "very_weak"
       end
 
-      if @student.wakatime_time >= 60 and wakatime_link_present
+      if @student.wakatime_time.to_i >= 60 and wakatime_link_present
         wakatime_intensity = "weak"
       end
 
-      if @student.wakatime_time >= 90 and wakatime_link_present
+      if @student.wakatime_time.to_i >= 90 and wakatime_link_present
         wakatime_intensity = "medium"
       end
 
-      if @student.wakatime_time >= 180 and wakatime_link_present
+      if @student.wakatime_time.to_i >= 180 and wakatime_link_present
         wakatime_intensity = "strong"
       end
 
-      if @student.wakatime_time > 181 and wakatime_link_present
+      if @student.wakatime_time.to_i > 181 and wakatime_link_present
         wakatime_intensity = "very_strong"
       end
 
