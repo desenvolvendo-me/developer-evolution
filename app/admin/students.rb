@@ -78,17 +78,29 @@ ActiveAdmin.register Student do
       row :mission_future do |student|
         link_to "Mission Future", student.mission_future, target: "_blank"
       end
+      row :mission_future do |student|
+        link_to "Mission Future Generator", student.mission_future_generator, target: "_blank"
+      end
       row :mission_future_point
       row :mission_base do |student|
         link_to "Mission Base", student.mission_base, target: "_blank"
+      end
+      row :mission_base do |student|
+        link_to "Mission Base Generator", student.mission_base_generator, target: "_blank"
       end
       row :mission_base_point
       row :mission_vacancy do |student|
         link_to "Mission Vacancy", student.mission_vacancy, target: "_blank"
       end
+      row :mission_vacancy do |student|
+        link_to "Mission Vacancy Generator", student.mission_vacancy_generator, target: "_blank"
+      end
       row :mission_vacancy_point
       row :mission_startup do |student|
         link_to "Mission Startup", student.mission_startup, target: "_blank"
+      end
+      row :mission_startup do |student|
+        link_to "Mission Startup Generator", student.mission_startup_generator, target: "_blank"
       end
       row :mission_startup_point
     end

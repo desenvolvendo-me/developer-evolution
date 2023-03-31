@@ -35,12 +35,16 @@ class CreateStudents < ActiveRecord::Migration[7.0]
 
       t.integer :challenge
       t.string :mission_future
+      t.string :mission_future_generator
       t.integer :mission_future_point
       t.string :mission_base
+      t.string :mission_base_generator
       t.integer :mission_base_point
       t.string :mission_vacancy
+      t.string :mission_vacancy_generator
       t.integer :mission_vacancy_point
       t.string :mission_startup
+      t.string :mission_startup_generator
       t.integer :mission_startup_point
 
       t.references :user, null: false, foreign_key: true
