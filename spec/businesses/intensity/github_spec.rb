@@ -8,7 +8,7 @@ RSpec.describe Intensity::Github do
     end
 
     it 'not_found' do
-      @student.update(github_link: nil)
+      @student.update(github_link: nil, github_commit: nil, github_intensity: nil)
 
       Profiles::Potential.call({ resource: @student })
 

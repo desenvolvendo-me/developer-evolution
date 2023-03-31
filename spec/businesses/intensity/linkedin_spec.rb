@@ -8,7 +8,7 @@ RSpec.describe Intensity::Linkedin do
     end
 
     it 'not_found' do
-      @student.update(linkedin_link: nil)
+      @student.update(linkedin_link: nil, linkedin_followers: nil, linkedin_intensity: nil, linkedin_post_last_month: nil)
 
       Profiles::Potential.call({ resource: @student })
 

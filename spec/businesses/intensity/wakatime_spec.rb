@@ -8,7 +8,7 @@ RSpec.describe Intensity::Wakatime do
     end
 
     it 'not_found' do
-      @student.update(wakatime_link: nil)
+      @student.update(wakatime_link: nil, wakatime_intensity: nil, wakatime_time: nil)
 
       Profiles::Potential.call({ resource: @student })
 
