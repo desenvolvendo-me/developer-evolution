@@ -1,14 +1,16 @@
 class Scrapings::Github
   def initialize(args = { resource: nil })
     @student = args[:resource]
+    @final_enrollment_date = args[:final_enrollment_date]
   end
 
-  def download
+  def pull_commits
     read_document
-    get_contributions
+    total_contributions
+    average_contributions
   end
 
-  def get_contributions
+  def total_contributions
     @document.search("div.js-calendar-graph").each do |element|
       element.text.split("\n").delete_if { |s| s.blank? }.each do |contribution|
         next if contribution.strip.include?("Learn ")
@@ -24,6 +26,16 @@ class Scrapings::Github
     end
 
     @student.update(github_commit: @student.practices.sum(:commit_total))
+  end
+
+  def average_contributions
+    start_date_practice = @student.enrollment_date
+    final_date_practice = @final_enrollment_date.present? ? @final_enrollment_date : Date.today
+    days_total = (final_date_practice - start_date_practice).to_i + 1
+    commit_total = @student.practices.where(commit_date: start_date_practice..final_date_practice).sum(:commit_total)
+    commit_average = commit_total / days_total
+
+    @student.update(github_commit: commit_average)
   end
 
   private
