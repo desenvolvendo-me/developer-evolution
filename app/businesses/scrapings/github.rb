@@ -9,25 +9,24 @@ class Scrapings::Github
 
   def download
     contributions = get_contributions
-    @student.update(github_commit: contributions.inject(0) { |sum, x| sum + x[:commits] })
+    contributions.each { |contribution| }
+    @student.update(github_commit: @student.practices.sum(:commit_total))
   end
 
   def get_contributions
-    contributions = []
     @document.search("div.js-calendar-graph").each do |element|
-      element.text.split("\n").delete_if { |s| s.blank? }.each do |contribuition|
-        next if contribuition.strip.include?("No ")
-        next if contribuition.strip.include?("Learn ")
-        next unless contribuition.strip.include?("contribution")
+      element.text.split("\n").delete_if { |s| s.blank? }.each do |contribution|
+        next if contribution.strip.include?("Learn ")
+        next unless contribution.strip.include?("contribution")
 
-        contribuition_clean = contribuition.strip
-        contribuition_params = contribuition_clean.split(",")
-        contribuition_date = (contribuition_params[1].strip + " " + contribuition_params[2].strip).to_date
-        contribuition_commit = contribuition_params[0].split(" ")[0]
-        contributions.push({ date: contribuition_date, commits: contribuition_commit.to_i })
+        contribution_clean = contribution.strip
+        contribution_params = contribution_clean.split(",")
+        contribution_date = (contribution_params[1].strip + " " + contribution_params[2].strip).to_date
+        contribution_commit = contribution_params[0].split(" ")[0]
+
+        @student.practices << Practice.new(commit_total: contribution_commit.to_i, commit_date: contribution_date)
       end
     end
-    contributions
   end
 
 end
