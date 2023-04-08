@@ -20,6 +20,9 @@ gem 'activeadmin_sidekiq_stats'
 gem "chartkick", '~> 2.2.0'
 gem 'groupdate'
 gem 'sass-rails'
+gem "octokit", "~> 5.0"
+gem 'httparty'
+gem 'nokogiri'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0'
