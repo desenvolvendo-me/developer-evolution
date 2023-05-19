@@ -8,7 +8,7 @@ RSpec.describe Intensity::Github do
     end
 
     it 'not_found' do
-      @student.update(github_link: nil, github_commit: nil, github_intensity: nil)
+      @student.update(github_link: nil, github_commit_average: nil, github_intensity: nil)
 
       Profiles::Potential.call({ resource: @student })
 
@@ -16,7 +16,7 @@ RSpec.describe Intensity::Github do
     end
 
     it 'very_weak' do
-      @student.update(github_commit: 1)
+      @student.update(github_commit_average: 1)
 
       Profiles::Potential.call({ resource: @student })
 
@@ -24,7 +24,7 @@ RSpec.describe Intensity::Github do
     end
 
     it 'weak' do
-      @student.update(github_commit: 2)
+      @student.update(github_commit_average: 2)
 
       Profiles::Potential.call({ resource: @student })
 
@@ -32,7 +32,7 @@ RSpec.describe Intensity::Github do
     end
 
     it 'medium' do
-      @student.update(github_commit: 4)
+      @student.update(github_commit_average: 4)
 
       Profiles::Potential.call({ resource: @student })
 
@@ -40,7 +40,7 @@ RSpec.describe Intensity::Github do
     end
 
     it 'strong' do
-      @student.update(github_commit: 10)
+      @student.update(github_commit_average: 10)
 
       Profiles::Potential.call({ resource: @student })
 
@@ -48,7 +48,7 @@ RSpec.describe Intensity::Github do
     end
 
     it 'very_strong' do
-      @student.update(github_commit: 20)
+      @student.update(github_commit_average: 20)
 
       Profiles::Potential.call({ resource: @student })
 

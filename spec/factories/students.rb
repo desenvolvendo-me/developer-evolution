@@ -8,7 +8,8 @@
 #  class_progress            :integer
 #  description_career        :string
 #  enrollment_date           :date
-#  github_commit             :integer
+#  github_commit_average     :integer
+#  github_commit_total       :integer
 #  github_intensity          :string
 #  github_link               :string
 #  knowledge                 :string
@@ -81,7 +82,8 @@ FactoryBot.define do
 
     # Evaluation Social
     github_link { "https://github.com/jhonesaly" }
-    github_commit { 10 }
+    github_commit_average { 10 }
+    github_commit_total { 10 }
     github_intensity { "very_strong" }
     wakatime_link { "https://wakatime.com/@98661d52-a1fd-4e23-a39b-ba76d31fdfdd" }
     wakatime_time { 78 }
