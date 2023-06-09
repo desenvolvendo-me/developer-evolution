@@ -3,7 +3,7 @@
 # Table name: questions
 #
 #  id             :bigint           not null, primary key
-#  tittle         :string
+#  title          :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  keyquestion_id :bigint           not null
@@ -23,7 +23,7 @@ RSpec.describe Question, type: :model do
   let(:keyquestion) { Keyquestion.create(title: 'Porque') }
 
   it 'é válido com um título' do
-    question = Question.new(tittle: 'Por que quer estudar programação?', keyquestion: keyquestion)
+    question = Question.new(title: 'Por que quer estudar programação?', keyquestion: keyquestion)
     expect(question).to be_valid
   end
 
