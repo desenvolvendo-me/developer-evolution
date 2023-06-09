@@ -19,4 +19,6 @@
 class Keyquestion < ApplicationRecord
   belongs_to :purpose
   has_many :questions
+  
+  validates :title, presence:true
 end
