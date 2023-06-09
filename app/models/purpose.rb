@@ -20,4 +20,6 @@
 class Purpose < ApplicationRecord
   belongs_to :student
   has_many :keyquestions
+
+  validates :period, :version, presence:true
 end

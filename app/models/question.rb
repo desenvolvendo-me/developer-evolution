@@ -3,7 +3,7 @@
 # Table name: questions
 #
 #  id             :bigint           not null, primary key
-#  tittle         :string
+#  title          :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  keyquestion_id :bigint           not null
@@ -19,4 +19,6 @@
 class Question < ApplicationRecord
   belongs_to :keyquestion
   has_one :answer
+
+  validates :title, presence:true
 end
