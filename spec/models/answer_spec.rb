@@ -3,7 +3,7 @@
 # Table name: answers
 #
 #  id          :bigint           not null, primary key
-#  tittle      :string
+#  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  question_id :bigint           not null
@@ -21,10 +21,10 @@ require 'rails_helper'
 RSpec.describe Answer, type: :model do
   #pending "add some examples to (or delete) #{__FILE__}"
 
-  let(:question) { Question.create(tittle: 'Por que quer estudar programação?') }
+  let(:question) { Question.create(title: 'Por que quer estudar programação?') }
 
   it 'é válido com um título' do
-    answer = Answer.new(tittle: 'Porque quando eu era pequena gostava muito de mexer em computador,', question: question)
+    answer = Answer.new(title: 'Porque quando eu era pequena gostava muito de mexer em computador,', question: question)
     expect(answer).to be_valid
   end
 
