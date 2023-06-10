@@ -22,6 +22,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :student
+  before_create :build_student
+  
   def to_s
     email
   end
