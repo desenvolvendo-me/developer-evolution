@@ -42,9 +42,10 @@
 #  profile_hotmart           :string
 #  salary                    :float
 #  type_career               :string
+#  wakatime_activity_average :integer
+#  wakatime_activity_total   :integer
 #  wakatime_intensity        :string
 #  wakatime_link             :string
-#  wakatime_time             :integer
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null
 #  user_id                   :bigint           not null
@@ -86,7 +87,8 @@ FactoryBot.define do
     github_commit_total { 10 }
     github_intensity { "very_strong" }
     wakatime_link { "https://wakatime.com/@98661d52-a1fd-4e23-a39b-ba76d31fdfdd" }
-    wakatime_time { 78 }
+    wakatime_activity_average { 78 }
+    wakatime_activity_total { 450 }
     wakatime_intensity { "strong" }
     linkedin_link { "https://www.linkedin.com/in/alyson-jhones-539767121/" }
     linkedin_followers { 527 }
