@@ -42,9 +42,10 @@
 #  profile_hotmart           :string
 #  salary                    :float
 #  type_career               :string
+#  wakatime_activity_average :integer
+#  wakatime_activity_total   :integer
 #  wakatime_intensity        :string
 #  wakatime_link             :string
-#  wakatime_time             :integer
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null
 #  user_id                   :bigint           not null
