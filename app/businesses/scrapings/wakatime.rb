@@ -6,10 +6,10 @@ class Scrapings::Wakatime
 
   def pull_activities
     read_document
-    total_contributions
+    total_activities
   end
 
-  def total_contributions
+  def total_activities
     @document.search("rect").each do |element|
       next if element.text.blank?
 
