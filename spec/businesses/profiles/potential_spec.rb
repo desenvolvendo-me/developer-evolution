@@ -79,7 +79,7 @@ RSpec.describe Profiles::Potential do
       end
 
       it 'github s' do
-        @student.update(github_commit: 10)
+        @student.update(github_commit_average: 10)
 
         Profiles::Potential.call({ resource: @student })
 
@@ -116,7 +116,7 @@ RSpec.describe Profiles::Potential do
       it 'wakatime w + github m + linkedin m' do
         student_attributes = {
           wakatime_time: 60,
-          github_commit: 4,
+          github_commit_average: 4,
           enrollment_date: Date.today - 10,
           linkedin_followers: 60,
           linkedin_post_last_month: 12
@@ -131,7 +131,7 @@ RSpec.describe Profiles::Potential do
       it 'wakatime w + github w + linkedin s' do
         student_attributes = {
           wakatime_time: 60,
-          github_commit: 2,
+          github_commit_average: 2,
           enrollment_date: Date.today - 10,
           linkedin_followers: 80,
           linkedin_post_last_month: 16
@@ -160,7 +160,7 @@ RSpec.describe Profiles::Potential do
       it 'wakatime m + github s + linkedin w' do
         student_attributes = {
           wakatime_time: 90,
-          github_commit: 10,
+          github_commit_average: 10,
           enrollment_date: Date.today - 10,
           linkedin_followers: 40,
           linkedin_post_last_month: 8
@@ -175,7 +175,7 @@ RSpec.describe Profiles::Potential do
       it 'wakatime m + github m + linkedin s' do
         student_attributes = {
           wakatime_time: 90,
-          github_commit: 4,
+          github_commit_average: 4,
           enrollment_date: Date.today - 10,
           linkedin_followers: 80,
           linkedin_post_last_month: 16

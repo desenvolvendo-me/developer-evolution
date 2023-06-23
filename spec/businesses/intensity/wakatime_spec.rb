@@ -8,7 +8,7 @@ RSpec.describe Intensity::Wakatime do
     end
 
     it 'not_found' do
-      @student.update(wakatime_link: nil, wakatime_intensity: nil, wakatime_time: nil)
+      @student.update(wakatime_link: nil, wakatime_intensity: nil, wakatime_activity_average: nil)
 
       Profiles::Potential.call({ resource: @student })
 
@@ -16,7 +16,7 @@ RSpec.describe Intensity::Wakatime do
     end
 
     it 'very_weak' do
-      @student.update(wakatime_time: 15)
+      @student.update(wakatime_activity_average: 15)
 
       Profiles::Potential.call({ resource: @student })
 
@@ -24,7 +24,7 @@ RSpec.describe Intensity::Wakatime do
     end
 
     it 'weak' do
-      @student.update(wakatime_time: 60)
+      @student.update(wakatime_activity_average: 60)
 
       Profiles::Potential.call({ resource: @student })
 
@@ -32,7 +32,7 @@ RSpec.describe Intensity::Wakatime do
     end
 
     it 'medium' do
-      @student.update(wakatime_time: 90)
+      @student.update(wakatime_activity_average: 90)
 
       Profiles::Potential.call({ resource: @student })
 
@@ -40,7 +40,7 @@ RSpec.describe Intensity::Wakatime do
     end
 
     it 'strong' do
-      @student.update(wakatime_time: 180)
+      @student.update(wakatime_activity_average: 180)
 
       Profiles::Potential.call({ resource: @student })
 
@@ -48,7 +48,7 @@ RSpec.describe Intensity::Wakatime do
     end
 
     it 'very_strong' do
-      @student.update(wakatime_time: 270)
+      @student.update(wakatime_activity_average: 270)
 
       Profiles::Potential.call({ resource: @student })
 

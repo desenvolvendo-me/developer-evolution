@@ -25,7 +25,7 @@ class Scrapings::Github
       end
     end
 
-    @student.update(github_commit: @student.practices.sum(:commit_total))
+    @student.update(github_commit_total: @student.practices.sum(:commit_total))
   end
 
   def average_contributions
@@ -35,7 +35,7 @@ class Scrapings::Github
     commit_total = @student.practices.where(commit_date: start_date_practice..final_date_practice).sum(:commit_total)
     commit_average = commit_total / days_total
 
-    @student.update(github_commit: commit_average)
+    @student.update(github_commit_average: commit_average)
   end
 
   private

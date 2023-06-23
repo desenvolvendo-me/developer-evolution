@@ -2,12 +2,14 @@
 #
 # Table name: practices
 #
-#  id           :bigint           not null, primary key
-#  commit_date  :date
-#  commit_total :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  student_id   :bigint           not null
+#  id             :bigint           not null, primary key
+#  activity_date  :date
+#  activity_total :integer
+#  commit_date    :date
+#  commit_total   :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  student_id     :bigint           not null
 #
 # Indexes
 #

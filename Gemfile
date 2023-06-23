@@ -23,6 +23,7 @@ gem 'sass-rails'
 gem "octokit", "~> 5.0"
 gem 'httparty'
 gem 'nokogiri'
+gem 'watir'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0'
