@@ -1,0 +1,11 @@
+<h1>Mostrar Rotina:</h1>
+
+<p><strong>Day of the Week:</strong> <%= @routine.day_of_the_week %></p>
+<p><strong>Hour:</strong> <%= @routine.hour %></p>
+<p><strong>Activity:</strong> <%= @routine.activity %></p>
+<p><strong>Priority:</strong> <%= @routine.priority %></p>
+
+<div class="actions">
+  <%= link_to 'Editar', edit_routine_path(@routine), class: 'btn btn-primary' %>
+  <%= link_to 'Voltar', routines_path, class: 'btn btn-secondary' %>
+</div>

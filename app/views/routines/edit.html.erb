@@ -1,0 +1,9 @@
+<h1>Editar Rotina:</h1>
+<hr>
+<br>
+<%= render 'form', model: @routine, url: update_routine_path(@routine), local: true, method: :patch, button_text: 'Salvar Alterações' %>
+<br>  
+<br>
+
+<%= link_to 'Mostra', show_routine_path(@routine.id) %>
+<%= link_to 'Voltar', routines_path %>

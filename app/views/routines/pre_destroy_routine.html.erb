@@ -1,0 +1,17 @@
+<body class="banner deletar-banner">
+<div class="form-container">
+<%= form_tag delete_routine_path, method: :get do %>
+<% end %>
+
+<% if @routine %>
+    <h2>Informações da Rotina:</h2>
+    <hr>
+    <p><strong>Dia da semana:</strong> <%= @routine.day_of_the_week %></p>
+    <p><strong>Hora:</strong> <%= @routine.hour %></p>
+    <p><strong>Ação:</strong> <%= @routine.activity %></p>
+    <p><strong>Prioridade:</strong> <%= @routine.priority %></p>
+    <hr>
+    <%= button_to "Deletar esta Rotina", delete_routine_path(@routine), method: :delete, data: { confirm: 'Tem certeza?', class: 'btn' } %></p>
+    <p><%= button_to "Voltar a tela Principal", routines_path(), method: :get %></p>
+<% end %>
+</body>
