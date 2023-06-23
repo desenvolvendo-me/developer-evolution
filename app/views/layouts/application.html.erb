@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>DeveloperEvolution</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+<!DOCTYPE html> <!--Indica que o documento segu o padrão HTML5.-->
+<html> <!--Começo do conteúdo do documento HTML.-->
+  <head> <!-- É responsável por conter metadados  infrmações sobre o documento.-->
+    <title>Calendário Semanal</title><!--Define o título da página, que aparecerá na aba do navegador.-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1"><!--Essa meta tag define a configuração da viewport, permitindo que a página se ajuste ao tamanho da tela do dispositivo e defina o nível de escala inicial.-->
+    <%= csrf_meta_tags %> <!-- Tag em Ruby embutida '<%= %>', que inclui as tags de metadados CSRF (Cross-Site Request Forgery) para proteger os formulários contra ataque CSRF. Gera um token de autenticidade no formulário do botão "Deletar esse veículo".-->
+    <%= csp_meta_tag %> <!--Essa tag Ruby embuida '<%= %>', insere a tag de metadados CSP(Content Security Policy) no cabeçalho da página. A política de segurança de conteúdo ajuda a mitigar riscos de segurança, especificando quais origens de conteúdo são permitidas.-->
 
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_importmap_tags %>
-</head>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %><!--Inclui os arquivos CSS definidos no arquivo 'application.css' e adiciona um atributo 'data-turbo-track' para permitir o recarregamento automático dos estilos quando necessário.-->
+    <%= javascript_importmap_tags %><!--Tag ruby embutida '<%= %>'. Ela inclui os arquivos JavaScript definidos no arquivo de import map('importmap.rb' ou 'importmap.json'), que gerencia as dependências JavaScript do aplicativo.-->
+    <link rel="stylesheet" type="text/css" href="/assets/styles.css">
+  </head> <!--Encerra a seção de metadados e informações do documento.-->
 
-<body>
-<% if user_signed_in? %>
-  <%= button_to "Sair", destroy_user_session_path, :method => 'delete' %>
-<% else %>
-  <%= button_to "Entrar", user_session_path, method: :post %>
-<% end %>
-<%= yield %>
-</body>
-</html>
+  <body><!--É onde todo o conteúdo visível da página é colocado.-->
+    <%= yield %> <!-- Tag ruby embutida '<%= %>'. Ela é usada como um marcador de posição para renderizar o conteúdo específico de cada página. O conteúdo será substituído pela renderizaçãoda view correspondente (por exemplo, 'welcome.html.erb') quando a página for carregada.-->
+  </body> <!--Tag que encerra a seção de conteo visível da página.-->
+</html><!--Termina a tag, encerrando o documento HTML.-->
