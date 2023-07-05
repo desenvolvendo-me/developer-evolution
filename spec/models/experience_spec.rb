@@ -30,5 +30,17 @@ RSpec.describe Experience, type: :model do
       expect(experience).to be_valid
     end
 
+    it 'is invalid without attribute week' do
+      experience = FactoryBot.create(:experience, student: student, week: nil)
+      expect(experience).to be_invalid
+    end
+
+    it 'is invalid without attribute level' do
+      invalid_level = rand(9..100)
+      experience = FactoryBot.create(:experience, student: student)
+      experience.assign_attributes(level: invalid_level)
+      expect(experience).to be_invalid
+    end
+
   end
 end
