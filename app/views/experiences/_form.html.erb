@@ -12,28 +12,21 @@
   <% end %>
 
   <div>
-    <%= form.label :student_id, style: "display: block" %>
-    <%= form.text_field :student_id %>
-  </div>
-
-  <div>
     <%= form.label :content, style: "display: block" %>
     <%= form.text_area :content %>
   </div>
 
   <div>
-    <%= form.label :category, style: "display: block" %>
-    <%= form.text_field :category %>
+    <%= form.select :category, options_for_select(['Medo', 'Dificuldade', 'Aprendizado', 'Insight', 'Feedback']) %>
   </div>
 
   <div>
-    <%= form.label :level, style: "display: block" %>
-    <%= form.number_field :level %>
+    <%= form.select :level, options_for_select((1..8).to_a) %>
   </div>
 
-  <div>
-    <%= form.label :week, style: "display: block" %>
-    <%= form.number_field :week %>
+  <div class="field">
+    <%= form.label :week %>
+    <%= form.select :week, options_for_select({ 'Semana 1' => 1, 'Semana 2' => 2, 'Semana 3' => 3, 'Semana 4' => 4 }) %>
   </div>
 
   <div>
