@@ -24,6 +24,11 @@
     <%= form.select :level, options_for_select((1..8).to_a) %>
   </div>
 
+  <div class="field">
+    <%= form.label :week %>
+    <%= form.select :week, options_for_select({ 'Semana 1' => 1, 'Semana 2' => 2, 'Semana 3' => 3, 'Semana 4' => 4 }) %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>
