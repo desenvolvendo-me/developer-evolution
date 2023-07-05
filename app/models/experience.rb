@@ -21,6 +21,8 @@
 #
 class Experience < ApplicationRecord
   belongs_to :student
+
+  validates :content, presence: true
   validates :category, inclusion: { in: ['Medo', 'Dificuldade', 'Aprendizado', 'Insight', 'Feedback'] }
   validates :level, inclusion: { in: 1..8 }
   validates :week, inclusion: { in: 1..4 }, if: :level_previously_changed?
