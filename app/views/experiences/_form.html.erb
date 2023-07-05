@@ -12,18 +12,12 @@
   <% end %>
 
   <div>
-    <%= form.label :student_id, style: "display: block" %>
-    <%= form.text_field :student_id %>
-  </div>
-
-  <div>
     <%= form.label :content, style: "display: block" %>
     <%= form.text_area :content %>
   </div>
 
   <div>
-    <%= form.label :category, style: "display: block" %>
-    <%= form.text_field :category %>
+    <%= form.select :category, options_for_select(['Medo', 'Dificuldade', 'Aprendizado', 'Insight', 'Feedback']) %>
   </div>
 
   <div>
