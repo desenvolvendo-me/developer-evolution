@@ -21,4 +21,5 @@
 class Experience < ApplicationRecord
   belongs_to :student
   validates :category, inclusion: { in: ['Medo', 'Dificuldade', 'Aprendizado', 'Insight', 'Feedback'] }
+  validates :level, inclusion: { in: 1..8 }
 end
