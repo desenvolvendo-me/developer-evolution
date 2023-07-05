@@ -1,5 +1,12 @@
 class ExperiencesController < InheritedResources::Base
 
+  def new
+    @experience = Experience.new
+  end
+  def create
+    @experience = current_user.experiences.build(experience_params)
+  end
+
   private
 
     def experience_params
