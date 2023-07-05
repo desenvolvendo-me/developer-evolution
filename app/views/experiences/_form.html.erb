@@ -21,11 +21,10 @@
   </div>
 
   <div>
-    <%= form.select :level, options_for_select((1..8).to_a) %>
+    <%= form.select :level, options_for_select({ 'Nível 1' => 1, 'Nível 2' => 2, 'Nível 3' => 3, 'Nível 4' => 4, 'Nível 5' => 5, 'Nível 6' => 6, 'Nível 7' => 7, 'Nível 8' => 8}) %>
   </div>
 
   <div class="field">
-    <%= form.label :week %>
     <%= form.select :week, options_for_select({ 'Semana 1' => 1, 'Semana 2' => 2, 'Semana 3' => 3, 'Semana 4' => 4 }) %>
   </div>
 
