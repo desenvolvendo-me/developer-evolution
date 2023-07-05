@@ -6,6 +6,7 @@
 #  category   :string
 #  content    :text
 #  level      :integer
+#  week       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  student_id :bigint           not null
