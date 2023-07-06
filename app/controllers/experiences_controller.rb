@@ -1,5 +1,5 @@
 class ExperiencesController < InheritedResources::Base
-  before_action :set_experience, only: [:show]
+  before_action :set_experience, only: [:show, :update]
   def index
     @experiences = current_user.student.experiences.all
   end
@@ -22,6 +22,14 @@ class ExperiencesController < InheritedResources::Base
 
   end
 
+  def update
+    if @experience.update(experience_params)
+      flash[:notice] = 'Experiência atualizada com sucesso'
+      redirect_to action: :show, id: @experience.id
+    else
+      redirect_to action: :edit
+    end
+  end
   private
 
   def experience_params
