@@ -98,4 +98,29 @@ RSpec.describe ExperiencesController, type: :controller do
       expect(flash[:alert]).to include('Week')
     end
   end
+
+  context 'PUT #update' do
+    let!(:experience) { FactoryBot.create(:experience, student: user.student) }
+    let(:new_content) { Faker::Lorem.paragraph }
+
+    it 'should update experience content' do
+      params = { id: experience.id, experience: { content: new_content } }
+      put :update, params: params
+      experience.reload
+
+      expect(experience.content).to eq(new_content)
+      expect(flash[:notice]).to eq('Experiência atualizada com sucesso')
+      expect(response).to redirect_to(action: :show, id: assigns(:experience).id)
+    end
+
+    it 'must not update experience content' do
+      old_content = experience.content
+      params = { id: experience.id, experience: { content: nil } }
+      put :update, params: params
+      experience.reload
+
+      expect(experience.content).to eq(old_content)
+      expect(response).to redirect_to(action: :edit, id: assigns(:experience).id)
+    end
+  end
 end
