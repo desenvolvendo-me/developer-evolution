@@ -37,6 +37,7 @@ group :development, :test do
   gem 'cpf_faker'
   gem 'rubycritic', require: false
   gem 'simplecov'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -56,5 +57,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'rspec-benchmark'
-  gem 'database_cleaner'
+  gem 'database_cleaner-active_record'
 end
