@@ -27,5 +27,6 @@ FactoryBot.define do
     start_date { "2023-06-30" }
     end_date { "2023-06-30" }
     percentage { 1.5 }
+    association :student
   end
 end
