@@ -13,8 +13,8 @@ RSpec.describe Scrapings::Github do
 
         github.pull_commits
 
-        expect(@student.practices.sum(:commit_total)).to eq(550)
-        expect(@student.github_commit).to eq(550)
+        expect(@student.practices.sum(:commit_total)).to eq(579)
+        expect(@student.github_commit_total).to eq(579)
       end
     end
     context "digspencer" do
@@ -28,7 +28,7 @@ RSpec.describe Scrapings::Github do
         github.pull_commits
 
         expect(@student.practices.sum(:commit_total)).to eq(1)
-        expect(@student.github_commit).to eq(1)
+        expect(@student.github_commit_total).to eq(1)
       end
     end
     context "hemershon" do
@@ -42,7 +42,7 @@ RSpec.describe Scrapings::Github do
         github.pull_commits
 
         expect(@student.practices.sum(:commit_total)).to eq(2369)
-        expect(@student.github_commit).to eq(2369)
+        expect(@student.github_commit_total).to eq(2369)
       end
     end
   end
@@ -58,7 +58,7 @@ RSpec.describe Scrapings::Github do
 
         github.pull_commits
 
-        expect(@student.github_commit).to eq(21)
+        expect(@student.github_commit_average).to eq(21)
       end
 
       it '10-2022' do
@@ -66,7 +66,7 @@ RSpec.describe Scrapings::Github do
 
         github.pull_commits
 
-        expect(@student.github_commit).to eq(12)
+        expect(@student.github_commit_average).to eq(12)
       end
     end
 
