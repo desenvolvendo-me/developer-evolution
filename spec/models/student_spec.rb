@@ -41,6 +41,7 @@
 #  profile_discord           :string
 #  profile_hotmart           :string
 #  salary                    :float
+#  slug                      :string
 #  type_career               :string
 #  wakatime_intensity        :string
 #  wakatime_link             :string
@@ -51,6 +52,7 @@
 #
 # Indexes
 #
+#  index_students_on_slug     (slug) UNIQUE
 #  index_students_on_user_id  (user_id)
 #
 # Foreign Keys
