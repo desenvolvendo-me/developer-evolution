@@ -12,9 +12,10 @@
 
 <body>
 <% if user_signed_in? %>
-  <%= button_to "Sair", destroy_user_session_path, :method => 'delete' %>
+  <%= link_to "Principal", root_path %>
+  <%= link_to "Sair", destroy_user_session_path, data: { "turbo-method": :delete } %>
 <% else %>
-  <%= button_to "Entrar", user_session_path, method: :post %>
+  <%= link_to "Entrar", user_session_path, method: :post %>
 <% end %>
 <%= yield %>
 </body>
