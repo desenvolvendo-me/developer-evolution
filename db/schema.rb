@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_01_010556) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_01_233041) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_010556) do
     t.float "percentage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_micro_goals_on_student_id"
   end
 
   create_table "practices", force: :cascade do |t|
@@ -165,6 +167,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_01_010556) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "keyquestions", "purposes"
+  add_foreign_key "micro_goals", "students"
   add_foreign_key "practices", "students"
   add_foreign_key "questions", "keyquestions"
   add_foreign_key "students", "users"
