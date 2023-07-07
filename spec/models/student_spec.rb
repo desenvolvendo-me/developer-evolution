@@ -20,6 +20,7 @@
 #  linkedin_intensity        :string
 #  linkedin_link             :string
 #  linkedin_post_last_month  :integer
+#  login                     :string
 #  meeting_last              :date
 #  meeting_link              :string
 #  meeting_next              :date
@@ -41,6 +42,7 @@
 #  profile_discord           :string
 #  profile_hotmart           :string
 #  salary                    :float
+#  slug                      :string
 #  type_career               :string
 #  wakatime_activity_average :integer
 #  wakatime_activity_total   :integer
@@ -52,6 +54,7 @@
 #
 # Indexes
 #
+#  index_students_on_slug     (slug) UNIQUE
 #  index_students_on_user_id  (user_id)
 #
 # Foreign Keys

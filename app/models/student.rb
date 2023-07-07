@@ -20,6 +20,7 @@
 #  linkedin_intensity        :string
 #  linkedin_link             :string
 #  linkedin_post_last_month  :integer
+#  login                     :string
 #  meeting_last              :date
 #  meeting_link              :string
 #  meeting_next              :date
@@ -41,6 +42,7 @@
 #  profile_discord           :string
 #  profile_hotmart           :string
 #  salary                    :float
+#  slug                      :string
 #  type_career               :string
 #  wakatime_activity_average :integer
 #  wakatime_activity_total   :integer
@@ -52,6 +54,7 @@
 #
 # Indexes
 #
+#  index_students_on_slug     (slug) UNIQUE
 #  index_students_on_user_id  (user_id)
 #
 # Foreign Keys
@@ -62,6 +65,9 @@ class Student < ApplicationRecord
   belongs_to :user
   has_many :practices
   has_many :thoughts
+
+  extend FriendlyId
+  friendly_id :login, use: :slugged
 
   enum type_career: { technology: "technology", not_technology: "not_technology" }, _suffix: true
   enum level_potential: { low: "low", medium: "medium", high: "high", almost_goal: "almost_goal", goal: "goal", not_started: "not_started", no_testimony: "no_testimony", gave_up_career: "gave_up_career", gave_up_mentoring: "gave_up_mentoring" }, _suffix: true
