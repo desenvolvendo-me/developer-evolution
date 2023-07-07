@@ -4,6 +4,7 @@ if Rails.env.development?
 
   student = Student.new
   student.user = user
+  student.login = "jhonesaly"
   student.name = "Alyson Jhones"
   student.class_name = "13"
   student.enrollment_date = "16/01/2023".to_date

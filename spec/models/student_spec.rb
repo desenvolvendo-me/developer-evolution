@@ -19,6 +19,7 @@
 #  linkedin_intensity        :string
 #  linkedin_link             :string
 #  linkedin_post_last_month  :integer
+#  login                     :string
 #  meeting_last              :date
 #  meeting_link              :string
 #  meeting_next              :date

@@ -19,6 +19,7 @@
 #  linkedin_intensity        :string
 #  linkedin_link             :string
 #  linkedin_post_last_month  :integer
+#  login                     :string
 #  meeting_last              :date
 #  meeting_link              :string
 #  meeting_next              :date
@@ -58,6 +59,7 @@
 #
 FactoryBot.define do
   factory :student do
+    login { "jhonesaly" }
     name { "Alyson Jhones" }
     class_name { "13" }
     enrollment_date { "16/01/2023".to_date }
