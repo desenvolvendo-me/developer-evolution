@@ -63,7 +63,7 @@ ActiveAdmin.register Student do
       row :wakatime_link do |student|
         link_to "Wakatime Link", student.wakatime_link, target: "_blank"
       end
-      row :wakatime_time
+      row :wakatime_activity_average
       row :wakatime_intensity
       row :linkedin_link do |student|
         link_to "Linkedin Link", student.linkedin_link, target: "_blank"

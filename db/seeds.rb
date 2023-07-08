@@ -32,7 +32,7 @@ if Rails.env.development?
   student.github_commit_total = 1000
   student.github_intensity = "very_strong"
   student.wakatime_link = "https://wakatime.com/@98661d52-a1fd-4e23-a39b-ba76d31fdfdd"
-  student.wakatime_time = 78
+  student.wakatime_activity_average = 78
   student.wakatime_intensity = "strong"
   student.linkedin_link = "https://www.linkedin.com/in/alyson-jhones-539767121/"
   student.linkedin_followers = 527
