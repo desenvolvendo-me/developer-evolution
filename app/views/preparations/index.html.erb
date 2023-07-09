@@ -1,0 +1,35 @@
+<h1>Preparations</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Project</th>
+    <th>Readme</th>
+    <th>Link</th>
+    <th>Release</th>
+    <th>Release Type</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @preparations.each do |preparation| %>
+    <tr>
+      <td><%= preparation.name %></td>
+      <td><%= preparation.project %></td>
+      <td><%= preparation.readme %></td>
+      <td><%= preparation.link %></td>
+      <td><%= preparation.release %></td>
+      <td><%= preparation.release_type %></td>
+      <td><%= link_to 'Show', preparation %></td>
+      <td><%= link_to 'Edit', edit_preparation_path(preparation) %></td>
+      <td><%= button_to 'Destroy', preparation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Preparation', new_preparation_path %>
