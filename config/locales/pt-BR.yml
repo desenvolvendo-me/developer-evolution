@@ -9,6 +9,8 @@ pt-BR:
       models:
         experience:
           attributes:
+            category:
+              inclusion: precisa ser incluso
             level:
               inclusion: precisa ser incluso
             week:

@@ -40,6 +40,8 @@ en:
       models:
         experience:
           attributes:
+            category:
+              inclusion: must be included
             level:
               inclusion: must be included
             week:
