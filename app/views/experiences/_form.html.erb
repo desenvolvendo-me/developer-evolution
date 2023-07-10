@@ -17,15 +17,15 @@
   </div>
 
   <div>
-    <%= form.select :category, options_for_select(['Medo', 'Dificuldade', 'Aprendizado', 'Insight', 'Feedback']) %>
+    <%= form.select :category, options_for_select(Experience::CATEGORY) %>
   </div>
 
   <div>
-    <%= form.select :level, options_for_select({ 'Nível 1' => 1, 'Nível 2' => 2, 'Nível 3' => 3, 'Nível 4' => 4, 'Nível 5' => 5, 'Nível 6' => 6, 'Nível 7' => 7, 'Nível 8' => 8}) %>
+    <%= form.select :level, options_for_select(Experience::LEVEL_OPTIONS) %>
   </div>
 
   <div class="field">
-    <%= form.select :week, options_for_select({ 'Semana 1' => 1, 'Semana 2' => 2, 'Semana 3' => 3, 'Semana 4' => 4 }) %>
+    <%= form.select :week, options_for_select(Experience::WEEK_OPTIONS) %>
   </div>
 
   <div>

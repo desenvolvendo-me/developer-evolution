@@ -21,11 +21,29 @@
 #
 class Experience < ApplicationRecord
   belongs_to :student
+  CATEGORY = %w[fear difficulty learning insight feedback]
+  LEVEL_OPTIONS = {
+    'level 1' => 1,
+    'level 2' => 2,
+    'level 3' => 3,
+    'level 4' => 4,
+    'level 5' => 5,
+    'level 6' => 6,
+    'level 7' => 7,
+    'level 8' => 8
+  }
+  WEEK_OPTIONS = {
+    'week 1' => 1,
+    'week 2' => 2,
+    'week 3' => 3,
+    'week 4' => 4,
+  }
+
 
   validates :content, presence: true
-  validates :category, inclusion: { in: ['Medo', 'Dificuldade', 'Aprendizado', 'Insight', 'Feedback'] }
-  validates :level, inclusion: { in: 1..8 }
-  validates :week, inclusion: { in: 1..4 }
+  validates :category, inclusion: { in: CATEGORY }
+  validates :level, inclusion: { in: LEVEL_OPTIONS.values }
+  validates :week, inclusion: { in: WEEK_OPTIONS.values }
   validate :validate_category_week_level_combination
 
   private
