@@ -31,13 +31,4 @@ class Experience < ApplicationRecord
   validates :week, inclusion: { in: 1..4 }
   validate :validate_category_week_level_combination
 
-  private
-
-  def validate_category_week_level_combination
-    existing_experience = Experience.find_by(category: category, week: week, level: level)
-
-    if existing_experience && (new_record? || existing_experience != self)
-      errors.add(:base, "Já existe uma experiência com a mesma categoria, semana e nível")
-    end
-  end
 end
