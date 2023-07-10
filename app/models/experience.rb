@@ -29,6 +29,5 @@ class Experience < ApplicationRecord
   validates :category, inclusion: { in: CATEGORY }
   validates :level, inclusion: { in: 1..8 }
   validates :week, inclusion: { in: 1..4 }
-  validate :validate_category_week_level_combination
 
 end
