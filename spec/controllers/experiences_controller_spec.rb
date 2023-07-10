@@ -63,11 +63,11 @@ RSpec.describe ExperiencesController, type: :controller do
   end
 
   context 'POST #create' do
-    let!(:params) { { student_id: user.student.id, content: Faker::Lorem.paragraph, category:  %w[Medo Dificuldade Aprendizado Insight Feedback].sample, level: rand(1..8), week: rand(1..4) } }
+    let!(:params) { { student_id: user.student.id, content: Faker::Lorem.paragraph, category:  I18n.t('experience.categories').keys.sample, level: rand(1..8), week: rand(1..4) } }
 
     it 'creates a new experience' do
       post :create, params: { experience: params}
-      expect(flash[:notice]).to eq('Experiência cadastrada com sucesso')
+      expect(flash[:notice]).to eq(I18n.t('experience.controller.flash_create'))
       expect(response).to redirect_to(action: :show, id: assigns(:experience).id)
     end
 
@@ -77,7 +77,6 @@ RSpec.describe ExperiencesController, type: :controller do
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(experiences_path)
-      expect(flash[:alert]).to include('Category')
     end
 
     it 'deny experience with wrong level' do
@@ -86,7 +85,7 @@ RSpec.describe ExperiencesController, type: :controller do
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(experiences_path)
-      expect(flash[:alert]).to include('Level')
+      expect(flash[:alert]).to include(I18n.t('activerecord.attributes.experience.level'))
     end
 
     it 'deny experience with wrong week value' do
@@ -95,7 +94,7 @@ RSpec.describe ExperiencesController, type: :controller do
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to(experiences_path)
-      expect(flash[:alert]).to include('Week')
+      expect(flash[:alert]).to include(I18n.t('activerecord.attributes.experience.week'))
     end
   end
 

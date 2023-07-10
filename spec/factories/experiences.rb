@@ -23,7 +23,7 @@ FactoryBot.define do
   factory :experience do
     association :student
     content { Faker::Lorem.paragraph }
-    category { %w[Medo Dificuldade Aprendizado Insight Feedback].sample }
+    category { I18n.t('experience.categories').keys.sample }
     week { rand(1..4) }
     level { rand(1..8) }
   end
