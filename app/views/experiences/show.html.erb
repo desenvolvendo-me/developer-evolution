@@ -3,8 +3,8 @@
 <%= render @experience %>
 
 <div>
-  <%= link_to "Edit this experience", edit_experience_path(@experience) %> |
-  <%= link_to "Back to experiences", experiences_path %>
+  <%= link_to I18n.t('experience.edit'), edit_experience_path(@experience) %> |
+  <%= link_to I18n.t('experience.back'), experiences_path %>
 
-  <%= button_to "Destroy this experience", @experience, method: :delete %>
+  <%= button_to I18n.t('experience.destroy'), @experience, method: :delete %>
 </div>

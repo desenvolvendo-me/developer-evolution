@@ -10,7 +10,7 @@ class ExperiencesController < InheritedResources::Base
     @experience = current_user.student.experiences.build(experience_params)
 
     if @experience.save
-      flash[:notice] = 'Experiência cadastrada com sucesso'
+      flash[:notice] = I18n.t('experience.controller.flash_create')
       redirect_to action: :show, id: @experience.id
     else
       flash[:alert] = @experience.errors.full_messages.join('. ')
@@ -24,7 +24,7 @@ class ExperiencesController < InheritedResources::Base
 
   def update
     if @experience.update(experience_params)
-      flash[:notice] = 'Experiência atualizada com sucesso'
+      flash[:notice] = I18n.t('experience.controller.flash_update')
       redirect_to action: :show, id: @experience.id
     else
       redirect_to action: :edit

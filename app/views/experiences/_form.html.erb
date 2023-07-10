@@ -12,19 +12,22 @@
   <% end %>
 
   <div>
-    <%= form.label :content, style: "display: block" %>
+    <%= form.label :content, I18n.t('activerecord.attributes.experience.content'), style: "display: block" %>
     <%= form.text_area :content %>
   </div>
 
   <div>
-    <%= form.select :category, options_for_select(Experience::CATEGORY) %>
+    <%= form.label :category, t('experience.form.category_label') %>
+    <%= form.select :category, options_for_select(Experience::CATEGORY.map { |c| [t("experience.categories.#{c}"), c] }) %>
   </div>
 
   <div>
+    <%= form.label :level, t('activerecord.attributes.experience.level') %>
     <%= form.select :level, options_for_select(Experience::LEVEL_OPTIONS) %>
   </div>
 
-  <div class="field">
+  <div>
+    <%= form.label :week, t('experience.form.week_label') %>
     <%= form.select :week, options_for_select(Experience::WEEK_OPTIONS) %>
   </div>
 

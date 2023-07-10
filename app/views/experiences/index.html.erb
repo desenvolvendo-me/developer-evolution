@@ -1,15 +1,15 @@
 <p style="color: green"><%= notice %></p>
 <p style="color: red"><%= flash[:alert] %></p>
 
-<h1>Experiences</h1>
+<h1><%= I18n.t('experience.title') %></h1>
 
 <div id="experiences">
   <% @experiences.each do |experience| %>
     <%= render experience %>
     <p>
-      <%= link_to "Show this experience", experience %>
+      <%= link_to I18n.t('experience.show'), experience %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New experience", new_experience_path %>
+<%= link_to I18n.t('experience.new'), new_experience_path %>
