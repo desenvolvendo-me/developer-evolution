@@ -1,8 +1,66 @@
-<h1>Name: <%= @student.name %></h1>
-<h2>Login: <%= @student.login %></h2>
-<h2>Enrollment date: <%= @student.enrollment_date %></h2>
-<h2>Class progress: <%= @student.class_progress %></h2>
-<h2>Level potential: <%= @student.level_potential %></h2>
-<h2>Github intensity: <%= @student.github_intensity %></h2>
-<h2>Linkedin intensity: <%= @student.linkedin_intensity %></h2>
-<h2>Wakatime intensity: <%= @student.wakatime_intensity %></h2>
+<div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+
+  <!--Main Col-->
+  <div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+
+
+    <div class="p-4 md:p-12 text-center lg:text-left">
+      <h1 class="text-3xl text-center font-bold pt-8 lg:pt-0"> <%= @student.name %></h1>
+
+      <p class="text-gray-600 text-xs lg:text-sm text-center items-center justify-center lg:justify-start">
+        Enrollment Date <i class="far fa-calendar-check fa-lg"></i> <%= @student.enrollment_date.strftime("%m/%Y") %>
+      </p>
+      <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+
+      <p class="pt-8 text-sm">
+        Olá! Sou [Seu Nome], um programador apaixonado pela arte da codificação. Com [X] anos de experiência
+        em programação e habilidades sólidas em várias linguagens e frameworks, estou pronto para enfrentar
+        novos desafios e contribuir para o sucesso de projetos empolgantes. Minha abordagem é baseada em boas
+        práticas, qualidade do código e trabalho em equipe. Vamos trabalhar juntos para criar soluções de
+        software incríveis!
+      </p>
+
+      <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
+
+      <div class="pt-12 pb-8">
+        <button class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
+          Ballast
+        </button>
+      </div>
+      <div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">
+        <a class="link" href="<%= @student.wakatime_link %>" data-tippy-content="Wakatime">
+          <span class="text-xl font-bold block tracking-wide text-blueGray-600">
+            <i class="fas fa-stopwatch"></i> <%= @student.wakatime_intensity %>
+          </span>
+        </a>
+
+        <a class="link" href="#" data-tippy-content="Github">
+          <span class="text-xl font-bold block tracking-wide text-blueGray-600">
+            <i class="fab fa-github"></i> <%= @student.github_intensity %>
+          </span>
+        </a>
+
+        <a class="link" href="#" data-tippy-content="Linkedin">
+          <span class="text-xl font-bold block tracking-wide text-blueGray-600">
+            <i class="fab fa-linkedin"></i> <%= @student.linkedin_intensity %>
+          </span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="w-full lg:w-2/5">
+    <p class="pt-4 text-base font-bold text-center items-center justify-center uppercase">
+      Level potential <i class="fas fa-rocket fa-lg"></i>  <%= @student.level_potential %>
+    </p>
+    <%= image_tag("profile.jpeg", size: "100%") %>
+    <p class="pt-4 text-base font-bold text-center items-center justify-center uppercase">
+      Progress <i class="fas fa-spinner"></i> <%= @student.class_progress %>%
+    </p>
+  </div>
+
+</div>

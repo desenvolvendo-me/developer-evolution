@@ -14,3 +14,7 @@
  *= require_self
  *= stub active_admin
  */
+
+.imagem-redonda {
+    border-radius: 50%;
+}

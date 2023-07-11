@@ -25,6 +25,9 @@ gem 'httparty'
 gem 'nokogiri'
 gem 'friendly_id', '~> 5.4.0'
 gem 'watir'
+gem 'tailwindcss-rails'
+gem 'foreman'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0'
