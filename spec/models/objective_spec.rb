@@ -21,5 +21,38 @@
 require 'rails_helper'
 
 RSpec.describe Objective, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "with students" do
+    let(:student) { FactoryBot.create(:student) }
+
+    describe "creation" do
+      it "should create and save a new objective" do
+        objective = FactoryBot.create(:objective, student: student)
+        expect(objective).to be_valid
+      end
+    end
+
+    describe "querying objectives by student" do
+      it "should return all objectives for a specific student" do
+        objective1 = FactoryBot.create(:objective, student: student)
+        objective2 = FactoryBot.create(:objective, student: student)
+
+        objectives = Objective.where(student: student)
+
+        expect(objectives).to contain_exactly(objective1, objective2)
+      end
+    end
+
+    describe "querying objectives by title" do
+      it "should return objectives with a specific title" do
+        title = "My Objective"
+
+        objective1 = FactoryBot.create(:objective, title: title, student: student)
+        objective2 = FactoryBot.create(:objective, student: student)
+
+        objectives = Objective.where(title: title)
+
+        expect(objectives).to contain_exactly(objective1)
+      end
+    end
+  end
 end

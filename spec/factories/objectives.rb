@@ -21,8 +21,8 @@
 FactoryBot.define do
   factory :objective do
     student { nil }
-    title { "MyString" }
-    description { "MyString" }
-    reason { "MyString" }
+    title { Faker::Lorem.sentence }
+    description { Faker::Lorem.paragraph }
+    reason { Faker::Lorem.sentence }
   end
 end
