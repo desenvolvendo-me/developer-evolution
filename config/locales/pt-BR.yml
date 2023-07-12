@@ -1,10 +1,15 @@
 pt-BR:
+  sure: você tem certeza?
   activerecord:
     attributes:
       experience:
         content: conteúdo
         level: nível
         week: semana
+      objective:
+        title: título
+        description: descrição
+        reason: porquê
     errors:
       models:
         experience:
@@ -18,9 +23,14 @@ pt-BR:
             content:
               blank: não pode ficar vazio
   helpers:
-    submit:
-      create: Criar experiência
-      update: Atualizar experiência
+    objectives:
+      submit:
+        create: Criar objetivo
+        update: Atualizar objetivo
+    experiences:
+      submit:
+        create: Criar experiência
+        update: Atualizar experiência
   experience:
     form:
       category_label: categoria
@@ -42,3 +52,16 @@ pt-BR:
     controller:
       flash_create: Experiência cadastrada com sucesso
       flash_update: Experiência atualizada com sucesso
+  objective:
+    edit_view:
+      title: Editando objetivo
+    title: Objetivos
+    partial_objective:
+      title: título
+      description: descrição
+      reason: porquê
+    show: Mostrar esse objetivo
+    new: Criar objetivo
+    edit: Editar esse objetivo
+    back: Voltar para objetivos
+    destroy: Apagar objetivo

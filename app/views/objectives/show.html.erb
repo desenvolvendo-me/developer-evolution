@@ -3,8 +3,12 @@
 <%= render @objective %>
 
 <div>
-  <%= link_to "Edit this objective", edit_objective_path(@objective) %> |
-  <%= link_to "Back to objectives", objectives_path %>
-
-  <%= button_to "Destroy this objective", @objective, method: :delete %>
+  <ul>
+    <li><%= link_to I18n.t('objective.edit'), edit_objective_path(@objective) %></li>
+    <li><%= link_to I18n.t('objective.back'), objectives_path %></li>
+    <li><%= link_to I18n.t('objective.destroy'), objective_path(@objective), data: {
+      turbo_method: :delete,
+      turbo_confirm: I18n.t('sure')
+    } %></li>
+  </ul>
 </div>
