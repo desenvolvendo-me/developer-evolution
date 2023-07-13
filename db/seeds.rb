@@ -54,4 +54,8 @@ if Rails.env.development?
 
   student.save!
 
+  # Base Generator
+  Experience.create(content: "Não conseguir aprender programação", week: 1, level: 1, category: "fear", student: student)
+  Experience.create(content: "Não conseguir passar na entrevista", week: 1, level: 1, category: "fear", student: student)
+
 end
