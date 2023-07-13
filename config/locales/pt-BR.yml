@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      preparation: Preparação
+    attributes:
+      preparation:
+        name: Nome
+        project: Projeto
+        readme: README
+        link: Link
+        release: Versão de Lançamento
+        option: Opção
