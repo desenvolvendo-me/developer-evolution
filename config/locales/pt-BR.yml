@@ -1,12 +1,38 @@
 pt-BR:
-  activerecord:
-    models:
-      preparation: Preparação
-    attributes:
-      preparation:
-        name: Nome
-        project: Projeto
-        readme: README
-        link: Link
-        release: Versão de Lançamento
-        option: Opção
+  preparation:
+    index:
+      title: "Preparações"
+      table_header:
+        name: "Nome"
+        project: "Projeto"
+        readme: "README"
+        link: "Link"
+        release: "Versão"
+        release_type: "Tipo de Versão"
+      actions:
+        show: "Visualizar"
+        edit: "Editar"
+        destroy: "Excluir"
+      new: "Nova Preparação"
+    show:
+      name: "Nome"
+      project: "Projeto"
+      readme: "README"
+      link: "Link"
+      release: "Versão"
+      release_type: "Tipo de Versão"
+      edit: "Editar"
+      back: "Voltar"
+    edit:
+      title: "Editar Preparação"
+      submit: "Atualizar Preparação"
+      cancel: "Cancelar"
+    new:
+      title: "Nova Preparação"
+      submit: "Criar Preparação"
+      cancel: "Cancelar"
+    flash:
+      create_success: "Preparação criada com sucesso."
+      update_success: "Preparação atualizada com sucesso."
+      destroy_success: "Preparação excluída com sucesso."
+

@@ -1,14 +1,14 @@
-<h1>Preparations</h1>
+<h1><%= t('preparation.index.title') %></h1>
 
 <table>
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Project</th>
-    <th>Readme</th>
-    <th>Link</th>
-    <th>Release</th>
-    <th>Release Type</th>
+    <th><%= t('preparation.index.name') %></th>
+    <th><%= t('preparation.index.project') %></th>
+    <th><%= t('preparation.index.readme') %></th>
+    <th><%= t('preparation.index.link') %></th>
+    <th><%= t('preparation.index.release') %></th>
+    <th><%= t('preparation.index.release_type') %></th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -22,9 +22,9 @@
       <td><%= preparation.link %></td>
       <td><%= preparation.release %></td>
       <td><%= preparation.release_type %></td>
-      <td><%= link_to 'Show', preparation %></td>
-      <td><%= link_to 'Edit', edit_preparation_path(preparation) %></td>
-      <td><%= button_to 'Destroy', preparation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('preparation.index.show'), preparation %></td>
+      <td><%= link_to t('preparation.index.edit'), edit_preparation_path(preparation) %></td>
+      <td><%= button_to t('preparation.index.destroy'), preparation, method: :delete, data: { confirm: t('preparation.index.confirmation') } %></td>
     </tr>
   <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Preparation', new_preparation_path %>
+<%= link_to t('preparation.index.new_preparation'), new_preparation_path %>

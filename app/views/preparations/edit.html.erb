@@ -1,6 +1,6 @@
-<h1>Edit Preparation</h1>
+<h1><%= t('preparation.edit.title') %></h1>
 
 <%= render 'form', preparation: @preparation %>
 
-<%= link_to 'Show', @preparation %> |
-<%= link_to 'Back', preparations_path %>
+<%= link_to t('preparation.edit.show'), @preparation %> |
+<%= link_to t('preparation.edit.back'), preparations_path %>
