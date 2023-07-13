@@ -1,4 +1,4 @@
-class ExperiencesController < InheritedResources::Base
+class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :update]
   def index
     @experiences = current_user.student.experiences.all
