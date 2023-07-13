@@ -38,6 +38,7 @@ group :development, :test do
   gem 'rubycritic', require: false
   gem 'simplecov'
   gem 'rails-controller-testing'
+  gem 'rails-i18n'
 end
 
 group :development do

@@ -2,13 +2,23 @@ pt-BR:
   preparation:
     index:
       title: "Preparações"
+      name: "Nome"
+      project: "Link do Projeto"
+      readme: "Link do README"
+      link: "Link"
+      release: "Release"
+      release_type: "Tipo de link"
+      new_preparation: "Nova Preparação"
+      show: "Mostrar"
+      edit: "Editar"
+      destroy: "Apagar"
       table_header:
         name: "Nome"
-        project: "Projeto"
-        readme: "README"
+        project: "Link do Projeto"
+        readme: "Link do README"
         link: "Link"
-        release: "Versão"
-        release_type: "Tipo de Versão"
+        release: "Release"
+        release_type: "Tipo de link"
       actions:
         show: "Visualizar"
         edit: "Editar"
@@ -19,20 +29,38 @@ pt-BR:
       project: "Projeto"
       readme: "README"
       link: "Link"
-      release: "Versão"
-      release_type: "Tipo de Versão"
+      release: "Release"
+      release_type: "Tipo de link"
       edit: "Editar"
-      back: "Voltar"
+      back: "Voltar para Preparações"
     edit:
       title: "Editar Preparação"
       submit: "Atualizar Preparação"
       cancel: "Cancelar"
+      back: "Voltar para Preparações"
+      show: "Mostrar"
     new:
       title: "Nova Preparação"
       submit: "Criar Preparação"
       cancel: "Cancelar"
+      back: "Voltar para Preparações"
+
     flash:
       create_success: "Preparação criada com sucesso."
       update_success: "Preparação atualizada com sucesso."
       destroy_success: "Preparação excluída com sucesso."
 
+  preparations:
+    form:
+      name: "Nome"
+      project: "Link do Projeto"
+      readme: "Link do README"
+      link: "Link"
+      release: "Release"
+      release_type: "Tipo de link"
+
+  helpers:
+    preparations:
+      submit:
+        create: Criar preparação
+        update: Atualizar preparação

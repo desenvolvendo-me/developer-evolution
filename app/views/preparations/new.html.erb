@@ -1,6 +1,6 @@
 <h1><%= t('preparation.new.title') %></h1>
 
-<%= render 'form', preparation: @preparation %>
+<%= render 'form', preparation: @preparation, locals: { action: 'create' } %>
 
 <%= link_to t('preparation.new.back'), preparations_path %>
 
