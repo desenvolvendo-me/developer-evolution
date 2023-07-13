@@ -1,5 +1,10 @@
 class PreparationsController < ApplicationController
   before_action :set_preparation, only: [:show, :edit, :update, :destroy]
+  before_action :set_locale
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
 
   def index
     @preparations = Preparation.all
