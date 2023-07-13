@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_11_132522) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_practices_on_student_id"
+  end
+
+  create_table "purposes", force: :cascade do |t|
+    t.integer "version"
+    t.integer "time"
+    t.string "type_question"
+    t.text "question"
+    t.text "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_purposes_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -110,5 +122,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
   end
 
   add_foreign_key "practices", "students"
+  add_foreign_key "purposes", "students"
   add_foreign_key "students", "users"
 end
