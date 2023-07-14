@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Intensity::Linkedin do
+RSpec.describe Intensities::Linkedin do
 
   context 'linkedin' do
     before do

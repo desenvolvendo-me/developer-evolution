@@ -9,9 +9,9 @@ module Profiles
 
     def call
       Profiles::Level.call({ resource: @student })
-      Intensity::Github.call({ resource: @student })
-      Intensity::Wakatime.call({ resource: @student })
-      Intensity::Linkedin.call({ resource: @student })
+      Intensities::Github.call({ resource: @student })
+      Intensities::Wakatime.call({ resource: @student })
+      Intensities::Linkedin.call({ resource: @student })
 
       Potentials::Low.call({ resource: @student, level_potential: LEVEL_POTENTIAL })
       Potentials::Medium.call({ resource: @student, level_potential: LEVEL_POTENTIAL })

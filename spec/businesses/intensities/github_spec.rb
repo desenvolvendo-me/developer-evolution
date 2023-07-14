@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Intensity::Github do
+RSpec.describe Intensities::Github do
 
   context 'github' do
     before do

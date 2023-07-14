@@ -1,4 +1,4 @@
-module Intensity
+module Intensities
   class Linkedin < BusinessApplication
 
     def initialize(**params)
