@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   root to: "welcome#index"
   get 'welcome/index'
 
-  get ':login', to: 'students#show', as: :student
+  get ':login', to: 'students#show', as: :profile
 end
