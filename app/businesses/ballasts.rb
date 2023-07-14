@@ -1,0 +1,3 @@
+module Ballasts
+
+end
