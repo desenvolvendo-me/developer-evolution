@@ -54,4 +54,10 @@ if Rails.env.development?
 
   student.save!
 
+  # Future generator
+  micro_goal.create(micro_goal: " IDEs (RubyMine e VsCode)", student: student )
+  micro_goal.create(micro_goal: "Banco de dados", student: student )
+
+  task.create(task: "pangram", start_date: 2023-07-11, end_date: 2023-07-13, percentage: 20, micro_goal: micro_goal)
+  task.create(task: "minimum-sum", start_date: 2023-07-11, end_date: 2023-07-13, percentage: 20, micro_goal: micro_goal)
 end
