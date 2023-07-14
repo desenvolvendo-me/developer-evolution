@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   get ':login', to: 'students#show', as: :profile
+  get ':login/ballast', to: 'students#ballast', as: :ballast
 end
