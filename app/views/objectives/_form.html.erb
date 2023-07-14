@@ -1,0 +1,67 @@
+<%= form_with(model: objective) do |form| %>
+  <% if objective.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(objective.errors.count, "error") %> prohibited this objective from being saved:</h2>
+
+      <ul>
+        <% objective.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :reason, style: "display: block" %>
+    <%= form.text_area :reason %>
+  </div>
+
+  <div>
+    <%= form.label :people_involved, style: "display: block" %>
+    <%= form.text_area :people_involved %>
+  </div>
+
+  <div>
+    <%= form.label :resources, style: "display: block" %>
+    <%= form.text_area :resources %>
+  </div>
+
+  <div>
+    <%= form.label :expected_results, style: "display: block" %>
+    <%= form.text_area :expected_results %>
+  </div>
+
+  <div>
+    <%= form.label :achieved, style: "display: block" %>
+    <%= form.text_area :achieved %>
+  </div>
+
+  <div>
+    <%= form.label :metrics, style: "display: block" %>
+    <%= form.text_area :metrics %>
+  </div>
+
+  <div>
+    <%= form.label :max_deadline, style: "display: block" %>
+    <%= form.date_field :max_deadline %>
+  </div>
+
+  <div>
+    <%= form.label :min_deadline, style: "display: block" %>
+    <%= form.date_field :min_deadline %>
+  </div>
+
+  <div>
+    <%= form.label :student_id, style: "display: block" %>
+    <%= form.text_field :student_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

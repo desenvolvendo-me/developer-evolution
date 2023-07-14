@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Objectives</h1>
+
+<div id="objectives">
+  <% @objectives.each do |objective| %>
+    <%= render objective %>
+    <p>
+      <%= link_to "Show this objective", objective %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New objective", new_objective_path %>
