@@ -1,16 +1,7 @@
 class PreparationsController < ApplicationController
   before_action :set_preparation, only: [:show, :edit, :update, :destroy]
-  before_action :set_locale
-
-  def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-  end
-
   def index
-    @preparations = Preparation.all
-  end
-
-  def show
+    @preparations = current_user.student.preparations.all
   end
 
   def new
@@ -18,29 +9,32 @@ class PreparationsController < ApplicationController
   end
 
   def create
-    @preparation = Preparation.new(preparation_params)
+    @preparation = current_user.student.preparations.build(preparation_params)
 
     if @preparation.save
-      redirect_to @preparation, notice: 'Preparation was successfully created.'
+      flash[:notice] = 'preparation.controller.flash_create'
+      redirect_to action: :show, id: @preparation.id
     else
+      flash[:alert] = @preparation.errors.full_messages.join('. ')
       render :new
     end
   end
 
-  def edit
-  end
+  def show;end
 
   def update
     if @preparation.update(preparation_params)
-      redirect_to @preparation, notice: 'Preparation was successfully updated.'
+      flash[:notice] = 'Preparação atualizada com sucesso.'
+      redirect_to action: :show, id: @preparation.id
     else
-      render :edit
+      redirect_to action: :edit
     end
   end
 
   def destroy
     @preparation.destroy
-    redirect_to preparations_url, notice: 'Preparation was successfully destroyed.'
+    flash[:notice] = 'Preparação excluída com sucesso.'
+    redirect_to preparations_path
   end
 
   private
