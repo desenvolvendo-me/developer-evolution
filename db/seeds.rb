@@ -54,4 +54,20 @@ if Rails.env.development?
 
   student.save!
 
+  # Job position Generator
+  Preparation.create(name: "Banco Imobiliário",
+                     project: "https://github.com/user/repo",
+                     readme: "https://github.com/user/repo/readme",
+                     link: "https://github.com/user/repo/milestones/1",
+                     release: 3,
+                     release_type: "Milestone Release",
+                     student: student)
+  Preparation.create(name: "Editora de livro",
+                     project: "https://github.com/user/repo",
+                     readme: "https://github.com/user/repo/readme",
+                     link: "https://github.com/user/repo/issue/1",
+                     release: 5,
+                     release_type: "Issue 3",
+                     student: student)
+
 end
