@@ -43,10 +43,4 @@ class Preparation < ApplicationRecord
                       "Issues 7",
                       "Issues 8"]
 
-  validates :name, presence: true
-  validates :project, presence: true
-  validates :readme, presence: true
-  validates :link, presence: true
-  validates :release, inclusion: {in: 1..5}
-  validates :release_type, inclusion: {in: CATEGORY}
 end

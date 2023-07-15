@@ -22,6 +22,8 @@ class PreparationsController < ApplicationController
 
   def show;end
 
+  def edit
+  end
   def update
     if @preparation.update(preparation_params)
       flash[:notice] = t('preparation.controller.flash_update')
