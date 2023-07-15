@@ -1,12 +1,10 @@
-<% purpose = current_user.student.purpose.new(purpose_params) if current_user.student %>
-
-<%= form_with(model: purpose, local: true) do |form| %>
-  <% if purpose.errors.any? %>
+<%= form_with(model: @purpose, local: true) do |form| %>
+  <% if @purpose.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(purpose.errors.count, "erro") %> impedem que este propósito seja salvo:</h2>
+      <h2><%= pluralize(@purpose.errors.count, "erro") %> impedem que este propósito seja salvo:</h2>
 
       <ul>
-        <% purpose.errors.each do |error| %>
+        <% @purpose.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
