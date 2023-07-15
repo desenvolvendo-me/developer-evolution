@@ -22,5 +22,5 @@
 #
 class Purpose < ApplicationRecord
   belongs_to :student
-  validates :version, :time, :type_question, :question, :answer, presence: true
+  # validates :version, :time, :type_question, :question, :answer, presence: true
 end
