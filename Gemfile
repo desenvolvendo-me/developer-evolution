@@ -39,6 +39,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'rails-controller-testing'
   gem 'rails-i18n'
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do

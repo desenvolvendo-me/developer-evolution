@@ -24,17 +24,18 @@
 require 'rails_helper'
 
 RSpec.describe Preparation, type: :model do
+
   describe 'validations' do
+    let(:student) { FactoryBot.create(:student) }
 
-    it 'is valid with valid attributes' do
-      preparation = FactoryBot.create(:preparation)
-      expect(preparation).to be_valid
+    describe 'associations' do
+      it { should belong_to(:student) }
+      it { should validate_presence_of(:name) }
+      it { should validate_presence_of(:project) }
+      it { should validate_presence_of(:readme) }
+      it { should validate_presence_of(:link) }
+      it { should validate_inclusion_of(:release).in_range(1..5) }
+      it { should validate_inclusion_of(:release_type).in_array(Preparation::CATEGORY) }
     end
-
-    it 'is valid without attribute project' do
-      preparation = FactoryBot.create(:preparation, project: nil)
-      expect(preparation).to be_valid
-    end
-
   end
 end
