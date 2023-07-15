@@ -1,4 +1,19 @@
 pt-BR:
-  view:
-    purposes:
-      edit: "Editar o propósito"
+  views:
+    micro_goals:
+      show:
+        edit: 'Editar este propósito'
+        back: 'Voltar para os Propósitos'
+        destroy: 'Excluir este Propósito'
+      new:
+        title: 'Novo Propósito:'
+        form: 'Formulário'
+        back: 'Voltar para os Propósitos'
+      index:
+        title: 'Propósito:'
+        new_button: 'Novo Propósito'
+        show_link: 'Visualizar este Propósito'
+      edit:
+        title: 'Editando Propósito:'
+        show_link: 'Visualizar este Propósito'
+        back_link: 'Voltar para os Propósitos'
