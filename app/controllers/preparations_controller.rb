@@ -12,7 +12,7 @@ class PreparationsController < ApplicationController
     @preparation = current_user.student.preparations.build(preparation_params)
 
     if @preparation.save
-      flash[:notice] = 'preparation.controller.flash_create'
+      flash[:notice] = t('preparation.controller.flash_create')
       redirect_to action: :show, id: @preparation.id
     else
       flash[:alert] = @preparation.errors.full_messages.join('. ')
@@ -24,7 +24,7 @@ class PreparationsController < ApplicationController
 
   def update
     if @preparation.update(preparation_params)
-      flash[:notice] = 'Preparação atualizada com sucesso.'
+      flash[:notice] = t('preparation.controller.flash_update')
       redirect_to action: :show, id: @preparation.id
     else
       redirect_to action: :edit
