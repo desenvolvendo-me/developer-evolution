@@ -58,4 +58,14 @@ if Rails.env.development?
   Experience.create(content: "Não conseguir aprender programação", week: 1, level: 1, category: "fear", student: student)
   Experience.create(content: "Não conseguir passar na entrevista", week: 1, level: 1, category: "fear", student: student)
 
+  Objective.create(title: "Ter domínio da stack e da parte negocial de um produto.",
+                   reason: 'Quero entregar resultados para as empresas onde estiver. Quero saber conversar com os stakeholders e com a equipe de igual para igual, trazendo soluções para os problemas e saber negociar prazos e estimativas de entrega das soluções. Percebi que nesses pontos eu tenho muita dificuldade e por vezes, nas reuniões de time, entro mudo e saio calado, sem ter nenhuma idéia ou opinião sobre o que está sendo discutido.',
+                   people_involved: 'William',
+                   resources: 'Saber habilidades técnicas e comportamentais',
+                   expected_results: 'Construir 1 projeto com no ménimo 4 commits feitos por dia no GitHub onde eu tenha domínio do que o sistema resolve e o que cada linha de código faz.',
+                   achieved: 'Quando tiver este projeto criado eu saiba explicá-lo em uma entrevista',
+                   metrics: 'Ter no mínimo 4 commits por dia em 30 dias.',
+                   max_deadline: Date.parse("2024-12-31"),
+                   min_deadline: Date.parse("2023-12-31"),
+                   student: student)
 end
