@@ -7,7 +7,7 @@ ActiveAdmin.register Student do
 
   index do
     column :name
-    column :class_name
+    column :class_description
     column :enrollment_duration do |student|
       (Date.today - student.enrollment_date).to_i / 30
     end
@@ -21,7 +21,7 @@ ActiveAdmin.register Student do
   show title: proc { |p| "Estudante: " + p.name } do
     attributes_table title: "Básico" do
       row :name
-      row :class_name
+      row :class_description
       row :enrollment_date do |student|
         student.enrollment_date.strftime("%d/%m/%Y")
       end

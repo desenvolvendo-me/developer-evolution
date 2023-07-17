@@ -4,7 +4,7 @@
 #
 #  id                        :bigint           not null, primary key
 #  challenge                 :integer
-#  class_name                :string
+#  class_description         :string
 #  class_progress            :integer
 #  description_career        :string
 #  enrollment_date           :date
@@ -65,7 +65,7 @@ FactoryBot.define do
   factory :student do
     login { "jhonesaly" }
     name { "Alyson Jhones" }
-    class_name { "13" }
+    class_description { "13" }
     enrollment_date { "16/01/2023".to_date }
     type_career { "not_technology" }
     description_career { "Engenheiro" }

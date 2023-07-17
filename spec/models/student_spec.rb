@@ -4,7 +4,7 @@
 #
 #  id                        :bigint           not null, primary key
 #  challenge                 :integer
-#  class_name                :string
+#  class_description         :string
 #  class_progress            :integer
 #  description_career        :string
 #  enrollment_date           :date
