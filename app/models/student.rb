@@ -64,7 +64,6 @@
 class Student < ApplicationRecord
   belongs_to :user
   has_many :practices
-  has_many :thoughts
 
   extend FriendlyId
   friendly_id :login, use: :slugged
