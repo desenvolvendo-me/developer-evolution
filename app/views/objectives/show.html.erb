@@ -3,8 +3,8 @@
 <%= render @objective %>
 
 <div>
-  <%= link_to "Edit this objective", edit_objective_path(@objective) %> |
-  <%= link_to "Back to objectives", objectives_path %>
+  <%= link_to I18n.t('objective.edit'), edit_objective_path(@objective) %> |
+  <%= link_to I18n.t('objective.back'), objectives_path %>
 
-  <%= button_to "Destroy this objective", @objective, method: :delete %>
+  <%= button_to I18n.t('objective.destroy'), @objective, method: :delete %>
 </div>

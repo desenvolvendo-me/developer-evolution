@@ -5,6 +5,16 @@ pt-BR:
         content: conteúdo
         level: nível
         week: semana
+      objective:
+        title: O que eu desejo alcançar?
+        reason: Por que esse objetivo é importante?
+        people_involved: Quem são os envolvidos?
+        resources: Quais são os recursos necessários?
+        expected_results: Quais são os resultados esperados, em termos quantitativos?
+        achieved: Como vou saber se foi alcançado?
+        metrics: Quais métricas podem ser usadas para acompanhar os resultados?
+        max_deadline: Qual é o prazo máximo para atigir?
+        min_deadline: Qual é o prazo mínimo para atigir?
     errors:
       models:
         experience:
@@ -17,10 +27,11 @@ pt-BR:
               inclusion: precisa ser incluso
             content:
               blank: não pode ficar vazio
-  helpers:
-    submit:
-      create: Criar experiência
-      update: Atualizar experiência
+    helpers:
+      objectives:
+        submit:
+          create: Criar objetivo
+          update: Atualizar objetivo
   experience:
     form:
       category_label: categoria
@@ -52,6 +63,14 @@ pt-BR:
     metrics: Quais métricas podem ser usadas para acompanhar os resultados?
     max_deadline: Qual é o prazo máximo para atigir?
     min_deadline: Qual é o prazo mínimo para atigir?
+    show: Mostrar esse objetivo
+    new: Criar objetivo
+    edit: Editar esse objetivo
+    back: Voltar para objetivos
+    destroy: Apagar objetivo
+    edit_view: Editando objetivo
+    index_view: Objetivos
+    new_view: Novo objetivo
 
 
 
