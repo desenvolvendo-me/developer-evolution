@@ -1,0 +1,7 @@
+pt-BR:
+  controller:
+    thoughts:
+      flash_update: 'Pensamento atualizado com sucesso.'
+      flash_create: 'Pensamento criado com sucesso.'
+      flash_destroy: 'Pensamento excluido com sucesso.'
+  views:
