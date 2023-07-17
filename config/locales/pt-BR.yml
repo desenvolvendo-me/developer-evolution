@@ -42,4 +42,16 @@ pt-BR:
     controller:
       flash_create: Experiência cadastrada com sucesso
       flash_update: Experiência atualizada com sucesso
+  objective:
+    title: O que eu desejo alcançar?
+    reason: Por que esse objetivo é importante?
+    people_involved: Quem são os envolvidos?
+    resources: Quais são os recursos necessários?
+    expected_results: Quais são os resultados esperados, em termos quantitativos?
+    achieved: Como vou saber se foi alcançado?
+    metrics: Quais métricas podem ser usadas para acompanhar os resultados?
+    max_deadline: Qual é o prazo máximo para atigir?
+    min_deadline: Qual é o prazo mínimo para atigir?
+
+
 
