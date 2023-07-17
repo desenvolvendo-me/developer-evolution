@@ -1,52 +1,47 @@
 <div id="<%= dom_id objective %>">
   <p>
-    <strong>Title:</strong>
+    <strong><%= I18n.t('objective.title') %></strong>
     <%= objective.title %>
   </p>
 
   <p>
-    <strong>Reason:</strong>
+    <strong><%= I18n.t('objective.reason') %></strong>
     <%= objective.reason %>
   </p>
 
   <p>
-    <strong>People involved:</strong>
+    <strong><%= I18n.t('objective.people_involved') %></strong>
     <%= objective.people_involved %>
   </p>
 
   <p>
-    <strong>Resources:</strong>
+    <strong><%= I18n.t('objective.resources') %></strong>
     <%= objective.resources %>
   </p>
 
   <p>
-    <strong>Expected results:</strong>
+    <strong><%= I18n.t('objective.expected_results') %></strong>
     <%= objective.expected_results %>
   </p>
 
   <p>
-    <strong>Achieved:</strong>
+    <strong><%= I18n.t('objective.achieved') %></strong>
     <%= objective.achieved %>
   </p>
 
   <p>
-    <strong>Metrics:</strong>
+    <strong><%= I18n.t('objective.metrics') %></strong>
     <%= objective.metrics %>
   </p>
 
   <p>
-    <strong>Max deadline:</strong>
+    <strong><%= I18n.t('objective.max_deadline') %></strong>
     <%= objective.max_deadline %>
   </p>
 
   <p>
-    <strong>Min deadline:</strong>
+    <strong><%= I18n.t('objective.min_deadline') %></strong>
     <%= objective.min_deadline %>
-  </p>
-
-  <p>
-    <strong>Student:</strong>
-    <%= objective.student_id %>
   </p>
 
 </div>
