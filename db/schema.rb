@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_16_181224) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,6 +38,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "micro_goals", force: :cascade do |t|
+    t.string "micro_goal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_micro_goals_on_student_id"
   end
 
   create_table "practices", force: :cascade do |t|
@@ -97,6 +105,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "micro_goal_id", null: false
+    t.string "task"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "percentage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["micro_goal_id"], name: "index_tasks_on_micro_goal_id"
+  end
+
+  create_table "thoughts", force: :cascade do |t|
+    t.integer "level"
+    t.string "positive"
+    t.string "negative"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_thoughts_on_student_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -111,4 +140,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
 
   add_foreign_key "practices", "students"
   add_foreign_key "students", "users"
+  add_foreign_key "tasks", "micro_goals"
+  add_foreign_key "thoughts", "students"
 end
