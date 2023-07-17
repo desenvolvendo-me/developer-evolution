@@ -54,4 +54,7 @@ if Rails.env.development?
 
   student.save!
 
+  # Future generator
+  Thought.create(level: 1, positive: "Planejamento das atividades", negative: "Medo de ficar travado numa atividade", student: student)
+  Thought.create(level: 2, positive: "otimismo", negative: "Ansiedade de resultados rápidos", student: student)
 end
