@@ -32,6 +32,52 @@
 
 ---
 pt-BR:
+  views:
+    routines:
+      index:
+        back_to_home: "Voltar para home"
+        title: "Lista de rotinas:"
+        new_routine: "Nova Rotina"
+        day_of_the_week: "Dia da semana"
+        hour: "Horário"
+        activity: "Ação"
+        priority: "Prioridade"
+        alter: "Alterar"
+        delete: "Excluir"
+      show:
+        show_routine: "Mostrar Rotina:"
+        day_of_the_week: "Dia da semana:"
+        hour: "Horário:"
+        activity: "Ação:"
+        priority: "Prioridade:"
+        edit: "Editar"
+        back: "Voltar"
+      edit:
+        edit_routine: "Editar Rotina:"
+        save_change: "Salvar Alterações"
+        show_this_rotine: "Mostrar esta rotina"
+        back_to_routines: "Voltar para todas as rotinas"
+      new:
+        back_to_routines: "Voltar para a lista de rotinas"
+        register_new_routine: "Cadastrar nova Routine:"
+        create_routine: "Criar nova rotina"
+      pre_destroy_routine:
+        routine_information: "Informações da Rotina:"
+        day_of_the_week: "Dia da semana:"
+        hour: "Horário:"
+        activity: "Ação:"
+        priority: "Prioridade:"
+        delete_routine: "Deletar esta rotina"
+        back_to_routines: "Voltar para tela principal"
+        delete_confirmation: "Tem certeza que quer deletar esta rotina?"
+      form:
+        error: "Proibir esta rotina de ser salva:"
+        prohibit_saving_routine: "Proibir esta rotina de ser salva"
+        day_of_the_week: "Dia da semana:"
+        hour: "Horário:"
+        activity: "Ação:"
+        priority: "Prioridade:"
+
   activerecord:
     errors:
       messages:
