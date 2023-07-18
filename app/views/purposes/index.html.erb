@@ -1,14 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Purposes</h1>
+<h1><%= t('purposes.index.tittle') %></h1>
 
 <div id="purposes">
   <% @purposes.each do |purpose| %>
     <%= render purpose %>
     <p>
-      <%= link_to "Show this purpose", purpose %>
+      <%= link_to t('purposes.index.show'), purpose %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New purpose", new_purpose_path %>
+<%= link_to t('purposes.index.new'), new_purpose_path %>

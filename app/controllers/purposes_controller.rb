@@ -13,9 +13,9 @@ class PurposesController < ApplicationController
     @purpose.student = current_user.student
 
     if @purpose.save
-      redirect_to @purpose, notice: "Purpose was successfully created."
+      redirect_to @purpose, notice: t('controller.flash_create')
     else
-      flash[:notice] = "There were some errors with your purpose."
+      flash[:notice] = t('controller.flash_create')
       render :new
     end
   end
@@ -27,7 +27,7 @@ class PurposesController < ApplicationController
   def update
     @purpose = Purpose.find(params[:id])
     if @purpose.update(purpose_params)
-      flash[:notice] = 'Propósito atualizado com sucesso.'
+      flash[:notice] = t('controller.flash_update')
       redirect_to purpose_path(@purpose)
     else
       render 'edit'
@@ -41,7 +41,7 @@ class PurposesController < ApplicationController
   def destroy
     @purpose = Purpose.find(params[:id])
     @purpose.destroy
-    flash[:notice] = 'Propósito excluído com sucesso.'
+    flash[:notice] = t('controller.flash_destroy')
     redirect_to purposes_path
   end
 

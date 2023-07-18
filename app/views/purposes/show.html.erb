@@ -3,8 +3,8 @@
 <%= render @purpose %>
 
 <div>
-  <%= link_to "Purpose edit", edit_purpose_path(@purpose) %> |
-  <%= link_to "Back to purposes", purposes_path %>
+  <%= link_to t('purposes.show.edit'), edit_purpose_path(@purpose) %> |
+  <%= link_to t('purposes.show.back'), purposes_path %>
 
-  <%= button_to "Destroy this purpose", @purpose, method: :delete %>
+  <%= button_to t('purposes.show.destroy'), @purpose, method: :delete %>
 </div>

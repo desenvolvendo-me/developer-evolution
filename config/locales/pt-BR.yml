@@ -1,6 +1,11 @@
 pt-BR:
+
+  controller:
+    flash_create: 'Propoósito cadastrado com sucesso'
+    flash_update: 'Propósito atualizado com sucesso'
+    flash_destroy: 'Propósito exlcuido com sucesso'
   views:
-    micro_goals:
+    purpose:
       show:
         edit: 'Editar este propósito'
         back: 'Voltar para os Propósitos'
@@ -17,3 +22,37 @@ pt-BR:
         title: 'Editando Propósito:'
         show_link: 'Visualizar este Propósito'
         back_link: 'Voltar para os Propósitos'
+  purposes:
+    form:
+      version: 'Versão'
+      time: 'Tempo'
+      type_question: 'Tipo de pergunta'
+      question: 'Pergunta'
+      answer: 'Resposta'
+    index:
+      tittle: 'Propósitos'
+      new: 'Novo Propósito'
+      show: 'Mostrar Propósito'
+    new:
+      tittle: 'Novo Propósito'
+      back: 'Voltar'
+    show:
+      edit: 'Editar Propósito'
+      back: 'Voltar '
+      destroy: 'Apagar Propósito'
+    edit:
+      show: 'Mostrar Propósito'
+      back: 'Voltar'
+      index: 'Editar Propósito'
+      edit_purpose: "Editar Propósito"
+  helpers:
+    submit:
+      create: 'Criar Propósito'
+  purpose:
+    version: "Versão: "
+    time: "Tempo:"
+    type_question: "Tipo de pergunta:"
+    question: "Pergunta:"
+    answer: "Resposta: "
+
+
