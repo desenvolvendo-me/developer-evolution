@@ -7,7 +7,7 @@ if Rails.env.development?
   student.login = "jhonesaly"
   student.name = "Alyson Jhones"
   student.class_description = "13"
-  student.enrollment_date =  Date.today - 1
+  student.enrollment_date =  Date.today - 7
   student.type_career = "not_technology"
   student.description_career = "Engenheiro"
   student.salary = 0
