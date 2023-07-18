@@ -12,31 +12,31 @@
   <% end %>
 
   <div>
-    <%= form.label :version, style: "display: block" %>
+    <%= form.label :version, t('.version'), style: "display: block" %>
     <%= form.number_field :version, required: true %>
   </div>
 
   <div>
-    <%= form.label :time, style: "display: block" %>
+    <%= form.label :time, t('.time'), style: "display: block" %>
     <%= form.number_field :time, required: true %>
   </div>
 
   <div>
-    <%= form.label :type_question, style: "display: block" %>
+    <%= form.label :type_question, t('.type_question'), style: "display: block" %>
     <%= form.text_field :type_question, required: true %>
   </div>
 
   <div>
-    <%= form.label :question, style: "display: block" %>
+    <%= form.label :question, t('.question'), style: "display: block" %>
     <%= form.text_area :question, required: true %>
   </div>
 
   <div>
-    <%= form.label :answer, style: "display: block" %>
+    <%= form.label :answer, t('.answer'), style: "display: block" %>
     <%= form.text_area :answer, required: true %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit t('helpers.submit.create')%>
   </div>
 <% end %>
