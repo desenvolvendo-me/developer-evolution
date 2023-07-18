@@ -54,10 +54,30 @@ RSpec.describe Ballasts::Discipline do
       expect(discipline[:stats][:micro_goal_compared]).to eq(discipline_expected[:stats][:micro_goal_compared])
     end
 
-    it 'day' do
-      discipline = Ballasts::Discipline.call
+    context 'day' do
 
-      expect(discipline[:stats][:day]).to eq(discipline_expected[:stats][:day])
+      it "commit before enrollment date" do
+        @student.enrollment_date = Date.today - 1
+        create(:practice, commit_date: Date.today, commit_total: 3, student: @student)
+        create(:practice, commit_date: Date.today - 1, commit_total: 3, student: @student)
+        create(:practice, commit_date: Date.today - 2, commit_total: 6, student: @student)
+
+        discipline = Ballasts::Discipline.call(resource: @student)
+
+        expect(discipline[:stats][:day]).to eq(3)
+      end
+
+      it "commit after enrollment date" do
+        @student.enrollment_date = Date.today - 2
+        create(:practice, commit_date: Date.today, commit_total: 3, student: @student)
+        create(:practice, commit_date: Date.today - 1, commit_total: 3, student: @student)
+        create(:practice, commit_date: Date.today - 2, commit_total: 6, student: @student)
+
+        discipline = Ballasts::Discipline.call(resource: @student)
+
+        expect(discipline[:stats][:day]).to eq(4)
+      end
+
     end
 
     it 'week' do
