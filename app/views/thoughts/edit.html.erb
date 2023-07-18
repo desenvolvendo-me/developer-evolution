@@ -1,0 +1,10 @@
+<h1><%= I18n.t('views.edit.title') %></h1>
+
+<%= render "form", thought: @thought %>
+
+<br>
+
+<div>
+  <%= link_to t('views.edit.show_this_thought'), @thought %> |
+  <%= link_to t('views.edit.show_thoughts'), thoughts_path %>
+</div>
