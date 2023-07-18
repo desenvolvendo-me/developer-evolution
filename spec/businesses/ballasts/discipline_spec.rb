@@ -80,10 +80,41 @@ RSpec.describe Ballasts::Discipline do
 
     end
 
-    it 'week' do
-      discipline = Ballasts::Discipline.call
+    context 'week' do
 
-      expect(discipline[:stats][:week]).to eq(discipline_expected[:stats][:week])
+      it 'calculate week average' do
+        @student.enrollment_date = Date.today - 8
+        create(:practice, commit_date: Date.today, commit_total: 3, student: @student)
+        create(:practice, commit_date: Date.today - 1, commit_total: 3, student: @student)
+        create(:practice, commit_date: Date.today - 2, commit_total: 6, student: @student)
+        create(:practice, commit_date: Date.today - 3, commit_total: 5, student: @student)
+        create(:practice, commit_date: Date.today - 5, commit_total: 7, student: @student)
+        create(:practice, commit_date: Date.today - 6, commit_total: 6, student: @student)
+        create(:practice, commit_date: Date.today - 7, commit_total: 2, student: @student)
+
+        discipline = Ballasts::Discipline.call(resource: @student)
+
+        wday = Date.today.wday
+        result = nil
+
+        case wday
+        when 0 # Domingo
+          result = 3
+        when 1 # Segunda-feira
+          result = 6
+        when 2 # Terça-feira
+          result = 12
+        when 3
+          result = 17
+        when 4
+          result = 24
+        when 5
+          result = 30
+        when 6
+          result = 32
+        end
+        expect(discipline[:stats][:week]).to eq(result)
+      end
     end
 
     it 'micro_goal' do
