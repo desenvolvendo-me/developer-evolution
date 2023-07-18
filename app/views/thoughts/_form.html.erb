@@ -1,0 +1,32 @@
+<%= form_with(model: thought) do |form| %>
+  <% if thought.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(thought.errors.count, "error") %> prohibited this thought from being saved:</h2>
+
+      <ul>
+        <% thought.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :level, t('views.form.level'), style: "display: block" %>
+    <%= form.number_field :level %>
+  </div>
+
+  <div>
+    <%= form.label :positive, t('views.form.positive'), style: "display: block" %>
+    <%= form.text_field :positive %>
+  </div>
+
+  <div>
+    <%= form.label :negative, t('views.form.negative'), style: "display: block" %>
+    <%= form.text_field :negative %>
+  </div>
+
+  <div>
+    <%= form.submit t('.submit', default: @action) %>
+  </div>
+<% end %>
