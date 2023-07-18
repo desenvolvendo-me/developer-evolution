@@ -5,6 +5,8 @@ pt-BR:
     flash_update: 'Propósito atualizado com sucesso'
     flash_destroy: 'Propósito exlcuido com sucesso'
   views:
+    welcome:
+      index: 'Bem vindo!'
     purpose:
       show:
         edit: 'Editar este propósito'
