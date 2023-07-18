@@ -4,4 +4,37 @@ pt-BR:
       flash_update: 'Pensamento atualizado com sucesso.'
       flash_create: 'Pensamento criado com sucesso.'
       flash_destroy: 'Pensamento excluido com sucesso.'
+      new:
+        submit: 'Criar Pensamento'
+      edit:
+        submit: 'Atualizar Pensamento'
   views:
+    show:
+      notice: "Aviso"
+      edit_this_thought: "Editar este pensamento"
+      back_to_thoughts: "Voltar aos pensamentos"
+      destroy_this_thought: "Excluir este pensamento"
+    thought:
+      level: "Nível"
+      positive: "Positivo"
+      negative: "Negativo"
+    new:
+      new_thought: "Novo pensamento:"
+      back_to_thoughts: "Voltar para os pensamentos"
+    form:
+      errors.prohibited_this_thought_from_being_saved: "Erros impediram este pensamento de ser salvo"
+      errors.full_message: "Mensagem de erro completa"
+      level: "Nível:"
+      positive: "Positivo:"
+      negative: "Negativo:"
+      update_thought: "Atualizar pensamento"
+      create_thought: "Criar Pensamento"
+      #submit: <%= @action %>
+    index:
+      notice: "Aviso"
+      show_this_thought: "Mostrar este pensamento"
+      new_thought: "Novo Pensamento"
+    edit:
+      title: "Editando pensamento:"
+      show_thoughts: "Voltar para pensamentos"
+      show_this_thought: "Mostrar este pensamento"
