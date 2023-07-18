@@ -60,5 +60,10 @@ if Rails.env.development?
   Practice.create(commit_date: Date.today, commit_total: 3, student: student)
   Practice.create(commit_date: Date.today - 1, commit_total: 3, student: student)
   Practice.create(commit_date: Date.today - 2, commit_total: 6, student: student)
+  Practice.create(commit_date: Date.today - 3, commit_total: 5, student: student)
+  Practice.create(commit_date: Date.today - 5, commit_total: 7, student: student)
+  Practice.create(commit_date: Date.today - 6, commit_total: 6, student: student)
+  Practice.create(commit_date: Date.today - 7, commit_total: 2, student: student)
+  Practice.create(commit_date: Date.today - 8, commit_total: 12, student: student)
 
 end
