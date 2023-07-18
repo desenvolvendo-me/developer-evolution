@@ -1,16 +1,17 @@
-<a href="/">Voltar para home</a><br>
-  <h1>Lista de rotinas:</h1><br>
-  <hr>
+<a href="/"><%= t('views.routines.index.back_to_home') %></a><br>
+  <h1><%= t('views.routines.index.title') %></h1><br>
 
-<a href="<%= new_routine_path %>" class="new-routine-link">Nova Rotina</a><br><br>
+<hr>
+
+<a href="<%= new_routine_path %>" class="new-routine-link"><%= t('views.routines.index.new_routine') %></a><br><br>
 
   <table class="table-bordered">
     <thead>
       <tr>
-        <th>Dia da Semana</th>
-          <th>Horário</th>
-          <th>Ação</th>
-          <th>Prioridade</th>
+        <th><%= t('views.routines.index.day_of_the_week') %></th>
+          <th><%= t('views.routines.index.hour') %></th>
+          <th><%= t('views.routines.index.activity') %></th>
+          <th><%= t('views.routines.index.priority') %></th>
         </tr>
     </thead>
     <tbody>
@@ -21,8 +22,8 @@
           <td><%= routine.activity %></td>
           <td><%= routine.priority %></td>
           <td>
-            <a href="<%= edit_routine_path(routine) %>" class="btn">Alterar</a>
-            <a href="<%= pre_destroy_routine_path(routine) %>" class="btn">Excluir</a>
+            <a href="<%= edit_routine_path(routine) %>" class="btn"><%= t('views.routines.index.alter') %></a> |
+            <a href="<%= pre_destroy_routine_path(routine) %>" class="btn"><%= t('views.routines.index.delete') %></a>
           </td>
           </tr>
       <% end %>
