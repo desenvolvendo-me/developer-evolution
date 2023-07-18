@@ -56,5 +56,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'rspec-benchmark'
-  gem 'database_cleaner'
 end
