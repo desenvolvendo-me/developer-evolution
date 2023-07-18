@@ -7,7 +7,7 @@ class StudentsController < ApplicationController
   end
 
   def ballast
-    @discipline = Ballasts::Discipline.call
+    @discipline = Ballasts::Discipline.call(resource: current_user.student)
   end
 
   private
