@@ -4,14 +4,14 @@
 <% end %>
 
 <% if @routine %>
-    <h2>Informações da Rotina:</h2>
+    <h2><%= t('views.routines.pre_destroy_routine.routine_information') %></h2>
     <hr>
-    <p><strong>Dia da semana:</strong> <%= @routine.day_of_the_week %></p>
-    <p><strong>Hora:</strong> <%= @routine.hour %></p>
-    <p><strong>Ação:</strong> <%= @routine.activity %></p>
-    <p><strong>Prioridade:</strong> <%= @routine.priority %></p>
+    <p><strong><%= t('views.routines.pre_destroy_routine.day_of_the_week') %></strong> <%= @routine.day_of_the_week %></p>
+    <p><strong><%= t('views.routines.pre_destroy_routine.hour') %></strong> <%= @routine.hour %></p>
+    <p><strong><%= t('views.routines.pre_destroy_routine.activity') %></strong> <%= @routine.activity %></p>
+    <p><strong><%= t('views.routines.pre_destroy_routine.priority') %></strong> <%= @routine.priority %></p>
     <hr>
-    <%= button_to "Deletar esta Rotina", delete_routine_path(@routine), method: :delete, data: { confirm: 'Tem certeza?', class: 'btn' } %></p>
-    <p><%= button_to "Voltar a tela Principal", routines_path(), method: :get %></p>
+    <%= button_to t('views.routines.pre_destroy_routine.delete_routine'), delete_routine_path(@routine), method: :delete, data: { confirm: t('views.routines.pre_destroy_routine.delete_confirmation'), class: 'btn' } %></p>
+    <p><%= button_to t('views.routines.pre_destroy_routine.back_to_routines'), routines_path(), method: :get %></p>
 <% end %>
 </body>
