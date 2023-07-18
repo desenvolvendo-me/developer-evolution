@@ -7,7 +7,7 @@ if Rails.env.development?
   student.login = "jhonesaly"
   student.name = "Alyson Jhones"
   student.class_description = "13"
-  student.enrollment_date = "16/01/2023".to_date
+  student.enrollment_date =  Date.today - 1
   student.type_career = "not_technology"
   student.description_career = "Engenheiro"
   student.salary = 0
@@ -55,5 +55,10 @@ if Rails.env.development?
   student.mission_startup_point = 10
 
   student.save!
+
+  # Practices
+  Practice.create(commit_date: Date.today, commit_total: 3, student: student)
+  Practice.create(commit_date: Date.today - 1, commit_total: 3, student: student)
+  Practice.create(commit_date: Date.today - 2, commit_total: 6, student: student)
 
 end
