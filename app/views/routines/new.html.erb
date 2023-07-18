@@ -1,5 +1,5 @@
-<a href="<%= routines_path %>">Voltar para Lista de Rotinas</a>
-<h1>Cadastrar nova Routine:</h1>
+<a href="<%= routines_path %>"><%= t('views.routines.new.back_to_routines') %></a>
+<h1><%= t('views.routines.new.register_new_routine') %></h1>
 <hr>
 <br>
-<%= render 'form', model: @routine, url: routines_create_path, local: true, method: 'post', button_text: 'Criar Rotina' %>
+<%= render 'form', model: @routine, url: routines_create_path, local: true, method: 'post', button_text: t('views.routines.new.create_routine') %>
