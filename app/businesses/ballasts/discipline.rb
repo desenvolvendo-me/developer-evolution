@@ -41,17 +41,8 @@ module Ballasts
 
     def last_day
       number = @student.practices.last.commit_total
-
-      if number >= 3
-        icon = "heart"
-      else
-        icon = "heart-broken"
-      end
-
-      {
-        number: number,
-        icon: icon
-      }
+      (number >= 3) ? icon = "heart" : icon = "heart-broken"
+      { number: number, icon: icon }
     end
 
     def last_week_average
