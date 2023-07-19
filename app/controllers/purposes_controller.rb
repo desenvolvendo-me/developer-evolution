@@ -12,12 +12,7 @@ class PurposesController < ApplicationController
     @purpose = Purpose.new(purpose_params)
     @purpose.student = current_user.student
 
-    if @purpose.save
-      redirect_to @purpose, notice: t('controller.flash_create')
-    else
-      flash[:notice] = t('controller.flash_create')
-      render :new
-    end
+    redirect_to(@purpose.save ? @purpose : { action: "new" }, notice: t('controller.flash_create'))
   end
 
   def edit
@@ -26,12 +21,7 @@ class PurposesController < ApplicationController
 
   def update
     @purpose = Purpose.find(params[:id])
-    if @purpose.update(purpose_params)
-      flash[:notice] = t('controller.flash_update')
-      redirect_to purpose_path(@purpose)
-    else
-      render 'edit'
-    end
+    @purpose.update(purpose_params) ? redirect_to(@purpose, notice: t('controller.flash_update')) : render(:edit)
   end
 
   def index
