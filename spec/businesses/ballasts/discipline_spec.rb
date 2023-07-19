@@ -62,16 +62,18 @@ RSpec.describe Ballasts::Discipline do
 
         discipline = Ballasts::Discipline.call(resource: @student)
 
-        expect(discipline[:stats][:day]).to eq(3)
+        expect(discipline[:stats][:day][:number]).to eq(3)
+        expect(discipline[:stats][:day][:icon]).to eq("heart")
       end
 
-      it "last no ok" do
+      it "last not ok" do
         create(:practice, commit_date: Date.today - 1, commit_total: 3, student: @student)
         create(:practice, commit_date: Date.today, commit_total: 2, student: @student)
 
         discipline = Ballasts::Discipline.call(resource: @student)
 
-        expect(discipline[:stats][:day]).to eq(2)
+        expect(discipline[:stats][:day][:number]).to eq(2)
+        expect(discipline[:stats][:day][:icon]).to eq("heart-broken")
       end
 
     end
