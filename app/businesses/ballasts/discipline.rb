@@ -29,7 +29,7 @@ module Ballasts
         },
         stats: {
           micro_goal_compared: 23,
-          day: day_average,
+          day: last_day,
           week: last_week_average,
           micro_goal: 33,
           goal: 1234
@@ -39,12 +39,8 @@ module Ballasts
 
     private
 
-    def day_average
-      practices = @student.practices.where('commit_date >= ?', @student.enrollment_date)
-
-      practices_total = practices.count
-      commits = practices.sum(:commit_total)
-      commits / practices_total
+    def last_day
+      @student.practices.last.commit_total
     end
 
     def last_week_average
