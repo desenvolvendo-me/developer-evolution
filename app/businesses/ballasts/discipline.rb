@@ -30,7 +30,7 @@ module Ballasts
         stats: {
           micro_goal_compared: 23,
           day: last_day,
-          week: last_week_average,
+          week: last_week_sum,
           micro_goal: 33,
           goal: 1234
         }
@@ -46,14 +46,23 @@ module Ballasts
       { number: number, icon: icon }
     end
 
-    def last_week_average
+    def last_week_sum
       today = Date.today
       last_saturday = today - (today.wday + 1) % 7
       sunday_before_saturday = last_saturday - 6
 
       practices = @student.practices.where(commit_date: (sunday_before_saturday..last_saturday))
 
-      practices.sum(:commit_total)
+      number = practices.sum(:commit_total)
+      if number >= 21
+        icon = 'heart'
+      else
+        icon = 'heart-broken'
+      end
+      {
+        number: number,
+        icon: icon
+      }
     end
 
   end
