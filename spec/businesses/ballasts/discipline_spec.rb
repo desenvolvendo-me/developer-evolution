@@ -80,38 +80,21 @@ RSpec.describe Ballasts::Discipline do
 
     context 'week' do
 
-      it 'calculate week average' do
-        @student.enrollment_date = Date.today - 8
-        create(:practice, commit_date: Date.today, commit_total: 3, student: @student)
-        create(:practice, commit_date: Date.today - 1, commit_total: 3, student: @student)
-        create(:practice, commit_date: Date.today - 2, commit_total: 6, student: @student)
-        create(:practice, commit_date: Date.today - 3, commit_total: 5, student: @student)
-        create(:practice, commit_date: Date.today - 5, commit_total: 7, student: @student)
-        create(:practice, commit_date: Date.today - 6, commit_total: 6, student: @student)
-        create(:practice, commit_date: Date.today - 7, commit_total: 2, student: @student)
+      it 'calculate last week sum' do
+        (0..13).each do |days_ago|
+          commit_date = Date.today - (14 - days_ago)
+          commit_total = rand(2..12)
+          create(:practice, commit_date: commit_date, commit_total: commit_total, student: @student)
+        end
+
+        last_saturday = Date.today - (Date.today.wday + 1) % 7
+        sunday_before_saturday = last_saturday - 6
+
+        practices = @student.practices.where(commit_date: (sunday_before_saturday..last_saturday))
+        commit_totals = practices.pluck(:commit_total).sum
 
         discipline = Ballasts::Discipline.call(resource: @student)
-
-        wday = Date.today.wday
-        result = nil
-
-        case wday
-        when 0 # Domingo
-          result = 3
-        when 1 # Segunda-feira
-          result = 6
-        when 2 # Terça-feira
-          result = 12
-        when 3
-          result = 17
-        when 4
-          result = 24
-        when 5
-          result = 30
-        when 6
-          result = 32
-        end
-        expect(discipline[:stats][:week]).to eq(result)
+        expect(discipline[:stats][:week]).to eq(commit_totals)
       end
     end
 
