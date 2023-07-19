@@ -83,7 +83,7 @@ RSpec.describe Ballasts::Discipline do
       it 'calculate last week sum' do
         (0..13).each do |days_ago|
           commit_date = Date.today - (14 - days_ago)
-          commit_total = rand(2..12)
+          commit_total = rand(0..12)
           create(:practice, commit_date: commit_date, commit_total: commit_total, student: @student)
         end
 
@@ -100,7 +100,8 @@ RSpec.describe Ballasts::Discipline do
       end
     end
 
-    context 'micro_goal'
+    context 'micro_goal' do
+
       it 'calculate last 2 weeks' do
         (0..20).each do |days_ago|
           commit_date = Date.today - (21 - days_ago)
@@ -121,11 +122,27 @@ RSpec.describe Ballasts::Discipline do
         expect(discipline[:stats][:week][:icon]).to eq(icon)
       end
     end
+    context 'goal' do
 
-    it 'goal' do
-      discipline = Ballasts::Discipline.call
+      it 'return commits from last 3 months' do
+        (0..100).each do |days_ago|
+          commit_date = Date.today - (101 - days_ago)
+          commit_total = rand(0..12)
+          create(:practice, commit_date: commit_date, commit_total: commit_total, student: @student)
+        end
 
-      expect(discipline[:stats][:goal]).to eq(discipline_expected[:stats][:goal])
+        last_saturday = Date.today - (Date.today.wday + 1) % 7
+        three_months_back = last_saturday - 90
+
+        practices = @student.practices.where(commit_date: (three_months_back..last_saturday))
+        commit_totals = practices.pluck(:commit_total).sum
+
+        discipline = Ballasts::Discipline.call(resource:@student)
+
+        icon = commit_totals >= 252 ? 'heart' : 'heart-broken'
+        expect(discipline[:stats][:goal][:number]).to eq(commit_totals)
+        expect(discipline[:stats][:goal][:icon]).to eq(icon)
+      end
     end
-
+  end
 end
