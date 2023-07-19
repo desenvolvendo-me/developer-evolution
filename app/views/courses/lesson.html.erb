@@ -1,0 +1,41 @@
+<link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet">
+
+<div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+  <div id="profile" class="w-full lg:w-5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white mx-6 lg:mx-0">
+    <div class="p-4 md:p-12 text-center lg:text-left">
+      <h1 class="text-3xl text-center font-bold pt-8 lg:pt-0">
+        Lesson Sample
+      </h1>
+
+      <video id="my_video"
+             class="video-js"
+             controls preload="auto"
+             width="800"
+             height="400"
+             data-setup="{}">
+
+        <source src="http://localhost:3000<%= asset_path('video.mp4') %>" type="video/mp4"></source>
+      </video>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/video.js/dist/video.js"></script>
+
+<script>
+    var player = videojs('my_video');
+
+    player.on('ended', function () {
+        console.log('O vídeo terminou de ser reproduzido.');
+    });
+
+    var savedTime = localStorage.getItem('savedTime');
+    if (savedTime) {
+        player.currentTime(savedTime);
+    }
+
+    window.addEventListener('beforeunload', function () {
+        localStorage.setItem('savedTime', player.currentTime());
+    });
+</script>
