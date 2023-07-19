@@ -54,15 +54,8 @@ module Ballasts
       practices = @student.practices.where(commit_date: (sunday_before_saturday..last_saturday))
 
       number = practices.sum(:commit_total)
-      if number >= 21
-        icon = 'heart'
-      else
-        icon = 'heart-broken'
-      end
-      {
-        number: number,
-        icon: icon
-      }
+      icon = number >= 21 ? 'heart' : 'heart-broken'
+      { number: number, icon: icon }
     end
 
   end
