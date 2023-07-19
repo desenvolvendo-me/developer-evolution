@@ -1,6 +1,8 @@
 <div class="relative z-20 flex flex-col min-w-0 break-words bg-white border-0 border-solid border-black-125 shadow-soft-xl rounded-2xl bg-clip-border">
   <div class="flex-auto p-4">
-    <p class="mt-6 mb-0 ml-2 text-2xl">Your discipline (<span class="font-bold text-lime-600">+<%= @discipline[:stats][:micro_goal_compared] %>%</span>) than last micro goal</p>
+    <p class="mt-6 mb-0 ml-2 text-2xl">Your discipline
+      (<span class="font-bold text-lime-600">+<%= @discipline[:stats][:micro_goal_compared] %>%</span>) than last micro
+      goal</p>
     <div class="py-4 pr-1 mb-4 bg-gradient-to-tl from-blue-900 to-slate-800 rounded-xl">
       <div>
         <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
@@ -28,7 +30,8 @@
     <div class="w-full px-6 mx-auto max-w-screen-2xl rounded-xl">
       <div class="flex flex-wrap mt-0 -mx-3">
         <div class="flex-none text-xl w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
-          <h4 class="font-bold"><%= @discipline[:stats][:day] %></h4>
+          <i class="fa-solid fa-gauge-high"></i>
+          <h4 class="font-bold"><%= @discipline[:stats][:day][:number] %> <i class="fas fa-<%= @discipline[:stats][:day][:icon] %> fa-xs" style="color: #e60000;"></i></h4>
           <div class="text-xs h-0.75 flex w-3/4 overflow-visible rounded-lg bg-gray-200">
             <div class="duration-600 ease-soft -mt-0.4 -ml-px flex h-1.5 w-3/5 flex-col justify-center overflow-hidden whitespace-nowrap rounded-lg bg-slate-700 text-center text-white transition-all" role="progressbar" aria-valuenow="<%= @discipline[:stats][:day] %>" aria-valuemin="0" aria-valuemax="3"></div>
           </div>
