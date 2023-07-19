@@ -48,9 +48,10 @@ module Ballasts
 
     def last_week_average
       today = Date.today
-      sunday = today - today.wday
+      last_saturday = today - (today.wday + 1) % 7
+      sunday_before_saturday = last_saturday - 6
 
-      practices = @student.practices.where('commit_date >= ?', sunday)
+      practices = @student.practices.where(commit_date: (sunday_before_saturday..last_saturday))
 
       practices.sum(:commit_total)
     end
