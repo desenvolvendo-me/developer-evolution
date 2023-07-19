@@ -41,6 +41,7 @@ module Ballasts
 
     def last_day
       number = @student.practices.last.commit_total
+      #TODO: O número 3 será substituído por um cálculo de tempo disponível
       (number >= 3) ? icon = "heart" : icon = "heart-broken"
       { number: number, icon: icon }
     end
