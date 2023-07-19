@@ -31,7 +31,7 @@ module Ballasts
           micro_goal_compared: 23,
           day: last_day,
           week: last_week_sum,
-          micro_goal: 33,
+          micro_goal: last_two_weeks,
           goal: 1234
         }
       }
@@ -55,6 +55,18 @@ module Ballasts
 
       number = practices.sum(:commit_total)
       icon = number >= 21 ? 'heart' : 'heart-broken'
+      { number: number, icon: icon }
+    end
+
+    def last_two_weeks
+      today = Date.today
+      last_saturday = today - (today.wday + 1) % 7
+      sunday_two_weeks_before = last_saturday - 13
+
+      practices = @student.practices.where(commit_date: (sunday_two_weeks_before..last_saturday))
+
+      number = practices.sum(:commit_total)
+      icon = number >= 42 ? 'heart' : 'heart-broken'
       { number: number, icon: icon }
     end
 
