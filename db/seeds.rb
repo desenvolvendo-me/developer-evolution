@@ -7,7 +7,7 @@ if Rails.env.development?
   student.login = "jhonesaly"
   student.name = "Alyson Jhones"
   student.class_description = "13"
-  student.enrollment_date =  Date.today - 7
+  student.enrollment_date =  Date.today - 14
   student.type_career = "not_technology"
   student.description_career = "Engenheiro"
   student.salary = 0
@@ -57,13 +57,12 @@ if Rails.env.development?
   student.save!
 
   # Practices
-  Practice.create(commit_date: Date.today, commit_total: 3, student: student)
-  Practice.create(commit_date: Date.today - 1, commit_total: 3, student: student)
-  Practice.create(commit_date: Date.today - 2, commit_total: 6, student: student)
-  Practice.create(commit_date: Date.today - 3, commit_total: 5, student: student)
-  Practice.create(commit_date: Date.today - 5, commit_total: 7, student: student)
-  Practice.create(commit_date: Date.today - 6, commit_total: 6, student: student)
-  Practice.create(commit_date: Date.today - 7, commit_total: 2, student: student)
-  Practice.create(commit_date: Date.today - 8, commit_total: 12, student: student)
+  start_date = Date.today - 14
+  end_date = Date.today
+
+  (start_date..end_date).each do |date|
+    commit_total = rand(2..12)
+    Practice.create(commit_date: date, commit_total: commit_total, student: student)
+  end
 
 end
