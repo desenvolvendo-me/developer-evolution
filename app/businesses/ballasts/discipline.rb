@@ -32,7 +32,7 @@ module Ballasts
           day: last_day,
           week: last_week_sum,
           micro_goal: last_two_weeks,
-          goal: 1234
+          goal: last_three_months
         }
       }
     end
@@ -70,5 +70,15 @@ module Ballasts
       { number: number, icon: icon }
     end
 
+    def last_three_months
+      last_saturday = Date.today - (Date.today.wday + 1) % 7
+      three_months_back = last_saturday - 90
+
+      practices = @student.practices.where(commit_date: (three_months_back..last_saturday))
+
+      number = practices.pluck(:commit_total).sum
+      icon = number >= 252 ? 'heart' : 'heart-broken'
+      { number: number, icon: icon }
+    end
   end
 end
