@@ -1,8 +1,9 @@
 require 'rails_helper'
 
-require 'rails_helper'
-
 RSpec.describe Ballasts::Discipline do
+  def calculate_min_commits(hours_available)
+    min_commits = (hours_available / 2.0 * 3).ceil
+  end
   let(:student) { create(:student) }
   let(:expected_chart_data) do
     {
@@ -36,7 +37,7 @@ RSpec.describe Ballasts::Discipline do
   end
 
   describe '.call' do
-    subject(:discipline) { described_class.call(resource: student) }
+    subject(:discipline) { described_class.call(resource: student, time_available: 2) }
 
     context 'chart' do
       xit 'returns the discipline chart' do
@@ -48,6 +49,20 @@ RSpec.describe Ballasts::Discipline do
       describe 'micro_goal_compared' do
         xit 'returns micro_goal_compared' do
           expect(discipline[:stats][:micro_goal_compared]).to eq(expected_chart_data[:stats][:micro_goal_compared])
+        end
+      end
+
+      describe '2 hours available' do
+        hours_available = 2
+        it 'student made 3 or more commits' do
+          create(:practice, commit_date: Date.today - 1, commit_total: 5, student: student)
+
+          expect(discipline[:stats][:commits]).to eq(calculate_min_commits(hours_available))
+        end
+
+        it 'student made less than 3 commits' do
+          create(:practice, commit_date: Date.today, commit_total: 2, student: student)
+
         end
       end
 
