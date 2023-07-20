@@ -1,13 +1,10 @@
 module Ballasts
   class Discipline < BusinessApplication
+    attr_accessor :time_available
 
     WEEK = 6
     MICRO_GOAL = 13
     GOAL = 90
-    DAY_LIMIT = 3
-    WEEK_LIMIT = 21
-    MICRO_GOAL_LIMIT = 42
-    GOAL_LIMIT = 252
     ICON_OK = "heart"
     ICON_NOK = "heart-broken"
 
@@ -40,7 +37,6 @@ module Ballasts
         },
         stats: {
           micro_goal_compared: 23,
-          commits: calculate_min_commits(@time_available),
           goal: last_goal_sum,
           micro_goal: last_micro_goal_sum,
           week: last_week_sum,
@@ -53,20 +49,20 @@ module Ballasts
 
     def last_day
       number = @student.practices.last.commit_total
-      icon = (number >= DAY_LIMIT) ? ICON_OK : ICON_NOK
+      icon = (number >= calculate_min_commits) ? ICON_OK : ICON_NOK
       { number: number, icon: icon }
     end
 
     def last_week_sum
-      last_period_sum(WEEK, WEEK_LIMIT)
+      last_period_sum(WEEK, calculate_min_commits * 7)
     end
 
     def last_micro_goal_sum
-      last_period_sum(MICRO_GOAL, MICRO_GOAL_LIMIT)
+      last_period_sum(MICRO_GOAL, calculate_min_commits * 14)
     end
 
     def last_goal_sum
-      last_period_sum(GOAL, GOAL_LIMIT)
+      last_period_sum(GOAL, calculate_min_commits * 28)
     end
 
     def calculation_period(period_type)
@@ -90,8 +86,8 @@ module Ballasts
       { number: number, icon: icon }
     end
 
-    def calculate_min_commits(time_available)
-      min_commits = (time_available / 2.0 * 3).ceil
+    def calculate_min_commits
+      (@time_available / 2.0 * 3).ceil
     end
   end
 end
