@@ -39,10 +39,10 @@ module Ballasts
         },
         stats: {
           micro_goal_compared: 23,
-          day: last_day,
-          week: last_week_sum,
+          goal: last_goal_sum,
           micro_goal: last_micro_goal_sum,
-          goal: last_goal_sum
+          week: last_week_sum,
+          day: last_day
         }
       }
     end
@@ -77,9 +77,13 @@ module Ballasts
     def last_period_sum(period_type, limit)
       finish_period, start_period = calculation_period(period_type)
 
-      practices = @student.practices.where(commit_date: (start_period..finish_period))
+      if period_type.eql? GOAL
+        @practices = @student.practices.where(commit_date: (start_period..finish_period)).to_a
+      else
+        @practices = @practices.select { |practice| practice.commit_date.between?(start_period, finish_period) }
+      end
 
-      number = practices.sum(:commit_total)
+      number = @practices.to_a.map(&:commit_total).sum
       icon = (number >= limit) ? ICON_OK : ICON_NOK
       { number: number, icon: icon }
     end
