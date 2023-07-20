@@ -14,6 +14,7 @@ module Ballasts
     def initialize(**params)
       @params = params
       @student = @params[:resource]
+      @time_available = @params[:time_available]
     end
 
     def call
@@ -39,6 +40,7 @@ module Ballasts
         },
         stats: {
           micro_goal_compared: 23,
+          commits: calculate_min_commits(@time_available),
           goal: last_goal_sum,
           micro_goal: last_micro_goal_sum,
           week: last_week_sum,
@@ -88,5 +90,8 @@ module Ballasts
       { number: number, icon: icon }
     end
 
+    def calculate_min_commits(time_available)
+      min_commits = (time_available / 2.0 * 3).ceil
+    end
   end
 end
