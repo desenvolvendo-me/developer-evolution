@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_09_192519) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.string "title"
+    t.bigint "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "keyquestions", force: :cascade do |t|
+    t.string "title"
+    t.bigint "purpose_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purpose_id"], name: "index_keyquestions_on_purpose_id"
+  end
+
   create_table "practices", force: :cascade do |t|
     t.integer "commit_total"
     t.date "commit_date"
@@ -47,6 +63,34 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_practices_on_student_id"
+  end
+
+  create_table "purposes", force: :cascade do |t|
+    t.string "version", limit: 5
+    t.string "period", limit: 20
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_purposes_on_student_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "title"
+    t.bigint "keyquestion_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["keyquestion_id"], name: "index_questions_on_keyquestion_id"
+  end
+
+  create_table "routines", force: :cascade do |t|
+    t.integer "day_of_the_week"
+    t.time "hour"
+    t.string "activity"
+    t.string "priority"
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_routines_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -109,6 +153,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "keyquestions", "purposes"
   add_foreign_key "practices", "students"
+  add_foreign_key "purposes", "students"
+  add_foreign_key "questions", "keyquestions"
+  add_foreign_key "routines", "students"
   add_foreign_key "students", "users"
 end
