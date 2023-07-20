@@ -1,6 +1,16 @@
 module Ballasts
   class Discipline < BusinessApplication
 
+    WEEK = 6
+    MICRO_GOAL = 13
+    GOAL = 90
+    DAY_LIMIT = 3
+    WEEK_LIMIT = 21
+    MICRO_GOAL_LIMIT = 42
+    GOAL_LIMIT = 252
+    ICON_OK = "heart"
+    ICON_NOK = "heart-broken"
+
     def initialize(**params)
       @params = params
       @student = @params[:resource]
@@ -31,8 +41,8 @@ module Ballasts
           micro_goal_compared: 23,
           day: last_day,
           week: last_week_sum,
-          micro_goal: last_two_weeks,
-          goal: last_three_months
+          micro_goal: last_micro_goal_sum,
+          goal: last_goal_sum
         }
       }
     end
@@ -41,44 +51,38 @@ module Ballasts
 
     def last_day
       number = @student.practices.last.commit_total
-      #TODO: O número 3 será substituído por um cálculo de tempo disponível
-      (number >= 3) ? icon = "heart" : icon = "heart-broken"
+      icon = (number >= DAY_LIMIT) ? ICON_OK : ICON_NOK
       { number: number, icon: icon }
     end
 
     def last_week_sum
-      today = Date.today
-      last_saturday = today - (today.wday + 1) % 7
-      sunday_before_saturday = last_saturday - 6
+      last_period_sum(WEEK, WEEK_LIMIT)
+    end
 
-      practices = @student.practices.where(commit_date: (sunday_before_saturday..last_saturday))
+    def last_micro_goal_sum
+      last_period_sum(MICRO_GOAL, MICRO_GOAL_LIMIT)
+    end
+
+    def last_goal_sum
+      last_period_sum(GOAL, GOAL_LIMIT)
+    end
+
+    def calculation_period(period_type)
+      today = Date.today
+      finish_period = today - (today.wday + 1) % 7
+      start_period = finish_period - period_type
+      [finish_period, start_period]
+    end
+
+    def last_period_sum(period_type, limit)
+      finish_period, start_period = calculation_period(period_type)
+
+      practices = @student.practices.where(commit_date: (start_period..finish_period))
 
       number = practices.sum(:commit_total)
-      icon = number >= 21 ? 'heart' : 'heart-broken'
+      icon = (number >= limit) ? ICON_OK : ICON_NOK
       { number: number, icon: icon }
     end
 
-    def last_two_weeks
-      today = Date.today
-      last_saturday = today - (today.wday + 1) % 7
-      sunday_two_weeks_before = last_saturday - 13
-
-      practices = @student.practices.where(commit_date: (sunday_two_weeks_before..last_saturday))
-
-      number = practices.sum(:commit_total)
-      icon = number >= 42 ? 'heart' : 'heart-broken'
-      { number: number, icon: icon }
-    end
-
-    def last_three_months
-      last_saturday = Date.today - (Date.today.wday + 1) % 7
-      three_months_back = last_saturday - 90
-
-      practices = @student.practices.where(commit_date: (three_months_back..last_saturday))
-
-      number = practices.pluck(:commit_total).sum
-      icon = number >= 252 ? 'heart' : 'heart-broken'
-      { number: number, icon: icon }
-    end
   end
 end
