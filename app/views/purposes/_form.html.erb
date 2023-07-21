@@ -13,30 +13,42 @@
 
   <div>
     <%= form.label :version, t('.version'), style: "display: block" %>
-    <%= form.number_field :version, required: true %>
+    <%= form.text_field :version, required: true %>
   </div>
-
-  <div>
-    <%= form.label :time, t('.time'), style: "display: block" %>
-    <%= form.number_field :time, required: true %>
-  </div>
-
+  <br>
   <div>
     <%= form.label :type_question, t('.type_question'), style: "display: block" %>
-    <%= form.text_field :type_question, required: true %>
+    <%= form.select :type_question, options_for_select(["Porque?", "Por quem?", "Como?", "Quando?"]), required: true %>
   </div>
+  <br>
 
   <div>
     <%= form.label :question, t('.question'), style: "display: block" %>
-    <%= form.text_area :question, required: true %>
+    <%= form.select :question, options_for_select(["Por que quer estudar programação?",
+                                                   "Por que vai sacrificar horas de lazer?",
+                                                   "Por que vai sacrificar horas com a família?",
+                                                   "Por que isso é importante para você?",
+                                                   "Quem são as pessoas que vai compartilhar seus resultados?",
+                                                   "O que quer fazer por elas quando tiver resultados?",
+                                                   "O que vão sentir quando fizer tudo que quer fazer por elas?",
+                                                   "Em quanto tempo quer a primeira ou próxima vaga programação?",
+                                                   "Em quanto tempo acredita que vai pode fazer o que quer pelas pessoas?",
+                                                   "Em quanto tempo acredita que vai chegar no excelente salários?",
+                                                   "Em quanto tempo vai aprender a linguagem de programação verdadeiramente?",
+                                                   "Em quanto tempo vai aprender a framework verdadeiramente?",
+                                                   "Como vai fazer para ter resultado?",
+                                                   "O que vai estudar para ter um excelente salário?",
+                                                   "Como vai se organizar sua vida para construir o quer para as pessoas?",
+                                                   "Quanto tempo vai dedicar para isso por dia?",
+                                                   "O que vai abrir mão para construir isso?"]), required: true %>
   </div>
-
+<br>
   <div>
     <%= form.label :answer, t('.answer'), style: "display: block" %>
     <%= form.text_area :answer, required: true %>
   </div>
 
   <div>
-    <%= form.submit t('helpers.submit.create')%>
+    <%= button_submit(form) %>
   </div>
 <% end %>
