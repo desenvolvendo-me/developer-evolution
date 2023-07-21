@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Ballasts::Discipline do
-  def calculate_min_commits(hours_available)
-    min_commits = (hours_available / 2.0 * 3).ceil
-  end
   let(:student) { create(:student) }
   let(:expected_chart_data) do
     {
@@ -79,25 +76,27 @@ RSpec.describe Ballasts::Discipline do
       end
 
       describe 'week' do
-        before do
+        it 'last week heart' do
+          #TODO: Refatorar, mover esse tipo de código para o trait do factorybot
           (0..13).each do |days_ago|
             commit_date = Date.today - (14 - days_ago)
-            commit_total = rand(0..12)
+            commit_total = 3
             create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
           end
+
+          expect(discipline[:stats][:week][:number]).to eq(21)
+          expect(discipline[:stats][:week][:icon]).to eq("heart")
         end
 
-        it 'calculates the sum for the last week' do
-          last_saturday = Date.today - (Date.today.wday + 1) % 7
-          sunday_before_saturday = last_saturday - 6
+        it 'last week heart-broken' do
+          (0..13).each do |days_ago|
+            commit_date = Date.today - (14 - days_ago)
+            commit_total = 2
+            create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+          end
 
-          practices = student.practices.where(commit_date: (sunday_before_saturday..last_saturday))
-          commit_totals = practices.pluck(:commit_total).sum
-
-          icon = commit_totals >= 21 ? 'heart' : 'heart-broken'
-
-          expect(discipline[:stats][:week][:number]).to eq(commit_totals)
-          expect(discipline[:stats][:week][:icon]).to eq(icon)
+          expect(discipline[:stats][:week][:number]).to eq(14)
+          expect(discipline[:stats][:week][:icon]).to eq("heart-broken")
         end
       end
 
