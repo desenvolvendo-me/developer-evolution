@@ -4,21 +4,17 @@ class PurposesController < ApplicationController
   def show
     @purpose = Purpose.find(params[:id])
   end
-
   def new
     @purpose = Purpose.new
   end
   def create
     @purpose = Purpose.new(purpose_params)
     @purpose.student = current_user.student
-
     redirect_to(@purpose.save ? @purpose : { action: "new" }, notice: t('controller.flash_create'))
   end
-
   def edit
     @purpose = Purpose.find(params[:id])
   end
-
   def update
     @purpose = Purpose.find(params[:id])
     @purpose.update(purpose_params) ? redirect_to(@purpose, notice: t('controller.flash_update')) : render(:edit)
@@ -35,11 +31,10 @@ class PurposesController < ApplicationController
     redirect_to purposes_path
   end
 
-
   private
 
   def purpose_params
-    params.require(:purpose).permit(:version, :time, :type_question, :question, :answer)
+    params.require(:purpose).permit(:version, :type_question, :question, :answer)
   end
 
   def student
@@ -47,3 +42,5 @@ class PurposesController < ApplicationController
   end
 
 end
+
+
