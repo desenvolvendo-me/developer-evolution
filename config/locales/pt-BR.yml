@@ -329,7 +329,8 @@ pt-BR:
       edit_purpose: "Editar Propósito"
   helpers:
     submit:
-      create: 'Criar Propósito'
+      create: 'Criar'
+      edit: 'Editar'
   purpose:
     version: "Versão: "
     time: "Tempo:"
