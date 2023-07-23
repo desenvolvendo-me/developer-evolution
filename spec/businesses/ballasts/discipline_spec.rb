@@ -180,12 +180,12 @@ RSpec.describe Ballasts::Discipline do
         before do
           (0..13).each do |days_ago|
             commit_date = Date.today - (14 - days_ago)
-            commit_total = rand(0..12)
+            commit_total = 7
             create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
           end
         end
 
-        it 'calculates the sum for the last week' do
+        it 'calculates the correct sum for the last week' do
           last_saturday = Date.today - (Date.today.wday + 1) % 7
           sunday_before_saturday = last_saturday - 6
 
@@ -194,7 +194,8 @@ RSpec.describe Ballasts::Discipline do
 
           icon = commit_totals >= 42 ? 'heart' : 'heart-broken'
 
-          expect(discipline[:stats][:week][:icon]).to eq(icon)
+          expect(discipline[:stats][:week][:number]).to eq(49)
+          expect(discipline[:stats][:week][:icon]).to eq('heart')
         end
       end
 
@@ -202,7 +203,7 @@ RSpec.describe Ballasts::Discipline do
         before do
           (0..20).each do |days_ago|
             commit_date = Date.today - (21 - days_ago)
-            commit_total = rand(0..12)
+            commit_total = 7
             create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
           end
         end
@@ -216,8 +217,8 @@ RSpec.describe Ballasts::Discipline do
 
           icon = commit_totals >= 84 ? 'heart' : 'heart-broken'
 
-          expect(discipline[:stats][:micro_goal][:number]).to eq(commit_totals)
-          expect(discipline[:stats][:micro_goal][:icon]).to eq(icon)
+          expect(discipline[:stats][:micro_goal][:number]).to eq(98)
+          expect(discipline[:stats][:micro_goal][:icon]).to eq('heart')
         end
       end
 
@@ -225,7 +226,7 @@ RSpec.describe Ballasts::Discipline do
         before do
           (0..100).each do |days_ago|
             commit_date = Date.today - (101 - days_ago)
-            commit_total = rand(0..12)
+            commit_total = 5
             create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
           end
         end
@@ -239,8 +240,8 @@ RSpec.describe Ballasts::Discipline do
 
           icon = commit_totals >= 504 ? 'heart' : 'heart-broken'
 
-          expect(discipline[:stats][:goal][:number]).to eq(commit_totals)
-          expect(discipline[:stats][:goal][:icon]).to eq(icon)
+          expect(discipline[:stats][:goal][:number]).to eq(455)
+          expect(discipline[:stats][:goal][:icon]).to eq('heart-broken')
         end
       end
     end
