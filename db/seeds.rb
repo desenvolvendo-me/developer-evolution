@@ -55,7 +55,10 @@ if Rails.env.development?
   student.save!
 
   # Base Generator
-  Experience.create(content: "Não conseguir aprender programação", week: 1, level: 1, category: "fear", student: student)
-  Experience.create(content: "Não conseguir passar na entrevista", week: 1, level: 1, category: "fear", student: student)
+  MicroGoal.create(micro_goal: " IDEs (RubyMine e VsCode)", student: student )
+  MicroGoal.create(micro_goal: "Banco de dados", student: student )
+
+  Task.create(task: "pangram", start_date: 2023-07-11, end_date: 2023-07-13, percentage: 20, micro_goal: micro_goal)
+  Task.create(task: "minimum-sum", start_date: 2023-07-11, end_date: 2023-07-13, percentage: 20, micro_goal: micro_goal)
 
 end
