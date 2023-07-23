@@ -62,7 +62,7 @@ module Ballasts
     end
 
     def last_goal_sum
-      last_period_sum(GOAL, calculate_min_commits * 28 * 3)
+      last_period_sum(GOAL, calculate_min_commits * 91)
     end
 
     def calculation_period(period_type)
