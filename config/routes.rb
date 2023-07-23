@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :experiences
+  resources :micro_goals
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
