@@ -1,0 +1,2 @@
+class MicroGoal < ApplicationRecord
+end
