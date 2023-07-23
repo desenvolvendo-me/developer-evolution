@@ -1,45 +1,68 @@
 pt-BR:
-  activerecord:
-    attributes:
-      experience:
-        content: conteúdo
-        level: nível
-        week: semana
-    errors:
-      models:
-        experience:
-          attributes:
-            category:
-              inclusion: precisa ser incluso
-            level:
-              inclusion: precisa ser incluso
-            week:
-              inclusion: precisa ser incluso
-            content:
-              blank: não pode ficar vazio
-  helpers:
-    submit:
-      create: Criar experiência
-      update: Atualizar experiência
-  experience:
-    form:
-      category_label: categoria
-      week_label: semana
-    edit_view:
-      title: Editando experiência
-    title: Experiências
-    show: Mostrar essa experiência
-    new: Criar experiência
-    edit: Editar essa experiência
-    back: Voltar para experiências
-    destroy: Apagar experiência
-    categories:
-      fear: medo
-      difficulty: dificuldade
-      learning: aprendizado
-      insight: insight
-      feedback: feedback
-    controller:
-      flash_create: Experiência cadastrada com sucesso
-      flash_update: Experiência atualizada com sucesso
-
+  views:
+    micro_goals:
+      show:
+        edit: 'Editar esta micro meta'
+        back: 'Voltar para as micro-metas'
+        destroy: 'Excluir esta micro meta'
+      new:
+        title: 'Nova micro meta:'
+        form: 'Formulário'
+        back: 'Voltar para as Micro-metas'
+      index:
+        title: 'micro-metas:'
+        new_button: 'Nova micro-meta'
+        show_link: 'Visualizar esta micro-meta'
+      edit:
+        title: 'Editando micro-meta:'
+        show_link: 'Visualizar esta micro-meta'
+        back_link: 'Voltar para as micro-metas'
+      micro_goal:
+        label: 'micro-meta:'
+        create_task_link: 'Criar nova tarefa para esta micro-meta'
+      form:
+        micro_goal: 'micro-meta:'
+        errors_prohibited: "proibiu que esta meta seja salva:"
+        error: "erro"
+        errors: "erros"
+        save: "Salvar"
+    tasks:
+      show:
+        notice: 'Pagina carregada com sucesso'
+        edit: 'Editar esta tarefa'
+        back: 'Voltar para as tarefas'
+        destroy: 'Excluir esta tarefa'
+      new:
+        title: 'Nova tarefa:'
+        form: 'Formulário'
+        back: 'Voltar para as tarefas'
+      index:
+        title: 'Tarefas:'
+        new_button: 'Voltar para Micro-metas'
+        show_link: 'Visualizar esta tarefa'
+        create_task_link: 'Criar nova tarefa para essa Micro-meta'
+      edit:
+        title: 'Editando tarefa'
+        show_link: 'Visualizar esta tarefa'
+        back_link: 'Voltar para as tarefas'
+      task:
+        micro_goal_label: 'micro-meta:'
+        task_label: 'Tarefa:'
+        start_date_label: 'Data de início:'
+        end_date_label: 'Data de término:'
+        percentage_label: 'Porcentagem:'
+      form:
+        micro_goal_id_label: 'ID da micro-meta:'
+        task_label: 'Tarefa:'
+        start_date_label: 'Data de início:'
+        end_date_label: 'Data de término:'
+        percentage_label: 'Porcentagem:'
+        micro_goal_label: 'micro-meta:'
+        task_label: 'Tarefa:'
+        start_date_label: 'Data de início:'
+        end_date_label: 'Data de término:'
+        percentage_label: 'Porcentagem:'
+        errors_prohibited: 'proibiu que esta tarefa seja salva:'
+        error: 'erro'
+        errors: 'erros'
+        save: 'Salvar'
