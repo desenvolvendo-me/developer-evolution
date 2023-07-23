@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: micro_goals
+#
+#  id         :bigint           not null, primary key
+#  micro_goal :string
+#  string     :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'rails_helper'
 
 RSpec.describe MicroGoal, type: :model do
