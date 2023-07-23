@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @micro_goal %>
+
+<div>
+  <%= link_to "Edit this micro goal", edit_micro_goal_path(@micro_goal) %> |
+  <%= link_to "Back to micro goals", micro_goals_path %>
+
+  <%= button_to "Destroy this micro goal", @micro_goal, method: :delete %>
+</div>
