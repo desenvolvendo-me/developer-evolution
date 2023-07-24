@@ -59,8 +59,32 @@ if Rails.env.development?
   Experience.create(content: "Não conseguir passar na entrevista", week: 1, level: 1, category: "fear", student: student)
 
   # Objective generator
-  Objective.create(
-    title: 'Fazer 5mil trabalhando com programação'
+  objetivo1 = Objective.create( title: 'OBJETIVO 1: Tornar-me um pogramador PHP/Laravel pleno' )
+  objetivo2 = Objective.create( title: 'OBJETIVO 2: Trabalhar como programador para uma empresa internacional' )
+  objetivo1.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'O que eu desejo alcançar?',
+    answer: 'Ter domínio da stack e da parte negocial de um produto.'
+  )
+  objetivo1.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'Por que esse objetivo é importante?',
+    answer: 'Quero entregar resultados para as empresas onde estiver. Quero saber conversar com os stakeholders e com a equipe de igual para igual, trazendo soluções para os problemas e saber negociar prazos e estimativas de entrega das soluções. Percebi que nesses pontos eu tenho muita dificuldade e por vezes, nas reuniões de time, entro mudo e saio calado, sem ter nenhuma idéia ou opinião sobre o que está sendo discutido.'
+  )
+  objetivo1.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'Quem são os envolvidos?',
+    answer: 'William'
+  )
+  objetivo2.objective_questions.create(
+    type_question: 'Métrica',
+    description: 'Quais são os resultados esperados, em termos quantitativos?',
+    answer: 'Construir 1 projeto com no ménimo 4 commits feitos por dia no GitHub onde eu tenha domínio do que o sistema resolve e o que cada linha de código faz.'
+  )
+  objetivo2.objective_questions.create(
+    type_question: 'Métrica',
+    description: 'Como vou saber se foi alcançado?',
+    answer: 'Quando tiver este projeto criado eu saiba explicá-lo em uma entrevista'
   )
 
 
