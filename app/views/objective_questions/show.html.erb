@@ -3,8 +3,8 @@
 <%= render @objective_question %>
 
 <div>
-  <%= link_to "Edit this objective question", edit_objective_question_path(@objective_question) %> |
-  <%= link_to "Back to objective questions", objective_questions_path %>
+  <%= link_to "Edit this objective question", edit_objective_objective_question_path %> |
+  <%= link_to "Back to objective questions", objective_objective_questions_path(@objective) %>
 
-  <%= button_to "Destroy this objective question", @objective_question, method: :delete %>
+  <%= button_to "Destroy this objective question", [@objective, @objective_question], method: :delete %>
 </div>

@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Objective questions</h1>
+<h1><%= @objective.title %></h1>
 
 <div id="objective_questions">
   <% @objective_questions.each do |objective_question| %>
     <%= render objective_question %>
-    <p>
-      <%= link_to "Show this objective question", objective_question %>
-    </p>
+    <%= link_to "Show this objective question", [@objective, objective_question] %>
   <% end %>
 </div>
 
-<%= link_to "New objective question", new_objective_question_path %>
+<%= link_to "New objective question", new_objective_objective_question_path %>

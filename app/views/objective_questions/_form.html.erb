@@ -1,10 +1,10 @@
-<%= form_with(model: objective_question) do |form| %>
-  <% if objective_question.errors.any? %>
+<%= form_with(model: [@objective, @objective_question]) do |form| %>
+  <% if @objective_question.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(objective_question.errors.count, "error") %> prohibited this objective_question from being saved:</h2>
+      <h2><%= pluralize(@objective_question.errors.count, "error") %> prohibited this objective_question from being saved:</h2>
 
       <ul>
-        <% objective_question.errors.each do |error| %>
+        <% @objective_question.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -12,18 +12,13 @@
   <% end %>
 
   <div>
-    <%= form.label :objective_id, style: "display: block" %>
-    <%= form.text_field :objective_id %>
-  </div>
-
-  <div>
     <%= form.label :type_question, style: "display: block" %>
-    <%= form.text_field :type_question %>
+    <%= form.select :type_question, ObjectiveQuestion::TYPE_QUESTION, prompt: "Select type question" %>
   </div>
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.select :description, ObjectiveQuestion::DESCRIPTION, prompt: 'Select question description' %>
   </div>
 
   <div>
