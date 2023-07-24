@@ -43,6 +43,7 @@
 #  profile_hotmart           :string
 #  salary                    :float
 #  slug                      :string
+#  time_available            :integer          default(2)
 #  type_career               :string
 #  wakatime_activity_average :integer
 #  wakatime_activity_total   :integer
@@ -70,6 +71,9 @@ FactoryBot.define do
     type_career { "not_technology" }
     description_career { "Engenheiro" }
     salary { 0 }
+
+    # Time available to study in hours by default
+    time_available { 2 }
 
     knowledge { "m0" }
     profile_hotmart { "https://desenvolvendome-spd.club.hotmart.com/admin/beta/users/detail/PeAyaZA3eW" }

@@ -43,6 +43,7 @@
 #  profile_hotmart           :string
 #  salary                    :float
 #  slug                      :string
+#  time_available            :integer          default(2)
 #  type_career               :string
 #  wakatime_activity_average :integer
 #  wakatime_activity_total   :integer
