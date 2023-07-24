@@ -53,6 +53,7 @@ pt-BR:
     controller:
       flash_create: "Preparação cadastrada com sucesso"
       flash_update: "Preparação atualizada com sucesso"
+      flash_destroy: "Preparação destruída com sucesso"
 
   preparations:
     form:

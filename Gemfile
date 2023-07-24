@@ -37,9 +37,7 @@ group :development, :test do
   gem 'cpf_faker'
   gem 'rubycritic', require: false
   gem 'simplecov'
-  gem 'rails-controller-testing'
-  gem 'rails-i18n'
-  gem 'shoulda-matchers', '~> 5.0'
+  gem 'rails-controller-testing' ## requerida para testes no controller
 end
 
 group :development do
