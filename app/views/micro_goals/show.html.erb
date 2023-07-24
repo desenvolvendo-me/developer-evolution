@@ -7,4 +7,6 @@
   <%= link_to "Back to micro goals", micro_goals_path %>
 
   <%= button_to "Destroy this micro goal", @micro_goal, method: :delete %>
+
+  <%= link_to "show tasks", tasks_path(@micro_goal) %>
 </div>
