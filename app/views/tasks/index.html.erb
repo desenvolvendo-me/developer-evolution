@@ -1,4 +1,6 @@
-<h1>Tasks</h1>
+a<%= link_to 'Back to micro goals', micro_goals_path %>
+<hr>
+<h1>Tasks:</h1>
 
 <table>
   <thead>
@@ -18,14 +20,15 @@
       <td><%= task.start_date %></td>
       <td><%= task.end_date %></td>
       <td><%= task.percentage %></td>
-      <td><%= link_to 'Show', task %></td>
-      <td><%= link_to 'Edit', edit_task_path(task) %></td>
+      <td><%= link_to 'Show', task %> |</td>
+      <td><%= link_to 'Edit', edit_task_path(task) %> |</td>
       <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
+<hr>
 
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+<%= link_to 'New task for this micro_goal', new_task_path %>
