@@ -2,8 +2,8 @@ module Ballasts
   class Discipline < BusinessApplication
     attr_accessor :time_available
 
-    WEEK = 6
-    MICRO_GOAL = 13
+    WEEK = 7
+    MICRO_GOAL = 14
     GOAL = 90
     ICON_OK = "heart"
     ICON_NOK = "heart-broken"
@@ -11,7 +11,6 @@ module Ballasts
     def initialize(**params)
       @params = params
       @student = @params[:resource]
-      @time_available = @params[:time_available]
     end
 
     def call
@@ -54,15 +53,15 @@ module Ballasts
     end
 
     def last_week_sum
-      last_period_sum(WEEK, calculate_min_commits * 7)
+      last_period_sum(WEEK, calculate_min_commits)
     end
 
     def last_micro_goal_sum
-      last_period_sum(MICRO_GOAL, calculate_min_commits * 14)
+      last_period_sum(MICRO_GOAL, calculate_min_commits)
     end
 
     def last_goal_sum
-      last_period_sum(GOAL, calculate_min_commits * 91)
+      last_period_sum(GOAL, calculate_min_commits)
     end
 
     def calculation_period(period_type)
@@ -73,7 +72,7 @@ module Ballasts
     end
 
     def last_period_sum(period_type, limit)
-      finish_period, start_period = calculation_period(period_type)
+      finish_period, start_period = calculation_period(period_type - 1)
 
       if period_type.eql? GOAL
         @practices = @student.practices.where(commit_date: (start_period..finish_period)).to_a
@@ -82,12 +81,12 @@ module Ballasts
       end
 
       number = @practices.to_a.map(&:commit_total).sum
-      icon = (number >= limit) ? ICON_OK : ICON_NOK
+      icon = (number >= limit * period_type) ? ICON_OK : ICON_NOK
       { number: number, icon: icon }
     end
 
     def calculate_min_commits
-      (@time_available / 2.0 * 3).ceil
+      (@student.time_available / 2.0 * 3).ceil
     end
   end
 end
