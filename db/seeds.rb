@@ -58,4 +58,10 @@ if Rails.env.development?
   Experience.create(content: "Não conseguir aprender programação", week: 1, level: 1, category: "fear", student: student)
   Experience.create(content: "Não conseguir passar na entrevista", week: 1, level: 1, category: "fear", student: student)
 
+  # Objective generator
+  Objective.create(
+    title: 'Fazer 5mil trabalhando com programação'
+  )
+
+
 end
