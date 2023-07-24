@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :objective_questions
-  resources :objectives
+  resources :objectives do
+    resources :objective_questions
+  end
+
   resources :experiences
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
