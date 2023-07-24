@@ -5,8 +5,12 @@
 <div id="objective_questions">
   <% @objective_questions.each do |objective_question| %>
     <%= render objective_question %>
-    <%= link_to "Show this objective question", [@objective, objective_question] %>
+    <%= link_to I18n.t('objective.question.show_this_question'), [@objective, objective_question] %>
   <% end %>
 </div>
+<br>
+<br>
+<%= link_to I18n.t('objective.question.new_question'), new_objective_objective_question_path %> |
+<br>
+<%= link_to I18n.t('objective.back'), objectives_url %>
 
-<%= link_to "New objective question", new_objective_objective_question_path %>

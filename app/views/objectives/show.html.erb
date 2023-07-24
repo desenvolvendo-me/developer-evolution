@@ -3,13 +3,13 @@
 <%= render @objective %>
 
 <div>
-  <%= link_to "Adicionar pergunta a esse objetivo", new_objective_objective_question_path(@objective) %> |
-  <%= link_to 'Mostrar perguntas desse objetivo', objective_objective_questions_path(@objective) %>
+  <%= link_to I18n.t('objective.question.add_question'), new_objective_objective_question_path(@objective) %> |
+  <%= link_to I18n.t('objective.question.show_question'), objective_objective_questions_path(@objective) %>
 
   <p style="display: block">
-    <%= link_to "Edit this objective", edit_objective_path(@objective) %> |
-    <%= link_to "Back to objectives", objectives_path %>
+    <%= link_to I18n.t('objective.edit'), edit_objective_path(@objective) %> |
+    <%= link_to I18n.t('objective.back'), objectives_path %>
 
-    <%= button_to "Destroy this objective", @objective , method: :delete %>
+    <%= button_to I18n.t('objective.destroy'), @objective , method: :delete %>
   </p>
 </div>

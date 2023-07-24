@@ -5,6 +5,12 @@ pt-BR:
         content: conteúdo
         level: nível
         week: semana
+      objective:
+        title: Título
+      objective_question:
+        type_question: Tipo de pergunta
+        description: Pergunta
+        answer: Resposta
     errors:
       models:
         experience:
@@ -19,8 +25,8 @@ pt-BR:
               blank: não pode ficar vazio
   helpers:
     submit:
-      create: Criar experiência
-      update: Atualizar experiência
+        create: Criar
+        update: Atualizar
   experience:
     form:
       category_label: categoria
@@ -42,4 +48,26 @@ pt-BR:
     controller:
       flash_create: Experiência cadastrada com sucesso
       flash_update: Experiência atualizada com sucesso
-
+  objective:
+    title: Objetivos
+    new_title: Novo objetivo
+    edit_title: Editando
+    show: Mostrar esse objetivo
+    new: Criar novo objetivo
+    edit: Editar nome do objetivo
+    back: Voltar para objetivos
+    destroy: Apagar objetivo
+    question:
+      new_question: Criar nova pergunta
+      show_this_question: Mostrar essa pergunta
+      edit_this_question: Editar essa pergunta
+      destroy_this_question: Apagar essa pergunta
+      add_question: Adicionar perguntas para esse objetivo
+      show_question: Mostrar perguntas desse objetivo
+      view_new_title: Adicionar nova pergunta para
+      view_edit_title: Editando pergunta do objetivo
+      back_questions: Retornar para perguntas desse objetivo
+      controller:
+        create_success: Pergunta cadastrada com sucesso
+        update_success: Pergunta atualizada com sucesso
+        destroy_success: Pergunta apagada com sucesso

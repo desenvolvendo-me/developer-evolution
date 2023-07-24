@@ -17,7 +17,7 @@ class ObjectiveQuestionsController < ObjectivesController
     @objective_question = @objective.objective_questions.build(objective_question_params)
 
     if @objective_question.save
-      redirect_to @objective, notice: 'Objective question was successfully created.'
+      redirect_to @objective, notice: I18n.t('objective.question.controller.create_success')
     else
       render :new
     end
@@ -31,7 +31,7 @@ class ObjectiveQuestionsController < ObjectivesController
     @objective_question = @objective.objective_questions.find(params[:id])
 
     if @objective_question.update(objective_question_params)
-      redirect_to @objective, notice: 'Objective question was successfully updated.'
+      redirect_to @objective, notice: I18n.t('objective.question.controller.update_success')
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class ObjectiveQuestionsController < ObjectivesController
     @objective_question = @objective.objective_questions.find(params[:id])
     @objective_question.destroy
 
-    redirect_to objective_objective_questions_path, notice: 'Objective question was successfully destroyed.'
+    redirect_to objective_objective_questions_path, notice: I18n.t('objective.question.controller.destroy_success')
   end
 
   private

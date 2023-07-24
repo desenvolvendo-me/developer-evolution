@@ -1,9 +1,9 @@
-<h1>New objective</h1>
+<h1><%= I18n.t('objective.new_title') %></h1>
 
 <%= render "form", objective: @objective %>
 
 <br>
 
 <div>
-  <%= link_to "Back to objectives", objectives_path %>
+  <%= link_to I18n.t('objective.back'), objectives_path %>
 </div>
