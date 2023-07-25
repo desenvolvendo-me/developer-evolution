@@ -61,6 +61,8 @@ if Rails.env.development?
   # Objective generator
   objetivo1 = Objective.create( title: 'OBJETIVO 1: Tornar-me um pogramador PHP/Laravel pleno' )
   objetivo2 = Objective.create( title: 'OBJETIVO 2: Trabalhar como programador para uma empresa internacional' )
+  objetivo3 = Objective.create( title: 'OBJETIVO 3: Estudo' )
+
   objetivo1.objective_questions.create(
     type_question: 'Detalhe',
     description: 'O que eu desejo alcançar?',
@@ -86,6 +88,29 @@ if Rails.env.development?
     description: 'Como vou saber se foi alcançado?',
     answer: 'Quando tiver este projeto criado eu saiba explicá-lo em uma entrevista'
   )
-
-
+  objetivo3.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'O que eu desejo alcançar?',
+    answer: 'Dominar linguagem ruby e rails'
+  )
+  objetivo3.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'Por que esse objetivo é importante?',
+    answer: 'Porque estarei profissionalmente preparado nessa stack e pronto para virar a chave e começar a pensar em conhecimentos que vão além de código, como aperfeiçoar comunicação, gestão, preocupar com fazer entregas de qualidade e pensar mais em negócio.'
+  )
+  objetivo3.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'Quem são os envolvidos?',
+    answer: 'Minha família, Eu, minha esposa Elizama e filha Karen.	'
+  )
+  objetivo3.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'Quais são os recursos necessários?',
+    answer: 'Tempo, computador, auto gerenciamento, documentação de cada tecnologia e muita prática.'
+  )
+  objetivo3.objective_questions.create(
+    type_question: 'Métrica',
+    description: 'Quais são os resultados esperados, em termos quantitativos?',
+    answer: 'Tendo domínio de pelo menos 70% dos métodos disponíveis da linguagem e 70% das funcionalidades do Rails.'
+  )
 end
