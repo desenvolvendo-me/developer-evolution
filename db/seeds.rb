@@ -54,8 +54,11 @@ if Rails.env.development?
 
   student.save!
 
-  # Base Generator
-  Experience.create(content: "Não conseguir aprender programação", week: 1, level: 1, category: "fear", student: student)
-  Experience.create(content: "Não conseguir passar na entrevista", week: 1, level: 1, category: "fear", student: student)
+  # Future mission:
+  goal_1 = Goal.create(description: "Git", student: student)
+  goal_2 = Goal.create(description: "Ruby", student: student)
+
+  GoalQuestion.create(type_question: "Detalhe", description: "O que eu desejo alcançar?", answer: "Concluir o curso de Git", goal: goal_1)
+  GoalQuestion.create(type_question: "Tempo", description: "Qual é o prazo máximo para atingir?", answer: "uma semana", goal: goal_2)
 
 end
