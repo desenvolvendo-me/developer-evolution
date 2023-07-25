@@ -3,7 +3,6 @@
 <%= render @objective %>
 
 <div>
-  <%= link_to I18n.t('objective.question.add_question'), new_objective_objective_question_path(@objective) %> |
   <%= link_to I18n.t('objective.question.show_question'), objective_objective_questions_path(@objective) %>
 
   <p style="display: block">

@@ -6,6 +6,7 @@
   <% @objective_questions.each do |objective_question| %>
     <%= render objective_question %>
     <%= link_to I18n.t('objective.question.show_this_question'), [@objective, objective_question] %>
+    <hr>
   <% end %>
 </div>
 <br>
