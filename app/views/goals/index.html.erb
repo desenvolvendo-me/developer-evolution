@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Goals</h1>
+<h1>Goals:</h1>
+<hr>
 
 <div id="goals">
   <% @goals.each do |goal| %>
@@ -8,6 +9,7 @@
     <p>
       <%= link_to "Show this goal", goal %>
     </p>
+    <hr>
   <% end %>
 </div>
 
