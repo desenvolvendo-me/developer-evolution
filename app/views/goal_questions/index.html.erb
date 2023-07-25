@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Goal questions</h1>
+
+<div id="goal_questions">
+  <% @goal_questions.each do |goal_question| %>
+    <%= render goal_question %>
+    <p>
+      <%= link_to "Show this goal question", goal_question %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New goal question", new_goal_question_path %>
