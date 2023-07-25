@@ -1,0 +1,40 @@
+<h1>Edit Technical Test</h1>
+
+<%= form_with(model: @technical_test, url: technical_test_path(@technical_test), method: :patch) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :project %>
+    <%= form.text_field :project %>
+  </div>
+
+  <div>
+    <%= form.label :readme %>
+    <%= form.text_area :readme %>
+  </div>
+
+  <div>
+    <%= form.label :link %>
+    <%= form.text_field :link %>
+  </div>
+
+  <div>
+    <%= form.label :battle %>
+    <%= form.select :battle, (1..5) %>
+  </div>
+
+  <div>
+    <%= form.label :release_type %>
+    <%= form.select :release_type, %w[Milestone Release Pull\ Request\ Release Pull\ Request\ Branch Issues] %>
+  </div>
+
+  <div>
+    <%= form.submit 'Update Technical Test' %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @technical_test %> |
+<%= link_to 'Back', technical_tests_path %>

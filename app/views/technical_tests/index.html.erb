@@ -1,0 +1,35 @@
+<h1>Technical Tests</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Project</th>
+    <th>README</th>
+    <th>Link</th>
+    <th>Battle</th>
+    <th>Release Type</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @technical_tests.each do |technical_test| %>
+    <tr>
+      <td><%= technical_test.name %></td>
+      <td><%= technical_test.project %></td>
+      <td><%= technical_test.readme %></td>
+      <td><%= technical_test.link %></td>
+      <td><%= technical_test.battle %></td>
+      <td><%= technical_test.release_type %></td>
+      <td><%= link_to 'Show', technical_test %></td>
+      <td><%= link_to 'Edit', edit_technical_test_path(technical_test) %></td>
+      <td><%= button_to 'Destroy', technical_test, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Technical Test', new_technical_test_path %>

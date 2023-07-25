@@ -1,0 +1,11 @@
+<h1>Technical Test Details</h1>
+
+<p><strong>Name:</strong> <%= @technical_test.name %></p>
+<p><strong>Project:</strong> <%= @technical_test.project %></p>
+<p><strong>README:</strong> <%= @technical_test.readme %></p>
+<p><strong>Link:</strong> <%= @technical_test.link %></p>
+<p><strong>Battle:</strong> <%= @technical_test.battle %></p>
+<p><strong>Release Type:</strong> <%= @technical_test.release_type %></p>
+
+<%= link_to 'Edit', edit_technical_test_path(@technical_test) %> |
+<%= link_to 'Back', technical_tests_path %>
