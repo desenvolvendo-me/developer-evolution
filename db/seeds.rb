@@ -59,9 +59,9 @@ if Rails.env.development?
   Experience.create(content: "Não conseguir passar na entrevista", week: 1, level: 1, category: "fear", student: student)
 
   # Objective generator
-  objetivo1 = Objective.create( title: 'OBJETIVO 1: Tornar-me um pogramador PHP/Laravel pleno' )
-  objetivo2 = Objective.create( title: 'OBJETIVO 2: Trabalhar como programador para uma empresa internacional' )
-  objetivo3 = Objective.create( title: 'OBJETIVO 3: Estudo' )
+  objetivo1 = Objective.create( title: 'OBJETIVO 1: Tornar-me um pogramador PHP/Laravel pleno', student: student)
+  objetivo2 = Objective.create( title: 'OBJETIVO 2: Trabalhar como programador para uma empresa internacional', student: student)
+  objetivo3 = Objective.create( title: 'OBJETIVO 3: Estudo', student: student)
 
   objetivo1.objective_questions.create(
     type_question: 'Detalhe',
