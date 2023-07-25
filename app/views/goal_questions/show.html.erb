@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @goal_question %>
+
+<div>
+  <%= link_to "Edit this goal question", edit_goal_question_path(@goal_question) %> |
+  <%= link_to "Back to goal questions", goal_questions_path %>
+
+  <%= button_to "Destroy this goal question", @goal_question, method: :delete %>
+</div>
