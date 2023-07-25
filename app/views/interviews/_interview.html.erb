@@ -1,17 +1,17 @@
 <div id="<%= dom_id interview %>">
   <p>
-    <strong>Interview type:</strong>
+    <strong><%= I18n.t('activerecord.attributes.interview.interview_type') %>:</strong>
     <%= interview.interview_type %>
   </p>
 
   <p>
-    <strong>Video number:</strong>
+    <strong><%= I18n.t('activerecord.attributes.interview.video_number') %>:</strong>
     <%= interview.video_number %>
   </p>
 
   <p>
-    <strong>Answer:</strong>
-    <%= interview.answer %>
+    <strong><%= I18n.t('activerecord.attributes.interview.answer') %>:</strong>
+    <%= link_to interview.answer, interview.answer, target: '_blank' %>
   </p>
 
 </div>

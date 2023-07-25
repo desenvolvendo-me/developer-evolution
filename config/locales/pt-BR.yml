@@ -1,0 +1,21 @@
+pt-BR:
+  activerecord:
+    attributes:
+      interview:
+        interview_type: Tipo de Entrevista
+        video_number: Número do Vídeo
+        answer: link
+  interview:
+    index_title: Entrevistas
+    new_title: Nova entrevista
+    edit_title: Editando essa entrevista
+    form_error: proibiu essa entrevista de ser salva
+    show: Mostrar essa entrevista
+    create: Criar nova entrevista
+    back: Retornar para entrevistas
+    edit: Editar essa entrevista
+    destroy: Apagar essa entrevista
+    controller:
+      flash_create: Entrevista criada com sucesso
+      flash_update: Entrevista atualizada com sucesso
+      flash_destroy: Entrevista apagada com sucesso
