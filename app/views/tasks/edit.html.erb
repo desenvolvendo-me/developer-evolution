@@ -1,5 +1,6 @@
-<h1>Edit Task</h1>
+<h1>Edit Task:</h1>
+<hr>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @task %>
+<%= link_to 'Show', micro_goal_task_path(@task.micro_goal, @task) %>
