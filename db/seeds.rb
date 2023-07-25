@@ -54,4 +54,25 @@ if Rails.env.development?
 
   student.save!
 
+  # Create interviews without relation with student
+  Interview.create(
+    interview_type: Interview::INTERVIEW_TYPE.sample,
+    video_number: Interview::VIDEO_NUMBER.sample,
+    answer: 'https://vimeo.com/190479606'
+  )
+  Interview.create(
+    interview_type: Interview::INTERVIEW_TYPE.sample,
+    video_number: Interview::VIDEO_NUMBER.sample,
+    answer: 'https://vimeo.com/76979871'
+  )
+  Interview.create(
+    interview_type: Interview::INTERVIEW_TYPE.sample,
+    video_number: Interview::VIDEO_NUMBER.sample,
+    answer: 'https://vimeo.com/195085022'
+  )
+  Interview.create(
+    interview_type: Interview::INTERVIEW_TYPE.sample,
+    video_number: Interview::VIDEO_NUMBER.sample,
+    answer: 'https://vimeo.com/190479606'
+  )
 end
