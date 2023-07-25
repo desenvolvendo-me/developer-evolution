@@ -56,21 +56,25 @@ if Rails.env.development?
 
   # Create interviews without relation with student
   Interview.create(
+    student: student,
     interview_type: Interview::INTERVIEW_TYPE.sample,
     video_number: Interview::VIDEO_NUMBER.sample,
     answer: 'https://vimeo.com/190479606'
   )
   Interview.create(
+    student: student,
     interview_type: Interview::INTERVIEW_TYPE.sample,
     video_number: Interview::VIDEO_NUMBER.sample,
     answer: 'https://vimeo.com/76979871'
   )
   Interview.create(
+    student: student,
     interview_type: Interview::INTERVIEW_TYPE.sample,
     video_number: Interview::VIDEO_NUMBER.sample,
     answer: 'https://vimeo.com/195085022'
   )
   Interview.create(
+    student: student,
     interview_type: Interview::INTERVIEW_TYPE.sample,
     video_number: Interview::VIDEO_NUMBER.sample,
     answer: 'https://vimeo.com/190479606'

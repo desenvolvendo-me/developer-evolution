@@ -4,6 +4,7 @@ class CreateInterviews < ActiveRecord::Migration[7.0]
       t.string :interview_type
       t.integer :video_number
       t.string :answer
+      t.references :student, null: false, foreign_key: true
 
       t.timestamps
     end
