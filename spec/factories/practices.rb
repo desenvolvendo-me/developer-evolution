@@ -27,5 +27,7 @@ FactoryBot.define do
     commit_total { 1 }
     activity_date { Date.today }
     activity_total { 1 }
+    time_available { 2 }
+    commit_status { "success" }
   end
 end
