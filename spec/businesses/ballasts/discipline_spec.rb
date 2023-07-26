@@ -131,6 +131,29 @@ RSpec.describe Ballasts::Discipline do
           expect(discipline[:stats][:goal][:icon]).to eq('heart')
         end
       end
+
+      describe 'time_available' do
+        context 'change' do
+          it 'today from 6 to 2' do
+            student = create(:student, time_available: 6)
+            practice = create(:practice, commit_date: Date.today, commit_total: 3, student: student)
+            discipline = described_class.call(resource: student)
+
+            expect(practice.time_available).to eq(6)
+            expect(practice.commit_status).to eq("failure")
+            expect(discipline[:stats][:day][:number]).to eq(3)
+            expect(discipline[:stats][:day][:icon]).to eq('heart-broken')
+
+            student.update(time_available: 2)
+            discipline = described_class.call(resource: student)
+
+            expect(practice.time_available).to eq(6)
+            expect(practice.commit_status).to eq("failure")
+            expect(discipline[:stats][:day][:number]).to eq(3)
+            expect(discipline[:stats][:day][:icon]).to eq('heart-broken')
+          end
+        end
+      end
     end
 
     context 'student time available 4 hours' do
