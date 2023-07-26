@@ -33,3 +33,4 @@
 .idea
 
 /db/schema.rb
+/tmp

@@ -1,2 +1,0 @@
-module TechnicalTestsHelper
-end
