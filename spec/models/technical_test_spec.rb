@@ -24,5 +24,15 @@
 require 'rails_helper'
 
 RSpec.describe TechnicalTest, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validations" do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:project) }
+    it { should validate_presence_of(:readme) }
+    it { should validate_presence_of(:link) }
+    it { should validate_presence_of(:battle) }
+    it { should validate_inclusion_of(:battle).in_range(1..5) }
+    it { should validate_presence_of(:release_type) }
+    it { should validate_inclusion_of(:release_type).in_array(TechnicalTest::CATEGORY) }
+  end
 end
+
