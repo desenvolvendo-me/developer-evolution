@@ -23,4 +23,14 @@
 #
 class Practice < ApplicationRecord
   belongs_to :student
+
+  enum commit_status: { success: "success", failure: "failure" }
+
+  before_create :before_create
+
+  def before_create
+    min_commits = Ballasts::Discipline.new(resource: self.student).calculate_min_commits
+    self.time_available = self.student.time_available
+    self.commit_status = (self.commit_total >= min_commits) ? "success" : "failure"
+  end
 end

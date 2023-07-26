@@ -44,11 +44,18 @@ module Ballasts
       }
     end
 
+    def calculate_min_commits
+      ultradian_cycle = 2.0
+      min_commit_day = 3
+      (@student.time_available / ultradian_cycle * min_commit_day).ceil
+    end
+
     private
 
     def last_day
-      number = @student.practices.last.commit_total
-      icon = (number >= calculate_min_commits) ? ICON_OK : ICON_NOK
+      practice = @student.practices.last
+      number = practice.commit_total
+      icon = practice.success? ? ICON_OK : ICON_NOK
       { number: number, icon: icon }
     end
 
@@ -85,8 +92,5 @@ module Ballasts
       { number: number, icon: icon }
     end
 
-    def calculate_min_commits
-      (@student.time_available / 2.0 * 3).ceil
-    end
   end
 end
