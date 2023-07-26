@@ -1,39 +1,5 @@
 <h1>New Technical Test</h1>
 
-<%= form_with(model: @technical_test, url: technical_tests_path) do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :project %>
-    <%= form.text_field :project %>
-  </div>
-
-  <div>
-    <%= form.label :readme %>
-    <%= form.text_area :readme %>
-  </div>
-
-  <div>
-    <%= form.label :link %>
-    <%= form.text_field :link %>
-  </div>
-
-  <div>
-    <%= form.label :battle %>
-    <%= form.select :battle, (1..5) %>
-  </div>
-
-  <div>
-    <%= form.label :release_type %>
-    <%= form.select :release_type, %w[Milestone Release Pull\ Request\ Release Pull\ Request\ Branch Issues] %>
-  </div>
-
-  <div>
-    <%= form.submit 'Create Technical Test' %>
-  </div>
-<% end %>
+<%= render 'form', technical_test: @technical_test, locals: { action: 'create' } %>
 
 <%= link_to 'Back', technical_tests_path %>
