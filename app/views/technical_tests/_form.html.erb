@@ -10,8 +10,8 @@
     </div>
   <% end %>
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :battle %>
+    <%= form.select :battle, (1..5) %>
   </div>
   <div>
     <%= form.label :project %>
@@ -24,10 +24,6 @@
   <div>
     <%= form.label :link %>
     <%= form.text_field :link %>
-  </div>
-  <div>
-    <%= form.label :battle %>
-    <%= form.select :battle, (1..5) %>
   </div>
   <div class="field">
     <%= form.label :release_type, t('.release_type') %>

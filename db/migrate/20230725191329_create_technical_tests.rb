@@ -1,7 +1,6 @@
 class CreateTechnicalTests < ActiveRecord::Migration[7.0]
   def change
     create_table :technical_tests do |t|
-      t.string :name
       t.string :project
       t.text :readme
       t.string :link

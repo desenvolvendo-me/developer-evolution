@@ -23,12 +23,11 @@
 #
 FactoryBot.define do
   factory :technical_test do
-    name { "MyString" }
-    project { "MyString" }
-    readme { "MyText" }
-    link { "MyString" }
-    battle { 1 }
-    release_type { "MyString" }
-    student { nil }
+    project { "https://github.com/user/repo" }
+    readme { "https://github.com/user/repo/readme" }
+    link { "https://github.com/user/repo/milestones/1" }
+    battle { rand(1..5) }
+    release_type { "TechnicalTest::CATEGORY.sample" }
+    student { "Gustavo Ramos" }
   end
 end
