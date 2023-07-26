@@ -6,7 +6,9 @@
 #  activity_date  :date
 #  activity_total :integer
 #  commit_date    :date
+#  commit_status  :string
 #  commit_total   :integer
+#  time_available :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  student_id     :bigint           not null
