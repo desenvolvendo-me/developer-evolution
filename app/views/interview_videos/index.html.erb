@@ -1,14 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Interview videos</h1>
+<h1>Vídeos do tipo: <%= @interview.interview_type %></h1>
 
 <div id="interview_videos">
   <% @interview_videos.each do |interview_video| %>
     <%= render interview_video %>
     <p>
-      <%= link_to "Show this interview video", interview_video %>
+      <%= link_to 'mostrar esse link', [@interview, interview_video] %>
     </p>
+    <hr>
+
   <% end %>
 </div>
 
-<%= link_to "New interview video", new_interview_video_path %>
+<%= link_to "New interview video", new_interview_interview_video_path %>

@@ -1,20 +1,15 @@
-<%= form_with(model: interview_video) do |form| %>
-  <% if interview_video.errors.any? %>
+<%= form_with(model: [@interview_video.interview, @interview_video]) do |form| %>
+  <% if @interview_video.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(interview_video.errors.count, "error") %> prohibited this interview_video from being saved:</h2>
+      <h2><%= pluralize(@interview_video.errors.count, "error") %> prohibited this interview_video from being saved:</h2>
 
       <ul>
-        <% interview_video.errors.each do |error| %>
+        <% @interview_video.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :interview_id, style: "display: block" %>
-    <%= form.text_field :interview_id %>
-  </div>
 
   <div>
     <%= form.label :video_link, style: "display: block" %>
