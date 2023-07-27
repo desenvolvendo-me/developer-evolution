@@ -1,9 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green"><%= t('goal.show.goal_successfully_created') %></p>
 
 <%= render @goal %>
 
 <div>
-  <%= link_to t('goal.show.back_to_goals'), goal_goal_questions_path(@goal) %> |
+  <%= link_to t('goal.show.show_goal_question'), goal_goal_questions_path(@goal) %> |
   <%= link_to t('goal.show.edit_this_goal'), edit_goal_path(@goal) %> |
   <%= link_to t('goal.show.back_to_goals'), goals_path %> |
 
