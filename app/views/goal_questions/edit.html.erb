@@ -1,10 +1,10 @@
-<h1>Editing goal question</h1>
-
-<%= render "form", goal_question: @goal_question %>
+<h1><%= t('goal_question.edit.edit_goal_question') %>:</h1>
+<hr>
+<%= render "form", goal_question: @goal_question, button_label: t("goal_question.edit.update") %>
 
 <br>
 
 <div>
-  <%= link_to "Show this goal question", @goal_question %> |
-  <%= link_to "Back to goal questions", goal_questions_path %>
+  <%= link_to t("goal_question.edit.show_this_goal_question"), goal_goal_question_path %> |
+  <%= link_to t("goal_question.edit.back_to_goal_questions"), goal_goal_questions_path %>
 </div>
