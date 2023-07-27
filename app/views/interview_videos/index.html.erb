@@ -1,17 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Vídeos do tipo: <%= @interview.interview_type %></h1>
+<h1><%= I18n.t('interview.index_title') %>: <%= @interview.interview_type %></h1>
 
 <div id="interview_videos">
   <% @interview_videos.each do |interview_video| %>
     <%= render interview_video %>
     <p>
-      <%= link_to 'mostrar esse link', [@interview, interview_video] %>
+      <%= link_to I18n.t('interview.interview_videos.show'), [@interview, interview_video] %>
     </p>
     <hr>
 
   <% end %>
 </div>
 
-<%= link_to "New interview video", new_interview_interview_video_path %> |
-<%= link_to 'Voltar para entrevista', interview_path(@interview) %>
+<%= link_to I18n.t('interview.interview_videos.new'), new_interview_interview_video_path %> |
+<%= link_to I18n.t('interview.interview_videos.back'), interview_path(@interview) %>

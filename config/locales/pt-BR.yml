@@ -5,21 +5,37 @@ pt-BR:
         interview_type: Tipo de Entrevista
         video_number: Número do Vídeo
         answer: link
+      interview_video:
+        video_link: Link do vídeo
   helpers:
     submit:
       create: Criar
       update: Atualizar
   interview:
-    index_title: Entrevistas
+    index_title: Entrevista
     new_title: Nova entrevista
     edit_title: Editando essa entrevista
     form_error: proibiu essa entrevista de ser salva
     show: Mostrar essa entrevista
+    show_videos: Mostrar vídeos dessa entrevista
     create: Criar nova entrevista
     back: Retornar para entrevistas
     edit: Editar essa entrevista
     destroy: Apagar essa entrevista
     controller:
-      flash_create: Entrevista criada com sucesso
-      flash_update: Entrevista atualizada com sucesso
-      flash_destroy: Entrevista apagada com sucesso
+      create: Entrevista criada com sucesso
+      update: Entrevista atualizada com sucesso
+      destroy: Entrevista apagada com sucesso
+    interview_videos:
+      show: Mostrar esse link de video
+      back: Voltar para videos de entrevista
+      new: Criar novo link de vídeo
+      edit: Editar esse link de vídeo
+      destroy: Apagar esse link de vídeo
+      view_new: Novo vídeo
+      view_form:
+        error: proibiu esse video link de ser salvo
+      view_edit:
+        title: Editando link do vídeo
+      view_index:
+        title: Vídeos do tipo

@@ -10,7 +10,7 @@ class InterviewsController < ApplicationController
     @interview = current_user.student.interviews.build(interview_params)
 
     if @interview.save
-      flash[:notice] = I18n.t('interview.controller.flash_create')
+      flash[:notice] = I18n.t('interview.controller.create')
       redirect_to action: :show, id: @interview.id
     else
       flash[:alert] = @interview.errors.full_messages.join('. ')
@@ -27,7 +27,7 @@ class InterviewsController < ApplicationController
 
   def update
     if @interview.update(interview_params)
-      flash[:notice] = I18n.t('interview.controller.flash_update')
+      flash[:notice] = I18n.t('interview.controller.update')
       redirect_to action: :show, id: @interview.id
     else
       redirect_to action: :edit
@@ -36,7 +36,7 @@ class InterviewsController < ApplicationController
 
   def destroy
     @interview.destroy
-    redirect_to interviews_url, notice: 'Interview destroyed'
+    redirect_to interviews_url, notice: I18n.t('interview.controller.destroy')
   end
   private
 

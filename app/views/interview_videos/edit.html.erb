@@ -1,10 +1,10 @@
-<h1>Editing interview video</h1>
+<h1><%= I18n.t('interview.interview_videos.view_edit.title') %></h1>
 
 <%= render "form", interview_video: @interview_video %>
 
 <br>
 
 <div>
-  <%= link_to "Show this interview video", interview_interview_video_path %> |
-  <%= link_to "Back to interview videos", interview_interview_videos_path %>
+  <%= link_to I18n.t('interview.interview_videos.show'), interview_interview_video_path %> |
+  <%= link_to I18n.t('interview.interview_videos.back'), interview_interview_videos_path %>
 </div>
