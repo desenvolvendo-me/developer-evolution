@@ -3,9 +3,7 @@
 # Table name: interviews
 #
 #  id             :bigint           not null, primary key
-#  answer         :string
 #  interview_type :string
-#  video_number   :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  student_id     :bigint           not null

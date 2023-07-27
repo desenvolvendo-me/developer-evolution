@@ -3,9 +3,7 @@
 # Table name: interviews
 #
 #  id             :bigint           not null, primary key
-#  answer         :string
 #  interview_type :string
-#  video_number   :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  student_id     :bigint           not null
@@ -19,7 +17,7 @@
 #  fk_rails_...  (student_id => students.id)
 #
 class Interview < ApplicationRecord
-  belongs_to :student
+  has_many :interview_videos, dependent: :destroy
   INTERVIEW_TYPES = {
     "VIDA" => "Vida",
     "RESILIÊNCIA" => "Resiliência",
@@ -27,12 +25,5 @@ class Interview < ApplicationRecord
     "FOCO E DISCIPLINA" => "Foco e Disciplina",
     "EMPRESA" => "Empresa",
     "PORTFÓLIO" => "Portfólio"
-  }
-  VIDEO_NUMBERS = {
-    1 => "1",
-    2 => "2",
-    3 => "3",
-    4 => "4",
-    5 => "5"
   }
 end

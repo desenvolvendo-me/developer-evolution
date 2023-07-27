@@ -3,6 +3,8 @@
 <%= render @interview %>
 
 <div>
+  <%= link_to 'mostrar videos desse tipo de entrevista', interview_interview_videos_path(@interview) %>
+
   <%= link_to I18n.t('interview.edit'), edit_interview_path(@interview) %> |
   <%= link_to I18n.t('interview.back'), interviews_path %>
 

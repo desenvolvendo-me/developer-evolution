@@ -36,7 +36,7 @@ class InterviewsController < ApplicationController
   private
 
   def interview_params
-    params.require(:interview).permit(:interview_type, :video_number, :answer)
+    params.require(:interview).permit(:interview_type, :answer)
   end
 
   def set_interview
