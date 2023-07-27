@@ -1,4 +1,4 @@
-class GoalQuestionsController < ApplicationController
+class Goals::GoalQuestionsController < ApplicationController
   before_action :set_goal
   before_action :set_goal_question, only: [:show, :edit, :update, :destroy]
 
