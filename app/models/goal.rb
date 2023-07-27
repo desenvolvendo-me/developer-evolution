@@ -18,5 +18,5 @@
 #
 class Goal < ApplicationRecord
   belongs_to :student
-  has_many :goal_questions
+  has_many :goal_questions, dependent: :destroy #In a delete case of 'goal' all goal_questions are deleted too
 end
