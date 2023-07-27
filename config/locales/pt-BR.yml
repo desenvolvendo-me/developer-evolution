@@ -23,6 +23,10 @@ pt-BR:
               inclusion: precisa ser incluso
             content:
               blank: não pode ficar vazio
+        objective:
+          attributes:
+            student:
+              required: precisa existir
   helpers:
     submit:
         create: Criar
@@ -52,11 +56,17 @@ pt-BR:
     title: Objetivos
     new_title: Novo objetivo
     edit_title: Editando
+    form_view:
+      error: proibiu esse objetivo de ser salvo
     show: Mostrar esse objetivo
     new: Criar novo objetivo
     edit: Editar nome do objetivo
     back: Voltar para objetivos
     destroy: Apagar objetivo
+    controller:
+      destroy: Objetivo e questões associadas a ele foram apagadas com sucesso.
+      notice_create: Objetivo cadastrada com sucesso
+      notice_update: Objetivo atualizada com sucesso
     question:
       new_question: Criar nova pergunta
       show_this_question: Mostrar essa pergunta
@@ -66,8 +76,13 @@ pt-BR:
       show_question: Mostrar perguntas desse objetivo
       view_new_title: Adicionar nova pergunta para
       view_edit_title: Editando pergunta do objetivo
+      form_view:
+        error: proibiu essa pergunta de objetivo de ser salva
+        select_type_question: Selecione o tipo de pergunta
+        select_description: Selecione a pergunta
       back_questions: Retornar para perguntas desse objetivo
       controller:
         create_success: Pergunta cadastrada com sucesso
         update_success: Pergunta atualizada com sucesso
         destroy_success: Pergunta apagada com sucesso
+
