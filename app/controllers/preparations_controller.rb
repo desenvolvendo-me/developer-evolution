@@ -35,7 +35,7 @@ class PreparationsController < ApplicationController
 
   def destroy
     @preparation.destroy
-    flash[:notice] = t('preparation.controller.flash_update')
+    flash[:notice] = t('preparation.controller.flash_destroy')
     redirect_to preparations_path
   end
 

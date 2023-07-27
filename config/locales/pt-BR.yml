@@ -63,6 +63,7 @@ pt-BR:
       link: "Link"
       release: "Release"
       release_type: "Tipo de link"
+      error: "Proibiu essa preparação de ser criada"
 
   helpers:
     preparations:
