@@ -5,6 +5,10 @@ pt-BR:
         interview_type: Tipo de Entrevista
         video_number: Número do Vídeo
         answer: link
+  helpers:
+    submit:
+      create: Criar
+      update: Atualizar
   interview:
     index_title: Entrevistas
     new_title: Nova entrevista
