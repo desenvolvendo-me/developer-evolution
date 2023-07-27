@@ -56,13 +56,40 @@ if Rails.env.development?
 
   # Create interviews with student relation
   video_urls = %w[https://vimeo.com/190479606 https://vimeo.com/76979871 https://vimeo.com/195085022]
-  number_of_interviews = 3
-  number_of_interviews.times do
-    Interview.create(
-      student: student,
-      interview_type: Interview::INTERVIEW_TYPE.sample,
-      video_number: Interview::VIDEO_NUMBER.sample,
-      answer: video_urls.sample
-    )
-  end
+
+  # Primeira entrevista
+  interview_type = Interview::INTERVIEW_TYPES.keys.sample
+  video_number = Interview::VIDEO_NUMBERS.keys.sample
+  interview_type_value = Interview::INTERVIEW_TYPES[interview_type]
+  video_number_value = Interview::VIDEO_NUMBERS[video_number]
+
+  student.interviews.create(
+    interview_type: interview_type_value,
+    video_number: video_number_value,
+    answer: video_urls.sample
+  )
+
+  # Segunda entrevista
+  interview_type = Interview::INTERVIEW_TYPES.keys.sample
+  video_number = Interview::VIDEO_NUMBERS.keys.sample
+  interview_type_value = Interview::INTERVIEW_TYPES[interview_type]
+  video_number_value = Interview::VIDEO_NUMBERS[video_number]
+
+  student.interviews.create(
+    interview_type: interview_type_value,
+    video_number: video_number_value,
+    answer: video_urls.sample
+  )
+
+  # Terceira entrevista
+  interview_type = Interview::INTERVIEW_TYPES.keys.sample
+  video_number = Interview::VIDEO_NUMBERS.keys.sample
+  interview_type_value = Interview::INTERVIEW_TYPES[interview_type]
+  video_number_value = Interview::VIDEO_NUMBERS[video_number]
+
+  student.interviews.create(
+    interview_type: interview_type_value,
+    video_number: video_number_value,
+    answer: video_urls.sample
+  )
 end
