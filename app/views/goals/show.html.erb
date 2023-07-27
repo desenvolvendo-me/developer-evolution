@@ -3,8 +3,9 @@
 <%= render @goal %>
 
 <div>
-  <%= link_to "Edit this goal", edit_goal_path(@goal) %> |
-  <%= link_to "Back to goals", goals_path %>
+  <%= link_to t('goal.show.back_to_goals'), goal_goal_questions_path(@goal) %> |
+  <%= link_to t('goal.show.edit_this_goal'), edit_goal_path(@goal) %> |
+  <%= link_to t('goal.show.back_to_goals'), goals_path %> |
 
-  <%= button_to "Destroy this goal", @goal, method: :delete %>
+  <%= button_to t('goal.show.destroy_this_goal'), @goal, method: :delete %>
 </div>
