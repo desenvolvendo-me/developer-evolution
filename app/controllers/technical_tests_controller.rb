@@ -16,7 +16,7 @@ class TechnicalTestsController < ApplicationController
     @technical_test = current_user.student.technical_tests.build(technical_test_params)
 
     if @technical_test.save
-      redirect_to @technical_test, notice: 'Technical Test was successfully created.'
+      redirect_to @technical_test, notice: t("technical_test.controller.flash_update")
     else
       render :new
     end
@@ -27,7 +27,7 @@ class TechnicalTestsController < ApplicationController
 
   def update
     if @technical_test.update(technical_test_params)
-      redirect_to @technical_test, notice: 'Technical Test was successfully updated.'
+      redirect_to @technical_test, notice: t("technical_test.controller.flash_update")
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class TechnicalTestsController < ApplicationController
 
   def destroy
     @technical_test.destroy
-    redirect_to technical_tests_url, notice: 'Technical Test was successfully destroyed.'
+    redirect_to technical_tests_url, notice: t("technical_test.controller.flash_destroy")
   end
 
   private
