@@ -1,10 +1,10 @@
-<h1>Editing goal</h1>
-
-<%= render "form", goal: @goal, button_label: "Update" %>
+<h1><%= t('goal.edit.title') %>:</h1>
+<hr>
+<%= render "form", goal: @goal, button_label: t("goal.edit.update") %>
 
 <br>
 
 <div>
-  <%= link_to "Show this goal", @goal %> |
-  <%= link_to "Back to goals", goals_path %>
+  <%= link_to t("goal.edit.show_this_goal"), @goal %> |
+  <%= link_to t("goal.edit.back_to_goals"), goals_path %>
 </div>
