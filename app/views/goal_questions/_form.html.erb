@@ -1,4 +1,4 @@
-<%= form_with(model: goal_question) do |form| %>
+<%= form_with(model: [@goal, goal_question], local: true) do |form| %>
   <% if goal_question.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(goal_question.errors.count, "error") %> prohibited this goal_question from being saved:</h2>
@@ -12,26 +12,26 @@
   <% end %>
 
   <div>
-    <%= form.label :type_question, style: "display: block" %>
-    <%= form.text_field :type_question %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :answer, style: "display: block" %>
-    <%= form.text_field :answer %>
-  </div>
-
-  <div>
-    <%= form.label :goal_id, style: "display: block" %>
+    <%= form.label :goal_id, t('goal_question.form.goal'), style: "display: block" %>
     <%= form.text_field :goal_id %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label :type_question, t('goal_question.form.type_question'), style: "display: block" %>
+    <%= form.text_field :type_question %>
+  </div>
+
+  <div>
+    <%= form.label :description, t('goal_question.form.description'), style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :answer, t('goal_question.form.answer'), style: "display: block" %>
+    <%= form.text_field :answer %>
+  </div>
+
+  <div>
+    <%= form.submit button_label %>
   </div>
 <% end %>
