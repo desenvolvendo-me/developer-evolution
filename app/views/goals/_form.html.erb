@@ -1,7 +1,7 @@
 <%= form_with(model: goal) do |form| %>
   <% if goal.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
+      <h2><%= pluralize(goal.errors.count, "error") %> <%= t('goal.form.prohibited_this_goal_from_being_saved') %>:</h2>
 
       <ul>
         <% goal.errors.each do |error| %>
