@@ -1,0 +1,70 @@
+pt-BR:
+  technical_test:
+    index:
+      title: "Preparações"
+      battle: "Batalha"
+      project: "Link do Projeto"
+      readme: "Link do README"
+      link: "Link"
+      release_type: "Tipo de link"
+      new_preparation: "Novo Teste Técnico"
+      show: "Mostrar"
+      edit: "Editar"
+      destroy: "Apagar"
+      table_header:
+        battle: "Batalha"
+        project: "Link do Projeto"
+        readme: "Link do README"
+        link: "Link"
+        release: "Release"
+        release_type: "Tipo de link"
+      actions:
+        show: "Visualizar"
+        edit: "Editar"
+        destroy: "Excluir"
+      new: "Novo Teste Técnico"
+    show:
+      title: "Teste técnico"
+      battle: "Batalha"
+      project: "Projeto"
+      readme: "README"
+      link: "Link"
+      release_type: "Tipo de link"
+      edit: "Editar"
+      back: "Voltar para Testes técnicos"
+    edit:
+      title: "Editar Teste técnico"
+      submit: "Atualizar Teste técnico"
+      cancel: "Cancelar"
+      back: "Voltar para Testes técnicos"
+      show: "Mostrar"
+    new:
+      title: "Novo Teste técnico"
+      submit: "Criar Teste técnico"
+      cancel: "Cancelar"
+      back: "Voltar para Testes técnicos"
+
+    flash:
+      create_success: "Teste técnico criado com sucesso."
+      update_success: "Teste técnico atualizado com sucesso."
+      destroy_success: "Teste técnico excluído com sucesso."
+
+    controller:
+      flash_create: "Teste técnico criado com sucesso."
+      flash_update: "Teste técnico atualizado com sucesso."
+      flash_destroy: "Teste técnico excluído com sucesso."
+
+  technical_tests:
+    form:
+      battle: "Batalha"
+      project: "Link do Projeto"
+      readme: "Link do README"
+      link: "Link"
+      release_type: "Tipo de link"
+      error: "Proibiu o teste técnico de ser criado."
+
+  helpers:
+    technical_tests:
+      submit:
+        create: "Criar teste técnico"
+        update: "Atualizar teste técnico"
