@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Goal questions</h1>
-
+<%= link_to t("goal_question.index.back_to_goals"), goals_path %>
+<h1><%= @goal.description %>:</h1>
+<hr>
 <div id="goal_questions">
   <% @goal_questions.each do |goal_question| %>
     <%= render goal_question %>
     <p>
-      <%= link_to "Show this goal question", goal_question %>
+      <%= link_to t("goal_question.index.show_goal_for_this_goal_question"), [@goal] %> |
+      <%= link_to t("goal_question.index.edit_this_goal_question"), edit_goal_goal_question_path(@goal, goal_question) %> |
+      <%= link_to t("goal_question.index.destroy_this_goal_question"), [@goal, goal_question], method: :delete, data: { confirm: 'Are you sure?'} %>
     </p>
+    <hr>
   <% end %>
 </div>
 
-<%= link_to "New goal question", new_goal_question_path %>
+<%= link_to t("goal_question.index.new_goal_question"), new_goal_goal_question_path(@goal) %>
