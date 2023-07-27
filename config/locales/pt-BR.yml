@@ -48,6 +48,7 @@ pt-BR:
       edit_this_goal: Editar esta meta
       back_to_goals: Voltar para metas
       destroy_this_goal: Apagar esta meta
+      goal_successfully_created: Meta criada com sucesso
     goal:
       description: Descrição
       student: Aluno
@@ -58,6 +59,7 @@ pt-BR:
     form:
       description: Descrição
       student: Aluno
+      prohibited_this_goal_from_being_saved: Meta não pode ser salva
     edit:
       title: Editando meta
       update: Atualizar meta
@@ -67,6 +69,7 @@ pt-BR:
       title: Metas
       show_this_goal: Mostrar essa meta
       new_goal: Nova meta
+      goal_and_associated_questions_were_successfully_desctroyed: Meta e suas perguntas foram apagadas com sucesso
   goal_question:
     index:
       show_goal_for_this_goal_question: Mostrar meta desta pergunta
@@ -74,6 +77,7 @@ pt-BR:
       back_to_goals: Voltar para metas
       destroy_this_goal_question: Apagar esta pergunta
       new_goal_question: Nova pergunta
+      goal_question_success_destroyed: Pergunta da meta removida com sucesso
     goal_question:
       type_question: Tipo de pergunta
       description: Descrição
@@ -89,6 +93,7 @@ pt-BR:
       description: Descrição
       answer: Resposta
       goal: Meta
+      prohibited_this_goal_question_from_being_saved: Pergunta da meta não pode ser salva
     new:
       new_goal_question: Nova pergunta
       create: Criar
@@ -97,3 +102,4 @@ pt-BR:
       edit_this_goal_question: Editar esta pergunta
       back_to_goal_questions: Voltar para perguntas
       destroy_this_goal_question: Apagar esta pergunta
+      update_success: "Pergunta da meta atualizada com sucesso"
