@@ -13,7 +13,6 @@ class ObjectiveQuestionsController < ObjectivesController
   end
 
   def create
-    # @objective_question = @objective.objective_questions.new(objective_question_params)
     @objective_question = @objective.objective_questions.build(objective_question_params)
 
     if @objective_question.save
