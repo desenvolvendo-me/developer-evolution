@@ -17,6 +17,7 @@
 #  fk_rails_...  (student_id => students.id)
 #
 class Interview < ApplicationRecord
+  belongs_to :student
   has_many :interview_videos, dependent: :destroy
   INTERVIEW_TYPES = {
     "VIDA" => "Vida",

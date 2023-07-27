@@ -33,6 +33,11 @@ class InterviewsController < ApplicationController
       redirect_to action: :edit
     end
   end
+
+  def destroy
+    @interview.destroy
+    redirect_to interviews_url, notice: 'Interview destroyed'
+  end
   private
 
   def interview_params

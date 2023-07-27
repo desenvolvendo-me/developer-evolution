@@ -36,8 +36,8 @@ class InterviewVideosController < InheritedResources::Base
 
   def destroy
     @interview_video = @interview.interview_videos.find(params[:id])
-    @interview.destroy
-    redirect_to interview_interview_videos_url(@interview), notice: 'Interview video destroyed'
+    @interview_video.destroy
+    redirect_to interview_interview_videos_url, notice: 'Interview video destroyed'
   end
   private
 
