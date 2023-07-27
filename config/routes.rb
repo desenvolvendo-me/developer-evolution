@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :goals do
-    resources :goal_questions
+    resources :goal_questions, module: :goals
   end
 
   resources :experiences
