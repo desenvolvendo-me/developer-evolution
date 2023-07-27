@@ -36,7 +36,6 @@ class ObjectivesController < InheritedResources::Base
 
   def destroy
     @objective = current_user.student.objectives.find(params[:id])
-    @objective.objective_questions.destroy_all
     @objective.destroy
 
     redirect_to objectives_path, notice: I18n.t('objective.controller.destroy')

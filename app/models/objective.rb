@@ -18,5 +18,5 @@
 #
 class Objective < ApplicationRecord
   belongs_to :student
-  has_many :objective_questions
+  has_many :objective_questions, dependent: :destroy
 end
