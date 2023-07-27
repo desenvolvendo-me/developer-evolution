@@ -21,5 +21,6 @@ require 'rails_helper'
 RSpec.describe Interview, type: :model do
   describe "associations" do
     it { should belong_to(:student) }
+    it { should have_many(:interview_videos) }
   end
 end

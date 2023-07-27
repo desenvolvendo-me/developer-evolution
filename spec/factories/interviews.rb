@@ -19,6 +19,5 @@
 FactoryBot.define do
   factory :interview do
     interview_type { "Disciplina" }
-    answer { "https://vimeo.com/844876479" }
   end
 end
