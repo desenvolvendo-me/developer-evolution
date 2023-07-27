@@ -10,19 +10,19 @@
     </div>
   <% end %>
   <div>
-    <%= form.label :battle %>
+    <%= form.label :battle, t('.battle') %>
     <%= form.select :battle, (1..5) %>
   </div>
   <div>
-    <%= form.label :project %>
+    <%= form.label :project, t('.project') %>
     <%= form.text_field :project %>
   </div>
   <div>
-    <%= form.label :readme %>
+    <%= form.label :readme, t('.readme') %>
     <%= form.text_field :readme %>
   </div>
   <div>
-    <%= form.label :link %>
+    <%= form.label :link, t('.link') %>
     <%= form.text_field :link %>
   </div>
   <div class="field">
@@ -30,6 +30,6 @@
     <%= form.select :release_type, TechnicalTest::CATEGORY %>
   </div>
   <div>
-    <%= form.submit 'Create Technical Test' %>
+    <%= form.submit t("helpers.technical_tests.submit.#{locals[:action]}")%>
   </div>
 <% end %>

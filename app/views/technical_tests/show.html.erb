@@ -1,10 +1,10 @@
-<h1>Technical Test Details</h1>
+<h1><%= t("technical_test.show.title") %></h1>
 
-<p><strong>Battle:</strong> <%= @technical_test.battle %></p>
-<p><strong>Project:</strong> <%= @technical_test.project %></p>
-<p><strong>README:</strong> <%= @technical_test.readme %></p>
-<p><strong>Link:</strong> <%= @technical_test.link %></p>
-<p><strong>Release Type:</strong> <%= @technical_test.release_type %></p>
+<p><strong><%= t("technical_test.show.battle") %></strong> <%= @technical_test.battle %></p>
+<p><strong><%= t("technical_test.show.project") %></strong> <%= @technical_test.project %></p>
+<p><strong><%= t("technical_test.show.readme") %></strong> <%= @technical_test.readme %></p>
+<p><strong><%= t("technical_test.show.link") %></strong> <%= @technical_test.link %></p>
+<p><strong><%= t("technical_test.show.release_type") %></strong> <%= @technical_test.release_type %></p>
 
-<%= link_to 'Edit', edit_technical_test_path(@technical_test) %> |
-<%= link_to 'Back', technical_tests_path %>
+<%= link_to t('technical_test.show.edit'), edit_technical_test_path(@technical_test) %> |
+<%= link_to t('technical_test.show.back'), technical_tests_path %>
