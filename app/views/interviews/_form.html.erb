@@ -12,10 +12,10 @@
   <% end %>
 
   <%= form.label :interview_type, style: "display: block" %>
-  <%= form.select :interview_type, Interview::INTERVIEW_TYPE %>
+  <%= form.select :interview_type, Interview::INTERVIEW_TYPES %>
 
   <%= form.label :video_number, style: "display: block" %>
-  <%= form.select :video_number, Interview::VIDEO_NUMBER %>
+  <%= form.select :video_number, Interview::VIDEO_NUMBERS %>
 
   <%= form.label :answer, style: "display: block" %>
   <%= form.text_field :answer %>

@@ -20,6 +20,19 @@
 #
 class Interview < ApplicationRecord
   belongs_to :student
-  INTERVIEW_TYPE = ["VIDA", "RESILIÊNCIA", "SUPERAÇÃO", "FOCO E DISCIPLINA", "EMPRESA", "PORTFÓLIO"]
-  VIDEO_NUMBER = [1,2,3,4,5]
+  INTERVIEW_TYPES = {
+    "VIDA" => "Vida",
+    "RESILIÊNCIA" => "Resiliência",
+    "SUPERAÇÃO" => "Superação",
+    "FOCO E DISCIPLINA" => "Foco e Disciplina",
+    "EMPRESA" => "Empresa",
+    "PORTFÓLIO" => "Portfólio"
+  }
+  VIDEO_NUMBERS = {
+    1 => "1",
+    2 => "2",
+    3 => "3",
+    4 => "4",
+    5 => "5"
+  }
 end
