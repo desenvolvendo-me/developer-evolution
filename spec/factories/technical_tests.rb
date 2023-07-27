@@ -5,7 +5,6 @@
 #  id           :bigint           not null, primary key
 #  battle       :integer
 #  link         :string
-#  name         :string
 #  project      :string
 #  readme       :text
 #  release_type :string
