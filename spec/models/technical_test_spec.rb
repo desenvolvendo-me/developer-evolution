@@ -21,16 +21,18 @@
 #  fk_rails_...  (student_id => students.id)
 #
 require 'rails_helper'
+RSpec.describe Preparation, type: :model do
 
-RSpec.describe TechnicalTest, type: :model do
-  describe "validations" do
-    it { should validate_presence_of(:battle) }
-    it { should validate_inclusion_of(:battle).in_range(1..5) }
-    it { should validate_presence_of(:project) }
-    it { should validate_presence_of(:readme) }
-    it { should validate_presence_of(:link) }
-    it { should validate_presence_of(:release_type) }
-    it { should validate_inclusion_of(:release_type).in_array(TechnicalTest::CATEGORY) }
+  describe 'validations' do
+    let(:student) { FactoryBot.create(:student) }
+
+    describe 'associations' do
+      it { should belong_to(:student) }
+      it { should validate_inclusion_of(:battle).in_range(1..5) }
+      it { should validate_presence_of(:project) }
+      it { should validate_presence_of(:readme) }
+      it { should validate_presence_of(:link) }
+      it { should validate_inclusion_of(:release_type).in_array(TechnicalTest::CATEGORY) }
+    end
   end
 end
-

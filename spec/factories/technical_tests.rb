@@ -22,10 +22,10 @@
 #
 FactoryBot.define do
   factory :technical_test do
+    battle { rand(1..5) }
     project { "https://github.com/user/repo" }
     readme { "https://github.com/user/repo/readme" }
     link { "https://github.com/user/repo/milestones/1" }
-    battle { rand(1..5) }
     release_type { "TechnicalTest::CATEGORY.sample" }
     student { "Gustavo Ramos" }
   end
