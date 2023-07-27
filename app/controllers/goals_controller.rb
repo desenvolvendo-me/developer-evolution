@@ -35,9 +35,9 @@ class GoalsController < ApplicationController
   end
 
   def destroy
+    @goal.goal_questions.destroy_all
     @goal.destroy
-    flash[:notice] = 'Micro-meta excluída com sucesso.'
-    redirect_to goals_path
+    redirect_to goals_path, notice: 'Goal and associated questions were successfully desctroyed.'
   end
 
   private
