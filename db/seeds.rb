@@ -54,4 +54,18 @@ if Rails.env.development?
 
   student.save!
 
+  # Job position Generator
+  TechnicalTest.create(battle: 3,
+                     project: "https://github.com/user/repo",
+                     readme: "https://github.com/user/repo/readme",
+                     link: "https://github.com/user/repo/milestones/1",
+                     release_type: "Milestone Release",
+                     student: student)
+  TechnicalTest.create(battle: 1,
+                     project: "https://github.com/user/repo",
+                     readme: "https://github.com/user/repo/readme",
+                     link: "https://github.com/user/repo/issue/1",
+                     release_type: "Issue 3",
+                     student: student)
+
 end
