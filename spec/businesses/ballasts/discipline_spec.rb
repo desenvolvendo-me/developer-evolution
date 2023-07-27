@@ -152,88 +152,111 @@ RSpec.describe Ballasts::Discipline do
             expect(discipline[:stats][:day][:number]).to eq(3)
             expect(discipline[:stats][:day][:icon]).to eq('heart-broken')
           end
+
+          it 'week from 4 to 2' do
+            student = create(:student, time_available: 4)
+            final_date = (Date.today - (Date.today.wday + 1) % 7) - 7
+            initial_date = final_date - 6
+
+            (initial_date..final_date).each do |commit_date|
+              commit_total = 4
+              create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+            end
+            allow(Date).to receive(:today).and_return(Date.today - 8)
+            discipline = described_class.call(resource: student)
+
+            expect(discipline[:stats][:week][:number]).to eq(28)
+            expect(discipline[:stats][:week][:icon]).to eq('heart-broken')
+
+            student.time_available = 2
+            discipline = described_class.call(resource: student)
+
+            expect(discipline[:stats][:week][:icon]).to eq('heart-broken')
+
+
         end
       end
     end
 
-    context 'student time available 4 hours' do
-      before do
-        Student.destroy_all
-      end
-      let(:student) { create(:student, time_available: 4) }
-      subject(:discipline) { described_class.call(resource: student) }
+      context 'student time available 4 hours' do
+        before do
+          Student.destroy_all
+        end
+        let(:student) { create(:student, time_available: 4) }
+        subject(:discipline) { described_class.call(resource: student) }
 
-      describe 'day' do
-        context 'when last day is ok' do
+        describe 'day' do
+          context 'when last day is ok' do
+            before do
+              create(:practice, commit_date: Date.today - 1, commit_total: 5, student: student)
+              create(:practice, commit_date: Date.today, commit_total: 6, student: student)
+            end
+
+            it 'returns the last day stats' do
+              expect(discipline[:stats][:day][:number]).to eq(6)
+              expect(discipline[:stats][:day][:icon]).to eq('heart')
+            end
+          end
+
+          context 'when last day is not ok' do
+            before do
+              create(:practice, commit_date: Date.today - 1, commit_total: 3, student: student)
+              create(:practice, commit_date: Date.today, commit_total: 5, student: student)
+            end
+
+            it 'returns the last day stats' do
+              expect(discipline[:stats][:day][:number]).to eq(5)
+              expect(discipline[:stats][:day][:icon]).to eq('heart-broken')
+            end
+          end
+        end
+
+        describe 'week' do
           before do
-            create(:practice, commit_date: Date.today - 1, commit_total: 5, student: student)
-            create(:practice, commit_date: Date.today, commit_total: 6, student: student)
+            (0..13).each do |days_ago|
+              commit_date = Date.today - (14 - days_ago)
+              commit_total = 7
+              create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+            end
           end
 
-          it 'returns the last day stats' do
-            expect(discipline[:stats][:day][:number]).to eq(6)
-            expect(discipline[:stats][:day][:icon]).to eq('heart')
+          it 'calculates the correct sum for the last week' do
+
+            expect(discipline[:stats][:week][:number]).to eq(49)
+            expect(discipline[:stats][:week][:icon]).to eq('heart')
           end
         end
 
-        context 'when last day is not ok' do
+        describe 'micro_goal' do
           before do
-            create(:practice, commit_date: Date.today - 1, commit_total: 3, student: student)
-            create(:practice, commit_date: Date.today, commit_total: 5, student: student)
+            (0..20).each do |days_ago|
+              commit_date = Date.today - (21 - days_ago)
+              commit_total = 7
+              create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+            end
           end
 
-          it 'returns the last day stats' do
-            expect(discipline[:stats][:day][:number]).to eq(5)
-            expect(discipline[:stats][:day][:icon]).to eq('heart-broken')
-          end
-        end
-      end
+          it 'calculates the sum for the last 2 weeks' do
 
-      describe 'week' do
-        before do
-          (0..13).each do |days_ago|
-            commit_date = Date.today - (14 - days_ago)
-            commit_total = 7
-            create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+            expect(discipline[:stats][:micro_goal][:number]).to eq(98)
+            expect(discipline[:stats][:micro_goal][:icon]).to eq('heart')
           end
         end
 
-        it 'calculates the correct sum for the last week' do
-
-          expect(discipline[:stats][:week][:number]).to eq(49)
-          expect(discipline[:stats][:week][:icon]).to eq('heart')
-        end
-      end
-
-      describe 'micro_goal' do
-        before do
-          (0..20).each do |days_ago|
-            commit_date = Date.today - (21 - days_ago)
-            commit_total = 7
-            create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+        describe 'goal' do
+          before do
+            (0..100).each do |days_ago|
+              commit_date = Date.today - (101 - days_ago)
+              commit_total = 5
+              create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+            end
           end
-        end
 
-        it 'calculates the sum for the last 2 weeks' do
+          it 'returns the commits from the last 3 months' do
 
-          expect(discipline[:stats][:micro_goal][:number]).to eq(98)
-          expect(discipline[:stats][:micro_goal][:icon]).to eq('heart')
-        end
-      end
-
-      describe 'goal' do
-        before do
-          (0..100).each do |days_ago|
-            commit_date = Date.today - (101 - days_ago)
-            commit_total = 5
-            create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+            expect(discipline[:stats][:goal][:number]).to eq(450)
+            expect(discipline[:stats][:goal][:icon]).to eq('heart-broken')
           end
-        end
-
-        it 'returns the commits from the last 3 months' do
-
-          expect(discipline[:stats][:goal][:number]).to eq(450)
-          expect(discipline[:stats][:goal][:icon]).to eq('heart-broken')
         end
       end
     end
