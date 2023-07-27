@@ -3,8 +3,8 @@
 <%= render @goal_question %>
 
 <div>
-  <%= link_to "Edit this goal question", edit_goal_question_path(@goal_question) %> |
-  <%= link_to "Back to goal questions", goal_questions_path %>
+  <%= link_to t("goal_question.show.edit_this_goal_question"), edit_goal_goal_question_path(@goal_question) %> |
+  <%= link_to t("goal_question.show.back_to_goal_questions"), goal_goal_questions_path %>
 
-  <%= button_to "Destroy this goal question", @goal_question, method: :delete %>
+  <%= button_to t("goal_question.show.destroy_this_goal_question"), goal_goal_question_path(@goal, @goal_question), method: :delete %>
 </div>
