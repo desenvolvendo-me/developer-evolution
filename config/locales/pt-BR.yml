@@ -42,4 +42,61 @@ pt-BR:
     controller:
       flash_create: Experiência cadastrada com sucesso
       flash_update: Experiência atualizada com sucesso
+  goal:
+    show:
+      show_goal_question: Mostrar perguntas desta meta
+      edit_this_goal: Editar esta meta
+      back_to_goals: Voltar para metas
+      destroy_this_goal: Apagar esta meta
+    goal:
+      description: Descrição
+      student: Aluno
+    new:
+      new_goal: Nova Meta
+      back_to_goals: Voltar para metas
+      create: Criar meta
+    form:
+      description: Descrição
+      student: Aluno
+    edit:
+      title: Editando meta
+      update: Atualizar meta
+      show_this_goal: Mostrar essa meta
+      back_to_goals: Voltar para metas
+    index:
+      title: Metas
+      show_this_goal: Mostrar essa meta
+      new_goal: Nova meta
+  goal_question:
+    index:
+      show_goal_for_this_goal_question: Mostrar meta desta pergunta
+      edit_this_goal_question: Editar esta pergunta
+      back_to_goals: Voltar para metas
+      destroy_this_goal_question: Apagar esta pergunta
+      new_goal_question: Nova pergunta
+    goal_question:
+      type_question: Tipo de pergunta
+      description: Descrição
+      answer: Resposta
+      goal: Meta
+    edit:
+      edit_goal_question: Editar esta pergunta
+      show_this_goal_question: Mostrar essa pergunta
+      back_to_goal_questions: Voltar para perguntas
+      update: Atualizar
+    form:
+      type_question: Tipo de pergunta
+      description: Descrição
+      answer: Resposta
+      goal: Meta
+    new:
+      new_goal_question: Nova pergunta
+      create: Criar
+      back_to_goal_questions: Voltar para perguntas
+    show:
+      edit_this_goal_question: Editar esta pergunta
+      back_to_goal_questions: Voltar para perguntas
+      destroy_this_goal_question: Apagar esta pergunta
+
+
 
