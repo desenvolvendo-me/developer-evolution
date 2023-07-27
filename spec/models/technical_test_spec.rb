@@ -21,7 +21,7 @@
 #  fk_rails_...  (student_id => students.id)
 #
 require 'rails_helper'
-RSpec.describe Preparation, type: :model do
+RSpec.describe TechnicalTest, type: :model do
 
   describe 'validations' do
     let(:student) { FactoryBot.create(:student) }
