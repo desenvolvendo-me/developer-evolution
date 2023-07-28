@@ -28,10 +28,11 @@ pt-BR:
       destroy: Entrevista apagada com sucesso
     interview_videos:
       show: Mostrar esse link de video
-      back: Voltar para videos de entrevista
+      back: Voltar para vídeos de entrevista
       new: Criar novo link de vídeo
       edit: Editar esse link de vídeo
       destroy: Apagar esse link de vídeo
+      back_interview: Voltar para entrevista
       view_new: Novo vídeo
       view_form:
         error: proibiu esse video link de ser salvo
