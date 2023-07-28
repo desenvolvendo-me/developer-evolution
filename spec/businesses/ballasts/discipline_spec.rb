@@ -153,26 +153,27 @@ RSpec.describe Ballasts::Discipline do
             expect(discipline[:stats][:day][:icon]).to eq('heart-broken')
           end
 
-          it 'week from 4 to 2' do
+          it 'last 2 micro_goals from 4 to 2' do
             student = create(:student, time_available: 4)
-            final_date = (Date.today - (Date.today.wday + 1) % 7) - 7
-            initial_date = final_date - 6
+
+            last_sat_first_micro_goal = (Date.today - (Date.today.wday + 1) % 7) - 7 -7
+            final_date = last_sat_first_micro_goal
+            initial_date = final_date - 13
 
             (initial_date..final_date).each do |commit_date|
               commit_total = 4
               create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
             end
-            allow(Date).to receive(:today).and_return(Date.today - 8)
+            allow(Date).to receive(:today).and_return(last_sat_first_micro_goal + 1)
             discipline = described_class.call(resource: student)
 
-            expect(discipline[:stats][:week][:number]).to eq(28)
-            expect(discipline[:stats][:week][:icon]).to eq('heart-broken')
+            expect(discipline[:stats][:micro_goal][:number]).to eq(56)
+            expect(discipline[:stats][:micro_goal][:icon]).to eq('heart-broken')
 
             student.time_available = 2
             discipline = described_class.call(resource: student)
 
-            expect(discipline[:stats][:week][:icon]).to eq('heart-broken')
-
+            expect(discipline[:stats][:micro_goal][:icon]).to eq('heart-broken')
 
         end
       end
