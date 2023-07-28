@@ -60,8 +60,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_162130) do
 
   create_table "scripts", force: :cascade do |t|
     t.string "category"
+    t.bigint "student_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_scripts_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -126,5 +128,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_28_162130) do
 
   add_foreign_key "practices", "students"
   add_foreign_key "script_questions", "scripts"
+  add_foreign_key "scripts", "students"
   add_foreign_key "students", "users"
 end

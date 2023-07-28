@@ -1,0 +1,7 @@
+<p><strong>Subject:</strong> <%= @script.category %></p>
+<p>
+  <%= link_to 'Edit', edit_script_path(@script) %> |
+  <%= link_to 'Back', scripts_path %>
+</p>
+<%= render @script.script_questions %>
+<%= link_to 'New Question', new_script_script_question_path(@script) %>

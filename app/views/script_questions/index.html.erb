@@ -1,0 +1,23 @@
+<h1>Script Questions</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Description</th>
+    <th>Subject</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @script_questions.each do |question| %>
+    <tr>
+      <td><%= question.category %></td>
+      <td><%= question.description %></td>
+      <td><%= link_to 'Show', script_script_question_path(@script, question) %></td>
+      <td><%= link_to 'Edit', edit_script_script_question_path(@script, question) %></td>
+      <td><%= button_to 'Destroy', script_script_question_path(@script, question), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Question', new_script_script_question_path(@script) %>
+<%= link_to 'Back', scripts_path %>

@@ -1,0 +1,20 @@
+<h1>Scripts</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Subject: </th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @scripts.each do |script| %>
+    <tr>
+      <td><%= script.category %></td>
+      <td><%= link_to 'Show', script_path(script) %></td>
+      <td><%= link_to 'Edit', edit_script_path(script) %></td>
+      <td><%= button_to 'Destroy', script_path(script), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Script', new_script_path %>

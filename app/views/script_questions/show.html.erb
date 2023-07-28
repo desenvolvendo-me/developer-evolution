@@ -1,0 +1,13 @@
+<h1>Question</h1>
+<p>
+  <strong>Question:</strong>
+  <%= @script_question.category %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @script_question.description %>
+</p>
+<p>
+  <%= link_to 'Edit', edit_script_script_question_path(@script_question.script, @script_question) %> |
+  <%= link_to 'Back', script_script_questions_path(@script_question.script) %>
+</p>

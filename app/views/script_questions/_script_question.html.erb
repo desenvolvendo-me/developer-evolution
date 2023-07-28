@@ -1,0 +1,12 @@
+<p>
+  <strong>Question:</strong>
+  <%= script_question.category %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= script_question.description %>
+</p>
+<p>
+  <%= link_to 'Edit', edit_script_script_question_path(script_question.script, script_question) %> |
+  <%= link_to 'Destroy', script_script_question_path(script_question.script, script_question), method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>
