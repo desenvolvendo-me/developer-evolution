@@ -12,7 +12,7 @@
   <% end %>
 
   <%= form.label :interview_type, style: "display: block" %>
-  <%= form.select :interview_type, Interview::INTERVIEW_TYPES %>
+  <%= form.select :interview_type, Interview.interview_types.keys.map { |k| [Interview.interview_types[k], k] } %>
 
 
   <div>

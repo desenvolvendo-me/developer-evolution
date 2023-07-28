@@ -19,12 +19,12 @@
 class Interview < ApplicationRecord
   belongs_to :student
   has_many :interview_videos, dependent: :destroy
-  INTERVIEW_TYPES = {
-    "VIDA" => "Vida",
-    "RESILIÊNCIA" => "Resiliência",
-    "SUPERAÇÃO" => "Superação",
-    "FOCO E DISCIPLINA" => "Foco e Disciplina",
-    "EMPRESA" => "Empresa",
-    "PORTFÓLIO" => "Portfólio"
+  enum interview_type: {
+    vida: "Vida",
+    resiliencia: "Resiliência",
+    superacao: "Superação",
+    foco_e_disciplina: "Foco e Disciplina",
+    empresa: "Empresa",
+    portfolio: "Portfólio"
   }
 end
