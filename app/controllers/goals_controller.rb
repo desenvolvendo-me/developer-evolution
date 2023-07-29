@@ -35,7 +35,8 @@ class GoalsController < ApplicationController
   end
 
   def destroy
-    @goal.goal_questions.destroy_all
+    # Remover a linha abaixo, pois já tem o 'dependent :destroy' na Model de goals
+    #@goal.goal_questions.destroy_all
     @goal.destroy
     redirect_to goals_path, notice: 'Goal and associated questions were successfully desctroyed.'
   end
