@@ -1,4 +1,8 @@
 pt-BR:
+  helpers:
+    submit:
+      create: 'Criar'
+      update: 'Editar'
 
   controller:
     flash_create: 'Propoósito cadastrado com sucesso'
@@ -14,43 +18,38 @@ pt-BR:
         destroy: 'Excluir este Propósito'
       new:
         title: 'Novo Propósito:'
-        form: 'Formulário'
+        form: 'Versão'
         back: 'Voltar para os Propósitos'
       index:
         title: 'Propósito:'
         new_button: 'Novo Propósito'
-        show_link: 'Visualizar este Propósito'
+        show_link: 'Visualizar Propósito'
       edit:
         title: 'Editando Propósito:'
         show_link: 'Visualizar este Propósito'
         back_link: 'Voltar para os Propósitos'
-  purposes:
+  purposes_question:
     form:
-      version: 'Versão'
-      time: 'Tempo'
       type_question: 'Tipo de pergunta'
-      question: 'Pergunta'
+      description: 'Pergunta'
       answer: 'Resposta'
     index:
-      tittle: 'Propósitos'
-      new: 'Novo Propósito'
+      tittle: 'Perguntas do Propósito'
+      new: 'Novo formulário'
       show: 'Mostrar Propósito'
     new:
-      tittle: 'Novo Propósito'
+      title: 'Novas Perguntas'
       back: 'Voltar'
     show:
-      edit: 'Editar Propósito'
+      edit: 'Editar Perguntas'
       back: 'Voltar '
-      destroy: 'Apagar Propósito'
+      destroy: 'Apagar Perguntas'
     edit:
-      show: 'Mostrar Propósito'
+      show: 'Mostrar Perguntas'
       back: 'Voltar'
-      index: 'Editar Propósito'
-      edit_purpose: "Editar Propósito"
-  helpers:
-    submit:
-      create: 'Criar'
-      edit: 'Editar'
+      #index: 'Editar Propósito'
+      edit_purpose: "Editar Perguntas"
+
   purpose:
     version: "Versão: "
     time: "Tempo:"
