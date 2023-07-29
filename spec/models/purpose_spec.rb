@@ -2,15 +2,11 @@
 #
 # Table name: purposes
 #
-#  id            :bigint           not null, primary key
-#  answer        :text
-#  question      :text
-#  time          :integer
-#  type_question :string
-#  version       :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  student_id    :bigint
+#  id         :bigint           not null, primary key
+#  version    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  student_id :bigint           not null
 #
 # Indexes
 #
