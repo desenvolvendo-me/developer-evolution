@@ -57,4 +57,17 @@ if Rails.env.development?
   # Furure generator
   Routine.create(day_of_the_week: "segunda", hour: "12:00", activity: "almoço", priority:"1", student: student)
   Routine.create(day_of_the_week: "segunda", hour: "18:00", activity: "Estudo", priority:"1", student: student)
+
+  purpose = Purpose.new
+  purpose.student_id = Student.last.id
+  purpose.version = "1"
+  purpose.save!
+
+  purpose_question = PurposeQuestion.new
+  purpose_question.purpose_id = Purpose.last.id
+  purpose_question.type_question = "Porque?"
+  purpose_question.description = "Porque quer programar?"
+  purpose_question.answer = "Pra ter instabilidade"
+  purpose_question.save!
+
 end
