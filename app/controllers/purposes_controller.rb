@@ -21,7 +21,7 @@ class PurposesController < ApplicationController
   end
 
   def index
-    @purposes = current_user.student.purposes
+    @purposes = current_user.purposes
   end
 
   def destroy
@@ -34,7 +34,7 @@ class PurposesController < ApplicationController
   private
 
   def purpose_params
-    params.require(:purpose).permit(:version, :type_question, :question, :answer)
+    params.require(:purpose).permit(:version)
   end
 
   def student
