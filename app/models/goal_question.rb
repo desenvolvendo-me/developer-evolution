@@ -20,4 +20,21 @@
 #
 class GoalQuestion < ApplicationRecord
   belongs_to :goal
+
+  TYPE_QUESTION_OPTIONS = %w[Detalhe Métrica Tempo].freeze
+  enum type_question: Hash[TYPE_QUESTION_OPTIONS.map { |option| [option, option] }]
+
+  DESCRIPTION_OPTIONS = [
+    'O que eu desejo alcançar?',
+    'Por que essa meta é importante?',
+    'Quem são os envolvidos?',
+    'Quais são os recursos necessários?',
+    'Quais são os resultados esperados, em termos quantitativos?',
+    'Como vou saber se foi alcançada?',
+    'Quais métricas podem ser usadas para acompanhar os resultados?',
+    'Qual é o prazo máximo para atingir?',
+    'Qual é o prazo mínimo para atingir?'
+  ].freeze
+
+  enum description: Hash[DESCRIPTION_OPTIONS.map { |option| [option, option] }]
 end
