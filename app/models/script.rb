@@ -19,4 +19,13 @@
 class Script < ApplicationRecord
   belongs_to :student
   has_many :script_questions, dependent: :destroy
+
+  enum subject: {
+    vida: "Vida",
+    resiliencia: "Resiliência",
+    superacao: "Superação",
+    foco_e_disciplina: "Foco e Disciplina",
+    empresa: "Empresa",
+    portfolio: "Portfólio"
+  }
 end

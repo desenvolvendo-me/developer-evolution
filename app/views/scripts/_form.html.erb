@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :category, "Subject" %>
-    <%= form.select :category, ["VIDA", "RESILIÊNCIA", "SUPERAÇÃO", "FOCO E DISCIPLINA", "EMPRESA", "PORTFÓLIO"] %>
+    <%= form.select :category, Script.subjects.keys.map { |k| [Script.subjects[k], k] } %>
   </div>
 
   <div class="actions">
