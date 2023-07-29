@@ -6,7 +6,7 @@
 #  micro_goal :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  student_id :bigint           not null
+#  student_id :bigint
 #
 # Indexes
 #
@@ -18,5 +18,5 @@
 #
 class MicroGoal < ApplicationRecord
   belongs_to :student
-  has_many :tasks
+  has_many :micro_goal_tasks, dependent: :destroy
 end
