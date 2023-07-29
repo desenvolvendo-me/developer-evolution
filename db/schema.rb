@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_11_132522) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_28_044508) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,7 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_132522) do
   end
 
   create_table "purposes", force: :cascade do |t|
-<<<<<<< HEAD
     t.string "version", limit: 5
     t.string "period", limit: 20
     t.bigint "student_id", null: false
@@ -94,19 +93,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_132522) do
     t.index ["student_id"], name: "index_routines_on_student_id"
   end
 
-=======
-    t.integer "version"
-    t.integer "time"
+  create_table "purpose_questions", force: :cascade do |t|
+
     t.string "type_question"
-    t.text "question"
-    t.text "answer"
+    t.string "description"
+    t.string "answer"
+    t.bigint "purpose_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "student_id"
+    t.index ["purpose_id"], name: "index_purpose_questions_on_purpose_id"
+  end
+
+  create_table "purposes", force: :cascade do |t|
+    t.integer "version"
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_purposes_on_student_id"
   end
 
->>>>>>> 63eb5a8 (Me ajude a corrigir o erro nil em student)
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "class_name"
@@ -167,14 +172,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_11_132522) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "answers", "questions"
-  add_foreign_key "keyquestions", "purposes"
   add_foreign_key "practices", "students"
+  add_foreign_key "purpose_questions", "purposes"
   add_foreign_key "purposes", "students"
-<<<<<<< HEAD
-  add_foreign_key "questions", "keyquestions"
   add_foreign_key "routines", "students"
-=======
->>>>>>> 63eb5a8 (Me ajude a corrigir o erro nil em student)
   add_foreign_key "students", "users"
 end
