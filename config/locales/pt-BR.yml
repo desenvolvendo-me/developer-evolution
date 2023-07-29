@@ -76,7 +76,7 @@ pt-BR:
       edit_this_goal_question: Editar esta pergunta
       back_to_goals: Voltar para metas
       destroy_this_goal_question: Apagar esta pergunta
-      new_goal_question: Nova pergunta
+      new_goal_question_for_this_goal: Nova pergunta para esta meta
       goal_question_success_destroyed: Pergunta da meta removida com sucesso
     goal_question:
       type_question: Tipo de pergunta
@@ -99,7 +99,20 @@ pt-BR:
       create: Criar
       back_to_goal_questions: Voltar para perguntas
     show:
-      edit_this_goal_question: Editar esta pergunta
       back_to_goal_questions: Voltar para perguntas
       destroy_this_goal_question: Apagar esta pergunta
       update_success: "Pergunta da meta atualizada com sucesso"
+    type_question_options:
+      - Detalhe
+      - Métrica
+      - Tempo
+    description:
+      - O que eu desejo alcançar?
+      - Por que essa meta é importante
+      - Quem são os envolvidos?
+      - Quais são os recursos necessários?
+      - Quais são os resultados esperados, em termos quantitativos?
+      - Como vou saber se foi alcançada?
+      - Quais métricas podem ser usadas para acompanhar os resultados?
+      - Qual é o prazo máximo para atingir?
+      - Qual é o prazo mínimo para atingir?
