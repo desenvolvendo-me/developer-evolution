@@ -18,12 +18,12 @@
 
   <div>
     <%= form.label :type_question, t('goal_question.form.type_question'), style: "display: block" %>
-    <%= form.text_field :type_question %>
+    <%= form.select :type_question, t('goal_question.type_question_options'), prompt: true %>
   </div>
 
   <div>
     <%= form.label :description, t('goal_question.form.description'), style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.select :description, t('goal_question.description') %>
   </div>
 
   <div>
