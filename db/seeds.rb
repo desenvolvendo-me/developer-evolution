@@ -55,10 +55,10 @@ if Rails.env.development?
   student.save!
 
   # Base Generator
-  micro_goal_1 = MicroGoal.create(micro_goal: "IDEs (RubyMine e VsCode)", student: student )
-  micro_goal_2 = MicroGoal.create(micro_goal: "Banco de dados", student: student )
+  micro_goal_1 = MicroGoal.create(micro_goal: "Estudar Git e Github", student: student )
+  micro_goal_2 = MicroGoal.create(micro_goal: "Estudar Banco de dados", student: student )
 
-  MicroGoalTask.create(task: "pangram", start_date: "2023-07-11", end_date: "2023-07-13", percentage: 20, micro_goal: micro_goal_1)
-  MicroGoalTask.create(task: "minimum-sum", start_date: "2023-07-11", end_date: "2023-07-13", percentage: 20, micro_goal: micro_goal_2)
+  MicroGoalTask.create(task: "Git / Github", start_date: "2023-07-11", end_date: "2023-07-13", percentage: 20, micro_goal: micro_goal_1)
+  MicroGoalTask.create(task: "postgres", start_date: "2023-07-11", end_date: "2023-07-13", percentage: 20, micro_goal: micro_goal_2)
 
 end
