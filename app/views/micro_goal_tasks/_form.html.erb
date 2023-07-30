@@ -1,9 +1,9 @@
-<%= form_with(model: @task, url: @task.persisted? ? micro_goal_task_path(@task) : micro_goal_tasks_path, local: true) do |form| %>
-  <% if @task.errors.any? %>
+<%= form_with(model: [@micro_goal, @micro_goal_task], local: true) do |form| %>
+  <% if @micro_goal_task.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <h2><%= pluralize(micro_goal_task.errors.count, "error") %> prohibited this task from being saved:</h2>
       <ul>
-        <% @task.errors.full_messages.each do |message| %>
+        <% micro_goal_task.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
