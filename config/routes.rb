@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :micro_goals do
-    resources :tasks
+    resources :micro_goal_tasks
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
