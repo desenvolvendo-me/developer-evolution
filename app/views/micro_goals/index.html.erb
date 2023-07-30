@@ -1,12 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Micro goals:</h1>
-<hr>
+
 <div id="micro_goals">
   <% @micro_goals.each do |micro_goal| %>
     <%= render micro_goal %>
     <p>
-      <%= link_to "Show this micro goal", micro_goal %>
+      <%= link_to "Show this micro goal", micro_goal_path(micro_goal) %>
     </p>
   <% end %>
 </div>
