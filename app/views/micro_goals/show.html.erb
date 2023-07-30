@@ -1,5 +1,6 @@
 <p style="color: green"><%= notice %></p>
-
+<%= link_to "Show all tasks", micro_goal_micro_goal_tasks_path(@micro_goal) %>
+<hr>
 <%= render @micro_goal %>
 
 <div>
@@ -7,6 +8,4 @@
   <%= link_to "Back to micro goals", micro_goals_path %>
 
   <%= button_to "Destroy this micro goal", @micro_goal, method: :delete %>
-
-  <%= link_to "Show tasks", micro_goal_tasks_path(@micro_goal) %>
 </div>
