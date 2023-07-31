@@ -1,11 +1,11 @@
 <p style="color: green"><%= notice %></p>
-<%= link_to "Show all tasks", micro_goal_micro_goal_tasks_path(@micro_goal) %>
-<hr>
+<%= link_to t('views.micro_goals.show.show_all_tasks'), micro_goal_micro_goal_tasks_path(@micro_goal) %>
+
 <%= render @micro_goal %>
 
 <div>
-  <%= link_to "Edit this micro goal", edit_micro_goal_path(@micro_goal) %> |
-  <%= link_to "Back to micro goals", micro_goals_path %>
+  <%= link_to t('views.micro_goals.show.edit_this_micro_goal'), edit_micro_goal_path(@micro_goal) %> |
+  <%= link_to t('views.micro_goals.show.back_to_micro_goals'), micro_goals_path %>
 
-  <%= button_to "Destroy this micro goal", @micro_goal, method: :delete %>
+  <%= button_to t('views.micro_goals.show.destroy_this_micro_goal_button'), @micro_goal, method: :delete %>
 </div>
