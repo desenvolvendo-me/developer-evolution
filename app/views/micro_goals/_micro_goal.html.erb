@@ -1,15 +1,15 @@
 <div id="<%= dom_id micro_goal %>">
   <hr>
   <p>
-    <strong>Micro goal:</strong>
+    <strong><%= t('views.micro_goals.micro_goal.micro_goal_title') %>:</strong>
     <%= micro_goal.micro_goal %>
   </p>
 
     <% if micro_goal.micro_goal_tasks.any? %>
       <% micro_goal_task = micro_goal.micro_goal_tasks.first %>
-      <%= link_to 'Show this task', micro_goal_micro_goal_task_path(micro_goal, micro_goal_task) %> |
+      <%= link_to t('views.micro_goals.micro_goal.show_task_for_this_micro_goal'), micro_goal_micro_goal_task_path(micro_goal, micro_goal_task) %> |
     <% else %>
-      No tasks available for this micro goal.
+      <% t('views.micro_goals.micro_goal.no_tasks_available_for_this_micro_goal') %>
     <% end %>
 
 </div>
