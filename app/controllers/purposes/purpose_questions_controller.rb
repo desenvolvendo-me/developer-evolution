@@ -13,13 +13,11 @@ class Purposes::PurposeQuestionsController < ApplicationController
   def create
     # @message = Message.new(message_params)
     @purpose_question = @purpose.purpose_questions.build(purpose_question_params)
-    redirect_to(@purpose_question.save ? [@purpose, @purpose_question] : { action: "new" }, notice: @purpose_question.save ? t(''.controller.flash_create') : "Failed to create purpose question.")
-
-
+      redirect_to(@purpose_question.save ? [@purpose, @purpose_question] : { action: "new" }, notice: @purpose_question.save ? t('controller.flash_create') : t('controller.flash_fail'))
   end
 
   def update
-    redirect_to @purpose_question.update(purpose_question_params) ? [@purpose, @purpose_question] : edit_purpose_purpose_question_path(@purpose, @purpose_question), notice: @purpose_question.update(purpose_question_params) ? t('controller.flash_update') : "Failed to update message."
+    redirect_to @purpose_question.update(purpose_question_params) ? [@purpose, @purpose_question] : edit_purpose_purpose_question_path(@purpose, @purpose_question), notice: @purpose_question.update(purpose_question_params) ? t('controller.flash_update') : t('controller.flash_fail_purpose')
   end
 
 
