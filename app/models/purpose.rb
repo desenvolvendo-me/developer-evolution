@@ -19,5 +19,4 @@
 class Purpose < ApplicationRecord
   belongs_to :student
   has_many :purpose_questions, dependent: :destroy
-  # validates :version, :time, :type_question, :question, :answer, presence: true
 end
