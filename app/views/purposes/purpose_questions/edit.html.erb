@@ -1,0 +1,10 @@
+<h1><%= t('purposes_question.edit.edit_purpose') %></h1>
+
+<%= render "form", purpose_question: @purpose_question %>
+
+<br>
+
+<div>
+  <%= link_to t('purposes_question.edit.show'), [@purpose, @purpose_question] %> |
+  <%= link_to t('purposes_question.edit.back'), purpose_purpose_questions_path(@purpose) %>
+</div>
