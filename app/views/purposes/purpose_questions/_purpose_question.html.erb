@@ -1,0 +1,24 @@
+<div id="<%= dom_id purpose_question %>">
+  <p>
+    <strong>Type question:</strong>
+    <%= purpose_question.type_question %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= purpose_question.description %>
+  </p>
+
+  <p>
+    <strong>Answer:</strong>
+    <%= purpose_question.answer %>
+  </p>
+
+  <p>
+    <strong>Purpose:</strong>
+    <%= purpose_question.purpose_id %>
+  </p>
+  <p>
+    <%= link_to t('purposes_question.edit.show'), [@purpose, purpose_question] %>
+  </p>
+</div>
