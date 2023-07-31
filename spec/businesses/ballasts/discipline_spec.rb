@@ -179,16 +179,55 @@ RSpec.describe Ballasts::Discipline do
             final_date = initial_date + 13
 
             (initial_date..final_date).each do |commit_date|
-              commit_total = 8
+              commit_total = 5
               create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
             end
             discipline = described_class.call(resource: student)
 
             number_micro_goal2 = discipline[:stats][:micro_goal][:number]
-            expect(discipline[:stats][:micro_goal][:number]).to eq(112)
-            expect(number_micro_goal1 != number_micro_goal2).to be_truthy
+            evolucao = ((number_micro_goal2.to_f - number_micro_goal1.to_f) / number_micro_goal1.to_f) * 100
+            expect(discipline[:stats][:micro_goal][:number]).to eq(70)
+            puts "evoluiu #{evolucao}%"
 
-        end
+          end
+
+          it 'compare last 2 micro_goals diff time_available' do
+            student = create(:student, time_available: 4)
+
+            last_sat_first_micro_goal = (Date.today - (Date.today.wday + 1) % 7) - 7 -7
+            final_date = last_sat_first_micro_goal
+            initial_date = final_date - 13
+
+            (initial_date..final_date).each do |commit_date|
+              commit_total = 4
+              create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+            end
+            today_date = Date.today
+            allow(Date).to receive(:today).and_return(last_sat_first_micro_goal + 1)
+            discipline = described_class.call(resource: student)
+
+            expect(discipline[:stats][:micro_goal][:number]).to eq(56)
+            expect(discipline[:stats][:micro_goal][:icon]).to eq('heart-broken')
+
+            number_micro_goal1 = discipline[:stats][:micro_goal][:number]
+
+            allow(Date).to receive(:today).and_return(today_date)
+            student.time_available = 2
+            initial_date = last_sat_first_micro_goal + 1
+            final_date = initial_date + 13
+
+            (initial_date..final_date).each do |commit_date|
+              commit_total = 6
+              create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+            end
+            discipline = described_class.call(resource: student)
+
+            number_micro_goal2 = discipline[:stats][:micro_goal][:number]
+            expect(discipline[:stats][:micro_goal][:number]).to eq(84)
+            evolucao = ((number_micro_goal2.to_f - number_micro_goal1.to_f) / number_micro_goal1.to_f) * 100
+            puts "evoluiu #{evolucao}%"
+
+          end
       end
     end
 
