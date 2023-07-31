@@ -1,0 +1,21 @@
+<%= form_with(model: interview) do |form| %>
+  <% if interview.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(interview.errors.count, "error") %> <%= I18n.t('interview.form_error') %>:</h2>
+
+      <ul>
+        <% interview.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.label :interview_type, style: "display: block" %>
+  <%= form.select :interview_type, Interview.interview_types.keys.map { |k| [Interview.interview_types[k], k] } %>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

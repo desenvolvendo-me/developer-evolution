@@ -1,0 +1,10 @@
+<h1><%= I18n.t('interview.edit_title') %></h1>
+
+<%= render "form", interview: @interview %>
+
+<br>
+
+<div>
+  <%= link_to I18n.t('interview.show'), @interview %> |
+  <%= link_to I18n.t('interview.back'), interviews_path %>
+</div>

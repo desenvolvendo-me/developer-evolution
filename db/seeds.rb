@@ -54,4 +54,13 @@ if Rails.env.development?
 
   student.save!
 
+  # Create interviews with student relation
+  video_urls = %w[https://vimeo.com/190479606 https://vimeo.com/76979871 https://vimeo.com/195085022]
+
+
+  interview = Interview.create(interview_type: "Vida", student: student)
+  interview.interview_videos.create(video_link: "https://vimeo.com/123456")
+
+  # Exemplo de criação de outro vídeo associado à mesma entrevista
+  interview.interview_videos.create(video_link: "https://vimeo.com/789012")
 end

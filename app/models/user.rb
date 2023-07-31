@@ -23,7 +23,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :student
-  before_create :build_student
   
   def to_s
     email
