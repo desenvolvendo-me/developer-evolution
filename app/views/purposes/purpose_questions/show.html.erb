@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @purpose_question %>
+
+<div>
+  <%= link_to t('purposes_question.show.edit'), edit_purpose_purpose_question_path([@purpose, @purpose_question]) %> |
+  <%= link_to t('purposes_question.show.back'), [@purpose, :purpose_questions] %>
+
+  <%= button_to t('purposes_question.show.destroy'), [@purpose, @purpose_question], method: :delete %>
+</div>
