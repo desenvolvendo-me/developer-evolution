@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :experiences
   resources :micro_goals do
     resources :micro_goal_tasks, module: :micro_goals
   end
