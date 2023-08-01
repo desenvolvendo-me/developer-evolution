@@ -54,7 +54,7 @@ if Rails.env.development?
 
   student.save!
 
-  # Base Generator
+  # Future Mission:
   micro_goal_1 = MicroGoal.create(micro_goal: "Estudar Git e Github", student: student )
   micro_goal_2 = MicroGoal.create(micro_goal: "Estudar Banco de dados", student: student )
 
