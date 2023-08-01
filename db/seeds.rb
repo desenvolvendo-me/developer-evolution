@@ -54,4 +54,11 @@ if Rails.env.development?
 
   student.save!
 
+  # Job Position Generator
+  script = Script.create(category: "Empresa", student: student)
+  script.script_questions.create(category: "Quem estava no momento?", description: "Eu e o Tech Lead")
+
+  script2 = Script.create(category: "Superação", student: student)
+  script2.script_questions.create(category: "O que aconteceu?", description: "Com melhora na  comunicação foi possivel entregar as demandas solicitadas.")
+
 end
