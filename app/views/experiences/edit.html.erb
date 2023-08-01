@@ -1,0 +1,10 @@
+<h1><%= I18n.t('experience.edit_view.title') %></h1>
+
+<%= render "form", experience: @experience %>
+
+<br>
+
+<div>
+  <%= link_to I18n.t('experience.show'), @experience %> |
+  <%= link_to I18n.t('experience.back'), experiences_path %>
+</div>
