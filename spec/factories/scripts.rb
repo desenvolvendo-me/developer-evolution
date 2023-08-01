@@ -18,6 +18,6 @@
 #
 FactoryBot.define do
   factory :script do
-    category { "MyString" }
+    category { "Emprego" }
   end
 end

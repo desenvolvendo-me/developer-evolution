@@ -19,8 +19,8 @@
 #
 FactoryBot.define do
   factory :script_question do
-    description { "MyText" }
-    category { "MyString" }
+    category { "Quem estava no momento?" }
+    description { "Eu e o Tech Lead" }
     script { nil }
   end
 end

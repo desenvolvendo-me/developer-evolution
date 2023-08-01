@@ -19,5 +19,8 @@
 require 'rails_helper'
 
 RSpec.describe Script, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "associations" do
+    it { should belong_to(:student) }
+    it { should have_many(:script_questions) }
+  end
 end
