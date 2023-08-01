@@ -1,0 +1,23 @@
+<div id="<%= dom_id experience %>">
+
+  <p>
+    <strong><%= I18n.t('activerecord.attributes.experience.content') %>:</strong>
+    <%= experience.content %>
+  </p>
+
+  <p>
+    <strong><%= I18n.t('experience.form.category_label') %>:</strong>
+    <%= I18n.t("experience.categories.#{experience.category}") %>
+  </p>
+
+  <p>
+    <strong><%= I18n.t('activerecord.attributes.experience.level') %>:</strong>
+    <%= experience.level %>
+  </p>
+
+  <p>
+    <strong><%= I18n.t('activerecord.attributes.experience.week') %>:</strong>
+    <%= experience.week %>
+  </p>
+
+</div>
