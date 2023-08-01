@@ -57,4 +57,8 @@ if Rails.env.development?
   # Furure generator
   Routine.create(day_of_the_week: "segunda", hour: "12:00", activity: "almoço", priority:"1", student: student)
   Routine.create(day_of_the_week: "segunda", hour: "18:00", activity: "Estudo", priority:"1", student: student)
+
+  # Future mission:
+  Thought.create(level: "1", positive: "Inicio com empolgação na mentoria pelas primeiras vezes", negative: "Não aproveitar as oportunidades de tirar dúvida na mentoria", student: student)
+  Thought.create(level: "2", positive: "Através das mentorias e reuniões, consigo bons contatos", negative: "Não consegui aprender com as atividades e cursos", student: student)
 end
