@@ -1,8 +1,8 @@
-<h1>Questions of subject:</h1>
-<p><strong>Subject:</strong> <%= @script.category %></p>
+<h1><%= t('script.show.title') %></h1>
+<p><strong><%= t('script.show.Subject') %>:</strong> <%= @script.category %></p>
 <p>
-  <%= link_to 'Edit', edit_script_path(@script) %> |
-  <%= link_to 'Back', scripts_path %>
+  <%= link_to t('script.show.edit'), edit_script_path(@script) %>
+  <%= link_to t('script.show.back'), scripts_path %>
 </p>
 <%= render @script.script_questions %>
-<%= link_to 'New Question', new_script_script_question_path(@script) %>
+<%= link_to t('script.show.New Question'), new_script_script_question_path(@script) %>

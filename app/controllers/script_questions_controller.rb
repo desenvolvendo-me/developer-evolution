@@ -19,7 +19,7 @@ class ScriptQuestionsController < ApplicationController
     @script_question = @script.script_questions.build(script_question_params)
     if @script_question.save
       redirect_to script_script_question_path(@script, @script_question),
-                  notice: 'Script Question was successfully created.'
+                  notice: t('script.script_questions.controller.create')
     else
       render :new
     end
@@ -31,7 +31,7 @@ class ScriptQuestionsController < ApplicationController
   def update
     if @script_question.update(script_question_params)
       redirect_to script_script_question_path(@script_question.script, @script_question),
-                  notice: 'Script Question was successfully updated.'
+                  notice: t('script.script_questions.controller.update')
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class ScriptQuestionsController < ApplicationController
   def destroy
     @script_question.destroy
     redirect_to script_script_questions_url(@script_question.script),
-                notice: 'Script Question was successfully destroyed.'
+                notice: t('script.script_questions.controller.destroy')
   end
 
   private

@@ -1,7 +1,7 @@
 <%= form_with(model: script) do |form| %>
   <% if script.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(script.errors.count, "error") %> prohibited this script from being saved:</h2>
+      <h2><%= pluralize(script.errors.count, "error") %> <%= t('script.form.error') %>></h2>
 
       <ul>
         <% script.errors.full_messages.each do |message| %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :category, "Subject" %>
+    <%= form.label :category, t('script.script_questions.form.subject') %>
     <%= form.select :category, Script.subjects.keys.map { |k| [Script.subjects[k], k] } %>
   </div>
 

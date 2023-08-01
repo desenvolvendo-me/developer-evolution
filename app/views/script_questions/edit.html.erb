@@ -1,4 +1,4 @@
-<h1>Edit Question</h1>
+<h1><%= t('script.script_questions.edit.title') %></h1>
 <%= render 'form', script_question: @script_question %>
-<%= link_to 'Show', script_script_question_path(@script_question.script, @script_question) %> |
-<%= link_to 'Back', script_path(@script_question.script) %>
+<%= link_to t('script.script_questions.edit.show'), script_script_question_path(@script_question.script, @script_question) %> |
+<%= link_to t('script.script_questions.edit.back'), script_path(@script_question.script) %>

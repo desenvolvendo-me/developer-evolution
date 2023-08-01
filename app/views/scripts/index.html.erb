@@ -1,4 +1,4 @@
-<h1>Scripts</h1>
+<h1><%= t('script.index.title') %></h1>
 <table>
   <thead>
   <tr>
@@ -10,11 +10,11 @@
   <% @scripts.each do |script| %>
     <tr>
       <td><%= script.category %></td>
-      <td><%= link_to 'Show', script_path(script) %></td>
-      <td><%= link_to 'Edit', edit_script_path(script) %></td>
-      <td><%= button_to 'Destroy', script_path(script), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('script.index.show'), script_path(script) %></td>
+      <td><%= link_to t('script.index.edit'), edit_script_path(script) %></td>
+      <td><%= button_to t('script.index.destroy'), script_path(script), method: :delete, data: { confirm: t('script.script_questions.index.sure') } %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
-<%= link_to 'New Script', new_script_path %>
+<%= link_to t('script.index.new'), new_script_path %>

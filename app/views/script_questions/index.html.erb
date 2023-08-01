@@ -1,9 +1,9 @@
-<h1>Script Questions</h1>
+<h1><%= t('script.script_questions.index.title') %></h1>
 <table>
   <thead>
   <tr>
-    <th>Question</th>
-    <th>Description</th>
+    <th><%= t('script.script_questions.index.question') %></th>
+    <th><%= t('script.script_questions.index.description') %></th>
     <th colspan="2"></th>
   </tr>
   </thead>
@@ -12,12 +12,12 @@
     <tr>
       <td><%= question.category %></td>
       <td><%= question.description %></td>
-      <td><%= link_to 'Show', script_script_question_path(@script, question) %></td>
-      <td><%= link_to 'Edit', edit_script_script_question_path(@script, question) %></td>
-      <td><%= button_to 'Destroy', script_script_question_path(@script, question), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('script.script_questions.index.show'), script_script_question_path(@script, question) %></td>
+      <td><%= link_to t('script.script_questions.index.edit'), edit_script_script_question_path(@script, question) %></td>
+      <td><%= button_to t('script.script_questions.index.destroy'), script_script_question_path(@script, question), method: :delete, data: { confirm: t('script.script_questions.index.sure') } %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
-<%= link_to 'New Question', new_script_script_question_path(@script) %>
-<%= link_to 'Back', scripts_path %>
+<%= link_to t('script.script_questions.index.new'), new_script_script_question_path(@script) %>
+<%= link_to t('script.script_questions.index.back'), scripts_path %>

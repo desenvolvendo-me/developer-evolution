@@ -15,7 +15,7 @@ class ScriptsController < ApplicationController
   def create
     @script = current_user.student.scripts.build(script_params)
     if @script.save
-      redirect_to @script, notice: 'Script was successfully created.'
+      redirect_to @script, notice: t("script.controller.create")
     else
       render :new
     end
@@ -26,7 +26,7 @@ class ScriptsController < ApplicationController
 
   def update
     if @script.update(script_params)
-      redirect_to @script, notice: 'Script was successfully updated.'
+      redirect_to @script, notice: t("script.controller.update")
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class ScriptsController < ApplicationController
 
   def destroy
     @script.destroy
-    redirect_to scripts_url, notice: 'Script was successfully destroyed.'
+    redirect_to scripts_url, notice: t("script.controller.destroy")
   end
 
   private
