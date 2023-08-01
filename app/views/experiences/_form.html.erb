@@ -1,0 +1,37 @@
+<%= form_with(model: experience) do |form| %>
+  <% if experience.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+
+      <ul>
+        <% experience.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :content, I18n.t('activerecord.attributes.experience.content'), style: "display: block" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.label :category, t('experience.form.category_label') %>
+    <%= form.select :category, options_for_select(Experience::CATEGORY.map { |c| [t("experience.categories.#{c}"), c] }) %>
+  </div>
+
+  <div>
+    <%= form.label :level, t('activerecord.attributes.experience.level') %>
+    <%= form.select :level, options_for_select(Experience::LEVEL_OPTIONS) %>
+  </div>
+
+  <div>
+    <%= form.label :week, t('experience.form.week_label') %>
+    <%= form.select :week, options_for_select(Experience::WEEK_OPTIONS) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
