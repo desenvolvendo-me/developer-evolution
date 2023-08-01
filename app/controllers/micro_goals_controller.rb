@@ -14,7 +14,7 @@ class MicroGoalsController < ApplicationController
     @micro_goal = current_user.student.micro_goals.build(micro_goal_params)
 
     if @micro_goal.save
-      flash[:notice] = t('helpers.controller.micro_goals.flash_create')
+      flash[:notice] = t('controller.micro_goals.flash_create')
       redirect_to action: :show, id: @micro_goal.id
     else
       flash[:alert] = @micro_goal.errors.full_messages.join('. ')
@@ -27,7 +27,7 @@ class MicroGoalsController < ApplicationController
 
   def update
     if @micro_goal.update(micro_goal_params)
-      flash[:notice] = t('helpers.controller.micro_goals.flash_update')
+      flash[:notice] = t('controller.micro_goals.flash_update')
       redirect_to action: :show, id: @micro_goal.id
     else
       redirect_to action: :edit
@@ -36,7 +36,7 @@ class MicroGoalsController < ApplicationController
 
   def destroy
     @micro_goal.destroy
-    flash[:notice] = t('helpers.controller.micro_goals.flash_destroy')
+    flash[:notice] = t('controller.micro_goals.flash_destroy')
     redirect_to micro_goals_path
   end
 
