@@ -1,68 +1,80 @@
 pt-BR:
+  helpers:
+    submit:
+      create: 'Criar'
+      update: 'Editar'
+  controller:
+    micro_goals:
+      flash_create: 'Micro-meta criada com sucesso!'
+      flash_update: 'Micro-meta atualizada com sucesso'
+      flash_destroy: 'Micro-meta excluída com sucesso'
+    micro_goal_tasks:
+      flash_create: 'Tarefa criada com sucesso!'
+      flash_update: 'Tarefa atualizada com sucesso'
+      flash_destroy: 'Tarefa excluída com sucesso'
   views:
     micro_goals:
       show:
-        edit: 'Editar esta micro meta'
-        back: 'Voltar para as micro-metas'
-        destroy: 'Excluir esta micro meta'
+        show_all_tasks: 'Visualizar todas as tarefas'
+        edit_this_micro_goal: 'Editar esta micro meta'
+        back_to_micro_goals: 'Voltar para as micro-metas'
+        destroy_this_micro_goal_button: 'Excluir esta micro meta'
       new:
-        title: 'Nova micro meta:'
+        new_micro_goal_title: 'Nova micro meta'
         form: 'Formulário'
-        back: 'Voltar para as Micro-metas'
+        back_to_micro_goals: 'Voltar para as Micro-metas'
       index:
-        title: 'micro-metas:'
-        new_button: 'Nova micro-meta'
-        show_link: 'Visualizar esta micro-meta'
+        title: 'Micro-metas'
+        new_micro_goal : 'Nova micro-meta'
+        show_micro_goal: 'Visualizar esta micro-meta'
       edit:
-        title: 'Editando micro-meta:'
-        show_link: 'Visualizar esta micro-meta'
-        back_link: 'Voltar para as micro-metas'
+        edit_micro_goal_title: 'Editando micro-meta'
+        show_this_micro_goal: 'Visualizar esta micro-meta'
+        back_to_micro_goals: 'Voltar para as micro-metas'
       micro_goal:
-        label: 'micro-meta:'
-        create_task_link: 'Criar nova tarefa para esta micro-meta'
+        micro_goal_title: 'Micro-meta'
+        show_task_for_this_micro_goal: 'Visualizar tarefa para esta micro-meta'
+        no_tasks_available_for_this_micro_goal: 'Nenhuma tarefa disponível para esta micro-meta'
       form:
-        micro_goal: 'micro-meta:'
-        errors_prohibited: "proibiu que esta meta seja salva:"
+        micro_goal_label: 'Micro-meta:'
+        errors_prohibited: "Proibiu que esta meta seja salva:"
         error: "erro"
         errors: "erros"
         save: "Salvar"
-    tasks:
+    micro_goal_tasks:
       show:
         notice: 'Pagina carregada com sucesso'
         edit: 'Editar esta tarefa'
-        back: 'Voltar para as tarefas'
-        destroy: 'Excluir esta tarefa'
+        back_to_micro_goal_tasks: 'Voltar para as tarefas'
+        destroy_this_micro_goal_task_button: 'Excluir esta tarefa'
       new:
-        title: 'Nova tarefa:'
-        form: 'Formulário'
-        back: 'Voltar para as tarefas'
+        new_task_title: 'Nova tarefa'
+        back_to_tasks: 'Voltar para as tarefas'
       index:
-        title: 'Tarefas:'
-        new_button: 'Voltar para Micro-metas'
-        show_link: 'Visualizar esta tarefa'
-        create_task_link: 'Criar nova tarefa para essa Micro-meta'
+        tasks_title: 'Tarefas'
+        back_to_micro_goals: 'Voltar para Micro-metas'
+        show_this_task: 'Visualizar esta tarefa'
+        create_new_task: 'Criar nova tarefa'
+        show_micro_goal_for_this_task: 'Visualizar esta tarefa para esta micro-meta'
+        edit: 'Editar'
+        destroy: 'Excluir'
+        task_label: 'Tarefa'
+        start_date_label: 'Data de início'
+        end_date_label: 'Data de término'
+        percentage_label: 'Porcentagem'
       edit:
-        title: 'Editando tarefa'
-        show_link: 'Visualizar esta tarefa'
+        edit_title: 'Editando tarefa'
+        show_task: 'Visualizar esta tarefa'
         back_link: 'Voltar para as tarefas'
-      task:
-        micro_goal_label: 'micro-meta:'
-        task_label: 'Tarefa:'
+      micro_goal_task:
+        task_label: 'Tarefa'
         start_date_label: 'Data de início:'
         end_date_label: 'Data de término:'
         percentage_label: 'Porcentagem:'
       form:
-        micro_goal_id_label: 'ID da micro-meta:'
-        task_label: 'Tarefa:'
-        start_date_label: 'Data de início:'
-        end_date_label: 'Data de término:'
-        percentage_label: 'Porcentagem:'
-        micro_goal_label: 'micro-meta:'
-        task_label: 'Tarefa:'
-        start_date_label: 'Data de início:'
-        end_date_label: 'Data de término:'
-        percentage_label: 'Porcentagem:'
+        micro_goal_label: 'Micro-meta'
+        task_label: 'Tarefa'
+        start_date_label: 'Data de início'
+        end_date_label: 'Data de término'
+        percentage_label: 'Porcentagem'
         errors_prohibited: 'proibiu que esta tarefa seja salva:'
-        error: 'erro'
-        errors: 'erros'
-        save: 'Salvar'
