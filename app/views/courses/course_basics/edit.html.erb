@@ -1,0 +1,10 @@
+<h1>Editing course basic</h1>
+
+<%= render "form", course_basic: @course_basic %>
+
+<br>
+
+<div>
+  <%= link_to "Show this course basic", [@course, @course_basic] %> |
+  <%= link_to "Back to course basics", course_course_basics_path(@course) %>
+</div>
