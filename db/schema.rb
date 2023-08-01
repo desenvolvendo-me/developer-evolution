@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_09_192519) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_11_132522) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_192519) do
   end
 
   create_table "purposes", force: :cascade do |t|
+<<<<<<< HEAD
     t.string "version", limit: 5
     t.string "period", limit: 20
     t.bigint "student_id", null: false
@@ -93,6 +94,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_192519) do
     t.index ["student_id"], name: "index_routines_on_student_id"
   end
 
+=======
+    t.integer "version"
+    t.integer "time"
+    t.string "type_question"
+    t.text "question"
+    t.text "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "student_id"
+    t.index ["student_id"], name: "index_purposes_on_student_id"
+  end
+
+>>>>>>> 63eb5a8 (Me ajude a corrigir o erro nil em student)
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "class_name"
@@ -157,7 +171,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_192519) do
   add_foreign_key "keyquestions", "purposes"
   add_foreign_key "practices", "students"
   add_foreign_key "purposes", "students"
+<<<<<<< HEAD
   add_foreign_key "questions", "keyquestions"
   add_foreign_key "routines", "students"
+=======
+>>>>>>> 63eb5a8 (Me ajude a corrigir o erro nil em student)
   add_foreign_key "students", "users"
 end

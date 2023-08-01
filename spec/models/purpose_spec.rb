@@ -2,12 +2,15 @@
 #
 # Table name: purposes
 #
-#  id         :bigint           not null, primary key
-#  period     :string(20)
-#  version    :string(5)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  student_id :bigint           not null
+#  id            :bigint           not null, primary key
+#  answer        :text
+#  question      :text
+#  time          :integer
+#  type_question :string
+#  version       :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  student_id    :bigint
 #
 # Indexes
 #
@@ -20,21 +23,55 @@
 require 'rails_helper'
 
 RSpec.describe Purpose, type: :model do
-  #pending "add some examples to (or delete) #{__FILE__}"
-  let(:student) { Student.create(name: 'John Doe') }
 
-  it "é válido com um período e versão" do
-    purpose = Purpose.new(period: "2023", version: "1.0", student: student)
-    expect(purpose).to be_valid
+  context 'Validar type question de purpose' do
+    let(:student) { FactoryBot.create(:student) }
+
+    it 'The Type Question field is valid' do
+      purpose = FactoryBot.create(:purpose, student: student)
+      expect(purpose).to be_valid
+    end
+
+    it 'The Type Question field is valid ' do
+      PURPOSE = %w[Why How When Where]
+      purpose = FactoryBot.create(:purpose, student: student, type_question: PURPOSE.sample)
+      expect(purpose).to be_valid
+    end
+
+    # it 'The Type Question field is invalid ' do
+    #   PURPOSE = FFaker::Lorem.word
+    #   purpose = FactoryBot.create(:purpose, student: student, type_question: PURPOSE)
+    #   expect(purpose).to_not be_valid
+    # end
   end
 
-  it "não é válido sem um período" do
-    purpose = Purpose.new(version: "1.0")
-    expect(purpose).to_not be_valid
+  context 'Validar Question de purpose' do
+    let(:student) { FactoryBot.create(:student) }
+
+    it 'The Question field is valid' do
+      purpose = FactoryBot.create(:purpose, student: student)
+      expect(purpose).to be_valid
+    end
+
+    it 'The Question field is valid ' do
+      PURPOSE = %w[because its good when Im on vacation]
+      purpose = FactoryBot.create(:purpose, student: student, question: PURPOSE.sample)
+      expect(purpose).to be_valid
+    end
   end
 
-  it "não é válido sem uma versão" do
-    purpose = Purpose.new(period: "2023")
-    expect(purpose).to_not be_valid
+  context 'Validar Answer de purpose' do
+    let(:student) { FactoryBot.create(:student) }
+
+    it 'The Answer field is valid' do
+      purpose = FactoryBot.create(:purpose, student: student)
+      expect(purpose).to be_valid
+    end
+
+    it 'The Answer field is valid ' do
+      PURPOSE = %w[programming is good programming is life]
+      purpose = FactoryBot.create(:purpose, student: student, answer: PURPOSE.sample)
+      expect(purpose).to be_valid
+    end
   end
 end

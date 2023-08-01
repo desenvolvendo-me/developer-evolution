@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Purposes</h1>
+
+<div id="purposes">
+  <% @purposes.each do |purpose| %>
+    <%= render purpose %>
+    <p>
+      <%= link_to "Show this purpose", purpose %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New purpose", new_purpose_path %>
