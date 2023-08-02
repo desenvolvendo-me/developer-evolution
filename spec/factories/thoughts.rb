@@ -3,10 +3,9 @@
 # Table name: thoughts
 #
 #  id         :bigint           not null, primary key
-#  email      :string
 #  level      :string
-#  negative   :string
-#  positive   :string
+#  negative   :text
+#  positive   :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  student_id :bigint           not null
