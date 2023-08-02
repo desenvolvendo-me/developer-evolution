@@ -20,12 +20,12 @@
 class ScriptQuestion < ApplicationRecord
   belongs_to :script
 
-  QUESTIONS = {
-    "O que aconteceu?" => 1,
-    "Quando aconteceu?" => 2,
-    "Onde aconteceu?" => 3,
-    "Quem estava no momento?" => 4,
-    "Os seus sentimentos no momento?" => 5,
-    "O seu pensamento no momento?" => 6
-  }
+  QUESTIONS = [
+    "O que aconteceu?",
+    "Quando aconteceu?",
+    "Onde aconteceu?",
+    "Quem estava no momento?",
+    "Os seus sentimentos no momento?",
+    "O seu pensamento no momento?"
+  ]
 end
