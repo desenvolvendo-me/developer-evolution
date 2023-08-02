@@ -1,4 +1,3 @@
-
 I18n.available_locales = [:en, 'pt-BR']
 
 # Set default locale to something other than :en

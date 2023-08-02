@@ -1,7 +1,7 @@
 pt-BR:
   activerecord:
     attributes:
-      script:
+      interview:
         interview_type: Tipo de Entrevista
         video_number: Número do Vídeo
         answer: link
@@ -70,3 +70,34 @@ pt-BR:
         create: Pergunta criada com sucesso
         update: Pergunta atualizada com sucesso
         destroy: Pergunta excluída com sucesso
+
+  interview:
+    index_title: Entrevista
+    new_title: Nova entrevista
+    edit_title: Editando essa entrevista
+    form_error: proibiu essa entrevista de ser salva
+    show: Mostrar essa entrevista
+    show_videos: Mostrar vídeos dessa entrevista
+    create: Criar nova entrevista
+    back: Retornar para entrevistas
+    edit: Editar essa entrevista
+    destroy: Apagar essa entrevista
+    controller:
+      create: Entrevista criada com sucesso
+      update: Entrevista atualizada com sucesso
+      destroy: Entrevista apagada com sucesso
+    interview_videos:
+      show: Mostrar esse link de video
+      back: Voltar para vídeos de entrevista
+      new: Criar novo link de vídeo
+      edit: Editar esse link de vídeo
+      destroy: Apagar esse link de vídeo
+      back_interview: Voltar para entrevista
+      view_new: Novo vídeo
+      view_form:
+        error: proibiu esse video link de ser salvo
+      view_edit:
+        title: Editando link do vídeo
+      view_index:
+        title: Vídeos do tipo
+

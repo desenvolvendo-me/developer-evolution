@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= I18n.t('interview.index_title') %></h1>
+
+<div id="interviews">
+  <% @interviews.each do |interview| %>
+    <%= render interview %>
+    <p>
+      <%= link_to I18n.t('interview.show'), interview %>
+    </p>
+    <hr>
+  <% end %>
+</div>
+
+<%= link_to I18n.t('interview.create'), new_interview_path %>
