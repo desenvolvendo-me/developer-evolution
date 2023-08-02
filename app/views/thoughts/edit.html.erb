@@ -1,0 +1,11 @@
+<h1><%= t('views.thoughts.edit.editing thought') %>:</h1>
+<hr>
+<%= render "form", thought: @thought %>
+
+<br>
+
+<div>
+  <hr>
+  <%= link_to t('views.thoughts.edit.show_this_thought'), @thought %> |
+  <%= link_to t('views.thoughts.edit.back_to_toughts'), thoughts_path %>
+</div>
