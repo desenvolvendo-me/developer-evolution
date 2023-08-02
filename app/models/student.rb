@@ -62,6 +62,8 @@ class Student < ApplicationRecord
   has_many :thoughts
   has_many :experiences
   has_many :micro_goals
+  has_many :goals
+  has_many :objectives
 
   enum type_career: { technology: "technology", not_technology: "not_technology" }, _suffix: true
   enum level_potential: { low: "low", medium: "medium", high: "high", almost_goal: "almost_goal", goal: "goal", not_started: "not_started", no_testimony: "no_testimony", gave_up_career: "gave_up_career", gave_up_mentoring: "gave_up_mentoring" }, _suffix: true
