@@ -24,10 +24,11 @@ class ThoughtsController < ApplicationController
 
   def update
     if @thought.update(thought_params)
-      redirect_to action: :show, id: @thought.id, flash[:notice] = 'thought was successfully updated.'
+      redirect_to thought_path(@thought), notice: 'thought was successfully updated.'
     else
       redirect_to action: :edit
     end
+  end
 
     def destroy
       @thought.destroy
