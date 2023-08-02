@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @thought %>
+
+<div>
+  <%= link_to t('views.thoughts.show.edit_this_thought'), edit_thought_path(@thought) %> |
+  <%= link_to t('views.thoughts.show.back_to_thoughts'), thoughts_path %>
+
+  <%= button_to t('views.thoughts.show.destroy_this_thought'), @thought, method: :delete %>
+</div>
