@@ -32,7 +32,44 @@
 
 ---
 pt-BR:
+  helpers:
+    submit:
+      create: 'Criar'
+      update: 'Editar'
+  controller:
+    # Beginning of the 'feature/20-cadastrar-pensamentos' translation:
+    flash_create: 'Pensamento cadastrado com sucesso'
+    flash_update: 'Pensamento atualizado com sucesso'
+    flash_destroy: 'Pensamento exlcuido com sucesso'
+    flash_fail: 'Falha ao criar Pensamento'
+    # Beginning of the 'feature/20-cadastrar-pensamentos' translation:
   views:
+    # Beginning of the 'feature/20-cadastrar-pensamentos' translation:
+    thoughts:
+      index:
+        show_this_thought: "Mostrar pensamento"
+        new_thought: "Novo pensamento"
+      thought:
+        thought_title: "Pensamento"
+        level_label: "Nível"
+        positive_label: "Positivo"
+        negative_label: "Negativo"
+      show:
+        edit_this_thought: "Editar pensamento"
+        back_to_thoughts: "Voltar para pensamentos"
+        destroy_this_thought: "Deletar pensamento"
+      edit:
+        editing thought: "Editando pensamento"
+        show_this_thought: "Mostrar pensamento"
+        back_to_toughts: "Voltar para pensamentos"
+      form:
+        level_label: "Nível"
+        positive_label: "Positivo"
+        negative_label: "Negativo"
+      new:
+        new_thought_title: "Novo pensamento"
+        back_to_thoughts: "Voltar para pensamentos"
+    # End of the 'feature/20-cadastrar-pensamentos' translation.
     routines:
       index:
         back_to_home: "Voltar para home"
