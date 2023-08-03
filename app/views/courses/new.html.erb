@@ -1,9 +1,9 @@
-<h1>New course</h1>
+<h1><%= t('view.new_course') %></h1>
 
 <%= render "form", course: @course %>
 
 <br>
 
 <div>
-  <%= link_to "Back to courses", courses_path %>
+  <%= link_to t('view.back_to_courses'), courses_path %>
 </div>

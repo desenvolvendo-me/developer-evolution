@@ -1,6 +1,7 @@
 class CreateCourseBasics < ActiveRecord::Migration[7.0]
   def change
     create_table :course_basics do |t|
+      t.string :number_of_course
       t.string :link_course
       t.string :link_repository
       t.string :link_certified

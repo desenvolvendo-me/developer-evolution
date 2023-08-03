@@ -3,8 +3,8 @@
 <%= render @course %>
 
 <div>
-  <%= link_to "Edit this course", edit_course_path(@course) %> |
-  <%= link_to "Back to courses", courses_path %>
+  <%= link_to t('view.edit_course'), edit_course_path(@course) %> |
+  <%= link_to t('view.back_to_courses'), courses_path %>
 
-  <%= button_to "Destroy this course", @course, method: :delete %>
+  <%= button_to t('view.destroy_course'), @course, method: :delete %>
 </div>

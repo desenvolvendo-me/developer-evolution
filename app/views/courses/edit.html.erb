@@ -1,10 +1,10 @@
-<h1>Editing course</h1>
+<h1><%= t('view.edit') %></h1>
 
 <%= render "form", course: @course %>
 
 <br>
 
 <div>
-  <%= link_to "Show this course", @course %> |
-  <%= link_to "Back to courses", courses_path %>
+  <%= link_to t('view.show_course'), @course %> |
+  <%= link_to t('view.back_to_courses'), courses_path %>
 </div>

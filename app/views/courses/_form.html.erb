@@ -1,7 +1,7 @@
 <%= form_with(model: course, local: true) do |form| %>
   <% if course.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+      <h2><%= pluralize(course.errors.count, t('view.error')) %> prohibited this course from being saved:</h2>
 
       <ul>
         <% course.errors.each do |error| %>
@@ -12,7 +12,7 @@
   <% end %>
 
   <div>
-    <%= form.label :type_course, style: "display: block" %>
+    <%= form.label t('view.form'), style: "display: block" %>
     <%= form.select :type_course, options_for_select(Course.type_course) %>
   </div>
 
