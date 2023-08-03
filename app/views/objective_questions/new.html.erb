@@ -1,0 +1,9 @@
+<h1><%= I18n.t('objective.question.view_new_title') %>: <%= @objective.title %></h1>
+
+<%= render "form", objective_question: @objective_question %>
+
+<br>
+
+<div>
+  <%= link_to I18n.t('objective.question.back_questions'), objective_objective_questions_path %>
+</div>

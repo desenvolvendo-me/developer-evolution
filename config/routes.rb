@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :objectives do
+    resources :objective_questions
+  end
+
   resources :experiences
   resources :micro_goals do
     resources :micro_goal_tasks, module: :micro_goals
