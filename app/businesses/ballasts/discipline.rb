@@ -35,7 +35,7 @@ module Ballasts
           ],
         },
         stats: {
-          micro_goal_compared: 23,
+          micro_goal_compared: micro_goal_compared,
           goal: last_goal_sum,
           micro_goal: last_micro_goal_sum,
           week: last_week_sum,
@@ -92,5 +92,17 @@ module Ballasts
       { number: number, icon: icon }
     end
 
+    def micro_goal_compared
+      finish_period, start_period = calculation_period((MICRO_GOAL * 2) - 1)
+
+      @practices = @student.practices.where(commit_date: (start_period..finish_period)).to_a
+
+      number_micro_goal1 = @practices.to_a.in_groups(2).first.map(&:commit_total).sum
+      number_micro_goal2 = @practices.to_a.in_groups(2).last.map(&:commit_total).sum
+
+      evolucao = ((number_micro_goal2.to_f - number_micro_goal1.to_f) / number_micro_goal1.to_f) * 100
+
+      evolucao.round(2)
+    end
   end
 end
