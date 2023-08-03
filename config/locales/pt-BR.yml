@@ -1,8 +1,4 @@
 pt-BR:
-  helpers:
-    submit:
-      create: 'Criar'
-      update: 'Editar'
   controller:
     micro_goals:
       flash_create: 'Micro-meta criada com sucesso!'
