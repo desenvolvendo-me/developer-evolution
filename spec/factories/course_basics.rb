@@ -8,6 +8,7 @@
 #  link_certified            :string
 #  link_course               :string
 #  link_repository           :string
+#  number_of_course          :string
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null
 #  course_id                 :bigint           not null
