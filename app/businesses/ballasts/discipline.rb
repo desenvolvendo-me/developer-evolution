@@ -35,11 +35,11 @@ module Ballasts
           ],
         },
         stats: {
-          micro_goal_compared: micro_goal_compared,
           goal: last_goal_sum,
           micro_goal: last_micro_goal_sum,
           week: last_week_sum,
-          day: last_day
+          day: last_day,
+          micro_goal_compared: micro_goal_compared
         }
       }
     end
@@ -72,6 +72,10 @@ module Ballasts
     end
 
     def calculation_period(period_type)
+      # TODO: Alterar futuramente, quando Deus permitir.
+      # O cálculo do período é baseada na data de inscrição para saber a micro meta corrente.
+      # Isso gerar uma semana de erro no cálculo
+
       today = Date.today
       finish_period = today - (today.wday + 1) % 7
       start_period = finish_period - period_type
@@ -82,12 +86,12 @@ module Ballasts
       finish_period, start_period = calculation_period(period_type - 1)
 
       if period_type.eql? GOAL
-        @practices = @student.practices.where(commit_date: (start_period..finish_period)).to_a
+        @practices = @student.practices.where(commit_date: (start_period..finish_period))
       else
-        @practices = @practices.select { |practice| practice.commit_date.between?(start_period, finish_period) }
+        @practices_per_period = @practices.to_a.select { |practice| practice.commit_date.between?(start_period, finish_period) }
       end
 
-      number = @practices.to_a.map(&:commit_total).sum
+      number = @practices_per_period.to_a.map(&:commit_total).sum
       icon = (number >= limit * period_type) ? ICON_OK : ICON_NOK
       { number: number, icon: icon }
     end
@@ -95,14 +99,14 @@ module Ballasts
     def micro_goal_compared
       finish_period, start_period = calculation_period((MICRO_GOAL * 2) - 1)
 
-      @practices = @student.practices.where(commit_date: (start_period..finish_period)).to_a
+      @two_lasts_micro_goal = @practices.to_a.select { |practice| practice.commit_date.between?(start_period, finish_period) }
 
-      number_micro_goal1 = @practices.to_a.in_groups(2).first.map(&:commit_total).sum
-      number_micro_goal2 = @practices.to_a.in_groups(2).last.map(&:commit_total).sum
+      number_micro_goal1 = @two_lasts_micro_goal.to_a.in_groups(2).first.map(&:commit_total).sum
+      number_micro_goal2 = @two_lasts_micro_goal.to_a.in_groups(2).last.map(&:commit_total).sum
 
-      evolucao = ((number_micro_goal2.to_f - number_micro_goal1.to_f) / number_micro_goal1.to_f) * 100
+      evolution = ((number_micro_goal2.to_f - number_micro_goal1.to_f) / number_micro_goal1.to_f) * 100
 
-      evolucao.round(2)
+      evolution.round(2)
     end
   end
 end
