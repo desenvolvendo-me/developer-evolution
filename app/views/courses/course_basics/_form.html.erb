@@ -12,27 +12,32 @@
   <% end %>
 
   <div>
-    <%= form.label :link_course, style: "display: block" %>
+    <%= form.label t('course_basics.view.number_of_course'), style: "display: block" %>
+    <%= form.select :number_of_course, [1, 2, 3] %>
+  </div>
+
+  <div>
+    <%= form.label t('course_basics.view.link_course'), style: "display: block" %>
     <%= form.text_field :link_course %>
   </div>
 
   <div>
-    <%= form.label :link_repository, style: "display: block" %>
+    <%= form.label t('course_basics.view.link_repository'), style: "display: block" %>
     <%= form.text_field :link_repository %>
   </div>
 
   <div>
-    <%= form.label :link_certified, style: "display: block" %>
+    <%= form.label t('course_basics.view.link_certified'), style: "display: block" %>
     <%= form.text_field :link_certified %>
   </div>
 
   <div>
-    <%= form.label :avaliation_course, style: "display: block" %>
+    <%= form.label t('course_basics.view.avaliation_course'), style: "display: block" %>
     <%= form.select :avaliation_course, options_for_select(1..10) %>
   </div>
 
   <div>
-    <%= form.label :avaliation_apprenticeship, style: "display: block" %>
+    <%= form.label t('course_basics.view.avaliation_apprenticeship'), style: "display: block" %>
     <%= form.select :avaliation_apprenticeship, options_for_select(1..10) %>
   </div>
 
