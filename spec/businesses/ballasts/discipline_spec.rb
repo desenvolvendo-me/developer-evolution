@@ -77,7 +77,7 @@ RSpec.describe Ballasts::Discipline do
 
       describe 'week' do
         it 'last week heart' do
-          #TODO: Refatorar, mover esse tipo de código para o trait do factorybot
+          # TODO: Refatorar, mover esse tipo de código para o trait do factorybot
           (0..13).each do |days_ago|
             commit_date = Date.today - (14 - days_ago)
             commit_total = 3
@@ -154,9 +154,10 @@ RSpec.describe Ballasts::Discipline do
           end
 
           it 'compare last 2 micro_goals with same time_available' do
+            #DADO
             student = create(:student, time_available: 4)
 
-            last_sat_first_micro_goal = (Date.today - (Date.today.wday + 1) % 7) - 7 -7
+            last_sat_first_micro_goal = (Date.today - (Date.today.wday + 1) % 7) - 7 - 7
             final_date = last_sat_first_micro_goal
             initial_date = final_date - 13
 
@@ -164,16 +165,6 @@ RSpec.describe Ballasts::Discipline do
               commit_total = 4
               create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
             end
-            today_date = Date.today
-            allow(Date).to receive(:today).and_return(last_sat_first_micro_goal + 1)
-            discipline = described_class.call(resource: student)
-
-            expect(discipline[:stats][:micro_goal][:number]).to eq(56)
-            expect(discipline[:stats][:micro_goal][:icon]).to eq('heart-broken')
-
-            number_micro_goal1 = discipline[:stats][:micro_goal][:number]
-
-            allow(Date).to receive(:today).and_return(today_date)
 
             initial_date = last_sat_first_micro_goal + 1
             final_date = initial_date + 13
@@ -182,19 +173,18 @@ RSpec.describe Ballasts::Discipline do
               commit_total = 5
               create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
             end
+
+            #QUANDO
             discipline = described_class.call(resource: student)
 
-            number_micro_goal2 = discipline[:stats][:micro_goal][:number]
-            evolucao = ((number_micro_goal2.to_f - number_micro_goal1.to_f) / number_micro_goal1.to_f) * 100
-            expect(discipline[:stats][:micro_goal][:number]).to eq(70)
-            puts "evoluiu #{evolucao}%"
-
+            #ENTÃO
+            expect(discipline[:stats][:micro_goal_compared]).to eq(25)
           end
 
           it 'compare last 2 micro_goals diff time_available' do
             student = create(:student, time_available: 4)
 
-            last_sat_first_micro_goal = (Date.today - (Date.today.wday + 1) % 7) - 7 -7
+            last_sat_first_micro_goal = (Date.today - (Date.today.wday + 1) % 7) - 7 - 7
             final_date = last_sat_first_micro_goal
             initial_date = final_date - 13
 
@@ -228,8 +218,8 @@ RSpec.describe Ballasts::Discipline do
             puts "evoluiu #{evolucao}%"
 
           end
+        end
       end
-    end
 
       context 'student time available 4 hours' do
         before do
