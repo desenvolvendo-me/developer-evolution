@@ -23,11 +23,11 @@
 #
 FactoryBot.define do
   factory :course_basic do
-    link_course { "MyString" }
-    link_repository { "MyString" }
-    link_certified { "MyString" }
-    avaliation_course { "MyString" }
-    avaliation_apprenticeship { "MyString" }
+    link_course { "https://app.gather.town/app/jrYpWiRFORFSJlD8/DesenvolvendoMe" }
+    link_repository { "https://chat.openai.com/c/b17f7f1e-99af-4013-b991-87a787d5d729" }
+    link_certified { "https://github.com/desenvolvendo-me/developer-evolution/commit/" }
+    avaliation_course { "5" }
+    avaliation_apprenticeship { "2" }
     course { nil }
   end
 end
