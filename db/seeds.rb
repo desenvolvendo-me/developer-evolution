@@ -61,4 +61,59 @@ if Rails.env.development?
   MicroGoalTask.create(task: "Git / Github", start_date: "2023-07-11", end_date: "2023-07-13", percentage: 20, micro_goal: micro_goal_1)
   MicroGoalTask.create(task: "postgres", start_date: "2023-07-11", end_date: "2023-07-13", percentage: 20, micro_goal: micro_goal_2)
 
+  # Objective generator
+  objetivo1 = Objective.create( title: 'OBJETIVO 1: Tornar-me um pogramador PHP/Laravel pleno', student: student)
+  objetivo2 = Objective.create( title: 'OBJETIVO 2: Trabalhar como programador para uma empresa internacional', student: student)
+  objetivo3 = Objective.create( title: 'OBJETIVO 3: Estudo', student: student)
+
+  objetivo1.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'O que eu desejo alcançar?',
+    answer: 'Ter domínio da stack e da parte negocial de um produto.'
+  )
+  objetivo1.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'Por que esse objetivo é importante?',
+    answer: 'Quero entregar resultados para as empresas onde estiver. Quero saber conversar com os stakeholders e com a equipe de igual para igual, trazendo soluções para os problemas e saber negociar prazos e estimativas de entrega das soluções. Percebi que nesses pontos eu tenho muita dificuldade e por vezes, nas reuniões de time, entro mudo e saio calado, sem ter nenhuma idéia ou opinião sobre o que está sendo discutido.'
+  )
+  objetivo1.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'Quem são os envolvidos?',
+    answer: 'William'
+  )
+  objetivo2.objective_questions.create(
+    type_question: 'Métrica',
+    description: 'Quais são os resultados esperados, em termos quantitativos?',
+    answer: 'Construir 1 projeto com no ménimo 4 commits feitos por dia no GitHub onde eu tenha domínio do que o sistema resolve e o que cada linha de código faz.'
+  )
+  objetivo2.objective_questions.create(
+    type_question: 'Métrica',
+    description: 'Como vou saber se foi alcançado?',
+    answer: 'Quando tiver este projeto criado eu saiba explicá-lo em uma entrevista'
+  )
+  objetivo3.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'O que eu desejo alcançar?',
+    answer: 'Dominar linguagem ruby e rails'
+  )
+  objetivo3.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'Por que esse objetivo é importante?',
+    answer: 'Porque estarei profissionalmente preparado nessa stack e pronto para virar a chave e começar a pensar em conhecimentos que vão além de código, como aperfeiçoar comunicação, gestão, preocupar com fazer entregas de qualidade e pensar mais em negócio.'
+  )
+  objetivo3.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'Quem são os envolvidos?',
+    answer: 'Minha família, Eu, minha esposa Elizama e filha Karen.	'
+  )
+  objetivo3.objective_questions.create(
+    type_question: 'Detalhe',
+    description: 'Quais são os recursos necessários?',
+    answer: 'Tempo, computador, auto gerenciamento, documentação de cada tecnologia e muita prática.'
+  )
+  objetivo3.objective_questions.create(
+    type_question: 'Métrica',
+    description: 'Quais são os resultados esperados, em termos quantitativos?',
+    answer: 'Tendo domínio de pelo menos 70% dos métodos disponíveis da linguagem e 70% das funcionalidades do Rails.'
+  )
 end
