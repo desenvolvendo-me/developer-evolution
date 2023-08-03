@@ -1,0 +1,32 @@
+<%= form_with(model: [@test, tests_battle]) do |form| %>
+  <% if tests_battle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tests_battle.errors.count, "error") %> prohibited this tests battle from being saved:</h2>
+
+      <ul>
+        <% tests_battle.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :battle %>
+    <%= form.select :battle, ['BATALHA 1', 'BATALHA 2', 'BATALHA 3', 'BATALHA 4', 'BATALHA 5'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :milestone_release_link %>
+    <%= form.text_area :milestone_release_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pull_request_release_link %>
+    <%= form.text_area :pull_request_release_link %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<h1>Tests</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Repository Link</th>
+    <th>Project Link</th>
+    <th>Readme Link</th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @tests.each do |test| %>
+    <tr>
+      <td><%= test.repository_link %></td>
+      <td><%= test.project_link %></td>
+      <td><%= test.readme_link %></td>
+      <td><%= link_to 'Show', test %></td>
+      <td><%= link_to 'Edit', edit_test_path(test) %></td>
+      <td><%= button_to 'Destroy', test_path(test), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test', new_test_path %>

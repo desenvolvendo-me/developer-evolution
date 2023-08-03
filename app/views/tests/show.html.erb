@@ -1,0 +1,12 @@
+<h1>Test</h1>
+
+<p><strong>Repository Link:</strong> <%= @test.repository_link %></p>
+<p><strong>Project Link:</strong> <%= @test.project_link %></p>
+<p><strong>Readme Link:</strong> <%= @test.readme_link %></p>
+
+<p>
+  <%= link_to 'Edit', edit_test_path(@test) %> |
+  <%= link_to 'Back', tests_path %>
+</p>
+
+<%= link_to 'New Battle', new_test_tests_battle_path(@test) %>

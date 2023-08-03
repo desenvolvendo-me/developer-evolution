@@ -9,4 +9,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "welcome#index"
   get 'welcome/index'
+
+  resources :tests do
+    resources :tests_battles do
+      resources :tests_issues
+    end
+  end
 end

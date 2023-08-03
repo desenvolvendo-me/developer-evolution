@@ -1,0 +1,27 @@
+<%= form_with(model: [@test, @tests_battle, tests_issue]) do |form| %>
+  <% if tests_issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tests_issue.errors.count, "error") %> prohibited this tests issue from being saved:</h2>
+
+      <ul>
+        <% tests_issue.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :issue_link %>
+    <%= form.text_area :issue_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pull_request_link %>
+    <%= form.text_area :pull_request_link %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

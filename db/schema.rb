@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_204606) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_03_020233) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -113,6 +113,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_204606) do
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
+  create_table "tests", force: :cascade do |t|
+    t.string "repository_link"
+    t.string "project_link"
+    t.string "readme_link"
+    t.bigint "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_tests_on_student_id"
+  end
+
+  create_table "tests_battles", force: :cascade do |t|
+    t.bigint "test_id", null: false
+    t.string "battle"
+    t.string "milestone_release_link"
+    t.string "pull_request_release_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_tests_battles_on_test_id"
+  end
+
+  create_table "tests_issues", force: :cascade do |t|
+    t.bigint "tests_battle_id", null: false
+    t.string "issue_link"
+    t.string "pull_request_link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tests_battle_id"], name: "index_tests_issues_on_tests_battle_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -129,4 +158,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_204606) do
   add_foreign_key "interviews", "students"
   add_foreign_key "practices", "students"
   add_foreign_key "students", "users"
+  add_foreign_key "tests_battles", "tests"
+  add_foreign_key "tests_issues", "tests_battles"
 end
