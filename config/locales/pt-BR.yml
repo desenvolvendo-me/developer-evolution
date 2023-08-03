@@ -1,47 +1,8 @@
 pt-BR:
-  activerecord:
-    attributes:
-      experience:
-        content: conteúdo
-        level: nível
-        week: semana
-    errors:
-      models:
-        experience:
-          attributes:
-            category:
-              inclusion: precisa ser incluso
-            level:
-              inclusion: precisa ser incluso
-            week:
-              inclusion: precisa ser incluso
-            content:
-              blank: não pode ficar vazio
   helpers:
     submit:
       create: 'Criar'
       update: 'Editar'
-  experience:
-    form:
-      category_label: categoria
-      week_label: semana
-    edit_view:
-      title: Editando experiência
-    title: Experiências
-    show: Mostrar essa experiência
-    new: Criar experiência
-    edit: Editar essa experiência
-    back: Voltar para experiências
-    destroy: Apagar experiência
-    categories:
-      fear: medo
-      difficulty: dificuldade
-      learning: aprendizado
-      insight: insight
-      feedback: feedback
-    controller:
-      flash_create: Experiência cadastrada com sucesso
-      flash_update: Experiência atualizada com sucesso
   controller:
     micro_goals:
       flash_create: 'Micro-meta criada com sucesso!'
@@ -117,3 +78,89 @@ pt-BR:
         end_date_label: 'Data de término'
         percentage_label: 'Porcentagem'
         errors_prohibited: 'proibiu que esta tarefa seja salva:'
+  activerecord:
+    attributes:
+      experience:
+        content: conteúdo
+        level: nível
+        week: semana
+      objective:
+        title: Título
+      objective_question:
+        type_question: Tipo de pergunta
+        description: Pergunta
+        answer: Resposta
+    errors:
+      models:
+        experience:
+          attributes:
+            category:
+              inclusion: precisa ser incluso
+            level:
+              inclusion: precisa ser incluso
+            week:
+              inclusion: precisa ser incluso
+            content:
+              blank: não pode ficar vazio
+        objective:
+          attributes:
+            student:
+              required: precisa existir
+  helpers:
+    submit:
+      create: Criar
+      update: Atualizar
+  experience:
+    form:
+      category_label: categoria
+      week_label: semana
+    edit_view:
+      title: Editando experiência
+    title: Experiências
+    show: Mostrar essa experiência
+    new: Criar experiência
+    edit: Editar essa experiência
+    back: Voltar para experiências
+    destroy: Apagar experiência
+    categories:
+      fear: medo
+      difficulty: dificuldade
+      learning: aprendizado
+      insight: insight
+      feedback: feedback
+    controller:
+      flash_create: Experiência cadastrada com sucesso
+      flash_update: Experiência atualizada com sucesso
+  objective:
+    title: Objetivos
+    new_title: Novo objetivo
+    edit_title: Editando
+    form_view:
+      error: proibiu esse objetivo de ser salvo
+    show: Mostrar esse objetivo
+    new: Criar novo objetivo
+    edit: Editar nome do objetivo
+    back: Voltar para objetivos
+    destroy: Apagar objetivo
+    controller:
+      destroy: Objetivo e questões associadas a ele foram apagadas com sucesso.
+      notice_create: Objetivo cadastrada com sucesso
+      notice_update: Objetivo atualizada com sucesso
+    question:
+      new_question: Criar nova pergunta
+      show_this_question: Mostrar essa pergunta
+      edit_this_question: Editar essa pergunta
+      destroy_this_question: Apagar essa pergunta
+      add_question: Adicionar perguntas para esse objetivo
+      show_question: Mostrar perguntas desse objetivo
+      view_new_title: Adicionar nova pergunta para
+      view_edit_title: Editando pergunta do objetivo
+      form_view:
+        error: proibiu essa pergunta de objetivo de ser salva
+        select_type_question: Selecione o tipo de pergunta
+        select_description: Selecione a pergunta
+      back_questions: Retornar para perguntas desse objetivo
+      controller:
+        create_success: Pergunta cadastrada com sucesso
+        update_success: Pergunta atualizada com sucesso
+        destroy_success: Pergunta apagada com sucesso
