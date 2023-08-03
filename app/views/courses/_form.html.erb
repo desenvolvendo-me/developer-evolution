@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label t('view.form'), style: "display: block" %>
-    <%= form.select :type_course, options_for_select(Course.type_course) %>
+    <%= form.select :type_course, Course::TYPE_COURSES %>
   </div>
 
   <div>

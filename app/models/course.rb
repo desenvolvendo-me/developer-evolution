@@ -20,12 +20,10 @@ class Course < ApplicationRecord
   belongs_to :student
   has_many :course_basics, dependent: :destroy
 
-  def self.type_course
-    ["Git/GitHub",
-     "Lógica de programação",
-     "Orientação a Objeto",
-     "Linguagem de programação",
-     "Frameworks",
-     "Banco de Dados"]
-  end
+  TYPE_COURSES = ["Git/GitHub",
+                  "Lógica de programação",
+                  "Orientação a Objeto",
+                  "Linguagem de programação",
+                  "Frameworks",
+                  "Banco de Dados"]
 end
