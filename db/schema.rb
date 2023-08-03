@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_204606) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +62,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_204606) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_practices_on_student_id"
+  end
+
+  create_table "script_questions", force: :cascade do |t|
+    t.text "description"
+    t.string "category"
+    t.bigint "script_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["script_id"], name: "index_script_questions_on_script_id"
+  end
+
+  create_table "scripts", force: :cascade do |t|
+    t.string "category"
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_scripts_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -128,5 +144,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_204606) do
   add_foreign_key "interview_videos", "interviews"
   add_foreign_key "interviews", "students"
   add_foreign_key "practices", "students"
+  add_foreign_key "script_questions", "scripts"
+  add_foreign_key "scripts", "students"
   add_foreign_key "students", "users"
 end

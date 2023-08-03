@@ -1,0 +1,22 @@
+<%= form_with(model: script) do |form| %>
+  <% if script.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(script.errors.count, "error") %> <%= t('script.form.error') %>></h2>
+
+      <ul>
+        <% script.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category, t('script.script_questions.form.subject') %>
+    <%= form.select :category, Script::SUBJECTS %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

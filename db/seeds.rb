@@ -54,6 +54,13 @@ if Rails.env.development?
 
   student.save!
 
+  # Job Position Generator
+  script = Script.create(category: "Empresa", student: student)
+  script.script_questions.create(category: "Quem estava no momento?", description: "Eu e o Tech Lead")
+
+  script2 = Script.create(category: "Superação", student: student)
+  script2.script_questions.create(category: "O que aconteceu?", description: "Com melhora na  comunicação foi possivel entregar as demandas solicitadas.")
+
   # Create interviews with student relation
   video_urls = %w[https://vimeo.com/190479606 https://vimeo.com/76979871 https://vimeo.com/195085022]
 
@@ -63,4 +70,5 @@ if Rails.env.development?
 
   # Exemplo de criação de outro vídeo associado à mesma entrevista
   interview.interview_videos.create(video_link: "https://vimeo.com/789012")
+
 end
