@@ -13,8 +13,8 @@
 
 <h2>Tests Battles:</h2>
 <% @test.tests_battles.each do |tests_battle| %>
-  <%= form_with(model: @tests_battle) do |form| %>
-    <h3>Battle: <%= form.text_field :battle %></h3>
+  <%= form_with(model: tests_battle, url: test_tests_battle_path(@test, tests_battle), local: true) do |form| %>
+    <h3>Battle: <%= form.select :battle, TestsBattle::BATTLE %></h3>
     <p><strong>Milestone Release Link:</strong> <%= form.text_field :milestone_release_link %></p>
     <p><strong>Pull Request Release Link:</strong> <%= form.text_field :pull_request_release_link %></p>
 

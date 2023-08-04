@@ -27,6 +27,8 @@ class TestsBattlesController < ApplicationController
   end
 
   def update
+    @tests_battle = TestsBattle.find(params[:id])
+
     if @tests_battle.update(tests_battle_params)
       redirect_to test_tests_battle_path(@test, @tests_battle), notice: 'Tests Battle was successfully updated.'
     else
