@@ -18,7 +18,6 @@ class GoalsController < ApplicationController
       redirect_to action: :show, id: @goal.id
     else
       flash[:alert] = @goal.errors.full_messages.join('. ')
-      #redirect_to goal_path
       render :new
     end
   end
@@ -35,8 +34,6 @@ class GoalsController < ApplicationController
   end
 
   def destroy
-    # Remover a linha abaixo, pois já tem o 'dependent :destroy' na Model de goals
-    #@goal.goal_questions.destroy_all
     @goal.destroy
     redirect_to goals_path, notice: 'Goal and associated questions were successfully desctroyed.'
   end
