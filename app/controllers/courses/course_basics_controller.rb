@@ -15,7 +15,6 @@ class Courses::CourseBasicsController < ApplicationController
   end
 
   def create
-    # @message = Message.new(message_params)
     @course_basic = @course.course_basics.build(course_basic_params)
 
     redirect_to(@course_basic.save ? [@course, @course_basic] : { action: "new" },
