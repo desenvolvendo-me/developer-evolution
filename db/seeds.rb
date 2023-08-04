@@ -63,4 +63,40 @@ if Rails.env.development?
 
   # Exemplo de criação de outro vídeo associado à mesma entrevista
   interview.interview_videos.create(video_link: "https://vimeo.com/789012")
+
+  # Testes Técnicos
+  test = Test.create(
+    repository_link: 'https://github.com/user/repo1',
+    project_link: 'https://github.com/user/repo1/projects/1',
+    readme_link: 'https://github.com/user/repo1/blob/main/README.md',
+    student: student
+  )
+  tests_battle = test.tests_battles.create(
+    battle: 1,
+    milestone_release_link: 'https://github.com/user/repo/milestones/123',
+    pull_request_release_link: 'https://github.com/user/repo/pull/123'
+  )
+  tests_battle.tests_issues.create(
+    issue_link: 'https://github.com/user/repo/issues/12',
+    pull_request_link: "https://github.com/user/repo/tree/branch_12"
+  )
+  tests_battle.tests_issues.create(
+    issue_link: 'https://github.com/user/repo/issues/13',
+    pull_request_link: "https://github.com/user/repo/tree/branch_13"
+  )
+
+  tests_battle2 = test.tests_battles.create(
+    battle: 3,
+    milestone_release_link: 'https://github.com/user/repo/milestones/456',
+    pull_request_release_link: 'https://github.com/user/repo/pull/456'
+  )
+  tests_battle2.tests_issues.create!(
+    issue_link: 'https://github.com/user/repo/issues/45',
+    pull_request_link: "https://github.com/user/repo/tree/branch_45"
+  )
+  tests_battle2.tests_issues.create!(
+    issue_link: 'https://github.com/user/repo/issues/14',
+    pull_request_link: "https://github.com/user/repo/tree/branch_14"
+  )
+
 end
