@@ -29,10 +29,13 @@ class TestsIssuesController < ApplicationController
   end
 
   def update
-    if @tests_issue.update(tests_issue_params)
-      redirect_to test_tests_battle_tests_issue_path(@test, @tests_battle, @tests_issue), notice: 'Tests Issue was successfully updated.'
+    @tests_issue = TestsIssue.find(params[:id])
+    @tests_battle = @tests_issue.tests_battle
+
+    if @tests_battle.update(tests_battle_params) && @tests_issue.update(tests_issue_params)
+      redirect_to @tests_issue, notice: 'Tests Issue was successfully updated.'
     else
-      render :edit
+      render :show
     end
   end
 

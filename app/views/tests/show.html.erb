@@ -6,7 +6,28 @@
 
 <p>
   <%= link_to 'Edit', edit_test_path(@test) %> |
-  <%= link_to 'Back', tests_path %>
+  <%= link_to 'Back', tests_url %>
 </p>
 
 <%= link_to 'New Battle', new_test_tests_battle_path(@test) %>
+
+<h2>Tests Battles:</h2>
+<% @test.tests_battles.each do |tests_battle| %>
+  <%= form_with(model: @tests_battle) do |form| %>
+    <h3>Battle: <%= form.text_field :battle %></h3>
+    <p><strong>Milestone Release Link:</strong> <%= form.text_field :milestone_release_link %></p>
+    <p><strong>Pull Request Release Link:</strong> <%= form.text_field :pull_request_release_link %></p>
+
+    <h4>Tests Issues:</h4>
+    <% tests_battle.tests_issues.each do |tests_issue| %>
+      <%= form.fields_for tests_issue do |tests_issue_form| %>
+        <p><strong>Issue Link:</strong> <%= tests_issue_form.text_field :issue_link %></p>
+        <p><strong>Pull Request Link:</strong> <%= tests_issue_form.text_field :pull_request_link %></p>
+      <% end %>
+    <% end %>
+
+    <%= form.submit 'Update' %>
+  <% end %>
+<% end %>
+
+<br>

@@ -6,6 +6,8 @@ class TestsController < ApplicationController
   end
 
   def show
+    @test = Test.find(params[:id])
+    @tests_battles = @test.tests_battles.includes(:tests_issues)
   end
 
   def new
@@ -27,11 +29,11 @@ class TestsController < ApplicationController
 
   def update
     @test = Test.find(params[:id])
+
     if @test.update(test_params)
-      flash[:notice] = 'Test was successfully updated.'
-      redirect_to action: :show, id: @test.id
+      redirect_to @test, notice: 'Test was successfully updated.'
     else
-      redirect_to action: :edit
+      render :show
     end
   end
 
@@ -51,6 +53,10 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:repository_link, :project_link, :readme_link)
+    params.require(:test).permit(
+      :repository_link, :project_link, :readme_link,
+      tests_battles_attributes: [:id, :battle, :milestone_release_link, :pull_request_release_link,
+                                 tests_issues_attributes: [:id, :issue_link, :pull_request_link]]
+    )
   end
 end
