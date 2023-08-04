@@ -18,7 +18,6 @@ class MicroGoalsController < ApplicationController
       redirect_to action: :show, id: @micro_goal.id
     else
       flash[:alert] = @micro_goal.errors.full_messages.join('. ')
-      #redirect_to micro_goal_path
       render :new
     end
   end
