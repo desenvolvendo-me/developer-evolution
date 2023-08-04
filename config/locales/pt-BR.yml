@@ -40,3 +40,101 @@ pt-BR:
         title: Editando link do vídeo
       view_index:
         title: Vídeos do tipo
+
+  test:
+    index:
+      title: Testes Técnicos
+      repository_link: Link do Repositório
+      project_link: Link do Projeto
+      readme_link: Link do README
+      show: Mostrar
+      edit: Editar
+      destroy: Excluir
+      new_test: Novo Teste Técnico
+      sure: Você tem certeza disso?
+    show:
+      title: Detalhe do Teste Técnicos
+      repository_link: Link do Repositório
+      project_link: Link do Projeto
+      readme_link: Link do README
+      edit: Editar
+      back: Voltar
+      new_battle: Nova Batalha
+      tests_battles: Batalhas do teste
+      battle: Batalha
+      milestone_release_link: Link de Milestone Release
+      pull_request_release_link: Link de Pull Request Release
+      issue_link: Link da Issue
+      pull_request_link: Link do Pull Request da Issue
+      form:
+        update: Atualizar
+    edit:
+      title: Editar Teste Técnico
+      back: Voltar
+    form:
+      repository_link: Link do Repositório
+      project_link: Link do Projeto
+      readme_link: Link do README
+    new:
+      title: Novo Teste Técnico
+      back: Voltar
+    controller:
+      create: Teste Técnico criado com sucesso
+      update: Teste Técnico atualizado com sucesso
+      destroy: Teste Técnico excluído com sucesso
+  test_battle:
+    index:
+      title: Batalhas do teste
+      battle: Batalha
+      milestone_release_link: Link de Milestone Release
+      pull_request_release_link: Link de Pull Request Release
+      show: Mostrar
+      edit: Editar
+      destroy: Excluir
+      new_battles: Nova Batalha
+      back: Voltar
+    show:
+      title: Detalhe de Batalha
+      battle: Batalha
+      milestone_release_link: Link de Milestone Release
+      pull_request_release_link: Link de Pull Request Release
+      edit: Editar
+      back: Voltar
+      new_issues: Nova Issue
+    edit:
+      title: Editar Batalha
+      show: Mostrar
+      back: Voltar
+    form:
+      battle: Batalha
+      milestone_release_link: Link de Milestone Release
+      pull_request_release_link: Link de Pull Request Release
+      error: proibiu essa batalha de ser salva
+    new:
+      title: Nova Batalha
+      back: Voltar
+    controller:
+      create: Batalha criada com sucesso
+      update: Batalha atualizada com sucesso
+      destroy: Batalha excluída com sucesso
+  test_issue:
+      new:
+        title: Nova Issue
+        back: Voltar
+      form:
+        issue_link: Link da Issue
+        pull_request_link: Link do Pull Request da Issue
+        error: proibiu essa issue de ser salva
+      edit:
+        title: Editar Issue
+        show: Mostrar
+        back: Voltar
+      index:
+        new_issue: Nova Issue
+        back: Voltar
+      controller:
+        create: Issue criada com sucesso
+        update: Issue atualizada com sucesso
+        destroy: Issue excluída com sucesso
+
+

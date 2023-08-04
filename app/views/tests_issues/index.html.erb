@@ -1,9 +1,9 @@
-<h1>Tests Issues</h1>
+<h1>Issues</h1>
 <table>
   <thead>
   <tr>
-    <th>Issue Link</th>
-    <th>Pull Request Link</th>
+    <th><%= t('test_issue.form.issue_link') %></th>
+    <th><%= t('test_issue.form.pull_request_link') %></th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -12,14 +12,14 @@
     <tr>
       <td><%= issue.issue_link %></td>
       <td><%= issue.pull_request_link %></td>
-      <td><%= link_to 'Show', [@test, @tests_battle, issue] %></td>
-      <td><%= link_to 'Edit', edit_test_tests_battle_tests_issue_path(@test, @tests_battle, issue) %></td>
-      <td><%= button_to 'Destroy', [@test, @tests_battle, issue], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('test.index.show'), [@test, @tests_battle, issue] %></td>
+      <td><%= link_to t('test.index.edit'), edit_test_tests_battle_tests_issue_path(@test, @tests_battle, issue) %></td>
+      <td><%= button_to t('test.index.destroy'), [@test, @tests_battle, issue], method: :delete, data: { confirm: t('test.index.sure') } %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'New Issue', new_test_tests_battle_tests_issue_path(@test, @tests_battle) %> |
-<%= link_to 'Back', test_tests_battle_path(@test, @tests_battle) %>
+<%= link_to t('test_issue.index.new_issue'), new_test_tests_battle_tests_issue_path(@test, @tests_battle) %> |
+<%= link_to t('test_issue.index.back'), test_tests_battle_path(@test, @tests_battle) %>

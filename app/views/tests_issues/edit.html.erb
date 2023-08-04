@@ -1,4 +1,4 @@
-<h1>Edit Tests Issue</h1>
+<h1><%= t('test_issue.edit.title') %></h1>
 <%= render 'form', tests_issue: @tests_issue %>
-<%= link_to 'Show', [@test, @tests_battle, @tests_issue] %> |
-<%= link_to 'Back', test_tests_battle_tests_issues_path(@test, @tests_battle) %>
+<%= link_to t('test_issue.edit.show'), [@test, @tests_battle, @tests_issue] %> |
+<%= link_to t('test_issue.edit.back'), test_tests_battle_tests_issues_path(@test, @tests_battle) %>

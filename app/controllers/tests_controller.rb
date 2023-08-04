@@ -18,7 +18,7 @@ class TestsController < ApplicationController
     @test = current_user.student.tests.build(test_params)
 
     if @test.save
-      redirect_to @test, notice: 'Test was successfully created.'
+      redirect_to @test, notice: t('test.controller.create')
     else
       render :new
     end
@@ -31,7 +31,7 @@ class TestsController < ApplicationController
     @test = Test.find(params[:id])
 
     if @test.update(test_params)
-      redirect_to @test, notice: 'Test was successfully updated.'
+      redirect_to @test, notice: t('test.controller.update')
     else
       render :show
     end
@@ -39,7 +39,7 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests_url, notice: 'Test was successfully destroyed.'
+    redirect_to tests_url, notice: t('test.controller.destroy')
   end
 
   private

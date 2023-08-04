@@ -1,32 +1,32 @@
-<h1>Test</h1>
+<h1><%= t('test.show.title') %></h1>
 
-<p><strong>Repository Link:</strong> <%= @test.repository_link %></p>
-<p><strong>Project Link:</strong> <%= @test.project_link %></p>
-<p><strong>Readme Link:</strong> <%= @test.readme_link %></p>
+<p><strong><%= t('test.show.repository_link') %>:</strong> <%= @test.repository_link %></p>
+<p><strong><%= t('test.show.project_link') %>:</strong> <%= @test.project_link %></p>
+<p><strong><%= t('test.show.readme_link') %>:</strong> <%= @test.readme_link %></p>
 
 <p>
-  <%= link_to 'Edit', edit_test_path(@test) %> |
-  <%= link_to 'Back', tests_url %>
+  <%= link_to t('test.show.edit'), edit_test_path(@test) %> |
+  <%= link_to t('test.show.back'), tests_url %>
 </p>
 
-<%= link_to 'New Battle', new_test_tests_battle_path(@test) %>
+<%= link_to t('test.show.new_battle'), new_test_tests_battle_path(@test) %>
 
-<h2>Tests Battles:</h2>
+<h2><%= t('test.show.tests_battles') %></h2>
 <% @test.tests_battles.each do |tests_battle| %>
   <%= form_with(model: tests_battle, url: test_tests_battle_path(@test, tests_battle), local: true) do |form| %>
-    <h3>Battle: <%= form.select :battle, TestsBattle::BATTLE %></h3>
-    <p><strong>Milestone Release Link:</strong> <%= form.text_field :milestone_release_link %></p>
-    <p><strong>Pull Request Release Link:</strong> <%= form.text_field :pull_request_release_link %></p>
+    <h3><%= t('test.show.battle') %>: <%= form.select :battle, TestsBattle::BATTLE %></h3>
+    <p><strong><%= t('test.show.milestone_release_link') %>:</strong> <%= form.text_field :milestone_release_link %></p>
+    <p><strong><%= t('test.show.pull_request_release_link') %>:</strong> <%= form.text_field :pull_request_release_link %></p>
 
-    <h4>Tests Issues:</h4>
+    <h4> Issues:</h4>
     <% tests_battle.tests_issues.each do |tests_issue| %>
       <%= form.fields_for tests_issue do |tests_issue_form| %>
-        <p><strong>Issue Link:</strong> <%= tests_issue_form.text_field :issue_link %></p>
-        <p><strong>Pull Request Link:</strong> <%= tests_issue_form.text_field :pull_request_link %></p>
+        <p><strong><%= t('test.show.issue_link') %>:</strong> <%= tests_issue_form.text_field :issue_link %></p>
+        <p><strong><%= t('test.show.pull_request_link') %>:</strong> <%= tests_issue_form.text_field :pull_request_link %></p>
       <% end %>
     <% end %>
 
-    <%= form.submit 'Update' %>
+    <%= form.submit t('test.show.form.update') %>
   <% end %>
 <% end %>
 

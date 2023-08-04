@@ -1,7 +1,7 @@
 <%= form_with(model: [@test, @tests_battle, tests_issue]) do |form| %>
   <% if tests_issue.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(tests_issue.errors.count, "error") %> prohibited this tests issue from being saved:</h2>
+      <h2><%= pluralize(tests_issue.errors.count, "error") %> t('test_issue.form.error'):</h2>
 
       <ul>
         <% tests_issue.errors.full_messages.each do |message| %>
@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :issue_link %>
-    <%= form.text_area :issue_link %>
+    <%= form.label :issue_link, t('test_issue.form.issue_link') %>
+    <%= form.text_field :issue_link %>
   </div>
 
   <div class="field">
-    <%= form.label :pull_request_link %>
-    <%= form.text_area :pull_request_link %>
+    <%= form.label :pull_request_link, t('test_issue.form.pull_request_link') %>
+    <%= form.text_field :pull_request_link %>
   </div>
 
   <div class="actions">

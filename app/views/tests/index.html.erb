@@ -1,11 +1,11 @@
-<h1>Tests</h1>
+<h1><%= t('test.index.title') %></h1>
 
 <table>
   <thead>
   <tr>
-    <th>Repository Link</th>
-    <th>Project Link</th>
-    <th>Readme Link</th>
+    <th><%= t('test.index.repository_link') %></th>
+    <th><%= t('test.index.project_link') %></th>
+    <th><%= t('test.index.readme_link') %></th>
     <th colspan="2"></th>
   </tr>
   </thead>
@@ -16,9 +16,9 @@
       <td><%= test.repository_link %></td>
       <td><%= test.project_link %></td>
       <td><%= test.readme_link %></td>
-      <td><%= link_to 'Show', test %></td>
-      <td><%= link_to 'Edit', edit_test_path(test) %></td>
-      <td><%= button_to 'Destroy', test_path(test), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('test.index.show'), test %></td>
+      <td><%= link_to t('test.index.edit'), edit_test_path(test) %></td>
+      <td><%= button_to t('test.index.destroy'), test_path(test), method: :delete, data: { confirm: t('test.index.sure') } %></td>
     </tr>
   <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Test', new_test_path %>
+<%= link_to t('test.index.new_test'), new_test_path %>

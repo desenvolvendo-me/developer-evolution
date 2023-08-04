@@ -17,7 +17,7 @@ class TestsBattlesController < ApplicationController
     @tests_battle = @test.tests_battles.build(tests_battle_params)
 
     if @tests_battle.save
-      redirect_to test_tests_battle_path(@test, @tests_battle), notice: 'Tests Battle was successfully created.'
+      redirect_to test_tests_battle_path(@test, @tests_battle), notice: t('test_battle.controller.create')
     else
       render :new
     end
@@ -30,7 +30,7 @@ class TestsBattlesController < ApplicationController
     @tests_battle = TestsBattle.find(params[:id])
 
     if @tests_battle.update(tests_battle_params)
-      redirect_to test_tests_battle_path(@test, @tests_battle), notice: 'Tests Battle was successfully updated.'
+      redirect_to test_tests_battle_path(@test, @tests_battle), notice: t('test_battle.controller.update')
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class TestsBattlesController < ApplicationController
 
   def destroy
     @tests_battle.destroy
-    redirect_to test_tests_battles_path(@test), notice: 'Tests Battle was successfully destroyed.'
+    redirect_to test_tests_battles_path(@test), notice: t('test_battle.controller.destroy')
   end
 
   private

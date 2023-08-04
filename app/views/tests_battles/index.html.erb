@@ -1,10 +1,10 @@
-<h1>Tests Battles</h1>
+<h1><%= t('test_battle.index.title') %></h1>
 <table>
   <thead>
   <tr>
-    <th>Battle</th>
-    <th>Milestone Release Link</th>
-    <th>Pull Request Release Link</th>
+    <th><%= t('test_battle.index.battle') %></th>
+    <th><%= t('test_battle.index.milestone_release_link') %></th>
+    <th><%= t('test_battle.index.pull_request_release_link') %></th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -14,15 +14,15 @@
       <td><%= battle.battle %></td>
       <td><%= battle.milestone_release_link %></td>
       <td><%= battle.pull_request_release_link %></td>
-      <td><%= link_to 'Show', [@test, battle] %></td>
-      <td><%= link_to 'Edit', edit_test_tests_battle_path(@test, battle) %></td>
-      <td><%= button_to 'Destroy', [@test, battle], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to t('test_battle.index.show'), [@test, battle] %></td>
+      <td><%= link_to t('test_battle.index.edit'), edit_test_tests_battle_path(@test, battle) %></td>
+      <td><%= button_to t('test_battle.index.destroy'), [@test, battle], method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
 <p>
-<%= link_to 'New Battles', new_test_tests_battle_path(@test) %>
-<%= link_to 'Back', tests_path %>
+<%= link_to t('test_battle.index.new_battles'), new_test_tests_battle_path(@test) %>
+<%= link_to t('test_battle.index.back'), tests_path %>
 </p>

@@ -1,7 +1,7 @@
 <%= form_with(model: [@test, tests_battle]) do |form| %>
   <% if tests_battle.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(tests_battle.errors.count, "error") %> prohibited this tests battle from being saved:</h2>
+      <h2><%= pluralize(tests_battle.errors.count, "error") %> <%= t('test_battle.form.error') %>:</h2>
 
       <ul>
         <% tests_battle.errors.full_messages.each do |message| %>
@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :battle %>
+    <%= form.label :battle, t('test_battle.form.battle') %>
     <%= form.select :battle, TestsBattle::BATTLE %>
   </div>
 
   <div class="field">
-    <%= form.label :milestone_release_link %>
-    <%= form.text_area :milestone_release_link %>
+    <%= form.label :milestone_release_link, t('test_battle.form.milestone_release_link') %>
+    <%= form.text_field :milestone_release_link %>
   </div>
 
   <div class="field">
-    <%= form.label :pull_request_release_link %>
-    <%= form.text_area :pull_request_release_link %>
+    <%= form.label :pull_request_release_link, t('test_battle.form.pull_request_release_link') %>
+    <%= form.text_field :pull_request_release_link %>
   </div>
 
   <div class="actions">
