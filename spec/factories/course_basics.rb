@@ -23,11 +23,10 @@
 #
 FactoryBot.define do
   factory :course_basic do
-    link_course { "https://app.gather.town/app/jrYpWiRFORFSJlD8/DesenvolvendoMe" }
-    link_repository { "https://chat.openai.com/c/b17f7f1e-99af-4013-b991-87a787d5d729" }
-    link_certified { "https://github.com/desenvolvendo-me/developer-evolution/commit/" }
+    link_course { "https://www.youtube.com/watch?v=bLDH3NypOVo&list=PLnV7i1DUV_zOit4a_tEDf1_PcRd25dL7e" }
+    link_repository { "https://github.com/desenvolvendo-me/linguagem_2021_ruby_ideal" }
+    link_certified { nil }
     avaliation_course { "5" }
     avaliation_apprenticeship { "2" }
-    course { nil }
   end
 end
