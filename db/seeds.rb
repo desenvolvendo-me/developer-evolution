@@ -73,30 +73,30 @@ if Rails.env.development?
   )
   tests_battle = test.tests_battles.create(
     battle: 1,
-    milestone_release_link: 'https://github.com/user/repo/milestones/123',
-    pull_request_release_link: 'https://github.com/user/repo/pull/123'
+    milestone_release_link: 'https://github.com/user/repo1/milestones/123',
+    pull_request_release_link: 'https://github.com/user/repo1/pull/123'
   )
   tests_battle.tests_issues.create(
-    issue_link: 'https://github.com/user/repo/issues/12',
-    pull_request_link: "https://github.com/user/repo/tree/branch_12"
+    issue_link: 'https://github.com/user/repo1/issues/12',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_12"
   )
   tests_battle.tests_issues.create(
-    issue_link: 'https://github.com/user/repo/issues/13',
-    pull_request_link: "https://github.com/user/repo/tree/branch_13"
+    issue_link: 'https://github.com/user/repo1/issues/13',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_13"
   )
 
   tests_battle2 = test.tests_battles.create(
     battle: 3,
-    milestone_release_link: 'https://github.com/user/repo/milestones/456',
-    pull_request_release_link: 'https://github.com/user/repo/pull/456'
+    milestone_release_link: 'https://github.com/user/repo1/milestones/456',
+    pull_request_release_link: 'https://github.com/user/repo1/pull/456'
   )
   tests_battle2.tests_issues.create!(
-    issue_link: 'https://github.com/user/repo/issues/45',
-    pull_request_link: "https://github.com/user/repo/tree/branch_45"
+    issue_link: 'https://github.com/user/repo1/issues/45',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_45"
   )
   tests_battle2.tests_issues.create!(
-    issue_link: 'https://github.com/user/repo/issues/14',
-    pull_request_link: "https://github.com/user/repo/tree/branch_14"
+    issue_link: 'https://github.com/user/repo1/issues/14',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_14"
   )
 
 end
