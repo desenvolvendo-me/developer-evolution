@@ -60,6 +60,7 @@ class Student < ApplicationRecord
   belongs_to :user
   has_many :practices
   has_many :thoughts
+  has_many :scripts
   has_many :interviews
   has_many :tests
 

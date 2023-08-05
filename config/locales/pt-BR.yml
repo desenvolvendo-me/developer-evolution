@@ -40,7 +40,65 @@ pt-BR:
         title: Editando link do vídeo
       view_index:
         title: Vídeos do tipo
-
+  script:
+    new:
+      title: Novo Roteiro
+      Subject: Assunto
+    index:
+      title: Roteiros
+      show: Mostrar
+      edit: Editar
+      destroy: Excluir
+      new: Novo Roteiro
+    show:
+      title: Perguntas do assunto
+      edit: Editar
+      back: Voltar para Roteiros
+      New Question: Nova pergunta
+      Subject: Assunto
+    form:
+      error: Proibiu o Roteiro de ser salvo
+    controller:
+      create: Roteiro criado com sucesso
+      update: Roteiro atualizado com sucesso
+      destroy: Roteiro excluído com sucesso
+    script_questions:
+      Question: Pergunta
+      Description: Descrição
+      edit: Editar
+      destroy: Excluir
+      index:
+        title: Perguntas do Roteiro
+        show: Mostrar
+        back: Voltar
+        new: Criar nova pergunta
+        edit: Editar
+        destroy: Excluir
+        question: Pergunta
+        description: Descrição
+        sure: Você está certo disso?
+        new: Nova Pergunta
+      new:
+        title: Nova Pergunta
+      show:
+        title: Detalhe da Pergunta
+        question: Pergunta
+        description: Descrição
+        edit: Editar
+        back: Voltar
+      edit:
+        title: Editar pergunta
+        show: Mostrar
+        back: Voltar
+      form:
+        error: Proibiu a pergunta de ser salva
+        subject: Assunto
+        question: Pergunta
+        description: Descrição
+      controller:
+        create: Pergunta criada com sucesso
+        update: Pergunta atualizada com sucesso
+        destroy: Pergunta excluída com sucesso
   test:
     index:
       title: Testes Técnicos
@@ -118,23 +176,22 @@ pt-BR:
       update: Batalha atualizada com sucesso
       destroy: Batalha excluída com sucesso
   test_issue:
-      new:
-        title: Nova Issue
-        back: Voltar
-      form:
-        issue_link: Link da Issue
-        pull_request_link: Link do Pull Request da Issue
-        error: proibiu essa issue de ser salva
-      edit:
-        title: Editar Issue
-        show: Mostrar
-        back: Voltar
-      index:
-        new_issue: Nova Issue
-        back: Voltar
-      controller:
-        create: Issue criada com sucesso
-        update: Issue atualizada com sucesso
-        destroy: Issue excluída com sucesso
-
+    new:
+      title: Nova Issue
+      back: Voltar
+    form:
+      issue_link: Link da Issue
+      pull_request_link: Link do Pull Request da Issue
+      error: proibiu essa issue de ser salva
+    edit:
+      title: Editar Issue
+      show: Mostrar
+      back: Voltar
+    index:
+      new_issue: Nova Issue
+      back: Voltar
+    controller:
+      create: Issue criada com sucesso
+      update: Issue atualizada com sucesso
+      destroy: Issue excluída
 

@@ -1,0 +1,13 @@
+<h1><%= t('script.script_questions.show.title') %></h1>
+<p>
+  <strong><%= t('script.script_questions.show.question') %>:</strong>
+  <%= @script_question.category %>
+</p>
+<p>
+  <strong><%= t('script.script_questions.show.description') %>:</strong>
+  <%= @script_question.description %>
+</p>
+<p>
+  <%= link_to t('script.script_questions.show.back'), edit_script_script_question_path(@script_question.script, @script_question) %> |
+  <%= link_to t('script.script_questions.show.edit'), script_script_questions_path(@script_question.script) %>
+</p>
