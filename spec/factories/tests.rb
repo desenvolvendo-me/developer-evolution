@@ -16,8 +16,8 @@
 #
 FactoryBot.define do
   factory :test do
-    repository_link { "MyString" }
-    project_link { "MyString" }
-    readme_link { "MyString" }
+    repository_link { "https://github.com/user/repo1" }
+    project_link { "https://github.com/user/repo1/projects/1" }
+    readme_link { "https://github.com/user/repo1/blob/main/README.md" }
   end
 end

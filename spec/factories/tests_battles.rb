@@ -21,8 +21,8 @@
 FactoryBot.define do
   factory :tests_battle do
     test { nil }
-    battle { "MyString" }
-    milestone_release_link { "MyString" }
-    pull_request_release_link { "MyString" }
+    battle { 5 }
+    milestone_release_link { "https://github.com/user/repo1/milestones/123" }
+    pull_request_release_link { "https://github.com/user/repo1/pull/123" }
   end
 end

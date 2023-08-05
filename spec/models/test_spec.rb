@@ -14,8 +14,13 @@
 #
 #  index_tests_on_student_id  (student_id)
 #
+
 require 'rails_helper'
 
 RSpec.describe Test, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { build(:test) }
+
+  # Testar as associações
+  it { should belong_to(:student) }
+  it { should have_many(:tests_battles).dependent(:destroy) }
 end

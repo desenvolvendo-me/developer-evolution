@@ -20,7 +20,7 @@
 FactoryBot.define do
   factory :tests_issue do
     tests_battle { nil }
-    issue_link { "MyString" }
-    pull_request_link { "MyString" }
+    issue_link { "https://github.com/user/repo1/issues/12" }
+    pull_request_link { "https://github.com/user/repo1/tree/branch_12" }
   end
 end

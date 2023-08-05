@@ -20,5 +20,8 @@
 require 'rails_helper'
 
 RSpec.describe TestsIssue, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { build(:tests_issue) }
+
+  # Testar as associações
+  it { should belong_to(:tests_battle) }
 end
