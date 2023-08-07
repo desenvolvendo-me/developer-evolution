@@ -19,8 +19,6 @@
 #  fk_rails_...  (student_id => students.id)
 #
 class Thought < ApplicationRecord
-  # Specify the table name explicitly since it's not following the Rails naming convention
-  self.table_name = 'thoughts'
 
   belongs_to :student
 
