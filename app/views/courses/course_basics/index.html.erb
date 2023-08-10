@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= t('course_basics.view.course_basics') %></h1>
+<%= link_to t('course_basics.view.back_to_courses'), courses_path(@course) %>
+
+<h1><%= t('course_basics.view.course_basics') %>:</h1>
 
 <div id="course_basics">
   <% @course_basics.each do |course_basic| %>
