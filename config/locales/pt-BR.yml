@@ -1,5 +1,7 @@
 pt-BR:
   course_basics:
+    show:
+      new_course_basic: 'Mostrar Cursos'
     view:
       number_of_course: 'Número do Curso: '
       link_course: 'Link do Curso:'
