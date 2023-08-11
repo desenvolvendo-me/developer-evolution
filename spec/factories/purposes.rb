@@ -18,11 +18,8 @@
 #
 FactoryBot.define do
   factory :purpose do
-    version { 1 }
-    time { 1 }
-    type_question { "Why?" }
-    question { "Why programming" }
-    answer { "programming is good" }
+    version { "1"}
+
     association :student
   end
 end
