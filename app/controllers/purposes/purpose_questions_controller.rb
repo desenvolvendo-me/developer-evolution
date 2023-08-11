@@ -12,7 +12,6 @@ class Purposes::PurposeQuestionsController < ApplicationController
   end
 
   def create
-    # @message = Message.new(message_params)
     @purpose_question = @purpose.purpose_questions.build(purpose_question_params)
       redirect_to(@purpose_question.save ? [@purpose, @purpose_question] : { action: "new" }, notice: @purpose_question.save ? t('controller.flash_create') : t('controller.flash_fail'))
   end
