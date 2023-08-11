@@ -1,11 +1,11 @@
-<h1>Mostrar Rotina:</h1>
-
-<p><strong>Day of the Week:</strong> <%= @routine.day_of_the_week %></p>
-<p><strong>Hour:</strong> <%= @routine.hour %></p>
-<p><strong>Activity:</strong> <%= @routine.activity %></p>
-<p><strong>Priority:</strong> <%= @routine.priority %></p>
-
+<h1><%= t('views.show.title_label') %>:</h1>
+<hr>
+<p><strong><%= t('views.show.day_of_the_week') %>:</strong> <%= @routine.day_of_the_week %></p>
+<p><strong><%= t('views.show.hour') %>:</strong> <%= @routine.hour %></p>
+<p><strong><%= t('views.show.activity') %>:</strong> <%= @routine.activity %></p>
+<p><strong><%= t('views.show.priority') %>:</strong> <%= @routine.priority %></p>
+<hr>
 <div class="actions">
-  <%= link_to 'Editar', edit_routine_path(@routine), class: 'btn btn-primary' %>
-  <%= link_to 'Voltar', routines_path, class: 'btn btn-secondary' %>
+  <%= link_to t('views.show.edit_label'), edit_routine_path(@routine), class: 'btn btn-primary' %> |
+  <%= link_to t('views.show.back_to_routines'), routines_path, class: 'btn btn-secondary' %>
 </div>
