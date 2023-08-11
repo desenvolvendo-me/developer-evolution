@@ -18,7 +18,6 @@
 #
 class User < ApplicationRecord
   has_one :student
-  has_many :courses, through: :student
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
