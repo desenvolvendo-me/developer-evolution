@@ -21,10 +21,10 @@
 #
 FactoryBot.define do
   factory :routine do
-    day_of_the_week { 1 }
+    day_of_the_week { 'domingo' }
     hour { "2023-06-09 16:25:19" }
-    activity { "Activity Routine" }
-    priority { "Priority Routine" }
+    activity { "Almoço" }
+    priority { "1" }
     student
   end
 end
