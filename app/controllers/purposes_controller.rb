@@ -1,6 +1,5 @@
 class PurposesController < ApplicationController
 
-
   def show
     @purpose = Purpose.find(params[:id])
   end
@@ -21,7 +20,7 @@ class PurposesController < ApplicationController
   end
 
   def index
-    @purposes = current_user.purposes
+    @purposes = current_user.student.purposes
   end
 
   def destroy
