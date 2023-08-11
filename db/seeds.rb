@@ -54,4 +54,7 @@ if Rails.env.development?
 
   student.save!
 
+  # Future generator
+  Routine.create(day_of_the_week: "segunda", hour: "12:00", activity: "almoço", priority:"1", student: student)
+  Routine.create(day_of_the_week: "segunda", hour: "18:00", activity: "Estudo", priority:"1", student: student)
 end
