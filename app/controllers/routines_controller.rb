@@ -1,6 +1,6 @@
 class RoutinesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_routine, only: [:show, :edit, :pre_destroy]
+  before_action :set_routine, only: [:show]
   
   def index
     if current_user.nil?
@@ -33,11 +33,10 @@ class RoutinesController < ApplicationController
   end
   
   def edit
-    
+    @routine = Routine.find(params[:id])
   end
 
   def update
-    #debugger
     @routine = Routine.find(params[:id])
     if @routine.update(routine_params)
         flash[:notice] = "Rotina atualizada com sucesso."
@@ -47,28 +46,17 @@ class RoutinesController < ApplicationController
     end  
   end
 
-  def pre_destroy
-    if @routine
-      #debugger
-      render 'pre_destroy_routine'
-    else
-      flash[:error] = 'Veículo não encontrado.'
-      render 'index'
-    end  
-  end
-  
   def destroy
-    #debugger
     @routine = Routine.find_by(id: params[:id])
-    
+
     if @routine
       if @routine.destroy
         flash[:notice] = 'Rotina excluída com sucesso.'
       else
-        flash[:error] = 'Erro ao excluir a Rotina.'
+        flash[:notice] = 'Erro ao excluir a Rotina.'
       end
     else
-      flash[:error] = 'Rotina não encontrada.'
+      flash[:notice] = 'Rotina não encontrada.'
     end
     redirect_to routines_path
   end
@@ -76,21 +64,10 @@ class RoutinesController < ApplicationController
   private
 
   def set_routine
-    if params[:id] == "pre_delete"
-      # Lógica para tratamento especial de pré-exclusão
-      # Por exemplo, você pode definir uma variável de instância @routine com um objeto fictício
-      @routine = Routine.new
-      @routine.id = -1
-      @routine.day_of_the_week = "Segunda-feira"
-      @routine.hour = "10:00"
-      @routine.activity = "Atividade de exemplo"
-      @routine.priority = 1
-    else
-      @routine = Routine.find(params[:id])
-    end
+    @routine = current_user.student.routines.find_by(id: params[:id])
   end
 
   def routine_params
-    params.require(:routine).permit(:day_of_the_week, :hour, :activity, :priority)
+    params.require(:routine).permit(:day_of_the_week, :hour, :activity, :priority, :student_id)
   end
 end
