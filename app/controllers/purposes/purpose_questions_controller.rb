@@ -7,6 +7,7 @@ class Purposes::PurposeQuestionsController < ApplicationController
     @purpose_question = @purpose.purpose_questions.build
   end
   def index
+    @purpose = Purpose.find(params[:purpose_id])
     @purpose_questions = @purpose.purpose_questions
   end
 
@@ -26,13 +27,11 @@ class Purposes::PurposeQuestionsController < ApplicationController
     redirect_to [@purpose, :purpose_questions], notice: t('controller.flash_destroy')
   end
 
-
   private
 
     def set_purpose
       @purpose = Purpose.find(params[:purpose_id])
     end
-    # Use callbacks to share common setup or constraints between actions.
     def set_purpose_question
       @purpose_question = @purpose.purpose_questions.find(params[:id])
     end
