@@ -1,0 +1,34 @@
+<%= link_to t('views.micro_goal_tasks.index.back_to_micro_goals'), micro_goals_path %>
+<h1><%= t('views.micro_goal_tasks.index.tasks_title') %>:</h1>
+<hr>
+<table>
+  <thead>
+  <tr>
+    <th><%= t('views.micro_goal_tasks.index.task_label') %></th>
+    <th><%= t('views.micro_goal_tasks.index.start_date_label') %></th>
+    <th><%= t('views.micro_goal_tasks.index.end_date_label') %></th>
+    <th><%= t('views.micro_goal_tasks.index.percentage_label') %></th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @micro_goal_tasks.each do |task| %>
+    <tr>
+      <td><%= task.task %></td>
+      <td><%= task.start_date %></td>
+      <td><%= task.end_date %></td>
+      <td><%= task.percentage %></td>
+      <td><%= link_to t('views.micro_goal_tasks.index.show_micro_goal_for_this_task'), [@micro_goal] %> |</td>
+      <td><%= link_to t('views.micro_goal_tasks.index.show_this_task'), micro_goal_micro_goal_task_path(task.micro_goal, task) %> |</td>
+      <td><%= link_to t('views.micro_goal_tasks.index.edit'), edit_micro_goal_micro_goal_task_path(task.micro_goal, task) %> |</td>
+      <td><%= link_to t('views.micro_goal_tasks.index.destroy'), micro_goal_micro_goal_task_path(task.micro_goal, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<hr>
+
+<br>
+
+<%= link_to t('views.micro_goal_tasks.index.create_new_task'), new_micro_goal_micro_goal_task_path(@micro_goal) %>

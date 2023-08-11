@@ -29,8 +29,8 @@ pt-BR:
               required: precisa existir
   helpers:
     submit:
-        create: Criar
-        update: Atualizar
+      create: Criar
+      update: Atualizar
   experience:
     form:
       category_label: categoria
@@ -85,4 +85,78 @@ pt-BR:
         create_success: Pergunta cadastrada com sucesso
         update_success: Pergunta atualizada com sucesso
         destroy_success: Pergunta apagada com sucesso
-
+  controller:
+    micro_goals:
+      flash_create: 'Micro-meta criada com sucesso!'
+      flash_update: 'Micro-meta atualizada com sucesso'
+      flash_destroy: 'Micro-meta excluída com sucesso'
+    micro_goal_tasks:
+      flash_create: 'Tarefa criada com sucesso!'
+      flash_update: 'Tarefa atualizada com sucesso'
+      flash_destroy: 'Tarefa excluída com sucesso'
+  views:
+    micro_goals:
+      show:
+        show_all_tasks: 'Visualizar todas as tarefas'
+        edit_this_micro_goal: 'Editar esta micro meta'
+        back_to_micro_goals: 'Voltar para as micro-metas'
+        destroy_this_micro_goal_button: 'Excluir esta micro meta'
+      new:
+        new_micro_goal_title: 'Nova micro meta'
+        form: 'Formulário'
+        back_to_micro_goals: 'Voltar para as Micro-metas'
+      index:
+        title: 'Micro-metas'
+        new_micro_goal : 'Nova micro-meta'
+        show_micro_goal: 'Visualizar esta micro-meta'
+      edit:
+        edit_micro_goal_title: 'Editando micro-meta'
+        show_this_micro_goal: 'Visualizar esta micro-meta'
+        back_to_micro_goals: 'Voltar para as micro-metas'
+      micro_goal:
+        micro_goal_title: 'Micro-meta'
+        show_task_for_this_micro_goal: 'Visualizar tarefa para esta micro-meta'
+        no_tasks_available_for_this_micro_goal: 'Nenhuma tarefa disponível para esta micro-meta'
+      form:
+        micro_goal_label: 'Micro-meta:'
+        errors_prohibited: "Proibiu que esta meta seja salva:"
+        error: "erro"
+        errors: "erros"
+        save: "Salvar"
+    micro_goal_tasks:
+      show:
+        notice: 'Pagina carregada com sucesso'
+        edit: 'Editar esta tarefa'
+        back_to_micro_goal_tasks: 'Voltar para as tarefas'
+        destroy_this_micro_goal_task_button: 'Excluir esta tarefa'
+      new:
+        new_task_title: 'Nova tarefa'
+        back_to_tasks: 'Voltar para as tarefas'
+      index:
+        tasks_title: 'Tarefas'
+        back_to_micro_goals: 'Voltar para Micro-metas'
+        show_this_task: 'Visualizar esta tarefa'
+        create_new_task: 'Criar nova tarefa'
+        show_micro_goal_for_this_task: 'Visualizar esta tarefa para esta micro-meta'
+        edit: 'Editar'
+        destroy: 'Excluir'
+        task_label: 'Tarefa'
+        start_date_label: 'Data de início'
+        end_date_label: 'Data de término'
+        percentage_label: 'Porcentagem'
+      edit:
+        edit_title: 'Editando tarefa'
+        show_task: 'Visualizar esta tarefa'
+        back_link: 'Voltar para as tarefas'
+      micro_goal_task:
+        task_label: 'Tarefa'
+        start_date_label: 'Data de início:'
+        end_date_label: 'Data de término:'
+        percentage_label: 'Porcentagem:'
+      form:
+        micro_goal_label: 'Micro-meta'
+        task_label: 'Tarefa'
+        start_date_label: 'Data de início'
+        end_date_label: 'Data de término'
+        percentage_label: 'Porcentagem'
+        errors_prohibited: 'proibiu que esta tarefa seja salva:'

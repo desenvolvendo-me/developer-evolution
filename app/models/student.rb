@@ -61,6 +61,8 @@ class Student < ApplicationRecord
   has_many :practices
   has_many :thoughts
   has_many :experiences
+  has_many :micro_goals
+  has_many :goals
   has_many :objectives
 
   enum type_career: { technology: "technology", not_technology: "not_technology" }, _suffix: true

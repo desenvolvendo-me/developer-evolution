@@ -1,0 +1,10 @@
+<h1><%= t('views.micro_goals.edit.edit_micro_goal_title') %>:</h1>
+<hr>
+<%= render "form", micro_goal: @micro_goal %>
+
+<br>
+<hr>
+<div>
+  <%= link_to t('views.micro_goals.edit.show_this_micro_goal'), @micro_goal %> |
+  <%= link_to t('views.micro_goals.edit.back_to_micro_goals'), micro_goals_path %>
+</div>

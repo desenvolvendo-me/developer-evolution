@@ -54,9 +54,12 @@ if Rails.env.development?
 
   student.save!
 
-  # Base Generator
-  Experience.create(content: "Não conseguir aprender programação", week: 1, level: 1, category: "fear", student: student)
-  Experience.create(content: "Não conseguir passar na entrevista", week: 1, level: 1, category: "fear", student: student)
+  # Future Mission:
+  micro_goal_1 = MicroGoal.create(micro_goal: "Estudar Git e Github", student: student )
+  micro_goal_2 = MicroGoal.create(micro_goal: "Estudar Banco de dados", student: student )
+
+  MicroGoalTask.create(task: "Git / Github", start_date: "2023-07-11", end_date: "2023-07-13", percentage: 20, micro_goal: micro_goal_1)
+  MicroGoalTask.create(task: "postgres", start_date: "2023-07-11", end_date: "2023-07-13", percentage: 20, micro_goal: micro_goal_2)
 
   # Objective generator
   objetivo1 = Objective.create( title: 'OBJETIVO 1: Tornar-me um pogramador PHP/Laravel pleno', student: student)
