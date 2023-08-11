@@ -3,7 +3,6 @@
 # Table name: tests_battles
 #
 #  id                        :bigint           not null, primary key
-#  battle                    :string
 #  milestone_release_link    :string
 #  pull_request_release_link :string
 #  created_at                :datetime         not null

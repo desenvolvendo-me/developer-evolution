@@ -52,6 +52,8 @@ class TestsBattlesController < ApplicationController
   end
 
   def tests_battle_params
-    params.require(:tests_battle).permit(:battle, :milestone_release_link, :pull_request_release_link)
+    params.require(:tests_battle).permit(:battle, :milestone_release_link, :pull_request_release_link,
+                                         tests_battles_attributes: [:id, :battle, :milestone_release_link, :pull_request_release_link,
+                                                                    tests_issues_attributes: [:id, :issue_link, :pull_request_link]])
   end
 end

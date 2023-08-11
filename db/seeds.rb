@@ -80,7 +80,6 @@ if Rails.env.development?
     student: student
   )
   tests_battle = test.tests_battles.create(
-    battle: 1,
     milestone_release_link: 'https://github.com/user/repo1/milestones/123',
     pull_request_release_link: 'https://github.com/user/repo1/pull/123'
   )
@@ -94,7 +93,6 @@ if Rails.env.development?
   )
 
   tests_battle2 = test.tests_battles.create(
-    battle: 3,
     milestone_release_link: 'https://github.com/user/repo1/milestones/456',
     pull_request_release_link: 'https://github.com/user/repo1/pull/456'
   )

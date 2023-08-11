@@ -2,7 +2,6 @@
 <table>
   <thead>
   <tr>
-    <th><%= t('test_battle.index.battle') %></th>
     <th><%= t('test_battle.index.milestone_release_link') %></th>
     <th><%= t('test_battle.index.pull_request_release_link') %></th>
     <th colspan="3"></th>
@@ -11,7 +10,6 @@
   <tbody>
   <% @tests_battles.each do |battle| %>
     <tr>
-      <td><%= battle.battle %></td>
       <td><%= battle.milestone_release_link %></td>
       <td><%= battle.pull_request_release_link %></td>
       <td><%= link_to t('test_battle.index.show'), [@test, battle] %></td>
