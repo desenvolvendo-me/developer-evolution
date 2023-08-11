@@ -11,14 +11,9 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @course.student = current_user.student
 
-    if @course.save
-      redirect_to @course, notice: t('controller.flash_create')
-    else
-      puts @course.errors.full_messages
-      flash.now[:alert] = t('controller.flash_create_error')
-      render :new
-    end
+    @course.save ? (redirect_to @course, notice: t('controller.flash_create')) : (puts @course.errors.full_messages; flash.now[:alert] = t('controller.flash_create_error'); render :new)
   end
+
   def edit
     @course = Course.find(params[:id])
   end
@@ -28,7 +23,7 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @courses = current_user.courses
+    @courses = current_user.student.courses
   end
 
   def destroy
