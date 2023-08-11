@@ -116,4 +116,30 @@ if Rails.env.development?
     description: 'Quais são os resultados esperados, em termos quantitativos?',
     answer: 'Tendo domínio de pelo menos 70% dos métodos disponíveis da linguagem e 70% das funcionalidades do Rails.'
   )
+
+  # Seed para Course
+  course_1 = Course.create(type_course: "Git/GitHub", student: student)
+  course_2 = Course.create(type_course: "Lógica de programação", student: student)
+  # ... adicione mais cursos conforme necessário ...
+
+  # Seed para CourseBasic
+  CourseBasic.create(
+    link_course: "https://www.youtube.com/watch?v=PTY6QgyxWkk&list",
+    link_repository: "https://github.com/desenvolvendo-me/b/seeds.rb",
+    link_certified: "https://replit.com",
+    avaliation_course: "5",
+    avaliation_apprenticeship: "4",
+    number_of_course: "1",
+    course: course_1
+  )
+
+  CourseBasic.create(
+    link_course: "https://www.youtube.com/watch?v=abc123",
+    link_repository: "https://github.com/desenvolvendo-me/c/seeds.rb",
+    link_certified: "https://replit.com",
+    avaliation_course: "4",
+    avaliation_apprenticeship: "3",
+    number_of_course: "2",
+    course: course_2
+  )
 end

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :courses do
+    resources :course_basics, module: :courses
+  end
   resources :objectives do
     resources :objective_questions
   end

@@ -1,0 +1,2 @@
+module PurposeQuestionsHelper
+end
