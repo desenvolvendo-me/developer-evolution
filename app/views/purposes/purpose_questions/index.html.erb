@@ -1,23 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
+<%= link_to t('purposes_question.show.back'), purposes_path(@purpose) %>
+
 <h1><%= t('purposes_question.index.tittle') %></h1>
 
 <div id="purpose_questions">
-  <div id="purpose_questions">
-    <%= render @purpose_questions %>
-  </div>
+  <% @purpose_questions.each do |purpose_question| %>
+    <%= render purpose_question %>
+    <p>
+      <%= link_to t('purposes_question.index.show'), purpose_purpose_question_path(@purpose, purpose_question) %>
+    </p>
+    <% end %>
 </div>
 
 <%= link_to t('purposes_question.index.new'), new_purpose_purpose_question_path %>
-
-
-
-
-
-
-
-
-
-
-
-
