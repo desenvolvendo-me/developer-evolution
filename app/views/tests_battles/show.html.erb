@@ -14,6 +14,6 @@
   <p><strong><%= t('test_issue.form.issue_link') %>:</strong> <%= tests_issue.issue_link %></p>
   <p><strong><%= t('test_issue.form.pull_request_link') %>:</strong> <%= tests_issue.pull_request_link %></p>
 
-  <%= link_to t('test_battle.show.edit_issue'), edit_test_tests_battle_tests_issue_path(@test, @tests_battle, tests_issue) %> |
-  <%= link_to t('test_battle.show.back_to_issues'), test_tests_battle_tests_issues_path(@test, @tests_battle) %>
+  <%= link_to t('test_issue.show.edit_issue'), edit_test_tests_battle_tests_issue_path(@test, @tests_battle, tests_issue) %> |
+  <%= link_to t('test_issue.show.back_to_issues'), test_tests_battle_tests_issues_path(@test, @tests_battle) %>
 <% end %>

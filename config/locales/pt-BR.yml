@@ -159,6 +159,8 @@ pt-BR:
       edit: Editar
       back: Voltar
       new_issues: Nova Issue
+      edit_battle: Editar Batalha
+      back_to_battles: Voltar para Batalhas
     edit:
       title: Editar Batalha
       show: Mostrar
@@ -175,6 +177,9 @@ pt-BR:
       create: Batalha criada com sucesso
       update: Batalha atualizada com sucesso
       destroy: Batalha excluída com sucesso
+
+      edit_issue: Editar Issue
+      back_to_issues: Voltar para Issues
   test_issue:
     new:
       title: Nova Issue
@@ -194,4 +199,7 @@ pt-BR:
       create: Issue criada com sucesso
       update: Issue atualizada com sucesso
       destroy: Issue excluída
+    show:
+      edit_issue: Editar Issue
+      back_to_issues: Voltar para Issues
 
