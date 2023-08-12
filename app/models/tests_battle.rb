@@ -21,6 +21,4 @@ class TestsBattle < ApplicationRecord
   belongs_to :test
   has_many :tests_issues, dependent: :destroy
 
-  BATTLE = [1, 2, 3, 4, 5]
-
 end
