@@ -289,5 +289,12 @@ pt-BR:
       title_label: Editar Rotina
       show_this_routine: Mostrar esta rotina
       back_to_routines: Voltar para rotinas
-
+  controller:
+    create:
+      notice: Rotina criada com sucesso!
+    update:
+      notice: Rotina atualizada com sucesso!
+    destroy:
+      notice_deleted: Rotina excluída com sucesso!
+      notice_error: Erro ao excluir a rotina
 
