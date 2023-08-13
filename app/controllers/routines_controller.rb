@@ -10,8 +10,7 @@ class RoutinesController < ApplicationController
     end  
   end
 
-  def show
-    
+  def show;
   end
   
   def new
@@ -23,7 +22,7 @@ class RoutinesController < ApplicationController
     @routine.student_id = current_user.student.id
   
     if @routine.save
-      flash[:notice] = "Rotina criada com sucesso."
+      flash[:notice] = t('controller.create.notice')
       redirect_to routines_path(@routine)
     else
       logger.error @routine.errors.full_messages
@@ -39,10 +38,10 @@ class RoutinesController < ApplicationController
   def update
     @routine = Routine.find(params[:id])
     if @routine.update(routine_params)
-        flash[:notice] = "Rotina atualizada com sucesso."
+        flash[:notice] = t('controller.update.notice')
         redirect_to routines_path(@routine)
     else
-        render :edit
+      render :edit
     end  
   end
 
@@ -51,15 +50,14 @@ class RoutinesController < ApplicationController
 
     if @routine
       if @routine.destroy
-        flash[:notice] = 'Rotina excluída com sucesso.'
+        flash[:notice] = t('controller.destroy.notice_deleted')
       else
-        flash[:notice] = 'Erro ao excluir a Rotina.'
+        flash[:error] = t('controller.destroy.notice_error')
       end
-    else
-      flash[:notice] = 'Rotina não encontrada.'
     end
     redirect_to routines_path
   end
+
 
   private
 
