@@ -25,6 +25,5 @@ class Routine < ApplicationRecord
   PRIORITY = ['1', '2', '3', '4', '5']
 
   enum day_of_the_week: ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"]
-  validates :activity, :priority, presence: true
 
 end
