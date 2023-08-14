@@ -1,9 +1,9 @@
-<h1><%= t('views.routines.edit.edit_routine') %></h1>
+<h1><%= t('views.routines.edit.title_label') %>:</h1>
 <hr>
 <br>
-<%= render 'form', model: @routine, url: update_routine_path(@routine), local: true, method: :patch, button_text: t('views.routines.edit.save_change') %>
-<br>  
+<%= render 'form' %>
+<br>
 <br>
 
-<%= link_to t('views.routines.edit.show_this_rotine'), show_routine_path(@routine.id) %> |
+<%= link_to t('views.routines.edit.show_this_routine'), routine_path(@routine.id) %> |
 <%= link_to t('views.routines.edit.back_to_routines'), routines_path %>
