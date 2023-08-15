@@ -14,9 +14,9 @@ class ThoughtsController < ApplicationController
     @thought = current_user.student.thoughts.build(thought_params)
 
     if @thought.save
-      redirect_to action: :show, id: @thought.id, notice: t('controller.flash_create')
+      redirect_to action: :show, id: @thought.id, notice: t('.success')
     else
-      render :new, flash[:notice] = t('controller.flash_fail')
+      render :new, flash[:notice] = t('.fail')
     end
   end
 
@@ -24,7 +24,7 @@ class ThoughtsController < ApplicationController
 
   def update
     if @thought.update(thought_params)
-      redirect_to thought_path(@thought), notice: t('controller.flash_update')
+      redirect_to thought_path(@thought), notice: t('.success')
     else
       redirect_to action: :edit
     end
@@ -32,7 +32,7 @@ class ThoughtsController < ApplicationController
 
     def destroy
       @thought.destroy
-      redirect_to thoughts_path, notice: t('controller.flash_destroy')
+      redirect_to thoughts_path, notice: t('.success')
     end
 
   private

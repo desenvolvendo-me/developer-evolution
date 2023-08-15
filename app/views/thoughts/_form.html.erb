@@ -12,17 +12,17 @@
   <% end %>
 
   <div>
-    <%= form.label :level, t('views.thoughts.form.level_label') %>:
+    <%= form.label :level %>:
     <%= form.select :level, Thought::LEVEL_OPTIONS %>
   </div>
 
   <div>
-    <%= form.label :type_thought, t('views.thoughts.form.type_thought_label')  %>:
-    <%= form.select :type_thought, Thought::LEVEL_OPTIONS %>
+    <%= form.label :type_thought  %>:
+    <%= form.select :type_thought, options_for_select(Thought.type_thoughts.map { |type_thought, _value| [t("enums.thought.type_thoughts.#{type_thought}"), type_thought] }), include_blank: true %>
   </div>
 
   <div>
-    <%= form.label :description, t('views.thoughts.form.description_label')  %>:
+    <%= form.label :description %>:
     <%= form.text_area :description %>
   </div>
 

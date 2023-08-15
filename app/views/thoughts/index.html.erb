@@ -1,3 +1,4 @@
+<h1><%= Thought.model_name.human(count: @thoughts.count) %></h1>
 <p style="color: green"><%= notice %></p>
 
 <!--<h1>Thoughts:</h1>-->
@@ -7,10 +8,10 @@
   <% @thoughts.each do |thought| %>
     <%= render thought %>
     <p>
-      <%= link_to t('views.thoughts.index.show_this_thought'), thought %>
+      <%= link_to t('thoughts.view.show'), thought %>
     </p>
     <hr>
   <% end %>
 </div>
 
-<%= link_to t('views.thoughts.index.new_thought'), new_thought_path %>
+<%= link_to t('thoughts.view.new'), new_thought_path %>

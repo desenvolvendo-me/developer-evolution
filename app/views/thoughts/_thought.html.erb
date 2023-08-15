@@ -1,10 +1,8 @@
 <div id="<%= dom_id thought %>">
   <div class="thought">
-    <h1><%=t('views.thoughts.thought.thought_title') %>:</h1>
-
-    <p><strong><%=t('views.thoughts.thought.level_label') %>:</strong> <%= thought.level %></p>
-    <p><strong><%=t('views.thoughts.thought.type_thought_label') %>:</strong> <%= thought.type_thought %></p>
-    <p><strong><%=t('views.thoughts.thought.description_label') %>:</strong> <%= thought.description %></p>
+    <p><strong><%= Thought.human_attribute_name("level") %>:</strong> <%= thought.level %></p>
+    <p><strong><%= Thought.human_attribute_name("type_thought") %>:</strong> <%= Thought.human_enum_name(:type_thoughts, thought.type_thought) %></p>
+    <p><strong><%= Thought.human_attribute_name("description") %>:</strong> <%= thought.description %></p>
   </div>
 
 </div>

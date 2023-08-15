@@ -1,4 +1,4 @@
-<h1><%= t('views.thoughts.edit.editing thought') %>:</h1>
+<h1>Editando <%= Thought.model_name.human %></h1>
 <hr>
 <%= render "form", thought: @thought %>
 
@@ -6,6 +6,6 @@
 
 <div>
   <hr>
-  <%= link_to t('views.thoughts.edit.show_this_thought'), @thought %> |
-  <%= link_to t('views.thoughts.edit.back_to_toughts'), thoughts_path %>
+  <%= link_to t('thoughts.view.show'), @thought %> |
+  <%= link_to t('thoughts.view.back'), thoughts_path %>
 </div>
