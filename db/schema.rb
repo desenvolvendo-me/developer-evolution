@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_02_012324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +47,35 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_practices_on_student_id"
+  end
+
+  create_table "purpose_questions", force: :cascade do |t|
+    t.string "type_question"
+    t.string "description"
+    t.string "answer"
+    t.bigint "purpose_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purpose_id"], name: "index_purpose_questions_on_purpose_id"
+  end
+
+  create_table "purposes", force: :cascade do |t|
+    t.integer "version"
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_purposes_on_student_id"
+  end
+
+  create_table "routines", force: :cascade do |t|
+    t.integer "day_of_the_week"
+    t.time "hour"
+    t.string "activity"
+    t.string "priority"
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_routines_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -97,6 +126,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
+  create_table "thoughts", force: :cascade do |t|
+    t.string "level"
+    t.string "type_thought"
+    t.text "description"
+    t.bigint "student_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_thoughts_on_student_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -110,5 +149,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_193316) do
   end
 
   add_foreign_key "practices", "students"
+  add_foreign_key "purpose_questions", "purposes"
+  add_foreign_key "purposes", "students"
+  add_foreign_key "routines", "students"
   add_foreign_key "students", "users"
+  add_foreign_key "thoughts", "students"
 end

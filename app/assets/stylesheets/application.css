@@ -14,3 +14,47 @@
  *= require_self
  *= stub active_admin
  */
+
+ .banner {
+  display: flex;
+  align-items: flex-start; /* Alinha o texto ao topo */
+  justify-content: flex-start; /* Alinha o texto à esquerda */
+  height: 100vh; /* vh - viewport height (altura da janela de visualização) */
+  width: 100%;
+  position: relative;
+}
+
+.banner::before {
+content: "";/*Obrigatório para uso de '::before' ou '::after'.Comomnão teremos nenhum conteúdo além da imagem de fundo, essa propriedade vai como uma string vazia.*/
+position: absolute;/*Para manipular nosso pseudo-elemento, precisamos definir ele como 'absolute'. Isso vai nos permitir deixar ele do mesmo tamanho do elemento .'banner' e deixar o texto sobreposto;*/
+inset: 0;/*Significa que o tamanho da imagem com 'inset: 0' equivale à 'top: 0; right:0; bottom: 0; left: 0.*/
+
+/*background-image: url("Entrada.jpeg");*/
+
+background-size: cover; /*Faz com que a imagem ocupe toda a área da 'session.banner' sem distorecer e sem repetir*/
+background-position: bottom;
+z-index: -1; /*Força a imagem a ir para baixo do texto(nem sempre isso é necessário, mas é sempre bom garantir que a imagem fique sempre abaixo)*/
+opacity: 0.5; /*Quanto menor o número maior é a opacidade*/
+}
+
+.form-container{
+  margin-top: 20px; /*Ajuste a margem superior conforme necessário, ou seja, o CSS define uma regra para um seletor de classe chamado 'form-container', que define uma margem superior de 20pixels para elementos HTML que possuem essa classe, que significa que se tiver um elemento '<div>' com a classe 'form-container', a regra CSS será aplicada a esse elemento, adicionando uma margem superior de 20 pixels, e essa margem superior cria um espaço vazio acima do elemento, empurrando-o para baixo em relação a outros elementos. */
+}
+
+.last-field{
+  margin-bottom: 20px; /* Ajusta a margem inferior conforme necessário */
+}
+
+.new-routine-link {
+  margin-bottom: 20px; /* Ajuste o valor conforme necessário */
+}
+
+.table-bordered {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid black;
+  padding: 8px;
+}

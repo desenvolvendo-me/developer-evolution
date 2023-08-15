@@ -1,0 +1,37 @@
+pt-BR:
+  enums:
+    thought:
+      type_thoughts:
+        positive: "Positivo"
+        negative: "Negativo"
+  thoughts:
+    create:
+      success: 'Pensamento cadastrado com sucesso'
+      fail: 'Falha ao criar Pensamento'
+    update:
+      success: 'Pensamento atualizado com sucesso'
+    destroy:
+      success: 'Pensamento exlcuido com sucesso'
+    view:
+      new: "Novo pensamento"
+      destroy: "Deletar pensamento"
+      edit: "Editando pensamento"
+      show: "Mostrar pensamento"
+      back: "Voltar para pensamentos"
+    # End of the 'feature/20-cadastrar-pensamentos' translation.
+  activerecord:
+    models:
+      thought:
+        one: "Pensamento"
+        other: "Pensamentos"
+    attributes:
+      thought:
+        level: "Nível"
+        type_thought: "Tipo de pensamento"
+        description: "Descrição"
+    errors:
+      messages:
+        record_invalid: 'A validação falhou: %{errors}'
+        restrict_dependent_destroy:
+          has_one: Não é possível excluir o registro pois existe um %{record} dependente
+          has_many: Não é possível excluir o registro pois existem %{record} dependentes

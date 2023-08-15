@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= t('purpose.index.title') %></h1>
+
+<div id="purposes">
+  <% @purposes.each do |purpose| %>
+    <%= render purpose %>
+    <p>
+      <%= link_to t('purpose.index.show_link'), purpose %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to t('purpose.index.new_button'), new_purpose_path %>
