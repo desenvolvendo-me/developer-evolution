@@ -1,0 +1,43 @@
+pt-BR:
+  views:
+    routines:
+      index:
+        back_to_home: Voltar para home
+        title: Lista de Rotinas
+        day_of_the_week_label: Dia da semana
+        hour_label: Hora
+        activity_label: Ação
+        priority_label: Prioridade
+        delete_label: Excluir
+        edit_label: Alterar
+        new_label: Nova Rotina
+      new:
+        back_to_routines: Voltar para rotinas
+        title: Cadastrar Nova Rotina
+      form:
+        day_of_the_week: Dia da semana
+        hour: Hora
+        activity: Ação
+        priority: Prioridade
+        erro: Proibir esta rotina de ser salva
+      show:
+        title_label: Mostrar Rotina
+        day_of_the_week: Dia da semana
+        hour: Hora
+        activity: Ação
+        priority: Prioridade
+        edit_label: Editar
+        back_to_routines: Voltar para rotinas
+      edit:
+        title_label: Editar Rotina
+        show_this_routine: Mostrar esta rotina
+        back_to_routines: Voltar para rotinas
+  controller:
+    routines:
+      create:
+        notice: Rotina criada com sucesso!
+      update:
+        notice: Rotina atualizada com sucesso!
+      destroy:
+        notice_deleted: Rotina excluída com sucesso!
+        notice_error: Erro ao excluir a rotina

@@ -1,8 +1,7 @@
-<%= form_with(model: model, url: url, local: local, method: :method) do |form| %>
+<%= form_with(model: @routine) do |form| %>
   <% if @routine.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@routine.errors.count, "error", t('views.routines.form.error')) %> <%= t('views.routines.form.prohibit_saving_routine') %>
-        :</h2>
+      <h2><%= pluralize(@routine.errors.count, "error") %><%= t('views.routines.form.erro') %>:</h2>
 
       <ul>
         <% @routine.errors.full_messages.each do |message| %>
@@ -13,31 +12,31 @@
   <% end %>
 
   <div>
-    <%= form.label t('views.routines.form.day_of_the_week') %>
+    <%= form.label :day_of_the_week, t('views.routines.form.day_of_the_week') %>:
     <%= form.select :day_of_the_week, ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'] %>
   </div>
   <br>
 
   <div>
-    <%= form.label t('views.routines.form.hour') %>
+    <%= form.label :hour, t('views.routines.form.hour') %>:
     <%= form.select :hour, options_for_select((0..23).map { |hour| [format('%02d:00', hour), hour] }) %>
   </div>
   <br>
 
   <div>
-    <%= form.label t('views.routines.form.activity') %>
+    <%= form.label :activity, t('views.routines.form.activity') %>:
     <%= form.text_field :activity %>
   </div>
   <br>
 
   <div>
-    <%= form.label t('views.routines.form.priority') %>
-    <%= form.select :priority, Routine::PRIORITY %>
+    <%= form.label :priority, t('views.routines.form.priority') %>:
+    <%= form.select :priority, Routine::PRIORITY.map { |value| [value, value] } %>
   </div>
   <br>
   <div>
     <hr>
     <br>
-    <%= form.submit button_text %>
+    <%= form.submit %>
   </div>
 <% end %>

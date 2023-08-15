@@ -1,32 +1,37 @@
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <a href="/"><%= t('views.routines.index.back_to_home') %></a><br>
-  <h1><%= t('views.routines.index.title') %></h1><br>
+<h1><%= t('views.routines.index.title') %>:</h1><br>
 
-<hr>
-
-<a href="<%= new_routine_path %>" class="new-routine-link"><%= t('views.routines.index.new_routine') %></a><br><br>
-
-  <table class="table-bordered">
-    <thead>
-      <tr>
-        <th><%= t('views.routines.index.day_of_the_week') %></th>
-          <th><%= t('views.routines.index.hour') %></th>
-          <th><%= t('views.routines.index.activity') %></th>
-          <th><%= t('views.routines.index.priority') %></th>
-        </tr>
-    </thead>
-    <tbody>
-      <% @routines.each do |routine| %>
-        <tr>
-          <td><%= routine.day_of_the_week %></td>
-          <td><%= routine.hour %></td>
-          <td><%= routine.activity %></td>
-          <td><%= routine.priority %></td>
-          <td>
-            <a href="<%= edit_routine_path(routine) %>" class="btn"><%= t('views.routines.index.alter') %></a> |
-            <a href="<%= pre_destroy_routine_path(routine) %>" class="btn"><%= t('views.routines.index.delete') %></a>
-          </td>
-          </tr>
-      <% end %>
-      </tbody>
-  </table>
+<table class="table-bordered">
+  <thead>
+  <tr>
+    <th><%= t('views.routines.index.day_of_the_week_label') %></th>
+    <th><%= t('views.routines.index.hour_label') %></th>
+    <th><%= t('views.routines.index.activity_label') %></th>
+    <th><%= t('views.routines.index.priority_label') %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @routines.each do |routine| %>
+    <tr>
+      <td><%= routine.day_of_the_week %></td>
+      <td><%= routine.hour %></td>
+      <td><%= routine.activity %></td>
+      <td><%= routine.priority %></td>
+      <td>
+        <a href="<%= edit_routine_path(routine) %>" class="btn"><%= t('views.routines.index.edit_label') %></a> |
+        <%= link_to t('views.routines.index.delete_label'), routine_path(routine), method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 </section>
+<br>
+<hr>
+<a href="<%= new_routine_path %>" class="new-routine-link"><%= t('views.routines.index.new_label') %></a>
