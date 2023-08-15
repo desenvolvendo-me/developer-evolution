@@ -52,8 +52,8 @@ pt-BR:
       thought:
         thought_title: "Pensamento"
         level_label: "Nível"
-        positive_label: "Positivo"
-        negative_label: "Negativo"
+        type_thought_label: "Tipo de pensamento"
+        description_label: "Descrição"
       show:
         edit_this_thought: "Editar pensamento"
         back_to_thoughts: "Voltar para pensamentos"
@@ -64,8 +64,8 @@ pt-BR:
         back_to_toughts: "Voltar para pensamentos"
       form:
         level_label: "Nível"
-        positive_label: "Positivo"
-        negative_label: "Negativo"
+        type_thought_label: "Tipo de pensamento"
+        description_label: "Descrição"
       new:
         new_thought_title: "Novo pensamento"
         back_to_thoughts: "Voltar para pensamentos"

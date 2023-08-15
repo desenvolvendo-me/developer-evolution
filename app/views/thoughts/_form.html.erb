@@ -17,13 +17,13 @@
   </div>
 
   <div>
-    <%= form.label :positive, t('views.thoughts.form.positive_label') %>:
-    <%= form.text_area :positive %>
+    <%= form.label :type_thought, t('views.thoughts.form.type_thought_label')  %>:
+    <%= form.select :type_thought, Thought::LEVEL_OPTIONS %>
   </div>
 
   <div>
-    <%= form.label :negative, t('views.thoughts.form.negative_label') %>:
-    <%= form.text_area :negative %>
+    <%= form.label :description, t('views.thoughts.form.description_label')  %>:
+    <%= form.text_area :description %>
   </div>
 
   <div>
