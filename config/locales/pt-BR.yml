@@ -1,49 +1,37 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
-
----
 pt-BR:
+  helpers:
+    submit:
+      create: 'Criar'
+      update: 'Editar'
+  controller:
+    flash_create: 'Propoósito cadastrado com sucesso'
+    flash_update: 'Propósito atualizado com sucesso'
+    flash_destroy: 'Propósito exlcuido com sucesso'
+    flash_fail: 'Falha ao criar Propósito'
+    flash_fail_purpose: 'Falha ao editar Propósito'
   views:
     routines:
-      index:
-        back_to_home: "Voltar para home"
-        title: "Lista de rotinas:"
-        new_routine: "Nova Rotina"
-        day_of_the_week: "Dia da semana"
-        hour: "Horário"
-        activity: "Ação"
-        priority: "Prioridade"
-        alter: "Alterar"
-        delete: "Excluir"
+      welcome:
+        index: 'Bem vindo!'
+      purpose:
+        show:
+          edit: 'Editar este propósito'
+          back: 'Voltar para os Propósitos'
+          destroy: 'Excluir este Propósito'
+        new:
+          title: 'Novo Propósito:'
+          form: 'Formulário'
+          back: 'Voltar para os Propósitos'
+        index:
+          back_to_home: "Voltar para home"
+          title: "Lista de rotinas:"
+          new_routine: "Nova Rotina"
+          day_of_the_week: "Dia da semana"
+          hour: "Horário"
+          activity: "Ação"
+          priority: "Prioridade"
+          alter: "Alterar"
+          delete: "Excluir"
       show:
         show_routine: "Mostrar Rotina:"
         day_of_the_week: "Dia da semana:"
@@ -77,7 +65,6 @@ pt-BR:
         hour: "Horário:"
         activity: "Ação:"
         priority: "Prioridade:"
-
   activerecord:
     errors:
       messages:
@@ -223,7 +210,7 @@ pt-BR:
       header:
         one: 'Não foi possível gravar %{model}: %{count} erro'
         other: 'Não foi possível gravar %{model}: %{count} erros'
-  helpers:
+  helper:
     select:
       prompt: Por favor selecione
     submit:
@@ -300,3 +287,52 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
+  view:
+    purposes:
+      edit: "Editar o propósito"
+    micro_goals:
+  purpose:
+    show:
+      go: "Questões do propósito"
+      edit: 'Editar este propósito'
+      back: 'Voltar para os Propósitos'
+      destroy: 'Excluir este Propósito'
+    new:
+      title: 'Novo Propósito:'
+      form: 'Formulário: '
+      back: 'Voltar para os Propósitos'
+    index:
+      title: 'Propósito:'
+      new_button: 'Novo Propósito'
+      show_link: 'Visualizar este Propósito'
+    edit:
+      title: 'Editando Propósito:'
+      show_link: 'Visualizar este Propósito'
+      back_link: 'Voltar para os Propósitos'
+  purposes_question:
+    form:
+      type_question: 'Tipo de pergunta'
+      description: 'Pergunta'
+      answer: 'Resposta'
+    index:
+      tittle: 'Perguntas do Propósito'
+      new: 'Novo formulário'
+      show: 'Mostrar Propósito'
+    new:
+      title: 'Novas Perguntas'
+      back: 'Voltar'
+    show:
+      edit: 'Editar Perguntas'
+      back: 'Voltar '
+      destroy: 'Apagar Perguntas'
+    edit:
+      show: 'Mostrar Perguntas'
+      back: 'Voltar'
+      #index: 'Editar Propósito'
+      edit_purpose: "Editar Perguntas"
+  purpose_1:
+    version: "Versão: "
+    time: "Tempo:"
+    type_question: "Tipo de pergunta:"
+    question: "Pergunta:"
+    answer: "Resposta: "
