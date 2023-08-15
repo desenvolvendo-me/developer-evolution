@@ -1,0 +1,9 @@
+<% if @tests_issue %>
+  <p><strong>Issue Link:</strong> <%= @tests_issue.issue_link %></p>
+  <p><strong>Pull Request Link:</strong> <%= @tests_issue.pull_request_link %></p>
+<% else %>
+  <p>No tests issue available.</p>
+<% end %>
+
+<%= link_to 'Edit', edit_test_tests_battle_tests_issue_path(@test, @tests_battle, @tests_issue) %> |
+<%= link_to 'Back', test_tests_battle_tests_issues_path(@test, @tests_battle) %>

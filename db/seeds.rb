@@ -53,13 +53,7 @@ if Rails.env.development?
   student.mission_startup_point = 10
 
   student.save!
-
   # Job Position Generator
-  script = Script.create(category: "Empresa", student: student)
-  script.script_questions.create(category: "Quem estava no momento?", description: "Eu e o Tech Lead")
-
-  script2 = Script.create(category: "Superação", student: student)
-  script2.script_questions.create(category: "O que aconteceu?", description: "Com melhora na  comunicação foi possivel entregar as demandas solicitadas.")
 
   # Create interviews with student relation
   video_urls = %w[https://vimeo.com/190479606 https://vimeo.com/76979871 https://vimeo.com/195085022]
@@ -71,4 +65,43 @@ if Rails.env.development?
   # Exemplo de criação de outro vídeo associado à mesma entrevista
   interview.interview_videos.create(video_link: "https://vimeo.com/789012")
 
+  # Create Scripts
+  script = Script.create(category: "Empresa", student: student)
+  script.script_questions.create(category: "Quem estava no momento?", description: "Eu e o Tech Lead")
+
+  script2 = Script.create(category: "Superação", student: student)
+  script2.script_questions.create(category: "O que aconteceu?", description: "Com melhora na  comunicação foi possivel entregar as demandas solicitadas.")
+
+  # Create Technical Test
+  test = Test.create(
+    repository_link: 'https://github.com/user/repo1',
+    project_link: 'https://github.com/user/repo1/projects/1',
+    readme_link: 'https://github.com/user/repo1/blob/main/README.md',
+    student: student
+  )
+  tests_battle = test.tests_battles.create(
+    milestone_release_link: 'https://github.com/user/repo1/milestones/123',
+    pull_request_release_link: 'https://github.com/user/repo1/pull/123'
+  )
+  tests_battle.tests_issues.create(
+    issue_link: 'https://github.com/user/repo1/issues/12',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_12"
+  )
+  tests_battle.tests_issues.create(
+    issue_link: 'https://github.com/user/repo1/issues/13',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_13"
+  )
+
+  tests_battle2 = test.tests_battles.create(
+    milestone_release_link: 'https://github.com/user/repo1/milestones/456',
+    pull_request_release_link: 'https://github.com/user/repo1/pull/456'
+  )
+  tests_battle2.tests_issues.create!(
+    issue_link: 'https://github.com/user/repo1/issues/45',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_45"
+  )
+  tests_battle2.tests_issues.create!(
+    issue_link: 'https://github.com/user/repo1/issues/14',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_14"
+  )
 end

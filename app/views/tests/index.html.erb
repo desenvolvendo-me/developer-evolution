@@ -1,0 +1,29 @@
+<h1><%= t('test.index.title') %></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th><%= t('test.index.repository_link') %></th>
+    <th><%= t('test.index.project_link') %></th>
+    <th><%= t('test.index.readme_link') %></th>
+    <th colspan="2"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @tests.each do |test| %>
+    <tr>
+      <td><%= test.repository_link %></td>
+      <td><%= test.project_link %></td>
+      <td><%= test.readme_link %></td>
+      <td><%= link_to t('test.index.show'), test %></td>
+      <td><%= link_to t('test.index.edit'), edit_test_path(test) %></td>
+      <td><%= button_to t('test.index.destroy'), test_path(test), method: :delete, data: { confirm: t('test.index.sure') } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t('test.index.new_test'), new_test_path %>

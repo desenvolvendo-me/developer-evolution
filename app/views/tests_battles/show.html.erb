@@ -1,0 +1,19 @@
+<h1><%= t('test_battle.show.title') %></h1>
+<p><strong><%= t('test_battle.show.milestone_release_link') %>:</strong> <%= @tests_battle.milestone_release_link %></p>
+<p><strong><%= t('test_battle.show.pull_request_release_link') %>:</strong> <%= @tests_battle.pull_request_release_link %></p>
+
+<p>
+<%= link_to t('test_battle.show.edit'), edit_test_tests_battle_path(@test, @tests_battle) %> |
+<%= link_to t('test_battle.show.back'), test_tests_battles_path(@test) %>
+</p>
+
+<%= link_to t('test_battle.show.new_issues'), new_test_tests_battle_tests_issue_path(@test, @tests_battle) %>
+
+<h2>Issues: </h2>
+<% @tests_battle.tests_issues.each do |tests_issue| %>
+  <p><strong><%= t('test_issue.form.issue_link') %>:</strong> <%= tests_issue.issue_link %></p>
+  <p><strong><%= t('test_issue.form.pull_request_link') %>:</strong> <%= tests_issue.pull_request_link %></p>
+
+  <%= link_to t('test_issue.show.edit_issue'), edit_test_tests_battle_tests_issue_path(@test, @tests_battle, tests_issue) %> |
+  <%= link_to t('test_issue.show.back_to_issues'), test_tests_battle_tests_issues_path(@test, @tests_battle) %>
+<% end %>
