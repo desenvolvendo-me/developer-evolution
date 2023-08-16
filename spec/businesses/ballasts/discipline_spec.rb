@@ -19,7 +19,7 @@ RSpec.describe Ballasts::Discipline do
             fill: false,
             backgroundColor: "#3cb371",
             borderColor: "#3cb371",
-            data: [196, 223, 148, 273, 279, 315]
+            data: [42, 42, 42, 42, 42, 42]
           }
         ]
       },
@@ -37,8 +37,14 @@ RSpec.describe Ballasts::Discipline do
     subject(:discipline) { described_class.call(resource: student) }
 
     context 'chart' do
-      xit 'returns the discipline chart' do
-        expect(discipline[:chart]).to eq(expected_chart_data[:chart])
+      it 'discipline' do
+        (0..89).each do |days_ago|
+          commit_date = Date.today - (90 - days_ago)
+          commit_total = 3
+          create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
+        end
+
+        expect(discipline[:chart][:datasets][0][:data]).to eq(expected_chart_data[:chart][:datasets][0][:data])
       end
     end
 
@@ -296,7 +302,6 @@ RSpec.describe Ballasts::Discipline do
           end
 
           it 'returns the commits from the last 3 months' do
-
             expect(discipline[:stats][:goal][:number]).to eq(450)
             expect(discipline[:stats][:goal][:icon]).to eq('heart-broken')
           end
