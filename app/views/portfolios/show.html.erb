@@ -1,0 +1,15 @@
+<h1><%= @portfolio.name %></h1>
+<p>Repository Link: <%= @portfolio.repository_link %></p>
+<p>Project Link: <%= @portfolio.project_link %></p>
+<p>Readme Link: <%= @portfolio.readme_link %></p>
+
+<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
+<%= link_to 'Back', portfolios_path %>
+
+<h2>Portfolio Releases</h2>
+<ul>
+  <% @portfolio_releases.each do |release| %>
+    <li><%= link_to release.milestone_release_link, portfolio_portfolio_release_path(@portfolio, release) %></li>
+  <% end %>
+</ul>
+<%= link_to 'Create Release', new_portfolio_portfolio_release_path(@portfolio) %>
