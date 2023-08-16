@@ -2,7 +2,7 @@ class CreateStudents < ActiveRecord::Migration[7.0]
   def change
     create_table :students do |t|
       t.string :name
-      t.string :class_name
+      t.string :class_description
       t.date :enrollment_date
       t.string :type_career
       t.string :description_career

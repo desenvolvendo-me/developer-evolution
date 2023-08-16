@@ -6,8 +6,8 @@ if Rails.env.development?
   student.user = user
   student.login = "jhonesaly"
   student.name = "Alyson Jhones"
-  student.class_name = "13"
-  student.enrollment_date = "16/01/2023".to_date
+  student.class_description = "13"
+  student.enrollment_date = Date.today - 102
   student.type_career = "not_technology"
   student.description_career = "Engenheiro"
   student.salary = 0
@@ -56,4 +56,11 @@ if Rails.env.development?
 
   student.save!
 
+  CreatePactice.new.for_days(7, rand(0..2), student)
+  CreatePactice.new.for_days(7, rand(3..5), student)
+  CreatePactice.new.for_days(7, rand(6..9), student)
+  CreatePactice.new.for_days(7, rand(3..5), student)
+  CreatePactice.new.for_days(7, rand(3..5), student)
+  CreatePactice.new.for_days(7, rand(6..9), student)
 end
+

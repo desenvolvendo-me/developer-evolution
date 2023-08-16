@@ -4,7 +4,7 @@
 #
 #  id                        :bigint           not null, primary key
 #  challenge                 :integer
-#  class_name                :string
+#  class_description         :string
 #  class_progress            :integer
 #  description_career        :string
 #  enrollment_date           :date
@@ -43,6 +43,7 @@
 #  profile_hotmart           :string
 #  salary                    :float
 #  slug                      :string
+#  time_available            :integer          default(2)
 #  type_career               :string
 #  wakatime_activity_average :integer
 #  wakatime_activity_total   :integer
@@ -65,11 +66,14 @@ FactoryBot.define do
   factory :student do
     login { "jhonesaly" }
     name { "Alyson Jhones" }
-    class_name { "13" }
+    class_description { "13" }
     enrollment_date { "16/01/2023".to_date }
     type_career { "not_technology" }
     description_career { "Engenheiro" }
     salary { 0 }
+
+    # Time available to study in hours by default
+    time_available { 2 }
 
     knowledge { "m0" }
     profile_hotmart { "https://desenvolvendome-spd.club.hotmart.com/admin/beta/users/detail/PeAyaZA3eW" }

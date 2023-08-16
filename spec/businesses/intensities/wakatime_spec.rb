@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Intensity::Wakatime do
+RSpec.describe Intensities::Wakatime do
 
   context 'wakatime' do
     before do

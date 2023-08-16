@@ -4,7 +4,7 @@
 #
 #  id                        :bigint           not null, primary key
 #  challenge                 :integer
-#  class_name                :string
+#  class_description         :string
 #  class_progress            :integer
 #  description_career        :string
 #  enrollment_date           :date
@@ -43,6 +43,7 @@
 #  profile_hotmart           :string
 #  salary                    :float
 #  slug                      :string
+#  time_available            :integer          default(2)
 #  type_career               :string
 #  wakatime_activity_average :integer
 #  wakatime_activity_total   :integer
@@ -64,7 +65,6 @@
 class Student < ApplicationRecord
   belongs_to :user
   has_many :practices
-  has_many :thoughts
 
   extend FriendlyId
   friendly_id :login, use: :slugged

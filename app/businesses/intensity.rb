@@ -1,3 +1,3 @@
-module Intensity
+module Intensities
 
 end

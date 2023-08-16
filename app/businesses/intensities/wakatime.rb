@@ -1,4 +1,4 @@
-module Intensity
+module Intensities
   class Wakatime < BusinessApplication
 
     def initialize(**params)

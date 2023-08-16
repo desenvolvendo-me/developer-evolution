@@ -1,4 +1,4 @@
-module Intensity
+module Intensities
   class Github < BusinessApplication
 
     def initialize(**params)
