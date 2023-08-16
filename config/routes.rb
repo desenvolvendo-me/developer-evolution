@@ -44,6 +44,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :portfolios do
+    resources :portfolio_releases do
+      resources :portfolio_issues
+    end
+  end
+end
+
   resources :preparations do
     resources :preparations_releases do
       resources :preparations_issues

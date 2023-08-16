@@ -1,0 +1,17 @@
+<h1>Portfolio Releases</h1>
+
+<ul>
+  <% @portfolio_releases.each do |release| %>
+    <li>
+      <%= release.milestone_release_link %> |
+      <%= link_to 'Show', portfolio_portfolio_release_path(@portfolio, release) %> |
+      <%= link_to 'Edit', edit_portfolio_portfolio_release_path(@portfolio, release) %> |
+      <%= button_to 'Delete', portfolio_portfolio_release_path(@portfolio, release), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back to Portfolio', portfolio_path(@portfolio) %> |
+<%= link_to 'New Portfolio Release', new_portfolio_portfolio_release_path(@portfolio) %>
+
+

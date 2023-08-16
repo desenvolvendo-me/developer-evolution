@@ -1,6 +1,9 @@
 class PortfolioReleasesController < ApplicationController
   before_action :set_portfolio
   before_action :set_portfolio_release, only: [:show, :edit, :update, :destroy]
+  def index
+    @portfolio_releases = @portfolio.portfolio_releases
+  end
 
   def new
     @portfolio_release = @portfolio.portfolio_releases.build
