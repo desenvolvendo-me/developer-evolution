@@ -1,0 +1,18 @@
+<h1>Preparation Releases</h1>
+<%= link_to 'New Preparation Release', new_preparation_preparation_release_path(@preparation) %>
+<table>
+  <tr>
+    <th>Milestone Release Link</th>
+    <th>Pull Request Release Link</th>
+    <th colspan="3"></th>
+  </tr>
+  <% @preparation_releases.each do |release| %>
+    <tr>
+      <td><%= release.milestone_release_link %></td>
+      <td><%= release.pull_request_release_link %></td>
+      <td><%= link_to 'Show', preparation_preparation_release_path(@preparation, release) %></td>
+      <td><%= link_to 'Edit', edit_preparation_preparation_release_path(@preparation, release) %></td>
+      <td><%= link_to 'Destroy', preparation_preparation_release_path(@preparation, release), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

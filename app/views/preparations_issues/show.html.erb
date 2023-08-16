@@ -1,0 +1,10 @@
+<p>
+  <strong>Issue Link:</strong>
+  <%= @preparation_issue.issue_link %>
+</p>
+<p>
+  <strong>Pull Request Link:</strong>
+  <%= @preparation_issue.pull_request_link %>
+</p>
+<%= link_to 'Edit', edit_preparation_preparation_release_preparation_issue_path(@preparation, @preparation_release, @preparation_issue) %> |
+<%= link_to 'Back', preparation_preparation_release_preparation_issues_path(@preparation, @preparation_release) %>

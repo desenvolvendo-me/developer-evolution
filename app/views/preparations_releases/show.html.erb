@@ -1,0 +1,10 @@
+<p>
+  <strong>Milestone Release Link:</strong>
+  <%= @preparation_release.milestone_release_link %>
+</p>
+<p>
+  <strong>Pull Request Release Link:</strong>
+  <%= @preparation_release.pull_request_release_link %>
+</p>
+<%= link_to 'Edit', edit_preparation_preparation_release_path(@preparation, @preparation_release) %> |
+<%= link_to 'Back', preparation_preparation_releases_path(@preparation) %>

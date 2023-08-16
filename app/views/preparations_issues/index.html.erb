@@ -1,0 +1,18 @@
+<h1>Preparation Issues</h1>
+<%= link_to 'New Preparation Issue', new_preparation_preparation_release_preparation_issue_path(@preparation, @preparation_release) %>
+<table>
+  <tr>
+    <th>Issue Link</th>
+    <th>Pull Request Link</th>
+    <th colspan="2"></th>
+  </tr>
+  <% @preparation_issues.each do |issue| %>
+    <tr>
+      <td><%= issue.issue_link %></td>
+      <td><%= issue.pull_request_link %></td>
+      <td><%= link_to 'Show', preparation_preparation_release_preparation_issue_path(@preparation, @preparation_release, issue) %></td>
+      <td><%= link_to 'Edit', edit_preparation_preparation_release_preparation_issue_path(@preparation, @preparation_release, issue) %></td>
+      <td><%= link_to 'Destroy', preparation_preparation_release_preparation_issue_path(@preparation, @preparation_release, issue), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
