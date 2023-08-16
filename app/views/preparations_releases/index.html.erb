@@ -2,7 +2,7 @@
 <ul>
   <% @preparations_releases.each do |release| %>
     <li>
-      <%= link_to "Release ##{release.id}", preparation_preparations_release_path(@preparation, release) %> |
+      <%= "Release ##{release.id}" %> |
       <%= link_to 'Show', preparation_preparations_release_path(@preparation, release) %> |
       <%= link_to 'Edit', edit_preparation_preparations_release_path(@preparation, release) %> |
       <%= button_to 'Delete', preparation_preparations_release_path(@preparation, release),

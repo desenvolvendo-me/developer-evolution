@@ -1,12 +1,12 @@
-<h1>Preparations</h1>
+<h1><%= t('preparation.index.title') %></h1>
 <ul>
   <% @preparations.each do |preparation| %>
     <li>
-      <%= link_to preparation.name, preparation %>
-      <%= link_to 'Show', preparation %>
-      <%= link_to 'Edit', edit_preparation_path(preparation) %>
-      <%= button_to 'Delete', preparation, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= preparation.name %> |
+      <%= link_to t('preparation.index.show'), preparation %> |
+      <%= link_to t('preparation.index.edit'), edit_preparation_path(preparation) %>
+      <%= button_to t('preparation.index.destroy'), preparation, method: :delete, data: { confirm: t('preparation.index.sure') } %>
     </li>
   <% end %>
 </ul>
-<%= link_to 'New Preparation', new_preparation_path %>
+<%= link_to t('preparation.index.new_preparation'), new_preparation_path %>

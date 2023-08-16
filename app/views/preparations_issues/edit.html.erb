@@ -1,4 +1,4 @@
-<h3>Edit Preparations Issue</h3>
+<h3><%= t('preparation_issue.edit.title') %></h3>
 <%= render 'form', preparation: @preparation, preparations_release: @preparations_release, preparations_issue: @preparations_issue %>
-<%= link_to 'Show', preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, @preparations_issue) %> |
-<%= link_to 'Back', preparation_preparations_release_preparations_issues_path(@preparation, @preparations_release) %>
+<%= link_to t('preparation_issue.edit.show'), preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, @preparations_issue) %> |
+<%= link_to t('preparation_issue.edit.back'), preparation_preparations_release_preparations_issues_path(@preparation, @preparations_release) %>

@@ -1,10 +1,10 @@
 <%= form_with(model: [@preparation, preparations_release], local: true) do |form| %>
   <div>
-    <%= form.label :milestone_release_link %>
+    <%= form.label :milestone_release_link, t('preparation_release.form.milestone_release_link') %>
     <%= form.text_field :milestone_release_link %>
   </div>
   <div>
-    <%= form.label :pull_request_release_link %>
+    <%= form.label :pull_request_release_link, t('preparation_release.form.pull_request_release_link') %>
     <%= form.text_field :pull_request_release_link %>
   </div>
   <%= form.submit %>

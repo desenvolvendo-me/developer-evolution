@@ -1,14 +1,14 @@
-<h3>Preparations Issues</h3>
+<h3>Issues</h3>
 <ul>
   <% @preparations_issues.each do |issue| %>
     <li>
-      <%= link_to "Issue ##{issue.id}", preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue) %> |
-      <%= link_to 'Show', preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue) %> |
-      <%= link_to 'Edit', edit_preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue) %> |
-      <%= button_to 'Delete', preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue),
-                  method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= "Issue ##{issue.id}" %> |
+      <%= link_to t('preparation.index.show'), preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue) %> |
+      <%= link_to t('preparation.index.edit'), edit_preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue) %> |
+      <%= button_to t('preparation.index.destroy'), preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue),
+                  method: :delete, data: { confirm: t('preparation.index.sure') } %>
     </li>
   <% end %>
 </ul>
-<%= link_to 'New Preparations Issue', new_preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release) %> |
-<%= link_to 'Back', preparation_preparations_release_path(@preparation, @preparations_release) %>
+<%= link_to t('preparation_release.show.new_issue'), new_preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release) %> |
+<%= link_to t('preparation_issue.index.back'), preparation_preparations_release_path(@preparation, @preparations_release) %>

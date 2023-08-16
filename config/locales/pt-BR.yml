@@ -203,3 +203,103 @@ pt-BR:
       edit_issue: Editar Issue
       back_to_issues: Voltar para Issues
 
+  preparation:
+    index:
+      title: Preparações
+      name: Nome
+      repository_link: Link do Repositório
+      project_link: Link do Projeto
+      readme_link: Link do README
+      show: Mostrar
+      edit: Editar
+      destroy: Excluir
+      new_preparation: Nova Preparação
+      sure: Você tem certeza disso?
+    show:
+      title: Detalhes de
+      repository_link: Link do Repositório
+      project_link: Link do Projeto
+      readme_link: Link do README
+      edit: Editar
+      back: Voltar
+      new_release: Nova Release
+      preparations_releases: Releases
+      new_preparation_release: Nova Release
+      form:
+        update: Atualizar
+    edit:
+      title: Editar Preparação
+      back: Voltar
+    form:
+      name: Nome
+      repository_link: Link do Repositório
+      project_link: Link do Projeto
+      readme_link: Link do README
+    new:
+      title: Nova Preparação
+      back: Voltar
+    controller:
+      create: Preparação criada com sucesso
+      update: Preparação atualizada com sucesso
+      destroy: Preparação excluída com sucesso
+  preparation_release:
+    index:
+      title: Releases
+      milestone_release_link: Link de Milestone Release
+      pull_request_release_link: Link de Pull Request Release
+      show: Mostrar
+      edit: Editar
+      destroy: Excluir
+      new_release: Nova Release
+      back: Voltar
+    show:
+      title: Detalhes da Release
+      milestone_release_link: Link de Milestone Release
+      pull_request_release_link: Link de Pull Request Release
+      edit: Editar
+      back: Voltar
+      new_issue: Nova Issue
+      edit_release: Editar Release
+      back_to_release: Voltar
+      new_issue: Nova Issue
+    edit:
+      title: Editar Release
+      show: Mostrar
+      back: Voltar
+    form:
+      milestone_release_link: Link de Milestone Release
+      pull_request_release_link: Link de Pull Request Release
+      error: proibiu essa release de ser salva
+    new:
+      title: Nova Release
+      back: Voltar
+    controller:
+      create: Release criada com sucesso
+      update: Release atualizada com sucesso
+      destroy: Release excluída com sucesso
+
+      edit_issue: Editar Issue
+      back_to_issues: Voltar para Issues
+  preparation_issue:
+    new:
+      title: Nova Issue
+      back: Voltar
+    form:
+      issue_link: Link da Issue
+      pull_request_link: Link do Pull Request da Issue
+      error: proibiu essa issue de ser salva
+    edit:
+      title: Editar Issue
+      show: Mostrar
+      back: Voltar
+    index:
+      new_issue: Nova Issue
+      back: Voltar
+    controller:
+      create: Issue criada com sucesso
+      update: Issue atualizada com sucesso
+      destroy: Issue excluída
+    show:
+      edit_issue: Editar Issue
+      back_to_issues: Voltar para Issues
+
