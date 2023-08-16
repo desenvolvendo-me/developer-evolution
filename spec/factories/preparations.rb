@@ -21,10 +21,9 @@
 #
 FactoryBot.define do
   factory :preparation do
-    name { "MyString" }
-    repository_link { "MyString" }
-    project_link { "MyString" }
-    readme_link { "MyString" }
-    student { nil }
+    name { "Editora de Livro" }
+    repository_link { "https://github.com/user/repo1" }
+    project_link { "https://github.com/user/repo1/projects/1" }
+    readme_link { "https://github.com/user/repo1/blob/main/README.md" }
   end
 end

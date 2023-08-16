@@ -20,5 +20,9 @@
 require 'rails_helper'
 
 RSpec.describe PreparationsRelease, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { build(:preparations_release) }
+
+  # Testar as associações
+  it { should belong_to(:preparation) }
+  it { should have_many(:preparations_issues).dependent(:destroy) }
 end

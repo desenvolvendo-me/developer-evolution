@@ -19,8 +19,8 @@
 #
 FactoryBot.define do
   factory :preparations_issue do
-    issue_link { "MyString" }
-    pull_request_link { "MyString" }
     preparations_release { nil }
+    issue_link { "https://github.com/user/repo1/issues/12" }
+    pull_request_link { "https://github.com/user/repo1/tree/branch_12" }
   end
 end
