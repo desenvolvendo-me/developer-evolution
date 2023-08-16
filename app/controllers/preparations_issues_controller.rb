@@ -19,7 +19,7 @@ class PreparationsIssuesController < ApplicationController
 
     if @preparations_issue.save
       redirect_to preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, @preparations_issue),
-                  notice: 'Preparations Issue was successfully created.'
+                  notice: t('preparation_issue.controller.create')
     else
       render :new
     end
@@ -31,7 +31,7 @@ class PreparationsIssuesController < ApplicationController
   def update
     if @preparations_issue.update(preparations_issue_params)
       redirect_to preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, @preparations_issue),
-                  notice: 'Preparations Issue was successfully updated.'
+                  notice: t('preparation_issue.controller.update')
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class PreparationsIssuesController < ApplicationController
   def destroy
     @preparations_issue.destroy
     redirect_to preparation_preparations_release_preparations_issues_path(@preparation, @preparations_release),
-                notice: 'Preparations Issue was successfully destroyed.'
+                notice: t('preparation_issue.controller.destroy')
   end
 
   private

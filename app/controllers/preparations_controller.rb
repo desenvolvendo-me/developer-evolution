@@ -16,7 +16,7 @@ class PreparationsController < ApplicationController
     @preparation = current_user.student.preparations.build(preparation_params)
 
     if @preparation.save
-      redirect_to @preparation, notice: 'Preparation was successfully created.'
+      redirect_to @preparation, notice: t('preparation.controller.create')
     else
       render :new
     end
@@ -27,7 +27,7 @@ class PreparationsController < ApplicationController
 
   def update
     if @preparation.update(preparation_params)
-      redirect_to @preparation, notice: 'Preparation was successfully updated.'
+      redirect_to @preparation, notice: t('preparation.controller.update')
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class PreparationsController < ApplicationController
 
   def destroy
     @preparation.destroy
-    redirect_to preparations_url, notice: 'Preparation was successfully destroyed.'
+    redirect_to preparations_url, notice: t('preparation.controller.destroy')
   end
 
   private

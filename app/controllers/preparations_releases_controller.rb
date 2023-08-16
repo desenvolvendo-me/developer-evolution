@@ -18,7 +18,7 @@ class PreparationsReleasesController < ApplicationController
 
     if @preparations_release.save
       redirect_to preparation_preparations_release_path(@preparation, @preparations_release),
-                  notice: 'Preparations Release was successfully created.'
+                  notice: t('preparation_release.controller.create')
     else
       render :new
     end
@@ -30,7 +30,7 @@ class PreparationsReleasesController < ApplicationController
   def update
     if @preparations_release.update(preparations_release_params)
       redirect_to preparation_preparations_release_path(@preparation, @preparations_release),
-                  notice: 'Preparations Release was successfully updated.'
+                  notice: t('preparation_release.controller.update')
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class PreparationsReleasesController < ApplicationController
   def destroy
     @preparations_release.destroy
     redirect_to preparation_preparations_releases_path(@preparation),
-                notice: 'Preparations Release was successfully destroyed.'
+                notice: t('preparation_release.controller.destroy')
   end
 
   private
