@@ -20,4 +20,10 @@ Rails.application.routes.draw do
       resources :tests_issues
     end
   end
+
+  resources :preparations do
+    resources :preparation_releases do
+      resources :preparation_issues
+    end
+  end
 end
