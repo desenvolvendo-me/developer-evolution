@@ -56,11 +56,11 @@ if Rails.env.development?
 
   student.save!
 
-  CreatePactice.new.for_days(7, rand(0..2), student)
-  CreatePactice.new.for_days(7, rand(3..5), student)
-  CreatePactice.new.for_days(7, rand(6..9), student)
-  CreatePactice.new.for_days(7, rand(3..5), student)
-  CreatePactice.new.for_days(7, rand(3..5), student)
-  CreatePactice.new.for_days(7, rand(6..9), student)
+  last_commit_date = CreatePactice.new.for_days(7, rand(0..2), student)
+  last_commit_date = CreatePactice.new.for_days(7, rand(3..5), student, last_commit_date)
+  last_commit_date = CreatePactice.new.for_days(7, rand(6..9), student, last_commit_date)
+  last_commit_date = CreatePactice.new.for_days(7, rand(3..5), student, last_commit_date)
+  last_commit_date = CreatePactice.new.for_days(7, rand(3..5), student, last_commit_date)
+  CreatePactice.new.for_days(7, rand(6..9), student, last_commit_date)
 end
 
