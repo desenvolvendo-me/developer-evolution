@@ -87,6 +87,7 @@ module Ballasts
 
       if period_type.eql? GOAL
         @practices = @student.practices.where(commit_date: (start_period..finish_period))
+        @practices_per_period = @practices
       else
         @practices_per_period = @practices.to_a.select { |practice| practice.commit_date.between?(start_period, finish_period) }
       end
