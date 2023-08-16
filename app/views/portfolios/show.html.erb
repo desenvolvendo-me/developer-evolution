@@ -9,7 +9,12 @@
 <h2>Portfolio Releases</h2>
 <ul>
   <% @portfolio_releases.each do |release| %>
-    <li><%= link_to release.milestone_release_link, portfolio_portfolio_release_path(@portfolio, release) %></li>
+    <li>
+      <%= "Release ##{release.id}" %>
+      <%= link_to 'Show', portfolio_portfolio_release_path(@portfolio, release) %> |
+      <%= link_to 'Edit', edit_portfolio_portfolio_release_path(@portfolio, release) %> |
+      <%= button_to 'Delete', portfolio_portfolio_release_path(@portfolio, release), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
   <% end %>
 </ul>
 <%= link_to 'Create Release', new_portfolio_portfolio_release_path(@portfolio) %>
