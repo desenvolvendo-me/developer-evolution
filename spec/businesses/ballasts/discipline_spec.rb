@@ -1,12 +1,5 @@
 require 'rails_helper'
 
-def create_practices_for_days(num_days, commit_total)
-  (0..num_days - 1).each do |days_ago|
-    commit_date = Date.today - (num_days - days_ago)
-    create(:practice, commit_date: commit_date, commit_total: commit_total, student: student)
-  end
-end
-
 RSpec.describe Ballasts::Discipline do
   let(:student) { create(:student) }
 
@@ -15,7 +8,7 @@ RSpec.describe Ballasts::Discipline do
 
     context 'chart' do
       it 'discipline chart' do
-        create_practices_for_days(90, 3)
+        CreatePactice.new.for_days(90, 3, student)
         expect(discipline[:chart][:datasets][0][:data]).to eq([42, 42, 42, 42, 42, 42])
       end
     end
@@ -23,15 +16,15 @@ RSpec.describe Ballasts::Discipline do
     context 'stats' do
       context "compared" do
         it 'micro_goal' do
-          create_practices_for_days(14, 3)
-          create_practices_for_days(14, 4)
+          CreatePactice.new.for_days(14, 3, student)
+          CreatePactice.new.for_days(14, 4, student)
           expect(discipline[:stats][:micro_goal_compared]).to eq(33.33)
         end
       end
 
       describe 'day' do
         context 'when last day is ok' do
-          before { create_practices_for_days(1, 3) }
+          before { CreatePactice.new.for_days(1, 3, student) }
 
           it 'returns the last day stats' do
             expect(discipline[:stats][:day][:number]).to eq(3)
@@ -40,7 +33,7 @@ RSpec.describe Ballasts::Discipline do
         end
 
         context 'when last day is not ok' do
-          before { create_practices_for_days(1, 2) }
+          before { CreatePactice.new.for_days(1, 2, student) }
 
           it 'returns the last day stats' do
             expect(discipline[:stats][:day][:number]).to eq(2)
@@ -51,20 +44,20 @@ RSpec.describe Ballasts::Discipline do
 
       describe 'week' do
         it 'last week heart' do
-          create_practices_for_days(14, 3)
+          CreatePactice.new.for_days(14, 3, student)
           expect(discipline[:stats][:week][:number]).to eq(21)
           expect(discipline[:stats][:week][:icon]).to eq("heart")
         end
 
         it 'last week heart-broken' do
-          create_practices_for_days(14, 2)
+          CreatePactice.new.for_days(14, 2, student)
           expect(discipline[:stats][:week][:number]).to eq(14)
           expect(discipline[:stats][:week][:icon]).to eq("heart-broken")
         end
       end
 
       describe 'micro_goal' do
-        before { create_practices_for_days(21, 2) }
+        before { CreatePactice.new.for_days(21, 2, student) }
 
         it 'calculates the sum for the last 2 weeks' do
           expect(discipline[:stats][:micro_goal][:number]).to eq(28)
@@ -73,7 +66,7 @@ RSpec.describe Ballasts::Discipline do
       end
 
       describe 'goal' do
-        before { create_practices_for_days(101, 5) }
+        before { CreatePactice.new.for_days(101, 5, student) }
 
         it 'returns the commits from the last 3 months' do
           expect(discipline[:stats][:goal][:number]).to eq(450)
@@ -101,7 +94,7 @@ RSpec.describe Ballasts::Discipline do
 
         describe 'day' do
           context 'when last day is ok' do
-            before { create_practices_for_days(1, 6) }
+            before { CreatePactice.new.for_days(1, 6, student) }
 
             it 'returns the last day stats' do
               expect(discipline[:stats][:day][:number]).to eq(6)
@@ -110,7 +103,7 @@ RSpec.describe Ballasts::Discipline do
           end
 
           context 'when last day is not ok' do
-            before { create_practices_for_days(1, 5) }
+            before { CreatePactice.new.for_days(1, 5, student) }
 
             it 'returns the last day stats' do
               expect(discipline[:stats][:day][:number]).to eq(5)
@@ -120,7 +113,7 @@ RSpec.describe Ballasts::Discipline do
         end
 
         describe 'week' do
-          before { create_practices_for_days(14, 7) }
+          before { CreatePactice.new.for_days(14, 7, student) }
 
           it 'calculates the correct sum for the last week' do
             expect(discipline[:stats][:week][:number]).to eq(49)
@@ -129,7 +122,7 @@ RSpec.describe Ballasts::Discipline do
         end
 
         describe 'micro_goal' do
-          before { create_practices_for_days(21, 7) }
+          before { CreatePactice.new.for_days(21, 7, student) }
 
           it 'calculates the sum for the last 2 weeks' do
             expect(discipline[:stats][:micro_goal][:number]).to eq(98)
@@ -138,7 +131,7 @@ RSpec.describe Ballasts::Discipline do
         end
 
         describe 'goal' do
-          before { create_practices_for_days(101, 5) }
+          before { CreatePactice.new.for_days(101, 5, student) }
 
           it 'returns the commits from the last 3 months' do
             expect(discipline[:stats][:goal][:number]).to eq(450)

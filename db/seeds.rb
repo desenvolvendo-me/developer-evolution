@@ -56,22 +56,11 @@ if Rails.env.development?
 
   student.save!
 
-  # Practices
-  last_sat_first_micro_goal = (Date.today - (Date.today.wday + 1) % 7) - 7 - 7
-  final_date = last_sat_first_micro_goal
-  initial_date = final_date - 13
-
-  (initial_date..final_date).each do |commit_date|
-    commit_total = 3
-    Practice.create(commit_date: commit_date, commit_total: commit_total, student: student)
-  end
-
-  initial_date = last_sat_first_micro_goal + 1
-  final_date = initial_date + 13
-
-  (initial_date..final_date).each do |commit_date|
-    commit_total = 5
-    Practice.create(commit_date: commit_date, commit_total: commit_total, student: student)
-  end
-
+  CreatePactice.new.for_days(7, rand(0..2), student)
+  CreatePactice.new.for_days(7, rand(3..5), student)
+  CreatePactice.new.for_days(7, rand(6..9), student)
+  CreatePactice.new.for_days(7, rand(3..5), student)
+  CreatePactice.new.for_days(7, rand(3..5), student)
+  CreatePactice.new.for_days(7, rand(6..9), student)
 end
+
