@@ -101,8 +101,8 @@ module Ballasts
 
       @two_lasts_micro_goal = @practices.to_a.select { |practice| practice.commit_date.between?(start_period, finish_period) }
 
-      number_micro_goal1 = @two_lasts_micro_goal.to_a.in_groups(2).first.map(&:commit_total).sum
-      number_micro_goal2 = @two_lasts_micro_goal.to_a.in_groups(2).last.map(&:commit_total).sum
+      number_micro_goal1 = @two_lasts_micro_goal.to_a.in_groups(2).first.compact.map(&:commit_total).sum
+      number_micro_goal2 = @two_lasts_micro_goal.to_a.in_groups(2).last.compact.map(&:commit_total).sum
 
       evolution = ((number_micro_goal2.to_f - number_micro_goal1.to_f) / number_micro_goal1.to_f) * 100
 
