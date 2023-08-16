@@ -1,13 +1,11 @@
-<%= form_with(model: [@preparation, @preparation_release, @preparation_issue], local: true) do |form| %>
-  <div class="field">
+<%= form_with(model: [@preparation, @preparations_release, preparations_issue], local: true) do |form| %>
+  <div>
     <%= form.label :issue_link %>
     <%= form.text_field :issue_link %>
   </div>
-  <div class="field">
+  <div>
     <%= form.label :pull_request_link %>
     <%= form.text_field :pull_request_link %>
   </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit %>
 <% end %>

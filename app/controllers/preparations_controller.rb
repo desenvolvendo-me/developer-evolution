@@ -14,6 +14,7 @@ class PreparationsController < ApplicationController
 
   def create
     @preparation = current_user.student.preparations.build(preparation_params)
+
     if @preparation.save
       redirect_to @preparation, notice: 'Preparation was successfully created.'
     else

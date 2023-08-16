@@ -1,21 +1,19 @@
 <%= form_with(model: preparation, local: true) do |form| %>
-  <div class="field">
+  <div>
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-  <div class="field">
+  <div>
     <%= form.label :repository_link %>
     <%= form.text_field :repository_link %>
   </div>
-  <div class="field">
+  <div>
     <%= form.label :project_link %>
     <%= form.text_field :project_link %>
   </div>
-  <div class="field">
+  <div>
     <%= form.label :readme_link %>
     <%= form.text_field :readme_link %>
   </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit %>
 <% end %>

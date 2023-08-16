@@ -1,22 +1,25 @@
-class PreparationIssuesController < ApplicationController
-  before_action :set_preparation_release
-  before_action :set_preparation_issue, only: [:show, :edit, :update, :destroy]
+class PreparationsIssuesController < ApplicationController
+  before_action :set_preparation
+  before_action :set_preparations_release
+  before_action :set_preparations_issue, only: [:show, :edit, :update, :destroy]
 
   def index
-    @preparation_issues = @preparation_release.preparation_issues
+    @preparations_issues = @preparations_release.preparations_issues
   end
 
   def show
   end
 
   def new
-    @preparation_issue = @preparation_release.preparation_issues.new
+    @preparations_issue = @preparations_release.preparations_issues.build
   end
 
   def create
-    @preparation_issue = @preparation_release.preparation_issues.new(preparation_issue_params)
-    if @preparation_issue.save
-      redirect_to preparation_preparation_release_preparation_issue_path(@preparation, @preparation_release, @preparation_issue), notice: 'Preparation Issue was successfully created.'
+    @preparations_issue = @preparations_release.preparations_issues.build(preparations_issue_params)
+
+    if @preparations_issue.save
+      redirect_to preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, @preparations_issue),
+                  notice: 'Preparations Issue was successfully created.'
     else
       render :new
     end
@@ -26,30 +29,35 @@ class PreparationIssuesController < ApplicationController
   end
 
   def update
-    if @preparation_issue.update(preparation_issue_params)
-      redirect_to preparation_preparation_release_preparation_issue_path(@preparation, @preparation_release, @preparation_issue), notice: 'Preparation Issue was successfully updated.'
+    if @preparations_issue.update(preparations_issue_params)
+      redirect_to preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, @preparations_issue),
+                  notice: 'Preparations Issue was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
-    @preparation_issue.destroy
-    redirect_to preparation_preparation_release_preparation_issues_url(@preparation, @preparation_release), notice: 'Preparation Issue was successfully destroyed.'
+    @preparations_issue.destroy
+    redirect_to preparation_preparations_release_preparations_issues_path(@preparation, @preparations_release),
+                notice: 'Preparations Issue was successfully destroyed.'
   end
 
   private
 
-  def set_preparation_release
+  def set_preparation
     @preparation = Preparation.find(params[:preparation_id])
-    @preparation_release = @preparation.preparation_releases.find(params[:preparation_release_id])
   end
 
-  def set_preparation_issue
-    @preparation_issue = @preparation_release.preparation_issues.find(params[:id])
+  def set_preparations_release
+    @preparations_release = @preparation.preparations_releases.find(params[:preparations_release_id])
   end
 
-  def preparation_issue_params
-    params.require(:preparation_issue).permit(:issue_link, :pull_request_link)
+  def set_preparations_issue
+    @preparations_issue = @preparations_release.preparations_issues.find(params[:id])
+  end
+
+  def preparations_issue_params
+    params.require(:preparations_issue).permit(:issue_link, :pull_request_link)
   end
 end

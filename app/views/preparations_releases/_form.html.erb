@@ -1,13 +1,11 @@
-<%= form_with(model: [@preparation, @preparation_release], local: true) do |form| %>
-  <div class="field">
+<%= form_with(model: [@preparation, preparations_release], local: true) do |form| %>
+  <div>
     <%= form.label :milestone_release_link %>
     <%= form.text_field :milestone_release_link %>
   </div>
-  <div class="field">
+  <div>
     <%= form.label :pull_request_release_link %>
     <%= form.text_field :pull_request_release_link %>
   </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit %>
 <% end %>

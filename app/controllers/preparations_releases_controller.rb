@@ -1,22 +1,24 @@
-class PreparationReleasesController < ApplicationController
+class PreparationsReleasesController < ApplicationController
   before_action :set_preparation
-  before_action :set_preparation_release, only: [:show, :edit, :update, :destroy]
+  before_action :set_preparations_release, only: [:show, :edit, :update, :destroy]
 
   def index
-    @preparation_releases = @preparation.preparation_releases
+    @preparations_releases = @preparation.preparations_releases
   end
 
   def show
   end
 
   def new
-    @preparation_release = @preparation.preparation_releases.new
+    @preparations_release = @preparation.preparations_releases.build
   end
 
   def create
-    @preparation_release = @preparation.preparation_releases.new(preparation_release_params)
-    if @preparation_release.save
-      redirect_to preparation_preparation_release_path(@preparation, @preparation_release), notice: 'Preparation Release was successfully created.'
+    @preparations_release = @preparation.preparations_releases.build(preparations_release_params)
+
+    if @preparations_release.save
+      redirect_to preparation_preparations_release_path(@preparation, @preparations_release),
+                  notice: 'Preparations Release was successfully created.'
     else
       render :new
     end
@@ -26,16 +28,18 @@ class PreparationReleasesController < ApplicationController
   end
 
   def update
-    if @preparation_release.update(preparation_release_params)
-      redirect_to preparation_preparation_release_path(@preparation, @preparation_release), notice: 'Preparation Release was successfully updated.'
+    if @preparations_release.update(preparations_release_params)
+      redirect_to preparation_preparations_release_path(@preparation, @preparations_release),
+                  notice: 'Preparations Release was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
-    @preparation_release.destroy
-    redirect_to preparation_preparation_releases_url(@preparation), notice: 'Preparation Release was successfully destroyed.'
+    @preparations_release.destroy
+    redirect_to preparation_preparations_releases_path(@preparation),
+                notice: 'Preparations Release was successfully destroyed.'
   end
 
   private
@@ -44,11 +48,11 @@ class PreparationReleasesController < ApplicationController
     @preparation = Preparation.find(params[:preparation_id])
   end
 
-  def set_preparation_release
-    @preparation_release = @preparation.preparation_releases.find(params[:id])
+  def set_preparations_release
+    @preparations_release = @preparation.preparations_releases.find(params[:id])
   end
 
-  def preparation_release_params
-    params.require(:preparation_release).permit(:milestone_release_link, :pull_request_release_link)
+  def preparations_release_params
+    params.require(:preparations_release).permit(:milestone_release_link, :pull_request_release_link)
   end
 end

@@ -1,10 +1,5 @@
-<p>
-  <strong>Issue Link:</strong>
-  <%= @preparation_issue.issue_link %>
-</p>
-<p>
-  <strong>Pull Request Link:</strong>
-  <%= @preparation_issue.pull_request_link %>
-</p>
-<%= link_to 'Edit', edit_preparation_preparation_release_preparation_issue_path(@preparation, @preparation_release, @preparation_issue) %> |
-<%= link_to 'Back', preparation_preparation_release_preparation_issues_path(@preparation, @preparation_release) %>
+<h3>Issue ##{<%= @preparations_issue.id %>}</h3>
+<p>Issue Link: <%= @preparations_issue.issue_link %></p>
+<p>Pull Request Link: <%= @preparations_issue.pull_request_link %></p>
+<%= link_to 'Edit', edit_preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, @preparations_issue) %> |
+<%= link_to 'Back', preparation_preparations_release_preparations_issues_path(@preparation, @preparations_release) %>

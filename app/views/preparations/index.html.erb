@@ -1,22 +1,12 @@
 <h1>Preparations</h1>
-<%= link_to 'New Preparation', new_preparation_path %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Repository Link</th>
-    <th>Project Link</th>
-    <th>Readme Link</th>
-    <th colspan="3"></th>
-  </tr>
+<ul>
   <% @preparations.each do |preparation| %>
-    <tr>
-      <td><%= preparation.name %></td>
-      <td><%= preparation.repository_link %></td>
-      <td><%= preparation.project_link %></td>
-      <td><%= preparation.readme_link %></td>
-      <td><%= link_to 'Show', preparation %></td>
-      <td><%= link_to 'Edit', edit_preparation_path(preparation) %></td>
-      <td><%= link_to 'Destroy', preparation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+    <li>
+      <%= link_to preparation.name, preparation %>
+      <%= link_to 'Show', preparation %>
+      <%= link_to 'Edit', edit_preparation_path(preparation) %>
+      <%= button_to 'Delete', preparation, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
   <% end %>
-</table>
+</ul>
+<%= link_to 'New Preparation', new_preparation_path %>

@@ -22,8 +22,8 @@ Rails.application.routes.draw do
   end
 
   resources :preparations do
-    resources :preparation_releases do
-      resources :preparation_issues
+    resources :preparations_releases do
+      resources :preparations_issues
     end
   end
 end
