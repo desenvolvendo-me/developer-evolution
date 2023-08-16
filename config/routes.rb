@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "welcome#index"
   get 'welcome/index'
+  get 'courses/lesson'
 
   get ':login', to: 'students#show', as: :profile
   get ':login/ballast', to: 'students#ballast', as: :ballast
