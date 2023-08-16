@@ -15,31 +15,24 @@ module Ballasts
 
     def call
       {
-        chart: {
-          labels: [
-            "Micro Goal 1",
-            "Micro Goal 2",
-            "Micro Goal 3",
-            "Micro Goal 4",
-            "Micro Goal 5",
-            "Micro Goal 6"
-          ],
-          datasets: [
-            {
-              label: "Goal",
-              fill: false,
-              backgroundColor: "#3cb371",
-              borderColor: "#3cb371",
-              data: [196, 223, 148, 273, 279, 315],
-            },
-          ],
-        },
         stats: {
           goal: last_goal_sum,
           micro_goal: last_micro_goal_sum,
           week: last_week_sum,
           day: last_day,
           micro_goal_compared: micro_goal_compared
+        },
+        chart: {
+          labels: %w[MG1 MG2 MG3 MG4 MG5 MG6],
+          datasets: [
+            {
+              label: "MG (Micro Goal)",
+              fill: false,
+              backgroundColor: "#3cb371",
+              borderColor: "#3cb371",
+              data: calculator_chart,
+            },
+          ],
         }
       }
     end
@@ -51,6 +44,25 @@ module Ballasts
     end
 
     private
+
+    def calculator_chart
+      finish_period, start_period = calculation_period((MICRO_GOAL * 6) - 1)
+
+      @lasts_micro_goal = @practices.to_a.select { |practice| practice.commit_date.between?(start_period, finish_period) }
+
+      @six_lasts_micro_goal = @lasts_micro_goal.to_a.in_groups(6)
+
+
+      number_micro_goal1 = @six_lasts_micro_goal[0].compact.map(&:commit_total).sum
+      number_micro_goal2 = @six_lasts_micro_goal[1].compact.map(&:commit_total).sum
+      number_micro_goal3 = @six_lasts_micro_goal[2].compact.map(&:commit_total).sum
+      number_micro_goal4 = @six_lasts_micro_goal[3].compact.map(&:commit_total).sum
+      number_micro_goal5 = @six_lasts_micro_goal[4].compact.map(&:commit_total).sum
+      number_micro_goal6 = @six_lasts_micro_goal[5].compact.map(&:commit_total).sum
+
+
+      [number_micro_goal1, number_micro_goal2, number_micro_goal3, number_micro_goal4, number_micro_goal5, number_micro_goal6]
+    end
 
     def last_day
       practice = @student.practices.last
