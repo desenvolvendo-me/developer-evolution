@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @objective %>
+
+<div>
+  <%= link_to I18n.t('objective.question.show_question'), objective_objective_questions_path(@objective) %>
+
+  <p style="display: block">
+    <%= link_to I18n.t('objective.edit'), edit_objective_path(@objective) %> |
+    <%= link_to I18n.t('objective.back'), objectives_path %>
+
+    <%= button_to I18n.t('objective.destroy'), @objective , method: :delete %>
+  </p>
+</div>

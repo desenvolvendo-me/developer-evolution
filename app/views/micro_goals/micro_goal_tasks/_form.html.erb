@@ -1,0 +1,41 @@
+<%= form_with(model: [@micro_goal, @micro_goal_task], local: true) do |form| %>
+  <% if @micro_goal_task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(micro_goal_task.errors.count, "error") %><%= t('views.micro_goal_tasks.form.errors_prohibited') %>/h2>:
+      <ul>
+        <% micro_goal_task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :micro_goal_id, t('views.micro_goal_tasks.form.micro_goal_label') %>:
+    <%= form.collection_select :micro_goal_id, MicroGoal.all, :id, :micro_goal, {}, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :task, t('views.micro_goal_tasks.form.task_label') %>:
+    <%= form.text_field :task %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date, t('views.micro_goal_tasks.form.start_date_label') %>:
+    <%= form.date_field :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date, t('views.micro_goal_tasks.form.end_date_label') %>:
+    <%= form.date_field :end_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :percentage, t('views.micro_goal_tasks.form.percentage_label') %>:
+    <%= form.number_field :percentage %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
