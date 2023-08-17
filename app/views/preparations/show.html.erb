@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+<h1><%= t('preparation.show.title')%> <%= @preparation.name %></h1>
+<p>Repository Link: <%= @preparation.repository_link %></p>
+<p>Project Link: <%= @preparation.project_link %></p>
+<p>Readme Link: <%= @preparation.readme_link %></p>
+<%= link_to t('preparation.index.edit'), edit_preparation_path(@preparation) %> |
+<%= link_to t('preparation.edit.back'), preparations_path %>
+<br>
+<br>
+<%= link_to t('preparation.show.new_preparation_release'), new_preparation_preparations_release_path(@preparation) %>
+<br>
+
+<h2><%= t('preparation.show.preparations_releases') %>: </h2>
+<ul>
+  <% @preparation.preparations_releases.each do |release| %>
+    <li>
+      <%= "Release ##{release.id}" %> |
+      <%= link_to t('preparation.index.show'), preparation_preparations_release_path(@preparation, release) %> |
+      <%= link_to t('preparation.index.edit'), edit_preparation_preparations_release_path(@preparation, release) %>
+      <%= button_to t('preparation.index.destroy'), preparation_preparations_release_path(@preparation, release),
+                  method: :delete, data: { confirm: t('script.script_questions.index.sure') } %>
+    </li>
+  <% end %>
+</ul>

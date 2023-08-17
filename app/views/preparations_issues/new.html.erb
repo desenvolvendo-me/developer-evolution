@@ -1,0 +1,3 @@
+<h3><%= t('preparation_issue.new.title') %></h3>
+<%= render 'form', preparation: @preparation, preparations_release: @preparations_release, preparations_issue: @preparations_issue %>
+<%= link_to t('preparation_issue.new.back'), preparation_preparations_release_preparations_issues_path(@preparation, @preparations_release) %>

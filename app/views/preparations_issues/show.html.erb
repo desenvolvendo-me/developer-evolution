@@ -1,0 +1,6 @@
+<p style="color: green"><%= notice %></p>
+<h3><%= t('preparation.show.title') %> Issue ##{<%= @preparations_issue.id %>}</h3>
+<p><%= t('preparation_issue.form.issue_link') %>: <%= @preparations_issue.issue_link %></p>
+<p><%= t('preparation_issue.form.pull_request_link') %>: <%= @preparations_issue.pull_request_link %></p>
+<%= link_to t('preparation_release.show.edit'), edit_preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, @preparations_issue) %> |
+<%= link_to t('preparation_release.show.back'), preparation_preparations_release_preparations_issues_path(@preparation, @preparations_release) %>

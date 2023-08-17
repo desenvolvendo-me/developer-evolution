@@ -104,4 +104,38 @@ if Rails.env.development?
     issue_link: 'https://github.com/user/repo1/issues/14',
     pull_request_link: "https://github.com/user/repo1/tree/branch_14"
   )
+
+  # Create Preparation
+  preparation = Preparation.create(
+    name: 'Editora de Livro',
+    repository_link: 'https://github.com/user/repo1',
+    project_link: 'https://github.com/user/repo1/projects/1',
+    readme_link: 'https://github.com/user/repo1/blob/main/README.md',
+    student: student
+  )
+  preparations_releases = preparation.preparations_releases.create(
+    milestone_release_link: 'https://github.com/user/repo1/milestones/123',
+    pull_request_release_link: 'https://github.com/user/repo1/pull/123'
+  )
+  preparations_releases.preparations_issues.create(
+    issue_link: 'https://github.com/user/repo1/issues/12',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_12"
+  )
+  preparations_releases.preparations_issues.create(
+    issue_link: 'https://github.com/user/repo1/issues/13',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_13"
+  )
+
+  preparations_release2 = preparation.preparations_releases.create(
+    milestone_release_link: 'https://github.com/user/repo1/milestones/456',
+    pull_request_release_link: 'https://github.com/user/repo1/pull/456'
+  )
+  preparations_release2.preparations_issues.create!(
+    issue_link: 'https://github.com/user/repo1/issues/45',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_45"
+  )
+  preparations_release2.preparations_issues.create!(
+    issue_link: 'https://github.com/user/repo1/issues/14',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_14"
+  )
 end
