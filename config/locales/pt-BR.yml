@@ -1,57 +1,57 @@
 pt-BR:
   date:
     abbr_day_names:
-    - dom
-    - seg
-    - ter
-    - qua
-    - qui
-    - sex
-    - sáb
+      - dom
+      - seg
+      - ter
+      - qua
+      - qui
+      - sex
+      - sáb
     abbr_month_names:
-    -
-    - jan
-    - fev
-    - mar
-    - abr
-    - mai
-    - jun
-    - jul
-    - ago
-    - set
-    - out
-    - nov
-    - dez
+      -
+      - jan
+      - fev
+      - mar
+      - abr
+      - mai
+      - jun
+      - jul
+      - ago
+      - set
+      - out
+      - nov
+      - dez
     day_names:
-    - domingo
-    - segunda-feira
-    - terça-feira
-    - quarta-feira
-    - quinta-feira
-    - sexta-feira
-    - sábado
+      - domingo
+      - segunda-feira
+      - terça-feira
+      - quarta-feira
+      - quinta-feira
+      - sexta-feira
+      - sábado
     formats:
       default: "%d/%m/%Y"
       long: "%d de %B de %Y"
       short: "%d de %B"
     month_names:
-    -
-    - janeiro
-    - fevereiro
-    - março
-    - abril
-    - maio
-    - junho
-    - julho
-    - agosto
-    - setembro
-    - outubro
-    - novembro
-    - dezembro
+      -
+      - janeiro
+      - fevereiro
+      - março
+      - abril
+      - maio
+      - junho
+      - julho
+      - agosto
+      - setembro
+      - outubro
+      - novembro
+      - dezembro
     order:
-    - :day
-    - :month
-    - :year
+      - :day
+      - :month
+      - :year
   datetime:
     distance_in_words:
       about_x_hours:
@@ -214,52 +214,3 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
-  view:
-    purposes:
-      edit: "Editar o propósito"
-    micro_goals:
-  purpose:
-    show:
-      go: "Questões do propósito"
-      edit: 'Editar este propósito'
-      back: 'Voltar para os Propósitos'
-      destroy: 'Excluir este Propósito'
-    new:
-      title: 'Novo Propósito:'
-      form: 'Formulário: '
-      back: 'Voltar para os Propósitos'
-    index:
-      title: 'Propósito:'
-      new_button: 'Novo Propósito'
-      show_link: 'Visualizar este Propósito'
-    edit:
-      title: 'Editando Propósito:'
-      show_link: 'Visualizar este Propósito'
-      back_link: 'Voltar para os Propósitos'
-  purposes_question:
-    form:
-      type_question: 'Tipo de pergunta'
-      description: 'Pergunta'
-      answer: 'Resposta'
-    index:
-      tittle: 'Perguntas do Propósito'
-      new: 'Novo formulário'
-      show: 'Mostrar Propósito'
-    new:
-      title: 'Novas Perguntas'
-      back: 'Voltar'
-    show:
-      edit: 'Editar Perguntas'
-      back: 'Voltar '
-      destroy: 'Apagar Perguntas'
-    edit:
-      show: 'Mostrar Perguntas'
-      back: 'Voltar'
-      #index: 'Editar Propósito'
-      edit_purpose: "Editar Perguntas"
-  purpose_1:
-    version: "Versão: "
-    time: "Tempo:"
-    type_question: "Tipo de pergunta:"
-    question: "Pergunta:"
-    answer: "Resposta: "

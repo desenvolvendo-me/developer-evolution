@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= I18n.t('objective.title') %></h1>
+
+<div id="objectives">
+  <% @objectives.each do |objective| %>
+    <%= render objective %>
+    <p>
+      <%= link_to t('objective.show'), objective %>
+    </p>
+    <hr>
+  <% end %>
+</div>
+<br>
+<%= link_to I18n.t('objective.new'), new_objective_path %>

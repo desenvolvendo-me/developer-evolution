@@ -1,0 +1,9 @@
+<p style="color: green"><%= t('goal_question.show.update_success') %></p>
+
+<%= render @goal_question %>
+
+<div>
+  <%= link_to t("goal_question.show.back_to_goal_questions"), goal_goal_questions_path %>
+
+  <%= button_to t("goal_question.show.destroy_this_goal_question"), goal_goal_question_path(@goal, @goal_question), method: :delete %>
+</div>

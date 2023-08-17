@@ -1,0 +1,16 @@
+<p style="color: green"><%= t('goal.index.goal_and_associated_questions_were_successfully_desctroyed') %></p>
+
+<h1><%= t('goal.index.title') %>:</h1>
+<hr>
+
+<div id="goals">
+  <% @goals.each do |goal| %>
+    <%= render goal %>
+    <p>
+      <%= link_to t("goal.index.show_this_goal"), goal %>
+    </p>
+    <hr>
+  <% end %>
+</div>
+
+<%= link_to t("goal.index.new_goal"), new_goal_path %>

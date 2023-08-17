@@ -1,0 +1,33 @@
+pt-BR:
+  course_basics:
+    show:
+      new_course_basic: 'Mostrar Cursos'
+    view:
+      number_of_course: 'Número do Curso: '
+      link_course: 'Link do Curso:'
+      link_repository: 'Link do Repositório: '
+      link_certified: 'Link do Certificado: '
+      avaliation_course: 'Avaliação do Curso: '
+      avaliation_apprenticeship: 'Avaliação do Aprendizado: '
+      course_basics: 'Cursos Básicos'
+      destroy: 'Apagar'
+      edit_course_basic: 'Editar Curso Básico'
+      show_course_basic: 'Mostrar cursos básicos'
+      new_course_basic: 'Novo curso básico'
+      back_to_courses: 'Voltar para cursos'
+  controller:
+    flash_create: 'Curso criado com sucesso.'
+    flash_create_error: 'Ocorreu um erro ao criar o curso.'
+    flash_update: 'Curso atualizado com sucesso.'
+    flash_destroy: 'Curso excluído com sucesso.'
+  view:
+    form: 'Tipo de curso'
+    edit: 'Editar Curso'
+    error: 'erro'
+    prohibited_saving: 'proibiu que este curso fosse salvo'
+    courses: 'Cursos'
+    show_course: 'Mostrar este curso'
+    back_to_courses: 'Voltar para cursos'
+    new_course: 'Novo curso'
+    edit_course: 'Editar este curso'
+    destroy_course: 'Destruir este curso'

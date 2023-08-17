@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @course_basic %>
+
+<div>
+  <%= link_to t('course_basics.view.edit_course_basic'), edit_course_course_basic_path([@course, @course_basic]) %> |
+  <%= link_to t('course_basics.view.back_to_courses'), course_course_basics_path(@course) %>
+
+
+  <%= button_to t('course_basics.view.destroy'), [@course, @course_basic], method: :delete %>
+</div>

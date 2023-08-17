@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= t('views.micro_goals.index.title') %>:</h1>
+
+<div id="micro_goals">
+  <% @micro_goals.each do |micro_goal| %>
+    <%= render micro_goal %>
+    <p>
+      <%= link_to t('views.micro_goals.index.show_micro_goal'), micro_goal_path(micro_goal) %>
+    </p>
+  <% end %>
+</div>
+<hr>
+<%= link_to t('views.micro_goals.index.new_micro_goal'), new_micro_goal_path %>
