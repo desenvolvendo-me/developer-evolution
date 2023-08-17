@@ -1,0 +1,46 @@
+pt-BR:
+  experience:
+    form:
+      category_label: categoria
+      week_label: semana
+    edit_view:
+      title: Editando experiência
+    title: Experiências
+    show: Mostrar essa experiência
+    new: Criar experiência
+    edit: Editar essa experiência
+    back: Voltar para experiências
+    destroy: Apagar experiência
+    categories:
+      fear: medo
+      difficulty: dificuldade
+      learning: aprendizado
+      insight: insight
+      feedback: feedback
+    controller:
+      flash_create: Experiência cadastrada com sucesso
+      flash_update: Experiência atualizada com sucesso
+  activerecord:
+    attributes:
+      experience:
+        content: conteúdo
+        level: nível
+        week: semana
+      objective:
+        title: Título
+      objective_question:
+        type_question: Tipo de pergunta
+        description: Pergunta
+        answer: Resposta
+    errors:
+      models:
+        experience:
+          attributes:
+            category:
+              inclusion: precisa ser incluso
+            level:
+              inclusion: precisa ser incluso
+            week:
+              inclusion: precisa ser incluso
+            content:
+              blank: não pode ficar vazio

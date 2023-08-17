@@ -1,0 +1,9 @@
+<h1><%= t('purposes_question.new.title') %></h1>
+
+<%= render "form", purpose_question: @purpose_question %>
+
+<br>
+
+<div>
+  <%= link_to t('purposes_question.new.back'), purpose_purpose_questions_path(@purpose) %>
+</div>

@@ -60,6 +60,8 @@ class Student < ApplicationRecord
   belongs_to :user
   has_many :practices
   has_many :thoughts
+  has_many :routines
+  has_many :purposes
   has_many :experiences
   has_many :micro_goals
   has_many :goals

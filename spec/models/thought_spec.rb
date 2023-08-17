@@ -1,22 +1,27 @@
 # == Schema Information
 #
-# Table name: practices
+# Table name: thoughts
 #
 #  id           :bigint           not null, primary key
-#  commit_date  :date
-#  commit_total :integer
+#  description  :text
+#  level        :string
+#  type_thought :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  student_id   :bigint           not null
 #
 # Indexes
 #
-#  index_practices_on_student_id  (student_id)
+#  index_thoughts_on_student_id  (student_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (student_id => students.id)
 #
-class Practice < ApplicationRecord
-  belongs_to :student
+require 'rails_helper'
+
+RSpec.describe Thought, type: :model do
+  describe 'associations' do
+    it { should belong_to(:student) }
+  end
 end

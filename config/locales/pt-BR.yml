@@ -1,268 +1,216 @@
 pt-BR:
-  course_basics:
-    show:
-      new_course_basic: 'Mostrar Cursos'
-    view:
-      number_of_course: 'Número do Curso: '
-      link_course: 'Link do Curso:'
-      link_repository: 'Link do Repositório: '
-      link_certified: 'Link do Certificado: '
-      avaliation_course: 'Avaliação do Curso: '
-      avaliation_apprenticeship: 'Avaliação do Aprendizado: '
-      course_basics: 'Cursos Básicos'
-      destroy: 'Apagar'
-      edit_course_basic: 'Editar Curso Básico'
-      show_course_basic: 'Mostrar cursos básicos'
-      new_course_basic: 'Novo curso básico'
-      back_to_courses: 'Voltar para cursos'
-  controller:
-      flash_create: 'Curso criado com sucesso.'
-      flash_create_error: 'Ocorreu um erro ao criar o curso.'
-      flash_update: 'Curso atualizado com sucesso.'
-      flash_destroy: 'Curso excluído com sucesso.'
-  view:
-    form: 'Tipo de curso'
-    edit: 'Editar Curso'
-    error: 'erro'
-    prohibited_saving: 'proibiu que este curso fosse salvo'
-    courses: 'Cursos'
-    show_course: 'Mostrar este curso'
-    back_to_courses: 'Voltar para cursos'
-    new_course: 'Novo curso'
-    edit_course: 'Editar este curso'
-    destroy_course: 'Destruir este curso'
-  activerecord:
-    attributes:
-      experience:
-        content: conteúdo
-        level: nível
-        week: semana
-      objective:
-        title: Título
-      objective_question:
-        type_question: Tipo de pergunta
-        description: Pergunta
-        answer: Resposta
-    errors:
-      models:
-        experience:
-          attributes:
-            category:
-              inclusion: precisa ser incluso
-            level:
-              inclusion: precisa ser incluso
-            week:
-              inclusion: precisa ser incluso
-            content:
-              blank: não pode ficar vazio
-        objective:
-          attributes:
-            student:
-              required: precisa existir
-  helpers:
+  date:
+    abbr_day_names:
+      - dom
+      - seg
+      - ter
+      - qua
+      - qui
+      - sex
+      - sáb
+    abbr_month_names:
+      -
+      - jan
+      - fev
+      - mar
+      - abr
+      - mai
+      - jun
+      - jul
+      - ago
+      - set
+      - out
+      - nov
+      - dez
+    day_names:
+      - domingo
+      - segunda-feira
+      - terça-feira
+      - quarta-feira
+      - quinta-feira
+      - sexta-feira
+      - sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %B"
+    month_names:
+      -
+      - janeiro
+      - fevereiro
+      - março
+      - abril
+      - maio
+      - junho
+      - julho
+      - agosto
+      - setembro
+      - outubro
+      - novembro
+      - dezembro
+    order:
+      - :day
+      - :month
+      - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: aproximadamente %{count} hora
+        other: aproximadamente %{count} horas
+      about_x_months:
+        one: aproximadamente %{count} mês
+        other: aproximadamente %{count} meses
+      about_x_years:
+        one: aproximadamente %{count} ano
+        other: aproximadamente %{count} anos
+      almost_x_years:
+        one: quase %{count} ano
+        other: quase %{count} anos
+      half_a_minute: meio minuto
+      less_than_x_seconds:
+        one: menos de %{count} segundo
+        other: menos de %{count} segundos
+      less_than_x_minutes:
+        one: menos de um minuto
+        other: menos de %{count} minutos
+      over_x_years:
+        one: mais de %{count} ano
+        other: mais de %{count} anos
+      x_seconds:
+        one: "%{count} segundo"
+        other: "%{count} segundos"
+      x_minutes:
+        one: "%{count} minuto"
+        other: "%{count} minutos"
+      x_days:
+        one: "%{count} dia"
+        other: "%{count} dias"
+      x_months:
+        one: "%{count} mês"
+        other: "%{count} meses"
+      x_years:
+        one: "%{count} ano"
+        other: "%{count} anos"
+    prompts:
+      second: Segundo
+      minute: Minuto
+      hour: Hora
+      day: Dia
+      month: Mês
+      year: Ano
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: deve ser aceito
+      blank: não pode ficar em branco
+      confirmation: não é igual a %{attribute}
+      empty: não pode ficar vazio
+      equal_to: deve ser igual a %{count}
+      even: deve ser par
+      exclusion: não está disponível
+      greater_than: deve ser maior que %{count}
+      greater_than_or_equal_to: deve ser maior ou igual a %{count}
+      in: deve estar em %{count}
+      inclusion: não está incluído na lista
+      invalid: não é válido
+      less_than: deve ser menor que %{count}
+      less_than_or_equal_to: deve ser menor ou igual a %{count}
+      model_invalid: 'A validação falhou: %{errors}'
+      not_a_number: não é um número
+      not_an_integer: não é um número inteiro
+      odd: deve ser ímpar
+      other_than: deve ser diferente de %{count}
+      present: deve ficar em branco
+      required: é obrigatório(a)
+      taken: já está em uso
+      too_long:
+        one: 'é muito longo (máximo: %{count} caracter)'
+        other: 'é muito longo (máximo: %{count} caracteres)'
+      too_short:
+        one: 'é muito curto (mínimo: %{count} caracter)'
+        other: 'é muito curto (mínimo: %{count} caracteres)'
+      wrong_length:
+        one: não possui o tamanho esperado (%{count} caracter)
+        other: não possui o tamanho esperado (%{count} caracteres)
+    template:
+      body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
+      header:
+        one: 'Não foi possível gravar %{model}: %{count} erro'
+        other: 'Não foi possível gravar %{model}: %{count} erros'
+  helper:
+    select:
+      prompt: Por favor selecione
     submit:
-      create: Criar
-      update: Atualizar
-  experience:
-    form:
-      category_label: categoria
-      week_label: semana
-    edit_view:
-      title: Editando experiência
-    title: Experiências
-    show: Mostrar essa experiência
-    new: Criar experiência
-    edit: Editar essa experiência
-    back: Voltar para experiências
-    destroy: Apagar experiência
-    categories:
-      fear: medo
-      difficulty: dificuldade
-      learning: aprendizado
-      insight: insight
-      feedback: feedback
-    controller:
-      flash_create: Experiência cadastrada com sucesso
-      flash_update: Experiência atualizada com sucesso
-  goal:
-    show:
-      show_goal_question: Mostrar perguntas desta meta
-      edit_this_goal: Editar esta meta
-      back_to_goals: Voltar para metas
-      destroy_this_goal: Apagar esta meta
-      goal_successfully_created: Meta criada com sucesso
-    goal:
-      description: Descrição
-      student: Aluno
-    new:
-      new_goal: Nova Meta
-      back_to_goals: Voltar para metas
-      create: Criar meta
-    form:
-      description: Descrição
-      student: Aluno
-      prohibited_this_goal_from_being_saved: Meta não pode ser salva
-    edit:
-      title: Editando meta
-      update: Atualizar meta
-      show_this_goal: Mostrar essa meta
-      back_to_goals: Voltar para metas
-    index:
-      title: Metas
-      show_this_goal: Mostrar essa meta
-      new_goal: Nova meta
-      goal_and_associated_questions_were_successfully_desctroyed: Meta e suas perguntas foram apagadas com sucesso
-  goal_question:
-    index:
-      show_goal_for_this_goal_question: Mostrar meta desta pergunta
-      edit_this_goal_question: Editar esta pergunta
-      back_to_goals: Voltar para metas
-      destroy_this_goal_question: Apagar esta pergunta
-      new_goal_question_for_this_goal: Nova pergunta para esta meta
-      goal_question_success_destroyed: Pergunta da meta removida com sucesso
-    goal_question:
-      type_question: Tipo de pergunta
-      description: Descrição
-      answer: Resposta
-      goal: Meta
-    edit:
-      edit_goal_question: Editar esta pergunta
-      show_this_goal_question: Mostrar essa pergunta
-      back_to_goal_questions: Voltar para perguntas
-      update: Atualizar
-    form:
-      type_question: Tipo de pergunta
-      description: Descrição
-      answer: Resposta
-      goal: Meta
-      prohibited_this_goal_question_from_being_saved: Pergunta da meta não pode ser salva
-    new:
-      new_goal_question: Nova pergunta
-      create: Criar
-      back_to_goal_questions: Voltar para perguntas
-    show:
-      back_to_goal_questions: Voltar para perguntas
-      destroy_this_goal_question: Apagar esta pergunta
-      update_success: "Pergunta da meta atualizada com sucesso"
-    type_question_options:
-      - Detalhe
-      - Métrica
-      - Tempo
-    description:
-      - O que eu desejo alcançar?
-      - Por que essa meta é importante
-      - Quem são os envolvidos?
-      - Quais são os recursos necessários?
-      - Quais são os resultados esperados, em termos quantitativos?
-      - Como vou saber se foi alcançada?
-      - Quais métricas podem ser usadas para acompanhar os resultados?
-      - Qual é o prazo máximo para atingir?
-      - Qual é o prazo mínimo para atingir?
-  objective:
-    title: Objetivos
-    new_title: Novo objetivo
-    edit_title: Editando
-    form_view:
-      error: proibiu esse objetivo de ser salvo
-    show: Mostrar esse objetivo
-    new: Criar novo objetivo
-    edit: Editar nome do objetivo
-    back: Voltar para objetivos
-    destroy: Apagar objetivo
-    controller:
-      destroy: Objetivo e questões associadas a ele foram apagadas com sucesso.
-      notice_create: Objetivo cadastrada com sucesso
-      notice_update: Objetivo atualizada com sucesso
-    question:
-      new_question: Criar nova pergunta
-      show_this_question: Mostrar essa pergunta
-      edit_this_question: Editar essa pergunta
-      destroy_this_question: Apagar essa pergunta
-      add_question: Adicionar perguntas para esse objetivo
-      show_question: Mostrar perguntas desse objetivo
-      view_new_title: Adicionar nova pergunta para
-      view_edit_title: Editando pergunta do objetivo
-      form_view:
-        error: proibiu essa pergunta de objetivo de ser salva
-        select_type_question: Selecione o tipo de pergunta
-        select_description: Selecione a pergunta
-      back_questions: Retornar para perguntas desse objetivo
-      controller:
-        create_success: Pergunta cadastrada com sucesso
-        update_success: Pergunta atualizada com sucesso
-        destroy_success: Pergunta apagada com sucesso
-  controller:
-    micro_goals:
-      flash_create: 'Micro-meta criada com sucesso!'
-      flash_update: 'Micro-meta atualizada com sucesso'
-      flash_destroy: 'Micro-meta excluída com sucesso'
-    micro_goal_tasks:
-      flash_create: 'Tarefa criada com sucesso!'
-      flash_update: 'Tarefa atualizada com sucesso'
-      flash_destroy: 'Tarefa excluída com sucesso'
-  views:
-    micro_goals:
-      show:
-        show_all_tasks: 'Visualizar todas as tarefas'
-        edit_this_micro_goal: 'Editar esta micro meta'
-        back_to_micro_goals: 'Voltar para as micro-metas'
-        destroy_this_micro_goal_button: 'Excluir esta micro meta'
-      new:
-        new_micro_goal_title: 'Nova micro meta'
-        form: 'Formulário'
-        back_to_micro_goals: 'Voltar para as Micro-metas'
-      index:
-        title: 'Micro-metas'
-        new_micro_goal : 'Nova micro-meta'
-        show_micro_goal: 'Visualizar esta micro-meta'
-      edit:
-        edit_micro_goal_title: 'Editando micro-meta'
-        show_this_micro_goal: 'Visualizar esta micro-meta'
-        back_to_micro_goals: 'Voltar para as micro-metas'
-      micro_goal:
-        micro_goal_title: 'Micro-meta'
-        show_task_for_this_micro_goal: 'Visualizar tarefa para esta micro-meta'
-        no_tasks_available_for_this_micro_goal: 'Nenhuma tarefa disponível para esta micro-meta'
-      form:
-        micro_goal_label: 'Micro-meta:'
-        errors_prohibited: "Proibiu que esta meta seja salva:"
-        error: "erro"
-        errors: "erros"
-        save: "Salvar"
-    micro_goal_tasks:
-      show:
-        notice: 'Pagina carregada com sucesso'
-        edit: 'Editar esta tarefa'
-        back_to_micro_goal_tasks: 'Voltar para as tarefas'
-        destroy_this_micro_goal_task_button: 'Excluir esta tarefa'
-      new:
-        new_task_title: 'Nova tarefa'
-        back_to_tasks: 'Voltar para as tarefas'
-      index:
-        tasks_title: 'Tarefas'
-        back_to_micro_goals: 'Voltar para Micro-metas'
-        show_this_task: 'Visualizar esta tarefa'
-        create_new_task: 'Criar nova tarefa'
-        show_micro_goal_for_this_task: 'Visualizar esta tarefa para esta micro-meta'
-        edit: 'Editar'
-        destroy: 'Excluir'
-        task_label: 'Tarefa'
-        start_date_label: 'Data de início'
-        end_date_label: 'Data de término'
-        percentage_label: 'Porcentagem'
-      edit:
-        edit_title: 'Editando tarefa'
-        show_task: 'Visualizar esta tarefa'
-        back_link: 'Voltar para as tarefas'
-      micro_goal_task:
-        task_label: 'Tarefa'
-        start_date_label: 'Data de início:'
-        end_date_label: 'Data de término:'
-        percentage_label: 'Porcentagem:'
-      form:
-        micro_goal_label: 'Micro-meta'
-        task_label: 'Tarefa'
-        start_date_label: 'Data de início'
-        end_date_label: 'Data de término'
-        percentage_label: 'Porcentagem'
-        errors_prohibited: 'proibiu que esta tarefa seja salva:'
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%u %n"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: R$
+    format:
+      delimiter: "."
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion:
+            one: bilhão
+            other: bilhões
+          million:
+            one: milhão
+            other: milhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+          thousand: mil
+          trillion:
+            one: trilhão
+            other: trilhões
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          eb: EB
+          gb: GB
+          kb: KB
+          mb: MB
+          pb: PB
+          tb: TB
+    percentage:
+      format:
+        delimiter: "."
+        format: "%n%"
+    precision:
+      format:
+        delimiter: "."
+  support:
+    array:
+      last_word_connector: " e "
+      two_words_connector: " e "
+      words_connector: ", "
+  time:
+    am: ''
+    formats:
+      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      long: "%d de %B de %Y, %H:%M"
+      short: "%d de %B, %H:%M"
+    pm: ''

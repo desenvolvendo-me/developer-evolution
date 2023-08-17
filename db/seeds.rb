@@ -54,6 +54,28 @@ if Rails.env.development?
 
   student.save!
 
+  # Furure generator
+  Routine.create(day_of_the_week: "segunda", hour: "12:00", activity: "almoço", priority: "1", student: student)
+  Routine.create(day_of_the_week: "segunda", hour: "18:00", activity: "Estudo", priority: "1", student: student)
+
+  # Future mission:
+  Thought.create(level: "1", type_thought: "positive", description: "Inicio com empolgação na mentoria pelas primeiras vezes", student: student)
+  Thought.create(level: "1", type_thought: "positive", description: "Não aproveitar as oportunidades de tirar dúvida na mentoria", student: student)
+  Thought.create(level: "2", type_thought: "positive", description: "Através das mentorias e reuniões, consigo bons contatos", student: student)
+  Thought.create(level: "2", type_thought: "positive", description: "Não consegui aprender com as atividades e cursos", student: student)
+
+  purpose = Purpose.new
+  purpose.student_id = Student.last.id
+  purpose.version = "1"
+  purpose.save!
+
+  purpose_question = PurposeQuestion.new
+  purpose_question.purpose_id = Purpose.last.id
+  purpose_question.type_question = "Porque?"
+  purpose_question.description = "Porque quer programar?"
+  purpose_question.answer = "Pra ter instabilidade"
+  purpose_question.save!
+
   # Future mission:
   goal_1 = Goal.create(description: "Git", student: student)
   goal_2 = Goal.create(description: "Ruby", student: student)
@@ -127,7 +149,6 @@ if Rails.env.development?
   # Seed para Course
   course_1 = Course.create(type_course: "Git/GitHub", student: student)
   course_2 = Course.create(type_course: "Lógica de programação", student: student)
-  # ... adicione mais cursos conforme necessário ...
 
   # Seed para CourseBasic
   CourseBasic.create(

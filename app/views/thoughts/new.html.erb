@@ -1,0 +1,10 @@
+<h1>Criando <%= Thought.model_name.human %></h1>
+<hr>
+<%= render "form", thought: @thought %>
+
+<br>
+
+<div>
+<hr>
+  <%= link_to t('thoughts.view.back'), thoughts_path %>
+</div>

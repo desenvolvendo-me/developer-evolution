@@ -1,0 +1,33 @@
+<%= form_with model: [@purpose, purpose_question] do |form| %>
+  <% if @purpose_question.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@purpose_question.errors.count, "error") %> prohibited this purpose_question from being saved:</h2>
+
+      <ul>
+        <% @purpose_question.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :type_question, t('purposes_question.form.type_question'), style: "display: block" %>
+    <%= form.select :type_question, options_for_select(PurposeQuestion.type_question), required: true %>
+  </div>
+  <br>
+
+  <div>
+    <%= form.label :description, t('purposes_question.form.description'), style: "display: block" %>
+    <%= form.select :description, options_for_select(PurposeQuestion.description), required: true %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :answer, t('purposes_question.form.answer'), style: "display: block" %>
+    <%= form.text_area :answer, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

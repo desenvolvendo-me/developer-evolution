@@ -1,0 +1,32 @@
+<%= form_with(model: thought) do |form| %>
+  <% if thought.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(thought.errors.count, "error") %> prohibited this thought from being saved:</h2>
+
+      <ul>
+        <% thought.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :level %>:
+    <%= form.select :level, Thought::LEVEL_OPTIONS %>
+  </div>
+
+  <div>
+    <%= form.label :type_thought  %>:
+    <%= form.select :type_thought, options_for_select(Thought.type_thoughts.map { |type_thought, _value| [t("enums.thought.type_thoughts.#{type_thought}"), type_thought] }), include_blank: true %>
+  </div>
+
+  <div>
+    <%= form.label :description %>:
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
