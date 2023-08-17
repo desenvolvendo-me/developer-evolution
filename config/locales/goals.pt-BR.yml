@@ -1,0 +1,75 @@
+pt-BR:
+  goal:
+    show:
+      show_goal_question: Mostrar perguntas desta meta
+      edit_this_goal: Editar esta meta
+      back_to_goals: Voltar para metas
+      destroy_this_goal: Apagar esta meta
+      goal_successfully_created: Meta criada com sucesso
+    goal:
+      description: Descrição
+      student: Aluno
+    new:
+      new_goal: Nova Meta
+      back_to_goals: Voltar para metas
+      create: Criar meta
+    form:
+      description: Descrição
+      student: Aluno
+      prohibited_this_goal_from_being_saved: Meta não pode ser salva
+    edit:
+      title: Editando meta
+      update: Atualizar meta
+      show_this_goal: Mostrar essa meta
+      back_to_goals: Voltar para metas
+    index:
+      title: Metas
+      show_this_goal: Mostrar essa meta
+      new_goal: Nova meta
+      goal_and_associated_questions_were_successfully_desctroyed: Meta e suas perguntas foram apagadas com sucesso
+  goal_question:
+    index:
+      show_goal_for_this_goal_question: Mostrar meta desta pergunta
+      edit_this_goal_question: Editar esta pergunta
+      back_to_goals: Voltar para metas
+      destroy_this_goal_question: Apagar esta pergunta
+      new_goal_question_for_this_goal: Nova pergunta para esta meta
+      goal_question_success_destroyed: Pergunta da meta removida com sucesso
+    goal_question:
+      type_question: Tipo de pergunta
+      description: Descrição
+      answer: Resposta
+      goal: Meta
+    edit:
+      edit_goal_question: Editar esta pergunta
+      show_this_goal_question: Mostrar essa pergunta
+      back_to_goal_questions: Voltar para perguntas
+      update: Atualizar
+    form:
+      type_question: Tipo de pergunta
+      description: Descrição
+      answer: Resposta
+      goal: Meta
+      prohibited_this_goal_question_from_being_saved: Pergunta da meta não pode ser salva
+    new:
+      new_goal_question: Nova pergunta
+      create: Criar
+      back_to_goal_questions: Voltar para perguntas
+    show:
+      back_to_goal_questions: Voltar para perguntas
+      destroy_this_goal_question: Apagar esta pergunta
+      update_success: "Pergunta da meta atualizada com sucesso"
+    type_question_options:
+      - Detalhe
+      - Métrica
+      - Tempo
+    description:
+      - O que eu desejo alcançar?
+      - Por que essa meta é importante
+      - Quem são os envolvidos?
+      - Quais são os recursos necessários?
+      - Quais são os resultados esperados, em termos quantitativos?
+      - Como vou saber se foi alcançada?
+      - Quais métricas podem ser usadas para acompanhar os resultados?
+      - Qual é o prazo máximo para atingir?
+      - Qual é o prazo mínimo para atingir?

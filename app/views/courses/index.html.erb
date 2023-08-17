@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1><%= t('view.courses') %></h1>
+
+<div id="courses">
+  <% @courses.each do |course| %>
+    <%= render course %>
+    <p>
+      <%= link_to t('view.show_course'), course %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to t('view.new_course'), new_course_path %>

@@ -1,0 +1,9 @@
+<h1><%= t('course_basics.view.new_course_basic') %></h1>
+
+<%= render "form", course_basic: @course_basic %>
+
+<br>
+
+<div>
+  <%= link_to t('course_basics.view.back_to_courses'), course_course_basics_path(@course) %>
+</div>
