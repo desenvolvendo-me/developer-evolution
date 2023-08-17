@@ -1,0 +1,3 @@
+<h1><%= t('script.script_questions.new.title') %></h1>
+<%= render 'form', script_question: @script_question %>
+<%= link_to t('script.script_questions.index.back'), script_path(@script_question.script) %>

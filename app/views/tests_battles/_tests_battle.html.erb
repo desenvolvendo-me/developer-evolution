@@ -1,0 +1,6 @@
+<p><strong>Milestone Release Link:</strong> <%= @tests_battle.milestone_release_link %></p>
+<p><strong>Pull Request Release Link:</strong> <%= @tests_battle.pull_request_release_link %></p>
+
+<p>
+  <%= link_to 'Edit', edit_test_tests_battle_path(@test, @tests_battle) %> |
+<%= link_to 'Back', test_tests_battles_path(@test) %>

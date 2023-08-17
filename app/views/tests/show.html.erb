@@ -1,0 +1,21 @@
+<h1><%= t('test.show.title') %></h1>
+
+<p><strong><%= t('test.show.repository_link') %>:</strong> <%= @test.repository_link %></p>
+<p><strong><%= t('test.show.project_link') %>:</strong> <%= @test.project_link %></p>
+<p><strong><%= t('test.show.readme_link') %>:</strong> <%= @test.readme_link %></p>
+
+<p>
+  <%= link_to t('test.show.edit'), edit_test_path(@test) %> |
+  <%= link_to t('test.show.back'), tests_url %>
+</p>
+
+<%= link_to t('test.show.new_battle'), new_test_tests_battle_path(@test) %>
+
+<h2>Batalhas: </h2>
+<% @test.tests_battles.each do |tests_battle| %>
+  <p><strong><%= t('test_battle.show.milestone_release_link') %>:</strong> <%= tests_battle.milestone_release_link %></p>
+  <p><strong><%= t('test_battle.show.pull_request_release_link') %>:</strong> <%= tests_battle.pull_request_release_link %></p>
+
+  <%= link_to t('test_battle.show.edit_battle'), edit_test_tests_battle_path(@test, tests_battle) %> |
+  <%= link_to t('test_battle.show.back_to_battles'), test_tests_battles_path(@test) %>
+<% end %>
