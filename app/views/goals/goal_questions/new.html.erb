@@ -1,0 +1,9 @@
+<h1><%= t('goal_question.new.new_goal_question') %>:</h1>
+<hr>
+<%= render "form", goal_question: @goal_question, button_label: t("goal_question.new.create") %>
+
+<br>
+
+<div>
+  <%= link_to t("goal_question.new.back_to_goal_questions"), goal_goal_questions_path(@goal) %>
+</div>

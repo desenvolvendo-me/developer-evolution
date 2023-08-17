@@ -54,6 +54,13 @@ if Rails.env.development?
 
   student.save!
 
+  # Future mission:
+  goal_1 = Goal.create(description: "Git", student: student)
+  goal_2 = Goal.create(description: "Ruby", student: student)
+
+  GoalQuestion.create(type_question: "Detalhe", description: "O que eu desejo alcançar?", answer: "Concluir o curso de Git", goal: goal_1)
+  GoalQuestion.create(type_question: "Tempo", description: "Qual é o prazo máximo para atingir?", answer: "uma semana", goal: goal_2)
+
   # Future Mission:
   micro_goal_1 = MicroGoal.create(micro_goal: "Estudar Git e Github", student: student )
   micro_goal_2 = MicroGoal.create(micro_goal: "Estudar Banco de dados", student: student )

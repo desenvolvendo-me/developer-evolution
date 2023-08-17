@@ -4,9 +4,10 @@
 #
 #  id         :bigint           not null, primary key
 #  micro_goal :string
+#  string     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  student_id :bigint
+#  student_id :bigint           not null
 #
 # Indexes
 #
