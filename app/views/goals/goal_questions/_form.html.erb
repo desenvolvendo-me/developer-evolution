@@ -1,0 +1,37 @@
+<%= form_with(model: [@goal, goal_question], local: true) do |form| %>
+  <% if goal_question.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(goal_question.errors.count, "error") %> <%= t('goal_question.form.prohibited_this_goal_question_from_being_saved') %>:</h2>
+
+      <ul>
+        <% goal_question.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :goal_id, t('goal_question.form.goal'), style: "display: block" %>
+    <%= form.text_field :goal_id %>
+  </div>
+
+  <div>
+    <%= form.label :type_question, t('goal_question.form.type_question'), style: "display: block" %>
+    <%= form.select :type_question, t('goal_question.type_question_options'), prompt: true %>
+  </div>
+
+  <div>
+    <%= form.label :description, t('goal_question.form.description'), style: "display: block" %>
+    <%= form.select :description, t('goal_question.description') %>
+  </div>
+
+  <div>
+    <%= form.label :answer, t('goal_question.form.answer'), style: "display: block" %>
+    <%= form.text_field :answer %>
+  </div>
+
+  <div>
+    <%= form.submit button_label %>
+  </div>
+<% end %>

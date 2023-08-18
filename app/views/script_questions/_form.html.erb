@@ -1,0 +1,27 @@
+<%= form_with(model: [script_question.script, script_question]) do |form| %>
+  <% if script_question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(script_question.errors.count, "error") %> <%= t('script.script_questions.form.error') %>:</h2>
+
+      <ul>
+        <% script_question.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category, t('script.script_questions.form.question')+':' %>
+    <%= form.select :category, ScriptQuestion::QUESTIONS %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description, t('script.script_questions.form.description')+':' %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

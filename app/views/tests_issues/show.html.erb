@@ -1,0 +1,6 @@
+<h1>Issue</h1>
+<p><strong><%= t('test_issue.form.issue_link') %>:</strong> <%= @tests_issue.issue_link %></p>
+<p><strong><%= t('test_issue.form.pull_request_link') %>:</strong> <%= @tests_issue.pull_request_link %></p>
+
+<%= link_to t('test.show.edit'), edit_test_tests_battle_tests_issue_path(@test, @tests_battle, @tests_issue) %> |
+<%= link_to t('test.show.back'), test_tests_battle_tests_issues_path(@test, @tests_battle) %>

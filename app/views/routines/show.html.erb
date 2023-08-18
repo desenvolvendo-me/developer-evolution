@@ -1,0 +1,11 @@
+<h1><%= t('views.routines.show.title_label') %>:</h1>
+<hr>
+<p><strong><%= t('views.routines.show.day_of_the_week') %>:</strong> <%= @routine.day_of_the_week %></p>
+<p><strong><%= t('views.routines.show.hour') %>:</strong> <%= @routine.hour %></p>
+<p><strong><%= t('views.routines.show.activity') %>:</strong> <%= @routine.activity %></p>
+<p><strong><%= t('views.routines.show.priority') %>:</strong> <%= @routine.priority %></p>
+<hr>
+<div class="actions">
+  <%= link_to t('views.routines.show.edit_label'), edit_routine_path(@routine), class: 'btn btn-primary' %> |
+  <%= link_to t('views.routines.show.back_to_routines'), routines_path, class: 'btn btn-secondary' %>
+</div>

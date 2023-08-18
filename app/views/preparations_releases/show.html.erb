@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+<h2> <%= t('preparation_release.show.title') %> ##{<%= @preparations_release.id %>}</h2>
+<p>Milestone Release Link: <%= @preparations_release.milestone_release_link %></p>
+<p>Pull Request Release Link: <%= @preparations_release.pull_request_release_link %></p>
+<%= link_to t('preparation_release.show.edit'), edit_preparation_preparations_release_path(@preparation, @preparations_release) %> |
+<%= link_to t('preparation_release.show.back'), preparation_preparations_releases_path(@preparation) %>
+<br>
+<br>
+<%= link_to t('preparation_release.show.new_issue'), new_preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release) %>
+
+<h3>Issues: </h3>
+<ul>
+  <% @preparations_release.preparations_issues.each do |issue| %>
+    <li>
+      <%= "Issue ##{issue.id}" %> |
+      <%= link_to t('preparation.index.show'), preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue) %> |
+      <%= link_to t('preparation.index.edit'), edit_preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue) %>
+      <%= button_to t('preparation.index.destroy'), preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue),
+                  method: :delete, data: { confirm: t('preparation.index.sure') } %>
+    </li>
+  <% end %>
+</ul>

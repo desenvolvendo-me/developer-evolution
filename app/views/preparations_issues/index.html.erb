@@ -1,0 +1,14 @@
+<h3>Issues</h3>
+<ul>
+  <% @preparations_issues.each do |issue| %>
+    <li>
+      <%= "Issue ##{issue.id}" %> |
+      <%= link_to t('preparation.index.show'), preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue) %> |
+      <%= link_to t('preparation.index.edit'), edit_preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue) %> |
+      <%= button_to t('preparation.index.destroy'), preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release, issue),
+                  method: :delete, data: { confirm: t('preparation.index.sure') } %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to t('preparation_release.show.new_issue'), new_preparation_preparations_release_preparations_issue_path(@preparation, @preparations_release) %> |
+<%= link_to t('preparation_issue.index.back'), preparation_preparations_release_path(@preparation, @preparations_release) %>

@@ -63,11 +63,23 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Student < ApplicationRecord
-  belongs_to :user
-  has_many :practices
-
   extend FriendlyId
   friendly_id :login, use: :slugged
+
+  belongs_to :user
+  has_many :practices
+  has_many :thoughts
+  has_many :scripts
+  has_many :interviews
+  has_many :tests
+  has_many :preparations
+  has_many :routines
+  has_many :purposes
+  has_many :experiences
+  has_many :micro_goals
+  has_many :goals
+  has_many :objectives
+  has_many :courses
 
   enum type_career: { technology: "technology", not_technology: "not_technology" }, _suffix: true
   enum level_potential: { low: "low", medium: "medium", high: "high", almost_goal: "almost_goal", goal: "goal", not_started: "not_started", no_testimony: "no_testimony", gave_up_career: "gave_up_career", gave_up_mentoring: "gave_up_mentoring" }, _suffix: true

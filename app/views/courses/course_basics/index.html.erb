@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<%= link_to t('course_basics.view.back_to_courses'), courses_path(@course) %>
+
+<h1><%= t('course_basics.view.course_basics') %>:</h1>
+
+<div id="course_basics">
+  <% @course_basics.each do |course_basic| %>
+    <%= render course_basic %>
+    <p>
+    <%= link_to t('course_basics.view.show_course_basic'), course_course_basic_path(@course, course_basic) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to t('course_basics.view.new_course_basic'), new_course_course_basic_path(@course) %>

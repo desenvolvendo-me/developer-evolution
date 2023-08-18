@@ -1,0 +1,22 @@
+<%= form_with(model: micro_goal) do |form| %>
+  <% if micro_goal.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(micro_goal.errors.count, "error") %> <%= t('views.micro_goals.form.errors_prohibited') %>:</h2>
+
+      <ul>
+        <% micro_goal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :micro_goa, t('views.micro_goals.form.micro_goal_label'), style: "display: block" %>
+    <%= form.text_field :micro_goal %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

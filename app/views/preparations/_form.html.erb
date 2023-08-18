@@ -1,0 +1,19 @@
+<%= form_with(model: preparation, local: true) do |form| %>
+  <div>
+    <%= form.label :name, t('preparation.form.name') %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :repository_link, t('preparation.form.repository_link') %>
+    <%= form.text_field :repository_link %>
+  </div>
+  <div>
+    <%= form.label :project_link, t('preparation.form.project_link') %>
+    <%= form.text_field :project_link %>
+  </div>
+  <div>
+    <%= form.label :readme_link, t('preparation.form.readme_link') %>
+    <%= form.text_field :readme_link %>
+  </div>
+  <%= form.submit %>
+<% end %>

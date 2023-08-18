@@ -1,0 +1,22 @@
+<%= form_with(model: [@interview_video.interview, @interview_video]) do |form| %>
+  <% if @interview_video.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@interview_video.errors.count, "error") %> <%= I18n.t('interview.interview_videos.view_form.error') %>:</h2>
+
+      <ul>
+        <% @interview_video.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :video_link, style: "display: block" %>
+    <%= form.text_field :video_link %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

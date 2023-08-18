@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @interview_video %>
+
+<div>
+  <%= link_to I18n.t('interview.interview_videos.edit'), edit_interview_interview_video_path(@interview,@interview_video) %> |
+  <%= link_to I18n.t('interview.interview_videos.back'), interview_interview_videos_path %>
+
+  <%= button_to I18n.t('interview.interview_videos.destroy'), [@interview,@interview_video], method: :delete %>
+</div>

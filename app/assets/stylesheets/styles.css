@@ -1,0 +1,36 @@
+.schedule-table {
+  border-collapse: collapse;
+  width: 80%;
+}
+
+.schedule-table th, .schedule-table td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+
+.schedule-table2 {
+  border-collapse: collapse;
+  width: 8%;
+}
+
+.schedule-table2 th,
+.schedule-table2 td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center; /* Adiciona esta linha para centralizar o texto */
+}
+
+.hour-column {
+  background-color: yellow;
+}
+
+.schedule-table td.hour-cell {
+  padding: 8px;
+  text-align: center;
+}
+
+.schedule-table td.hour-gray {
+  background-color: gray;
+  color: white;
+}

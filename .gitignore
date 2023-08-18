@@ -32,5 +32,6 @@
 
 .idea
 db/schema.rb
+/test
 /app/assets/builds/*
 !/app/assets/builds/.keep

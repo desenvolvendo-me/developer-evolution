@@ -1,0 +1,12 @@
+<p>
+  <strong><%= t('script.script_questions.Question') %>: </strong>
+  <%= script_question.category %>
+</p>
+<p>
+  <strong><%= t('script.script_questions.Description') %>: </strong>
+  <%= script_question.description %>
+</p>
+<p>
+  <%= link_to t('script.index.edit'), edit_script_script_question_path(script_question.script, script_question) %>
+  <%= button_to t('script.script_questions.destroy'), script_script_question_path(script_question.script, script_question), method: :delete, data: { confirm: t('script.script_questions.index.sure')} %>
+</p>
