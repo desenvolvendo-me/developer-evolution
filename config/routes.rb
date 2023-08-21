@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'workouts/lesson'
 
   get ':login', to: 'students#show', as: :profile
+  get ':login/edit', to: 'students#edit'
+  patch ':login', to: 'students#update'
   get ':login/ballast', to: 'students#ballast', as: :ballast
 
   resources :thoughts
