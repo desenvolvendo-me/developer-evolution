@@ -1,0 +1,7 @@
+pt-BR:
+  student:
+    view:
+      edit:
+        button: "Atualizar"
+    controller:
+      update: "Dados do estudante atualizados com sucesso!"
