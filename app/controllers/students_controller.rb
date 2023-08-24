@@ -36,7 +36,8 @@ class StudentsController < ApplicationController
       :profile_discord,
       :github_link,
       :wakatime_link,
-      :linkedin_link
+      :linkedin_link,
+      :time_available
     )
   end
 
