@@ -5,6 +5,10 @@ class PortfolioReleasesController < ApplicationController
     @portfolio_releases = @portfolio.portfolio_releases
   end
 
+  def index
+    @portfolio_releases = Portfolio.portfolio_releases
+  end
+
   def new
     @portfolio_release = @portfolio.portfolio_releases.build
   end
