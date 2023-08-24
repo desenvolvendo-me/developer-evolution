@@ -1,0 +1,24 @@
+pt-BR:
+  activerecord:
+    attributes:
+      student:
+        type_career:
+          technology: "Tecnologia"
+          not_technology: "Não Tecnologia"
+  student:
+    view:
+      edit:
+        title: "Atualizando informações de"
+        button: "Atualizar"
+        field:
+          name: "Nome"
+          type_of_carreer: "Tipo de carreira"
+          description_of_carreer: "Descrição da carreira"
+          salary: "Salário"
+          discord_profile: "Link do perfil do discord"
+          github_link: "Link do perfil do GitHub"
+          wakatime_link: "Link do perfil do Wakatime"
+          linkedin_link: "Link do perfil do LinkedIn"
+          time_available: "Tempo disponível (em horas)"
+    controller:
+      update: "Dados do estudante atualizados com sucesso!"
