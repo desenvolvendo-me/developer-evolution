@@ -262,5 +262,39 @@ if Rails.env.development?
     number_of_course: "2",
     course: course_2
   )
+
+  # Create Portfolio
+  portfolio = Portfolio.create(
+    name: 'Hotelaria',
+    repository_link: 'https://github.com/user/repo1',
+    project_link: 'https://github.com/user/repo1/projects/1',
+    readme_link: 'https://github.com/user/repo1/blob/main/README.md',
+    student: student
+  )
+  portfolios_release = portfolio.portfolio_releases.create(
+    milestone_release_link: 'https://github.com/user/repo1/milestones/123',
+    pull_request_release_link: 'https://github.com/user/repo1/pull/123'
+  )
+  portfolios_release.portfolio_issues.create(
+    issue_link: 'https://github.com/user/repo1/issues/12',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_12"
+  )
+  portfolios_release.portfolio_issues.create(
+    issue_link: 'https://github.com/user/repo1/issues/13',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_13"
+  )
+
+  portfolios_release2 = portfolio.portfolio_releases.create(
+    milestone_release_link: 'https://github.com/user/repo1/milestones/456',
+    pull_request_release_link: 'https://github.com/user/repo1/pull/456'
+  )
+  portfolios_release2.portfolio_issues.create!(
+    issue_link: 'https://github.com/user/repo1/issues/45',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_45"
+  )
+  portfolios_release2.portfolio_issues.create!(
+    issue_link: 'https://github.com/user/repo1/issues/14',
+    pull_request_link: "https://github.com/user/repo1/tree/branch_14"
+  )
 end
 
