@@ -20,5 +20,8 @@
 require 'rails_helper'
 
 RSpec.describe PortfolioRelease, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  # Testar as associações
+  it { should belong_to(:portfolio) }
+  it { should have_many(:portfolio_issues).dependent(:destroy) }
 end

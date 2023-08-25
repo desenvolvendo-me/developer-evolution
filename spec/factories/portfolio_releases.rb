@@ -18,9 +18,9 @@
 #  fk_rails_...  (portfolio_id => portfolios.id)
 #
 FactoryBot.define do
-  factory :portfolio_release do
+  factory :potfolio_release do
     portfolio { nil }
-    milestone_release_link { "MyString" }
-    pull_request_release_link { "MyString" }
+    milestone_release_link { "https://github.com/user/repo1/milestones/123" }
+    pull_request_release_link { "https://github.com/user/repo1/pull/123" }
   end
 end
