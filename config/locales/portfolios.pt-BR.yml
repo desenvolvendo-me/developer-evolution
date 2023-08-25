@@ -1,0 +1,80 @@
+pt-BR:
+  portfolios:
+    form:
+      name: Nome
+      repository_link: Link do Repositorio
+      project_link: Link do Projeto
+      readme_link: Link do README
+    edit:
+      title: Editar Portfolio
+      show: Mostrar
+      back: Voltar
+    index:
+      title: Portfolios
+      show: Mostrar
+      edit: Editar
+      delete: Excluir
+      are you sure: Tem certeza?
+      new portfolio: Novo Portfolio
+    new:
+      title: Novo Portfolio
+      back: Voltar
+    show:
+      repository_link: Link do Repositorio
+      project link: Link do Projeto
+      readme link: Link do README
+      edit: Editar
+      back: Voltar
+      show: Mostrar
+      delete: Excluir
+      are you sure: tem certeza?
+      create release: Criar Release
+  portfolio_releases:
+    form:
+      milestone_release_link: Link de Milestone Release
+      pull_request_release_link: Link de Pull Request Release
+    edit:
+      title: Editar Portfolio Release
+      show: Mostrar
+      back: Voltar
+    index:
+      title: Portfolio Release
+      show: Mostrar
+      edit: Editar
+      delete: Excluir
+      are you sure: Tem certeza?
+      back to portfolio: Voltar ao Portfolio
+      new portfolio release: Novo Portfolio Release
+    new:
+      title: Novo Portfolio Release
+      back: Voltar
+    show:
+      title: Detalhes da Release
+      edit: Editar
+      back: Voltar
+      show: Mostrar
+      delete: Excluir
+      are you sure: Tem certeza?
+      create issue: Criar Issue
+  portfolio_issues:
+    form:
+      issue_link: Link da Issue
+      pull_request_link: Link do Pull Request da Issue
+    edit:
+      title: Editar Portfolio Issue
+      show: Mostrar
+      back: Voltar
+    index:
+      title: Novo Portfolio Issues
+      edit: Editar
+      delete: Excluir
+      back to portfolio release: Voltar ao Portfolio Release
+      new portfolio issue: Novo Portfolio Release
+      are you sure: Tem certeza?
+    new:
+      title: Novo Portfolio Issue
+      back: Voltar
+    show:
+      title: Detalhes do Issue
+      edit: Editar
+      back: Voltar

@@ -1,5 +1,5 @@
-<h1>New Portfolio Issue</h1>
+<h1><%= t('portfolio_issues.new.title') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', portfolio_portfolio_release_path(@portfolio, @portfolio_release) %>
+<%= link_to t('.back'), portfolio_portfolio_release_path(@portfolio, @portfolio_release) %>

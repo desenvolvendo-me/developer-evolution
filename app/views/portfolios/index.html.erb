@@ -1,14 +1,14 @@
-<h1>Portfolios</h1>
+<h1><%= t('portfolios.index.title') %></h1>
 
 <ul>
   <% @portfolios.each do |portfolio| %>
     <li>
       <%= portfolio.name %> |
-      <%= link_to 'Show', portfolio_path(portfolio) %> |
-      <%= link_to 'Edit', edit_portfolio_path(portfolio) %> |
-      <%= button_to 'Delete', portfolio_path(portfolio), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to t('portfolios.index.show'), portfolio_path(portfolio) %> |
+      <%= link_to t('portfolios.index.edit'), edit_portfolio_path(portfolio) %> |
+      <%= button_to t('portfolios.index.delete'), portfolio_path(portfolio), method: :delete, data: { confirm: t('portfolios.index.are you sure') } %>
     </li>
   <% end %>
 </ul>
 
-<%= link_to 'New Portfolio', new_portfolio_path %>
+<%= link_to t('portfolios.index.new portfolio'), new_portfolio_path %>
