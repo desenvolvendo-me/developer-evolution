@@ -1,9 +1,6 @@
 class PortfolioReleasesController < ApplicationController
   before_action :set_portfolio
   before_action :set_portfolio_release, only: [:show, :edit, :update, :destroy]
-  def index
-    @portfolio_releases = @portfolio.portfolio_releases
-  end
 
   def index
     @portfolio_releases = Portfolio.portfolio_releases
@@ -26,7 +23,6 @@ class PortfolioReleasesController < ApplicationController
     @portfolio_issues = @portfolio_release.portfolio_issues
   end
 
-  # Other actions similar to PortfoliosController
 
   private
 
@@ -42,3 +38,4 @@ class PortfolioReleasesController < ApplicationController
     params.require(:portfolio_release).permit(:milestone_release_link, :pull_request_release_link)
   end
 end
+

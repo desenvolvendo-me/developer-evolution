@@ -1,22 +1,22 @@
 <p style="color: green"><%= notice %></p>
 <h1><%= @portfolio.name %></h1>
-<p><%= t('portfolios.show.repository_link') %>: <%= @portfolio.repository_link %>></p>
+<p><%= t('portfolios.show.repository link') %>: <%= @portfolio.repository_link %></p>
 <p><%= t('portfolios.show.project link') %>: <%= @portfolio.project_link %></p>
 <p><%= t('portfolios.show.readme link') %>: <%= @portfolio.readme_link %></p>
 
-
-<%= link_to t('portfolios.show.edit'), edit_portfolio_path(@portfolio) %>
+<%= link_to t('portfolios.show.edit'), edit_portfolio_path(@portfolio) %> |
 <%= link_to t('portfolios.show.back'), portfolios_path %>
 
 <h2>Portfolio Releases</h2>
 <ul>
   <% @portfolio_releases.each do |release| %>
     <li>
-      <%= "Release ##{release.id}" %> |
-      <%= link_to t('.show'), portfolio_portfolio_release_path(@portfolio, release) %> |
-      <%= link_to t('portfolio.index.edit'), edit_portfolio_portfolio_release_path(@portfolio, release) %> |
-      <%= button_to t('portfolios.index.delete'), portfolio_portfolio_release_path(@portfolio, release), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= "Release ##{release.id}" %>
+      <%= link_to t('portfolio_releases.show.show'), portfolio_portfolio_release_path(@portfolio, release) %> |
+      <%= link_to t('portfolios.index.edit'), edit_portfolio_portfolio_release_path(@portfolio, release) %> |
+      <%= button_to t('portfolios.index.delete'), portfolio_portfolio_release_path(@portfolio, release), method: :delete, data: { confirm: t('.are you sure') } %>
     </li>
   <% end %>
 </ul>
-<%= link_to t('portfolios.show.create release'), new_portfolio_portfolio_release_path(@portfolio) %>
+<%= link_to t('.create release'), new_portfolio_portfolio_release_path(@portfolio) %>
+

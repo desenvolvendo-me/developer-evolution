@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
 
   get ':login', to: 'students#show', as: :profile
   get ':login/ballast', to: 'students#ballast', as: :ballast
+  get ':login/portfolios', to: 'portfolios#index'
 
   resources :thoughts
   resources :routines
