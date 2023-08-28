@@ -5,6 +5,11 @@ pt-BR:
     edit_title: Editando
     form_view:
       error: proibiu esse objetivo de ser salvo
+    index_view:
+      type_question: Tipo de questão
+      description: Pergunta
+      answer: Resposta
+      actions: Ações
     show: Mostrar
     new: Criar novo objetivo
     edit: Editar
@@ -32,7 +37,3 @@ pt-BR:
         create_success: Pergunta cadastrada com sucesso
         update_success: Pergunta atualizada com sucesso
         destroy_success: Pergunta apagada com sucesso
-  helper:
-    submit:
-      create: Criar objetivo
-      update: Atualizar objetivo
