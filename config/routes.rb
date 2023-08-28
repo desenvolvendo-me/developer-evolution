@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'workouts/lesson'
 
+  resources :objectives do
+    resources :objective_questions
+  end
+
   get ':login', to: 'students#show', as: :profile
   get ':login/edit', to: 'students#edit'
   patch ':login', to: 'students#update'
@@ -32,9 +36,7 @@ Rails.application.routes.draw do
     resources :course_basics, module: :courses
   end
 
-  resources :objectives do
-    resources :objective_questions
-  end
+
 
   resources :goals do
     resources :goal_questions, module: :goals
