@@ -1,5 +1,5 @@
 class ExperiencesController < ApplicationController
-  before_action :set_experience, only: [:show, :update]
+  before_action :set_experience, only: [:show, :update, :edit , :destroy]
   def index
     @experiences = current_user.student.experiences.all
   end
@@ -14,12 +14,15 @@ class ExperiencesController < ApplicationController
       redirect_to action: :show, id: @experience.id
     else
       flash[:alert] = @experience.errors.full_messages.join('. ')
-      redirect_to experiences_path
+      render :new
     end
   end
 
   def show
 
+  end
+
+  def edit
   end
 
   def update
@@ -30,14 +33,24 @@ class ExperiencesController < ApplicationController
       redirect_to action: :edit
     end
   end
+
+  def destroy
+    # TODO: fix this delete method error, possibly on the link of view show, (delete)
+    if @experience
+      @experience.destroy
+      redirect_to experiences_url, notice: I18n.t('experience.controller.flash_delete')
+    else
+      redirect_to experiences_url, notice: "Experience not found"
+    end
+  end
   private
 
   def experience_params
-    params.require(:experience).permit(:student_id, :content, :category, :level, :week)
+    params.require(:experience).permit(:content, :category, :level, :week)
   end
 
   def set_experience
-    @experience = current_user.student.experiences.find(params[:id])
+    @experience = current_user.student.experiences.find_by(id: params[:id])
   end
 
 end
