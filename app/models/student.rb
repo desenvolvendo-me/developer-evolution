@@ -4,11 +4,12 @@
 #
 #  id                        :bigint           not null, primary key
 #  challenge                 :integer
-#  class_name                :string
+#  class_description         :string
 #  class_progress            :integer
 #  description_career        :string
 #  enrollment_date           :date
-#  github_commit             :integer
+#  github_commit_average     :integer
+#  github_commit_total       :integer
 #  github_intensity          :string
 #  github_link               :string
 #  knowledge                 :string
@@ -19,6 +20,7 @@
 #  linkedin_intensity        :string
 #  linkedin_link             :string
 #  linkedin_post_last_month  :integer
+#  login                     :string
 #  meeting_last              :date
 #  meeting_link              :string
 #  meeting_next              :date
@@ -40,16 +42,20 @@
 #  profile_discord           :string
 #  profile_hotmart           :string
 #  salary                    :float
+#  slug                      :string
+#  time_available            :integer          default(2)
 #  type_career               :string
+#  wakatime_activity_average :integer
+#  wakatime_activity_total   :integer
 #  wakatime_intensity        :string
 #  wakatime_link             :string
-#  wakatime_time             :integer
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null
 #  user_id                   :bigint           not null
 #
 # Indexes
 #
+#  index_students_on_slug     (slug) UNIQUE
 #  index_students_on_user_id  (user_id)
 #
 # Foreign Keys
