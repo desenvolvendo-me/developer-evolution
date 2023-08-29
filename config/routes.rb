@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'workouts/lesson'
 
+  resources :experiences
+
   get ':login', to: 'students#show', as: :profile
   get ':login/edit', to: 'students#edit'
   patch ':login', to: 'students#update'
@@ -14,7 +16,6 @@ Rails.application.routes.draw do
 
   resources :thoughts
   resources :routines
-  resources :experiences
 
   resources :scripts do
     resources :script_questions
