@@ -1,37 +1,40 @@
-<%= form_with(model: experience) do |form| %>
-  <% if experience.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
+    <%= form_with(model: experience) do |form| %>
+      <% if experience.errors.any? %>
+        <div class="text-red-600 mb-4">
+          <h2 class="text-lg font-bold"><%= pluralize(experience.errors.count, "error") %> <%= I18n.t('experience.form.error') %>:</h2>
+          <ul class="list-disc pl-5">
+            <% experience.errors.each do |error| %>
+              <li class="text-sm"><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-      <ul>
-        <% experience.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <div class="mb-4">
+        <%= form.label :content, I18n.t('activerecord.attributes.experience.content'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.text_area :content, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+      </div>
 
-  <div>
-    <%= form.label :content, I18n.t('activerecord.attributes.experience.content'), style: "display: block" %>
-    <%= form.text_area :content %>
+      <div class="mb-4">
+        <%= form.label :category, I18n.t('experience.form.category_label'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.select :category, options_for_select(Experience::CATEGORY.map { |c| [t("experience.categories.#{c}"), c] }), {}, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :level, I18n.t('activerecord.attributes.experience.level'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.select :level, options_for_select(Experience::LEVEL_OPTIONS), {}, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :week, I18n.t('activerecord.attributes.experience.week'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.select :week, options_for_select(Experience::WEEK_OPTIONS), {}, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+      </div>
+
+      <div class="flex items-center space-x-4">
+        <%= form.submit experience.persisted? ? t('helpers.submit.update') : t('helpers.submit.create'), class: "bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full cursor-pointer" %>
+      </div>
+    <% end %>
   </div>
-
-  <div>
-    <%= form.label :category, t('experience.form.category_label') %>
-    <%= form.select :category, options_for_select(Experience::CATEGORY.map { |c| [t("experience.categories.#{c}"), c] }) %>
-  </div>
-
-  <div>
-    <%= form.label :level, t('activerecord.attributes.experience.level') %>
-    <%= form.select :level, options_for_select(Experience::LEVEL_OPTIONS) %>
-  </div>
-
-  <div>
-    <%= form.label :week, t('experience.form.week_label') %>
-    <%= form.select :week, options_for_select(Experience::WEEK_OPTIONS) %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>

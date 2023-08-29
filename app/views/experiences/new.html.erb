@@ -1,9 +1,13 @@
-<h1><%= I18n.t('experience.new') %></h1>
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+      <%= I18n.t('experience.new') %>
+    </h1>
 
-<%= render "form", experience: @experience %>
+    <%= render "form", experience: @experience %>
 
-<br>
-
-<div>
-  <%= link_to I18n.t('experience.back'), experiences_path %>
-</div>
+    <div class="mt-8">
+      <%= link_to I18n.t('experience.back'), experiences_path, class: "text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-blue-900"  %>
+    </div>
+  </div>
+</section>
