@@ -1,0 +1,8 @@
+<p style="color: green"><%= notice %></p>
+<h1><%= t('portfolio_issues.show.title') %></h1>
+<p><%= t('portfolio_issues.form.issue_link') %>: <%= @portfolio_issue.issue_link %></p>
+<p><%= t('portfolio_issues.form.pull_request_link') %>: <%= @portfolio_issue.pull_request_link %></p>
+
+<%= link_to t('.edit'), edit_portfolio_portfolio_release_portfolio_issue_path(@portfolio, @portfolio_release, @portfolio_issue) %> |
+<%= link_to t('.back'), portfolio_portfolio_release_path(@portfolio, @portfolio_release) %>
+

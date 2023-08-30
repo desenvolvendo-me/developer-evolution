@@ -1,0 +1,6 @@
+<h1><%= t('portfolio_issues.edit.title') %></h1>
+
+<%= render 'form' %>
+
+<%= link_to t('.show'), portfolio_portfolio_release_portfolio_issue_path(@portfolio, @portfolio_release, @portfolio_issue) %> |
+<%= link_to t('.back'), portfolio_portfolio_release_path(@portfolio, @portfolio_release) %>

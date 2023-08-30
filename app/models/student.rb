@@ -72,6 +72,7 @@ class Student < ApplicationRecord
   has_many :scripts
   has_many :interviews
   has_many :tests
+  has_many :portfolios
   has_many :preparations
   has_many :routines
   has_many :purposes

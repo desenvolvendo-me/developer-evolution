@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'workouts/lesson'
 
-  get ':login', to: 'students#show', as: :profile
+  get '/profile/:login', to: 'students#show', as: :profile
   get ':login/ballast', to: 'students#ballast', as: :ballast
+  get ':login/portfolios', to: 'portfolios#index'
 
   resources :thoughts
   resources :routines
@@ -47,6 +48,12 @@ Rails.application.routes.draw do
   resources :preparations do
     resources :preparations_releases do
       resources :preparations_issues
+    end
+  end
+
+  resources :portfolios do
+    resources :portfolio_releases do
+      resources :portfolio_issues
     end
   end
 end

@@ -1,0 +1,15 @@
+<h1>Portfolio Releases</h1>
+
+<ul>
+  <% @portfolio_releases.each do |release| %>
+    <li>
+      <%= release.milestone_release_link %> |
+      <%= link_to t('.show'), portfolio_portfolio_release_path(@portfolio, release) %> |
+      <%= link_to t('.edit'), edit_portfolio_portfolio_release_path(@portfolio, release) %> |
+      <%= button_to t('.delete'), portfolio_portfolio_release_path(@portfolio, release), method: :delete, data: { confirm: t('.are you sure') } %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to t('.back to portfolio'), portfolio_path(@portfolio) %> |
+<%= link_to t('.new portfolio release'), new_portfolio_portfolio_release_path(@portfolio) %>

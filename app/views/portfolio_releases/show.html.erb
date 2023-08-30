@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+<h1><%= t('portfolio_releases.show.title') %></h1>
+<p><%= t('portfolio_releases.form.milestone_release_link') %>: <%= @portfolio_release.milestone_release_link %></p>
+<p><%= t('portfolio_releases.form.pull_request_release_link') %>: <%= @portfolio_release.pull_request_release_link %></p>
+
+<%= link_to t('.edit'), edit_portfolio_portfolio_release_path(@portfolio, @portfolio_release) %> |
+<%= link_to t('.back'), portfolio_path(@portfolio) %>
+
+<h2>Issues</h2>
+<ul>
+  <% @portfolio_issues.each do |issue| %>
+    <li>
+      <%= "Issue ##{issue.id}" %> |
+      <%= link_to t('.show'), portfolio_portfolio_release_portfolio_issue_path(@portfolio, @portfolio_release, issue) %> |
+      <%= link_to t('.edit'), edit_portfolio_portfolio_release_portfolio_issue_path(@portfolio, @portfolio_release, issue) %> |
+      <%= button_to t('.delete'), portfolio_portfolio_release_portfolio_issue_path(@portfolio, @portfolio_release, issue), method: :delete, data: { confirm: t('.are you sure') } %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to t('portfolios.show.create release'), new_portfolio_portfolio_release_portfolio_issue_path(@portfolio, @portfolio_release) %>

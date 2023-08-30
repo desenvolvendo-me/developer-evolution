@@ -1,0 +1,2 @@
+module PortfolioReleasesHelper
+end
