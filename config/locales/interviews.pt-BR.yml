@@ -12,7 +12,7 @@ pt-BR:
       create: Criar
       update: Atualizar
   interview:
-    index_title: Entrevista
+    index_title: Entrevistas
     new_title: Nova entrevista
     edit_title: Editando essa entrevista
     form_error: proibiu essa entrevista de ser salva
