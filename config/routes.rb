@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'workouts/lesson'
 
+  resources :interviews do
+    resources :interview_videos
+  end
+
   get ':login', to: 'students#show', as: :profile
   get ':login/edit', to: 'students#edit'
   patch ':login', to: 'students#update'
@@ -20,9 +24,6 @@ Rails.application.routes.draw do
     resources :script_questions
   end
 
-  resources :interviews do
-    resources :interview_videos
-  end
 
   resources :purposes do
     resources :purpose_questions, module: :purposes
