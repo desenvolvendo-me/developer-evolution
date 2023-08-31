@@ -13,8 +13,11 @@ Rails.application.routes.draw do
   get ':login/ballast', to: 'students#ballast', as: :ballast
 
   resources :thoughts
-  resources :routines
   resources :experiences
+
+  resources :students, params: :login do
+    resources :routines
+  end
 
   resources :scripts do
     resources :script_questions
