@@ -1,6 +1,6 @@
 <section class="bg-white dark:bg-gray-900">
   <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
-    <%= form_with(model: [@student, @routine]) do |form| %>
+    <%= form_with(model: @routine) do |form| %>
       <% if @routine.errors.any? %>
         <div class="text-red-600 mb-4">
           <h2 class="text-lg font-bold"><%= pluralize(@routine.errors.count, "error") %> <%= I18n.t('objective.form_view.error') %>:</h2>

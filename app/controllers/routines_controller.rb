@@ -24,7 +24,7 @@ class RoutinesController < ApplicationController
 
     if @routine.save
       flash[:notice] = t('controller.routines.create.notice')
-      redirect_to student_routines_path(@routine)
+      redirect_to routines_path(@routine)
     else
       logger.error @routine.errors.full_messages
       flash[:error] = @routine.errors.full_messages.join(", ")
@@ -40,7 +40,7 @@ class RoutinesController < ApplicationController
     @routine = Routine.find(params[:id])
     if @routine.update(routine_params)
       flash[:notice] = t('controller.routines.update.notice')
-      redirect_to student_routines_path(@routine)
+      redirect_to routines_path(@routine)
     else
       render :edit
     end
@@ -56,7 +56,7 @@ class RoutinesController < ApplicationController
         flash[:error] = t('controller.routines.destroy.notice_error')
       end
     end
-    redirect_to student_routines_path
+    redirect_to routines_path
   end
 
 
