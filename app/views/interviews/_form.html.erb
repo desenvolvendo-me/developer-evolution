@@ -1,21 +1,25 @@
-<%= form_with(model: interview) do |form| %>
-  <% if interview.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(interview.errors.count, "error") %> <%= I18n.t('interview.form_error') %>:</h2>
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
+    <%= form_with(model: interview) do |form| %>
+      <% if interview.errors.any? %>
+        <div class="text-red-600 mb-4">
+          <h2 class="text-lg font-bold"><%= pluralize(interview.errors.count, "error") %> <%= I18n.t('interview.form_error') %> :</h2>
+          <ul class="list-disc pl-5">
+            <% interview.errors.each do |error| %>
+              <li class="text-sm"><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-      <ul>
-        <% interview.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <div class="mb-4">
+        <%= form.label :interview_type, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.select :interview_type, Interview.interview_types.keys.map { |k| [Interview.interview_types[k], k] }, {}, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+      </div>
 
-  <%= form.label :interview_type, style: "display: block" %>
-  <%= form.select :interview_type, Interview.interview_types.keys.map { |k| [Interview.interview_types[k], k] } %>
-
-
-  <div>
-    <%= form.submit %>
+      <div class="flex items-center space-x-4">
+        <%= form.submit class: "bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full cursor-pointer" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</section>
