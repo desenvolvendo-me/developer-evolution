@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'workouts/lesson'
 
-  resources :experiences
-
   get ':login', to: 'students#show', as: :profile
   get ':login/edit', to: 'students#edit'
   patch ':login', to: 'students#update'
   get ':login/ballast', to: 'students#ballast', as: :ballast
+
+  scope path: 'base-generator' do
+    resources :experiences
+  end
 
   resources :thoughts
   resources :routines
