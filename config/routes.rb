@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'workouts/lesson'
 
-  resources :interviews do
-    resources :interview_videos
-  end
 
   get ':login', to: 'students#show', as: :profile
   get ':login/edit', to: 'students#edit'
@@ -19,6 +16,12 @@ Rails.application.routes.draw do
   resources :thoughts
   resources :routines
   resources :experiences
+
+  scope path: 'vacancy-generator' do
+    resources :interviews do
+      resources :interview_videos
+    end
+  end
 
   resources :scripts do
     resources :script_questions
