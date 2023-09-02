@@ -16,21 +16,21 @@ pt-BR:
     new_title: Nova entrevista
     edit_title: Editando essa entrevista
     form_error: proibiu essa entrevista de ser salva
-    show: Mostrar essa entrevista
+    show: Mostrar
     show_videos: Mostrar vídeos dessa entrevista
     create: Criar nova entrevista
     back: Retornar para entrevistas
-    edit: Editar essa entrevista
+    edit: Editar
     destroy: Apagar essa entrevista
     controller:
       create: Entrevista criada com sucesso
       update: Entrevista atualizada com sucesso
       destroy: Entrevista apagada com sucesso
     interview_videos:
-      show: Mostrar esse link de video
+      show: Mostrar
       back: Voltar para vídeos de entrevista
       new: Criar novo link de vídeo
-      edit: Editar esse link de vídeo
+      edit: Editar
       destroy: Apagar esse link de vídeo
       back_interview: Voltar para entrevista
       view_new: Novo vídeo
@@ -40,3 +40,5 @@ pt-BR:
         title: Editando link do vídeo
       view_index:
         title: Vídeos do tipo
+      view_show:
+        title: Link do vídeo
