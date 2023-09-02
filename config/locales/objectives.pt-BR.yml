@@ -22,7 +22,7 @@ pt-BR:
     question:
       new_question: Criar nova pergunta
       show_this_question: Mostrar
-      edit_this_question: Editar essa pergunta
+      edit_this_question: Editar
       destroy_this_question: Apagar essa pergunta
       add_question: Adicionar perguntas para esse objetivo
       show_question: Mostrar perguntas desse objetivo
