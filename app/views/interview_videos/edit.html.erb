@@ -1,10 +1,10 @@
-<h1><%= I18n.t('interview.interview_videos.view_edit.title') %></h1>
-
-<%= render "form", interview_video: @interview_video %>
-
-<br>
-
-<div>
-  <%= link_to I18n.t('interview.interview_videos.show'), interview_interview_video_path %> |
-  <%= link_to I18n.t('interview.interview_videos.back'), interview_interview_videos_path %>
-</div>
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
+    <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white"><%= I18n.t('interview.interview_videos.view_edit.title') %></h2>
+    <%= render "form", interview_video: @interview_video %>
+    <div class="mt-8">
+      <%= link_to I18n.t('interview.interview_videos.show'), interview_interview_video_path, class: "text-primary-600 hover:underline dark:text-primary-400 dark:hover:underline" %> |
+      <%= link_to I18n.t('interview.interview_videos.back'), interview_interview_videos_path, class: "text-primary-600 hover:underline dark:text-primary-400 dark:hover:underline" %>
+    </div>
+  </div>
+</section>
