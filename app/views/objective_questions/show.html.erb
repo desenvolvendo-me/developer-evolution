@@ -1,13 +1,15 @@
 <section class="bg-white dark:bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
 
-    <% if notice %>
-      <p class="mb-4 text-xl font-extrabold leading-none text-green-600 dark:text-green-400">
-        <%= notice %>
-      </p>
-    <% end %>
+    <h2 class="mb-2 text-xl font-semibold leading-none text-gray-900 md:text-2xl dark:text-white"><%= @objective_question.type_question %></h2>
 
-    <%= render @objective_question %>
+    <dl>
+      <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white"><%= I18n.t('objective.index_view.description') %></dt>
+      <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400"><%= @objective_question.description %></dd>
+
+      <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white"><%= I18n.t('objective.index_view.answer') %></dt>
+      <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400"><%= @objective_question.answer %></dd>
+    </dl>
 
     <div class="flex items-center space-x-4 mt-8">
 

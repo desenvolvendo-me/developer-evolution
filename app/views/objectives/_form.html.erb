@@ -18,8 +18,8 @@
       </div>
 
       <div class="flex items-center space-x-4">
-        <%= form.submit objective.persisted? ? t('helpers.submit.update') : t('helpers.submit.create'), class: "bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full cursor-pointer" %>
+        <%= form.submit objective.persisted? ? t('helpers.submit.update') : t('helpers.submit.create'), class: "#{objective.persisted? ? 'bg-yellow-300 hover:bg-yellow-500' : 'bg-green-700 hover:bg-green-900'} text-white font-bold py-2 px-4 rounded-full cursor-pointer" %>
       </div>
-    <% end %>
+  <% end %>
   </div>
 </section>
