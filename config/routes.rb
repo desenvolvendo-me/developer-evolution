@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'workouts/lesson'
 
-  resources :objectives do
-    resources :objective_questions
-  end
 
   get ':login', to: 'students#show', as: :profile
   get ':login/edit', to: 'students#edit'
@@ -19,6 +16,12 @@ Rails.application.routes.draw do
   resources :thoughts
   resources :routines
   resources :experiences
+
+  scope path: 'future-generator' do
+    resources :objectives do
+      resources :objective_questions
+    end
+  end
 
   resources :scripts do
     resources :script_questions
