@@ -10,6 +10,7 @@ pt-BR:
         edit_ellipsis_label: Editar
         delete_ellipsis_label: Excluir
         new_label: Nova Rotina
+        delete_confirmation: Tem certeza de que deseja excluir esta rotina?
       new:
         back_to_routines: Voltar para rotinas
         title: Nova Rotina
@@ -39,5 +40,3 @@ pt-BR:
       destroy:
         notice_deleted: Rotina foi apagada com sucesso!
         notice_error: Erro ao excluir a rotina
-    layout:
-      future_generator: Gerador Futuro
