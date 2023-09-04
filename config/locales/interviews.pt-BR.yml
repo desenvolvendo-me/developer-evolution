@@ -21,7 +21,7 @@ pt-BR:
     create: Criar nova entrevista
     back: Retornar para entrevistas
     edit: Editar
-    destroy: Apagar essa entrevista
+    destroy: Excluir
     controller:
       create: Entrevista criada com sucesso
       update: Entrevista atualizada com sucesso
