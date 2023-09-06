@@ -17,7 +17,7 @@
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr class="flex justify-between">
         <th scope="col" class="px-4 py-3"><%= I18n.t('activerecord.attributes.interview_video.video_link') %></th>
-        <th scope="col" class="px-4 py-3">Ações</th>
+        <th scope="col" class="px-4 py-3"><%= I18n.t('interview.view_index.actions') %></th>
       </tr>
       </thead>
       <tbody>
@@ -40,12 +40,14 @@
                 <li>
                   <%= link_to I18n.t('interview.interview_videos.edit'), edit_interview_interview_video_path(@interview, interview_video), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
                 </li>
+                <li>
+                  <%= button_to I18n.t('interview.destroy'), { action: "destroy", id: interview_video.id }, method: :delete, data: { confirm: I18n.t('interview.view_show.delete_confirm') }, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                </li>
               </ul>
             </div>
           </td>
         </tr>
       <% end %>
-
 
       </tbody>
     </table>

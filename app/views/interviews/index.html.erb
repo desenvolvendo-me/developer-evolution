@@ -17,7 +17,7 @@
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
       <tr>
         <th scope="col" class="px-4 py-3"><%= I18n.t('activerecord.attributes.interview.interview_type') %></th>
-        <th scope="col" class="px-4 py-3 text-center">Ações</th>
+        <th scope="col" class="px-4 py-3 text-center"><%= I18n.t('interview.view_index.actions') %></th>
       </tr>
       </thead>
       <tbody>
@@ -41,7 +41,7 @@
                   <%= link_to I18n.t('interview.edit'), edit_interview_path(interview), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
                 </li>
                 <li>
-                  <%= button_to I18n.t('interview.destroy'), interview, method: :delete, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                  <%= button_to "Delete", { action: "destroy", id: interview.id }, method: :delete, data: { confirm: I18n.t('interview.view_show.delete_confirm') }, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
                 </li>
               </ul>
             </div>

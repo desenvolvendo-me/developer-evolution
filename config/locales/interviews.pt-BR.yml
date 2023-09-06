@@ -12,6 +12,10 @@ pt-BR:
       create: Criar
       update: Atualizar
   interview:
+    view_index:
+      actions: Ações
+    view_show:
+      delete_confirm: Tem certeza?
     index_title: Entrevistas
     new_title: Nova entrevista
     edit_title: Editando essa entrevista
@@ -31,7 +35,7 @@ pt-BR:
       back: Voltar para vídeos de entrevista
       new: Criar novo link de vídeo
       edit: Editar
-      destroy: Apagar esse link de vídeo
+      destroy: Apagar
       back_interview: Voltar para entrevista
       view_new: Novo vídeo
       view_form:
