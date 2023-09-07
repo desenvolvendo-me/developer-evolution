@@ -1,32 +1,32 @@
-<%= form_with(model: thought) do |form| %>
-  <% if thought.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(thought.errors.count, "error") %> prohibited this thought from being saved:</h2>
-
-      <ul>
-        <% thought.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<%= form_with(model: @thought) do |form| %>
+  <% if @thought.errors.any? %>
+    <div class="text-red-600 mb-4">
+      <h2 class="text-lg font-bold"><%= pluralize(@thought.errors.count, "error") %> <%= t('activerecord.errors.template.header', count: @thought.errors.count) %>:</h2>
+      <ul class="list-disc pl-5">
+        <% @thought.errors.full_messages.each do |error| %>
+          <li class="text-sm"><%= error %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :level %>:
-    <%= form.select :level, Thought::LEVEL_OPTIONS %>
+  <div class="mb-4">
+    <%= form.label :description, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_area :description, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :type_thought, t('activerecord.attributes.thought.type_thought'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.select :type_thought, Thought.type_thoughts.keys.map { |type| [t("enums.thoughts.types.#{type}").humanize, type] }, {}, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+  </div>
+
+  <div class="mb-4">
+    <%= form.label :level, t('activerecord.attributes.thought.level'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.select :level, [["1", 1], ["2", 2], ["3", 3]], {}, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
   </div>
 
   <div>
-    <%= form.label :type_thought  %>:
-    <%= form.select :type_thought, options_for_select(Thought.type_thoughts.map { |type_thought, _value| [t("enums.thought.type_thoughts.#{type_thought}"), type_thought] }), include_blank: true %>
-  </div>
-
-  <div>
-    <%= form.label :description %>:
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit @thought.persisted? ? t('helpers.submit.update') : t('helpers.submit.create'), class: (@thought.persisted? ? "bg-yellow-500 text-white font-bold py-2 px-4 rounded-full cursor-pointer" : "bg-green-500 text-white font-bold py-2 px-4 rounded-full cursor-pointer") %>
   </div>
 <% end %>
+
