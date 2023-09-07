@@ -40,3 +40,5 @@ pt-BR:
       destroy:
         notice_deleted: Rotina foi apagada com sucesso!
         notice_error: Erro ao excluir a rotina
+  application:
+    routine: Rotina
