@@ -65,4 +65,5 @@ Rails.application.routes.draw do
     resources :preparations_releases do
       resources :preparations_issues
     end
+  end
 end
