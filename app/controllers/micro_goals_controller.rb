@@ -7,7 +7,7 @@ class MicroGoalsController < ApplicationController
   end
 
   def new
-    @micro_goal = MicroGoal.new
+    @micro_goal = current_user.student.micro_goals.new
   end
 
   def create
