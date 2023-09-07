@@ -10,11 +10,12 @@ pt-BR:
       description: Pergunta
       answer: Resposta
       actions: Ações
+      are_you_sure: Tem certeza?
     show: Mostrar
     new: Criar novo objetivo
     edit: Editar
     back: Voltar para objetivos
-    destroy: Apagar objetivo
+    destroy: Apagar
     controller:
       destroy: Objetivo e questões associadas a ele foram apagadas com sucesso.
       notice_create: Objetivo cadastrado com sucesso
