@@ -15,8 +15,15 @@ Rails.application.routes.draw do
   scope 'level' do
     scope 'zero' do
       resources :routines
+    end
+  end
+
+  scope 'level' do
+    scope 'one'  do
       resources :experiences
     end
+  end
+
     resources :thoughts
 
     resources :scripts do
@@ -54,5 +61,4 @@ Rails.application.routes.draw do
         resources :preparations_issues
       end
     end
-  end
 end
