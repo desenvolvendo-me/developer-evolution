@@ -74,3 +74,5 @@ pt-BR:
         end_date_label: 'Data de término'
         percentage_label: 'Porcentagem'
         errors_prohibited: 'proibiu que esta tarefa seja salva:'
+  application:
+    micro_goals: 'Micro-metas'
