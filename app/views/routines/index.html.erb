@@ -1,37 +1,109 @@
-<% if flash[:notice] %>
-  <div class="notice">
-    <%= flash[:notice] %>
+<div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+    <div class="w-full md:w-1/2"></div>
+      <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
+        <a href="<%= new_routine_path %>" class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+          <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
+          </svg>
+          <%= I18n.t('views.routines.index.new_label') %>
+        </a>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-4 py-3"><%= t('views.routines.index.day_of_the_week_label') %></th>
+          <th scope="col" class="px-4 py-3"><%= t('views.routines.index.activity_label') %></th>
+          <th scope="col" class="px-4 py-3"><%= t('views.routines.index.hour_label') %></th>
+          <th scope="col" class="px-4 py-3"><%= t('views.routines.index.priority_label') %></th>
+          <th scope="col" class="px-4 py-3"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @routines.each do |routine| %>
+          <tr class="border-b dark:border-gray-700">
+            <td class="px-4 py-3">
+              <%= routine.day_of_the_week %>
+            </td>
+            <td class="px-4 py-3">
+              <%= routine.activity %>
+            </td>
+            <td class="px-4 py-3">
+              <%= routine.hour %>
+            </td>
+            <td class="px-4 py-3">
+              <%= routine.priority %>
+            </td>
+
+            <td class="px-4 py-3">
+              <div class="flex items-center justify-end">
+                <button
+                  id="routine-dropdown-button-<%= routine.id %>"
+                  data-dropdown-toggle="routine-dropdown-<%= routine.id %>"
+                  class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100"
+                  type="button"
+                >
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"
+                      />
+                  </svg>
+                </button>
+                <ul
+                  id="routine-dropdown-<%= routine.id %>"
+                  class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                >
+                  <li>
+                    <a href="<%= routine_path(routine) %>" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                      <%= t('views.routines.index.show_ellipsis_label') %>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<%= edit_routine_path(routine) %>" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                      <%= t('views.routines.index.edit_ellipsis_label') %>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" onclick="confirmDeleteRoutine(<%= routine.id %>)">
+                      <%= t('views.routines.index.delete_ellipsis_label') %>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </td>
+
+            <script>
+                function confirmDeleteRoutine(routineId) {
+                    const confirmation = confirm("<%= I18n.t('views.routines.index.delete_confirmation') %>");
+                    if (confirmation) {
+                        // Use an AJAX request to delete the routine without redirecting
+                        fetch("<%= routine_path(routine) %>", {
+                            method: "DELETE",
+                            headers: {
+                                "X-CSRF-Token": "<%= form_authenticity_token %>",
+                            },
+                        })
+                            .then(() => {
+                                // Reload the page or update the routine list with JavaScript
+                                location.reload(); // You can also update the list dynamically without reloading the page
+                            })
+                            .catch((error) => {
+                                console.error("Error deleting routine:", error);
+                            });
+                    }
+                }
+            </script>
+
+        <% end %>
+        </tbody>
+      </table>
   </div>
-<% end %>
-
-<a href="/"><%= t('views.routines.index.back_to_home') %></a><br>
-<h1><%= t('views.routines.index.title') %>:</h1><br>
-
-<table class="table-bordered">
-  <thead>
-  <tr>
-    <th><%= t('views.routines.index.day_of_the_week_label') %></th>
-    <th><%= t('views.routines.index.hour_label') %></th>
-    <th><%= t('views.routines.index.activity_label') %></th>
-    <th><%= t('views.routines.index.priority_label') %></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @routines.each do |routine| %>
-    <tr>
-      <td><%= routine.day_of_the_week %></td>
-      <td><%= routine.hour %></td>
-      <td><%= routine.activity %></td>
-      <td><%= routine.priority %></td>
-      <td>
-        <a href="<%= edit_routine_path(routine) %>" class="btn"><%= t('views.routines.index.edit_label') %></a> |
-        <%= link_to t('views.routines.index.delete_label'), routine_path(routine), method: :delete %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-</section>
-<br>
-<hr>
-<a href="<%= new_routine_path %>" class="new-routine-link"><%= t('views.routines.index.new_label') %></a>
+</div>

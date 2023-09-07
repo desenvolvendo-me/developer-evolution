@@ -1,12 +1,13 @@
 class RoutinesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_student
   before_action :set_routine, only: [:show]
 
   def index
     if current_user.nil?
       redirect_to new_user_session_path
     else
-      @routines = Routine.all.limit(6)
+      @routines = @student.routines.limit(6)
     end
   end
 
@@ -22,7 +23,7 @@ class RoutinesController < ApplicationController
     @routine.student_id = current_user.student.id
 
     if @routine.save
-      flash[:notice] = t('controller.routine.create.notice')
+      flash[:notice] = t('controller.routines.create.notice')
       redirect_to routines_path(@routine)
     else
       logger.error @routine.errors.full_messages
@@ -38,7 +39,7 @@ class RoutinesController < ApplicationController
   def update
     @routine = Routine.find(params[:id])
     if @routine.update(routine_params)
-      flash[:notice] = t('controller.routine.update.notice')
+      flash[:notice] = t('controller.routines.update.notice')
       redirect_to routines_path(@routine)
     else
       render :edit
@@ -50,9 +51,9 @@ class RoutinesController < ApplicationController
 
     if @routine
       if @routine.destroy
-        flash[:notice] = t('controller.routine.destroy.notice_deleted')
+        flash[:notice] = t('controller.routines.destroy.notice_deleted')
       else
-        flash[:error] = t('controller.routine.destroy.notice_error')
+        flash[:error] = t('controller.routines.destroy.notice_error')
       end
     end
     redirect_to routines_path
@@ -60,6 +61,10 @@ class RoutinesController < ApplicationController
 
 
   private
+
+  def set_student
+    @student = current_user.student
+  end
 
   def set_routine
     @routine = current_user.student.routines.find_by(id: params[:id])
