@@ -215,4 +215,5 @@ pt-BR:
       short: "%d de %B, %H:%M"
     pm: ''
   application:
+    thoughts: 'Pensamentos'
     goals: 'Metas'
