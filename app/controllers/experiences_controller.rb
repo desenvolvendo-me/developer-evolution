@@ -35,13 +35,9 @@ class ExperiencesController < ApplicationController
   end
 
   def destroy
-    # TODO: fix this delete method error, possibly on the link of view show, (delete)
-    if @experience
-      @experience.destroy
-      redirect_to experiences_url, notice: I18n.t('experience.controller.flash_delete')
-    else
-      redirect_to experiences_url, notice: "Experience not found"
-    end
+    @experience.destroy
+
+    redirect_to experiences_url, notice: I18n.t('experience.controller.flash_delete')
   end
   private
 
