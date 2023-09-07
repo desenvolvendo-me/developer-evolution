@@ -36,13 +36,16 @@
                     <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
                   </svg>
                 </button>
-                <div id="objective_question-<%= objective_question.id %>-dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="objective_question-<%= objective_question.id %>-dropdown-button">
+                <div id="objective_question-<%= objective_question.id %>-dropdown" class="hidden z-10 w-24 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 flex flex-col md:items-center" aria-labelledby="objective_question-<%= objective_question.id %>-dropdown-button">
                     <li>
                       <%= link_to I18n.t('objective.question.show_this_question'), [@objective, objective_question], class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
                     </li>
                     <li>
                       <%= link_to I18n.t('objective.question.edit_this_question'), edit_objective_objective_question_path(@objective, objective_question), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                    </li>
+                    <li>
+                      <%= button_to I18n.t('objective.destroy'), { action: "destroy", id: objective_question.id }, method: :delete, data: { confirm: I18n.t('objective.index_view.are_you_sure') }, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
                     </li>
                   </ul>
                 </div>
