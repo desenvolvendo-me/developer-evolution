@@ -54,5 +54,9 @@ Rails.application.routes.draw do
         resources :preparations_issues
       end
     end
+
+    resources :micro_goals do
+      resources :micro_goal_tasks
+    end
   end
 end
