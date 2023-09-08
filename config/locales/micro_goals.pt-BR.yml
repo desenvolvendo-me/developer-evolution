@@ -12,9 +12,10 @@ pt-BR:
     micro_goals:
       show:
         show_all_tasks: 'Visualizar todas as tarefas'
-        edit_this_micro_goal: 'Editar esta micro meta'
-        back_to_micro_goals: 'Voltar para as micro-metas'
-        destroy_this_micro_goal_button: 'Excluir esta micro meta'
+        edit: 'Editar'
+        show_micro_goal_tasks: 'Mostrar tarefa(s) dessa micro-meta'
+        destroy_button: 'Apagar micro meta'
+        micro_goal: 'Micro meta'
       new:
         new_micro_goal_title: 'Nova micro meta'
         form: 'Formulário'
@@ -24,9 +25,8 @@ pt-BR:
         new_micro_goal : 'Nova micro-meta'
         show_micro_goal: 'Visualizar esta micro-meta'
       edit:
-        edit_micro_goal_title: 'Editando micro-meta'
-        show_this_micro_goal: 'Visualizar esta micro-meta'
-        back_to_micro_goals: 'Voltar para as micro-metas'
+        show_this_micro_goal: 'Mostrar micro-meta'
+        back_to_micro_goals: 'Voltar para micro-metas'
       micro_goal:
         micro_goal_title: 'Micro-meta'
         show_task_for_this_micro_goal: 'Visualizar tarefa para esta micro-meta'
@@ -42,10 +42,14 @@ pt-BR:
         notice: 'Pagina carregada com sucesso'
         edit: 'Editar esta tarefa'
         back_to_micro_goal_tasks: 'Voltar para as tarefas'
-        destroy_this_micro_goal_task_button: 'Excluir esta tarefa'
+        destroy_this_micro_goal_task_button: 'Apagar essa tarefa'
+        show_this_micro_goal_task: 'Visualizar tarefa para'
+        edit_this_micro_goal_task: 'Editar essa tarefa'
+        destroy_confirmation: 'Tem certeza que deseja apagar essa tarefa?'
       new:
         new_task_title: 'Nova tarefa'
-        back_to_tasks: 'Voltar para as tarefas'
+        back_to_tasks: 'Voltar para as tarefa(s) dessa micro-meta'
+        new_task: 'Adicionar nova tarefa para'
       index:
         tasks_title: 'Tarefas'
         back_to_micro_goals: 'Voltar para Micro-metas'
@@ -59,14 +63,16 @@ pt-BR:
         end_date_label: 'Data de término'
         percentage_label: 'Porcentagem'
       edit:
-        edit_title: 'Editando tarefa'
+        edit_title: 'Editando tarefa de'
         show_task: 'Visualizar esta tarefa'
         back_link: 'Voltar para as tarefas'
+        show_this_micro_goal_task: 'Mostrar essa tarefa'
+        back_to_micro_goal_tasks: 'Voltar para as tarefa(s) dessa micro-meta'
       micro_goal_task:
         task_label: 'Tarefa'
-        start_date_label: 'Data de início:'
-        end_date_label: 'Data de término:'
-        percentage_label: 'Porcentagem:'
+        start_date_label: 'Data de início'
+        end_date_label: 'Data de término'
+        percentage_label: 'Porcentagem'
       form:
         micro_goal_label: 'Micro-meta'
         task_label: 'Tarefa'
@@ -74,5 +80,9 @@ pt-BR:
         end_date_label: 'Data de término'
         percentage_label: 'Porcentagem'
         errors_prohibited: 'proibiu que esta tarefa seja salva:'
+    ellipsis:
+      show: 'Mostrar'
+      edit: 'Editar'
+      destroy: 'Excluir'
   application:
     micro_goals: 'Micro-metas'
