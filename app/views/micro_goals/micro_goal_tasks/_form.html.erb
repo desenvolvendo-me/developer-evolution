@@ -1,41 +1,38 @@
-<%= form_with(model: [@micro_goal, @micro_goal_task], local: true) do |form| %>
+<%= form_with(model: [@micro_goal, @micro_goal_task]) do |form| %>
+
   <% if @micro_goal_task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(micro_goal_task.errors.count, "error") %><%= t('views.micro_goal_tasks.form.errors_prohibited') %>/h2>:
-      <ul>
-        <% micro_goal_task.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+    <div class="text-red-600 mb-4">
+      <h2 class="text-lg font-bold"><%= pluralize(@micro_goal_task.errors.count, "error") %> <%= I18n.t('objective.form_view.error') %>:</h2>
+      <ul class="list-disc pl-5">
+        <% @micro_goal_task.errors.each do |error| %>
+          <li class="text-sm"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :micro_goal_id, t('views.micro_goal_tasks.form.micro_goal_label') %>:
-    <%= form.collection_select :micro_goal_id, MicroGoal.all, :id, :micro_goal, {}, include_blank: true %>
+  <div class="mb-4">
+    <%= form.label :task, t('views.micro_goal_tasks.form.task_label'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :task, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
   </div>
 
-  <div class="field">
-    <%= form.label :task, t('views.micro_goal_tasks.form.task_label') %>:
-    <%= form.text_field :task %>
+  <div class="mb-4">
+    <%= form.label :start_date, t('views.micro_goal_tasks.form.start_date_label'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.date_field :start_date, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
   </div>
 
-  <div class="field">
-    <%= form.label :start_date, t('views.micro_goal_tasks.form.start_date_label') %>:
-    <%= form.date_field :start_date %>
+  <div class="mb-4">
+    <%= form.label :end_date, t('views.micro_goal_tasks.form.end_date_label'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.date_field :end_date, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
   </div>
 
-  <div class="field">
-    <%= form.label :end_date, t('views.micro_goal_tasks.form.end_date_label') %>:
-    <%= form.date_field :end_date %>
+  <div class="mb-4">
+    <%= form.label :percentage, t('views.micro_goal_tasks.form.percentage_label'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :percentage, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
   </div>
 
-  <div class="field">
-    <%= form.label :percentage, t('views.micro_goal_tasks.form.percentage_label') %>:
-    <%= form.number_field :percentage %>
+  <div class="flex items-center space-x-4">
+    <%= form.submit @micro_goal_task.persisted? ? t('helpers.submit.update') : t('helpers.submit.create'), class: (@micro_goal_task.persisted? ? "bg-yellow-500 text-white font-bold py-2 px-4 rounded-full cursor-pointer" : "bg-green-500 text-white font-bold py-2 px-4 rounded-full cursor-pointer") %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
