@@ -78,7 +78,7 @@
 
           <script>
               function confirmDeletethought(thoughtId) {
-                  const confirmation = confirm("<%= I18n.t('views.thoughts.index.delete_confirmation') %>");
+                  const confirmation = confirm("<%= I18n.t('thoughts.view.index.delete_confirmation') %>");
                   if (confirmation) {
                       // Use an AJAX request to delete the thought without redirecting
                       fetch("<%= thought_path(thought) %>", {
