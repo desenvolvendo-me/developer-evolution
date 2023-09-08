@@ -13,6 +13,8 @@ pt-BR:
     destroy:
       success: 'Pensamento exlcuido com sucesso'
     view:
+      index:
+        delete_confirmation: 'Tem certeza de que deseja excluir este pensamento?'
       new: "Criar novo pensamento"
       destroy: "Apagar pensamento"
       edit: "Editar"
