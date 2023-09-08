@@ -56,7 +56,7 @@ Rails.application.routes.draw do
     end
 
     resources :micro_goals do
-      resources :micro_goal_tasks
+      resources :micro_goal_tasks, module: :micro_goals
     end
   end
 end
