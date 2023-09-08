@@ -24,6 +24,7 @@ pt-BR:
         title: 'Micro-metas'
         new_micro_goal : 'Nova micro-meta'
         show_micro_goal: 'Visualizar esta micro-meta'
+        destroy_confirmation: 'Tem certeza que deseja apagar esta micro-meta?'
       edit:
         show_this_micro_goal: 'Mostrar micro-meta'
         back_to_micro_goals: 'Voltar para micro-metas'
