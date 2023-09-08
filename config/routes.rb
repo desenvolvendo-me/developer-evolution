@@ -14,10 +14,9 @@ Rails.application.routes.draw do
 
   scope 'level' do
     scope 'zero' do
-      resources :thoughts
+      resources :routines
     end
-
-    resources :routines
+    resources :thoughts
     resources :experiences
 
     resources :scripts do
