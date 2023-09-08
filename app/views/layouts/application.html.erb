@@ -67,6 +67,15 @@
                     </svg>
                   </a>
 
+                    <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
+                      <li><a href="<%= routines_path %>"><%= t('application.routine') %></a></li>
+                    </ul>
+                    </div>
+                    <svg class="submenu-arrow flex-shrink-0 w-4 h-4 ml-auto transition-transform transform rotate-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </a>
+
                   <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
                     <li><a href="<%= thoughts_path %>"><%= t('application.thoughts') %></a></li>
                   </ul>
@@ -137,10 +146,6 @@
                       Edit Profile info
                     </button>
                   <% end %>
-
-
-
-
                 </div>
 
               </div>
