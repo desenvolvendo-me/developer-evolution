@@ -1,6 +1,5 @@
 class MicroGoals::MicroGoalTasksController < ApplicationController
   before_action :set_micro_goal
-  #before_action :set_micro_goal_task, only: [:show, :edit, :update, :destroy]
 
   def index
     @micro_goal = MicroGoal.find(params[:micro_goal_id])
