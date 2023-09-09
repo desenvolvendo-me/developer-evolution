@@ -67,9 +67,9 @@
                     </svg>
                   </a>
 
-                    <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
-                      <li><a href="<%= routines_path %>"><%= t('application.routine') %></a></li>
-                    </ul>
+                  <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
+                    <li><%= link_to t('application.routine'), routines_path %></li>
+                  </ul>
                   </nav>
 
                   <hr class="border-gray-200"/>
