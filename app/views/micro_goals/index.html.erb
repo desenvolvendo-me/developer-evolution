@@ -58,7 +58,8 @@
                 </li>
 
                 <li>
-                  <%= link_to t('views.routines.index.delete_ellipsis_label'), "#", class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white", onclick: "return confirm('#{t('views.micro_goals.index.destroy_confirmation')}');" %>
+                  <%#= button_to I18n.t('objective.destroy'), { action: "destroy", id: objective.id }, method: :delete, data: { confirm: I18n.t('objective.index_view.are_you_sure') }, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                  <%= button_to t('views.routines.index.delete_ellipsis_label'), {action: "destroy", id: micro_goal.id }, method: :delete, data: { confirm: t('views.micro_goals.index.destroy_confirmation') }, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
                 </li>
               </ul>
             </div>
