@@ -1,10 +1,10 @@
 pt-BR:
   goal:
     show:
-      show_goal_question: Mostrar perguntas desta meta
+      show_goal_question: Mostrar pergunta(s) dessa meta
       edit_this_goal: Editar esta meta
       back_to_goals: Voltar para metas
-      destroy_this_goal: Apagar esta meta
+      destroy_goal: Apagar meta
       goal_successfully_created: Meta criada com sucesso
     goal:
       description: Descrição
