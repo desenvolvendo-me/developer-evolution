@@ -6,6 +6,7 @@ pt-BR:
       back_to_goals: Voltar para metas
       destroy_goal: Apagar meta
       goal_successfully_created: Meta criada com sucesso
+      destroy_goal_confirmation: Tem certeza de que deseja apagar essa meta?
     goal:
       description: Descrição
       student: Aluno
@@ -58,7 +59,7 @@ pt-BR:
     show:
       back_to_goal_questions: Voltar para perguntas
       destroy_this_goal_question: Apagar esta pergunta
-      update_success: "Pergunta da meta atualizada com sucesso"
+      update_success: Pergunta da meta atualizada com sucesso
     type_question_options:
       - Detalhe
       - Métrica
