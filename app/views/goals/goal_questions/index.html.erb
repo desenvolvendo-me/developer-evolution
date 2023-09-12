@@ -1,17 +1,85 @@
-<p style="color: green"><%= t('goal_question.index.goal_question_success_destroyed') %></p>
-<%= link_to t("goal_question.index.back_to_goals"), goals_path %>
-<h1><%= @goal.description %>:</h1>
-<hr>
-<div id="goal_questions">
-  <% @goal_questions.each do |goal_question| %>
-    <%= render goal_question %>
-    <p>
-      <%= link_to t("goal_question.index.show_goal_for_this_goal_question"), [@goal] %> |
-      <%= link_to t("goal_question.index.edit_this_goal_question"), edit_goal_goal_question_path(@goal, goal_question) %> |
-      <%= link_to t("goal_question.index.destroy_this_goal_question"), [@goal, goal_question], method: :delete, data: { confirm: 'Are you sure?'} %>
-    </p>
-    <hr>
-  <% end %>
-</div>
+<div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+    <div class="w-full md:w-1/2"></div>
+  </div>
+  <div class="p-4 border-b dark:border-gray-700">
+    <h1 class="text-xl font-bold text-gray-900 dark:text-white">
+      <%= @goal.description %>
+    </h1>
+  </div>
+    <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-4 py-3"><%= I18n.t('goal_question.goal_question.type_question') %></th>
+            <th scope="col" class="px-4 py-3"><%= I18n.t('goal_question.goal_question.description') %></th>
+            <th scope="col" class="px-4 py-3"><%= I18n.t('goal_question.goal_question.answer') %></th>
+            <th scope="col" class="px-4 py-3"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @goal_questions.each do |goal_question| %>
+            <tr class="border-b dark:border-gray-700">
+              <td class="px-4 py-3">
+                <%= goal_question.type_question %>
+              </td>
+              <td class="px-4 py-3">
+                <%= goal_question.description %>
+              </td>
+              <td class="px-4 py-3">
+                <%= goal_question.answer %>
+              </td>
+              <td class="px-4 py-3 flex items-center justify-end">
+                <button id="goal_question-<%= goal_question.id %>-dropdown-button" data-dropdown-toggle="goal_question-<%= goal_question.id %>-dropdown" class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
+                  <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                  </svg>
+                </button>
+                <div id="goal_question-<%= goal_question.id %>-dropdown" class="hidden z-10 w-24 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 flex flex-col md:items-center" aria-labelledby="goal_question-<%= goal_question.id %>-dropdown-button">
+                    <li>
+                      <%= link_to I18n.t('goal_question.ellipsis.show'), [@goal, goal_question], class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                    </li>
+                    <li>
+                      <%= link_to I18n.t('goal_question.ellipsis.edit'), edit_goal_goal_question_path(@goal, goal_question), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                    </li>
+                    <li>
+                      <%= button_to I18n.t('goal_question.ellipsis.destroy'), { action: "destroy", id: goal_question.id }, method: :delete, data: { confirm: I18n.t('goal_question.index.destroy_goal_question_confirmation') }, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                    </li>
+                  </ul>
+                </div>
+              </td>
+              <script>
+                  function confirmDeleteGoalQuestion(goal_questionId) {
+                      const confirmation = confirm("<%= I18n.t('goal.show.destroy_goal_confirmation') %>");
+                      if (confirmation) {
+                          // Use an AJAX request to delete the goal without redirecting
+                          fetch("<%= goal_goal_question_path(@goal, goal_question) %>", {
+                              method: "DELETE",
+                              headers: {
+                                  "X-CSRF-Token": "<%= form_authenticity_token %>",
+                              },
+                          })
+                            .then(() => {
+                                // Reload the page or update the goal list with JavaScript
+                                location.reload(); // You can also update the list dynamically without reloading the page
+                            })
+                            .catch((error) => {
+                                console.error("Error deleting goal:", error);
+                            });
+                      }
+                  }
+              </script>
+            </tr>
 
-<%= link_to t("goal_question.index.new_goal_question_for_this_goal"), new_goal_goal_question_path(@goal) %>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<div class="p-4 flex space-x-4">
+  <%= link_to I18n.t('goal_question.index.new_goal_question_for_this_goal'), new_goal_goal_question_path, class: "inline-block px-4 py-2 bg-green-700 text-white rounded-md hover:bg-primary-800 dark:hover:bg-primary-600 transition duration-200" %>
+
+  <%= link_to I18n.t('goal_question.index.back_to_goals'), goals_path, class: "text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-blue-900" %>
+</div>
