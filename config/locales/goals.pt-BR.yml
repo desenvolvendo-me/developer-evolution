@@ -1,5 +1,9 @@
 pt-BR:
   goal:
+    controller:
+      successfully_destroyed: Meta foi apagada com sucesso.
+      successfully_updated: Meta atualizada com sucesso.
+      successfully_created: Meta criada com sucesso.
     show:
       show_goal_question: Mostrar pergunta(s) dessa meta
       edit_this_goal: Editar esta meta
@@ -21,21 +25,27 @@ pt-BR:
     edit:
       title: Editando meta
       update: Atualizar meta
-      show_this_goal: Mostrar essa meta
-      back_to_goals: Voltar para metas
+      show_this_goal: Mostrar esta meta
+      back_to_goals: Voltar para meta(s)
     index:
       title: Metas
       show_this_goal: Mostrar essa meta
       new_goal: Nova meta
       goal_and_associated_questions_were_successfully_desctroyed: Meta e suas perguntas foram apagadas com sucesso
   goal_question:
+    controller:
+      successfully_destroyed: Pergunta foi apagada com sucesso.
+      successfully_updated: Pergunta atualizada com sucesso.
+      successfully_created: Pergunta criada com sucesso.
+      goal_question_not_found: Pergunta não encontrada
     index:
       show_goal_for_this_goal_question: Mostrar meta desta pergunta
       edit_this_goal_question: Editar esta pergunta
-      back_to_goals: Voltar para metas
+      back_to_goals: Voltar para meta(s)
       destroy_this_goal_question: Apagar esta pergunta
-      new_goal_question_for_this_goal: Nova pergunta para esta meta
+      new_goal_question_for_this_goal: Criar nova pergunta
       goal_question_success_destroyed: Pergunta da meta removida com sucesso
+      destroy_goal_question_confirmation: Tem certeza de que deseja apagar esta pergunta?
     goal_question:
       type_question: Tipo de pergunta
       description: Descrição
@@ -43,8 +53,8 @@ pt-BR:
       goal: Meta
     edit:
       edit_goal_question: Editar esta pergunta
-      show_this_goal_question: Mostrar essa pergunta
-      back_to_goal_questions: Voltar para perguntas
+      show_this_goal_question: Mostrar esta pergunta
+      back_to_goal_questions: Voltar para pergunta(s)
       update: Atualizar
     form:
       type_question: Tipo de pergunta
@@ -53,13 +63,15 @@ pt-BR:
       goal: Meta
       prohibited_this_goal_question_from_being_saved: Pergunta da meta não pode ser salva
     new:
-      new_goal_question: Nova pergunta
+      new_goal_question: Adicionar nova pergunta para
       create: Criar
       back_to_goal_questions: Voltar para perguntas
     show:
-      back_to_goal_questions: Voltar para perguntas
-      destroy_this_goal_question: Apagar esta pergunta
+      back_to_goal_questions: Voltar para pergunta(s)
+      destroy_this_goal_question: Excluir esta pergunta
       update_success: Pergunta da meta atualizada com sucesso
+      goal_question_for_the_goal: Pergunra para a meta
+      edit: Editar
     type_question_options:
       - Detalhe
       - Métrica
@@ -74,3 +86,7 @@ pt-BR:
       - Quais métricas podem ser usadas para acompanhar os resultados?
       - Qual é o prazo máximo para atingir?
       - Qual é o prazo mínimo para atingir?
+    ellipsis:
+      show: Mostrar
+      edit: Editar
+      destroy: Excluir
