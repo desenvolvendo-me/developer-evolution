@@ -1,10 +1,11 @@
-<h1><%= t('goal_question.edit.edit_goal_question') %>:</h1>
-<hr>
-<%= render "form", goal_question: @goal_question, button_label: t("goal_question.edit.update") %>
+<h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+  <%= I18n.t('goal_question.goal_question.description') %> <%= @goal.description %>
+</h2>
 
-<br>
+<%= render "form", goal_question: @goal_question %>
 
-<div>
-  <%= link_to t("goal_question.edit.show_this_goal_question"), [@goal, @goal_question] %> |
-  <%= link_to t("goal_question.edit.back_to_goal_questions"), goal_goal_questions_path(@goal) %>
+<div class="flex items-center space-x-4 mt-4">
+  <%= link_to I18n.t('goal_question.edit.show_this_goal_question'), goal_goal_question_path, class: "text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" %>
+
+  <%= link_to I18n.t('goal_question.edit.back_to_goal_questions'), goal_goal_questions_path, class: "text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-blue-900" %>
 </div>

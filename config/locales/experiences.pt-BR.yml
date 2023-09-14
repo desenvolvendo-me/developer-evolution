@@ -3,35 +3,33 @@ pt-BR:
     form:
       category_label: categoria
       week_label: semana
+      error: impediu essa experiência de ser salva
     edit_view:
       title: Editando experiência
+    are_you_sure: Tem certeza?
     title: Experiências
-    show: Mostrar essa experiência
+    show: Mostrar
     new: Criar experiência
-    edit: Editar essa experiência
+    edit: Editar
     back: Voltar para experiências
-    destroy: Apagar experiência
+    destroy: Apagar
     categories:
-      fear: medo
-      difficulty: dificuldade
-      learning: aprendizado
-      insight: insight
-      feedback: feedback
+      fear: Medo
+      difficulty: Dificuldade
+      learning: Aprendizado
+      insight: Insight
+      feedback: Feedback
     controller:
       flash_create: Experiência cadastrada com sucesso
       flash_update: Experiência atualizada com sucesso
+      flash_delete: Experiência removida com sucesso
   activerecord:
     attributes:
       experience:
-        content: conteúdo
-        level: nível
-        week: semana
-      objective:
-        title: Título
-      objective_question:
-        type_question: Tipo de pergunta
-        description: Pergunta
-        answer: Resposta
+        content: Conteúdo
+        category: Categoria
+        level: Nível
+        week: Semana
     errors:
       models:
         experience:

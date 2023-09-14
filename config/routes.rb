@@ -13,9 +13,28 @@ Rails.application.routes.draw do
   patch ':login', to: 'students#update'
   get ':login/ballast', to: 'students#ballast', as: :ballast
 
+  scope 'level' do
+    scope 'zero' do
+      resources :routines
+      resources :experiences
+      resources :objectives do
+        resources :objective_questions
+      end
+      resources :goals do
+       resources :goal_questions, module: :goals
+      end  
+    end
+  end
+
   resources :thoughts
-  resources :routines
-  resources :experiences
+
+  resources :scripts do
+    resources :script_questions
+  end
+
+  resources :interviews do
+    resources :interview_videos
+  end
 
   scope path: 'vacancy-generator' do
     resources :interviews do
@@ -36,14 +55,6 @@ Rails.application.routes.draw do
     resources :course_basics, module: :courses
   end
 
-  resources :objectives do
-    resources :objective_questions
-  end
-
-  resources :goals do
-    resources :goal_questions, module: :goals
-  end
-
   resources :tests do
     resources :tests_battles do
       resources :tests_issues
@@ -54,5 +65,4 @@ Rails.application.routes.draw do
     resources :preparations_releases do
       resources :preparations_issues
     end
-  end
 end
