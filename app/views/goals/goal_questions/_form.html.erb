@@ -1,37 +1,33 @@
-<%= form_with(model: [@goal, goal_question], local: true) do |form| %>
-  <% if goal_question.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(goal_question.errors.count, "error") %> <%= t('goal_question.form.prohibited_this_goal_question_from_being_saved') %>:</h2>
+<%= form_with(model: [@goal, goal_question]) do |form| %>
 
-      <ul>
-        <% goal_question.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+  <% if goal_question.errors.any? %>
+    <div class="text-red-600 mb-4">
+      <h2 class="text-lg font-bold"><%= pluralize(goal_question.errors.count, "error") %> <%= t('goal_question.form.prohibited_this_goal_question_from_being_saved') %>:</h2>
+
+      <ul class="list-disc pl-5">
+        <% @goal_question.errors.each do |error| %>
+          <li class="text-sm"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :goal_id, t('goal_question.form.goal'), style: "display: block" %>
-    <%= form.text_field :goal_id %>
+  <div class="mb-4">
+    <%= form.label :type_question, t('goal_question.form.type_question'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.select :type_question, t('goal_question.type_question_options'), prompt: true, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
   </div>
 
-  <div>
-    <%= form.label :type_question, t('goal_question.form.type_question'), style: "display: block" %>
-    <%= form.select :type_question, t('goal_question.type_question_options'), prompt: true %>
+  <div class="mb-4">
+    <%= form.label :description, t('goal_question.form.description'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.select :description, t('goal_question.description'), class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
   </div>
 
-  <div>
-    <%= form.label :description, t('goal_question.form.description'), style: "display: block" %>
-    <%= form.select :description, t('goal_question.description') %>
+  <div class="mb-4">
+    <%= form.label :answer, t('goal_question.form.answer'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :answer, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
   </div>
 
-  <div>
-    <%= form.label :answer, t('goal_question.form.answer'), style: "display: block" %>
-    <%= form.text_field :answer %>
-  </div>
-
-  <div>
-    <%= form.submit button_label %>
+  <div class="flex items-center space-x-4">
+    <%= form.submit @goal_question.persisted? ? t('helpers.submit.update') : t('helpers.submit.create'), class: (@goal_question.persisted? ? "bg-yellow-500 text-white font-bold py-2 px-4 rounded-full cursor-pointer" : "bg-green-500 text-white font-bold py-2 px-4 rounded-full cursor-pointer") %>
   </div>
 <% end %>
