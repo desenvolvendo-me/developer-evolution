@@ -1,17 +1,68 @@
-<p style="color: green"><%= notice %></p>
+<section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
+  <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+    <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
 
-<h1><%= @objective.title %></h1>
+      <div class="p-4 border-b dark:border-gray-700">
+        <h1 class="text-xl font-bold text-gray-900 dark:text-white">
+          <%= @objective.title %>
+        </h1>
+      </div>
 
-<div id="objective_questions">
-  <% @objective_questions.each do |objective_question| %>
-    <%= render objective_question %>
-    <%= link_to I18n.t('objective.question.show_this_question'), [@objective, objective_question] %>
-    <hr>
-  <% end %>
-</div>
-<br>
-<br>
-<%= link_to I18n.t('objective.question.new_question'), new_objective_objective_question_path %> |
-<br>
-<%= link_to I18n.t('objective.back'), objectives_url %>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-4 py-3"><%= I18n.t('objective.index_view.type_question') %></th>
+            <th scope="col" class="px-4 py-3"><%= I18n.t('objective.index_view.description') %></th>
+            <th scope="col" class="px-4 py-3"><%= I18n.t('objective.index_view.answer') %></th>
+            <th scope="col" class="px-4 py-3"><%= I18n.t('objective.index_view.actions') %></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @objective_questions.each do |objective_question| %>
+            <tr class="border-b dark:border-gray-700">
+              <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">
+                <%= objective_question.type_question %>
+              </td>
+              <td class="px-4 py-3 font-medium text-gray-900 dark:text-white">
+                <%= objective_question.description %>
+              </td>
+              <td class="px-4 py-3">
+                <%= objective_question.answer %>
+              </td>
+              <td class="px-4 py-3 flex items-center justify-end">
+                <button id="objective_question-<%= objective_question.id %>-dropdown-button" data-dropdown-toggle="objective_question-<%= objective_question.id %>-dropdown" class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
+                  <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                  </svg>
+                </button>
+                <div id="objective_question-<%= objective_question.id %>-dropdown" class="hidden z-10 w-24 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 flex flex-col md:items-center" aria-labelledby="objective_question-<%= objective_question.id %>-dropdown-button">
+                    <li>
+                      <%= link_to I18n.t('objective.question.show_this_question'), [@objective, objective_question], class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                    </li>
+                    <li>
+                      <%= link_to I18n.t('objective.question.edit_this_question'), edit_objective_objective_question_path(@objective, objective_question), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                    </li>
+                    <li>
+                      <%= button_to I18n.t('objective.destroy'), { action: "destroy", id: objective_question.id }, method: :delete, data: { confirm: I18n.t('objective.index_view.are_you_sure') }, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                    </li>
+                  </ul>
+                </div>
+              </td>
 
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="p-4 flex space-x-4">
+        <%= link_to I18n.t('objective.question.new_question'), new_objective_objective_question_path, class: "inline-block px-4 py-2 bg-primary-700 text-white rounded-md hover:bg-primary-800 dark:hover:bg-primary-600 transition duration-200" %>
+
+        <%= link_to I18n.t('objective.back'), objectives_path, class: "text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-blue-900" %>
+      </div>
+
+    </div>
+  </div>
+</section>

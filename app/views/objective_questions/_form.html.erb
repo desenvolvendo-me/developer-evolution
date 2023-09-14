@@ -1,32 +1,38 @@
-<%= form_with(model: [@objective, @objective_question]) do |form| %>
-  <% if @objective_question.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@objective_question.errors.count, "error") %> <%= I18n.t('objective.form_view.error') %>:</h2>
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-2xl px-4 py-8 mx-auto lg:py-16">
+    <%= form_with(model: [@objective, @objective_question]) do |form| %>
 
-      <ul>
-        <% @objective_question.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+      <% if @objective_question.errors.any? %>
+        <div class="text-red-600 mb-4">
+          <h2 class="text-lg font-bold"><%= pluralize(@objective_question.errors.count, "error") %> <%= I18n.t('objective.form_view.error') %>:</h2>
+          <ul class="list-disc pl-5">
+            <% @objective_question.errors.each do |error| %>
+              <li class="text-sm"><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mb-4">
+        <%= form.label :type_question, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.select :type_question, ObjectiveQuestion::TYPE_QUESTION, { prompt: I18n.t('objective.question.form_view.select_type_question') }, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :description, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.select :description, ObjectiveQuestion::DESCRIPTION, { prompt: I18n.t('objective.question.form_view.select_description') }, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :answer, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.text_area :answer, rows: 4, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
+      </div>
+
+
+      <div class="flex items-center space-x-4">
+        <%= form.submit @objective_question.persisted? ? t('helpers.submit.update') : t('helpers.submit.create'), class: "#{@objective_question.persisted? ? 'bg-yellow-500 hover:bg-yellow-700' : 'bg-green-700 hover:bg-green-900'} text-white font-bold py-2 px-4 rounded-full cursor-pointer" %>
+      </div>
+
   <% end %>
-
-  <div>
-    <%= form.label :type_question, style: "display: block" %>
-    <%= form.select :type_question, ObjectiveQuestion::TYPE_QUESTION, prompt: I18n.t('objective.question.form_view.select_type_question') %>
   </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.select :description, ObjectiveQuestion::DESCRIPTION, prompt: I18n.t('objective.question.form_view.select_description') %>
-  </div>
-
-  <div>
-    <%= form.label :answer, style: "display: block" %>
-    <%= form.text_field :answer %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</section>

@@ -1,5 +1,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
+  corePlugins: {
+    button: false,
+  },
   content: [
     './public/*.html',
     './app/helpers/**/*.rb',
