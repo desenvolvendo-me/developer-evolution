@@ -262,5 +262,98 @@ if Rails.env.development?
     number_of_course: "2",
     course: course_2
   )
+
+  # Create experiences
+  Experience.create(
+    content: "texto",
+    category: %w[fear difficulty learning insight feedback].sample,
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "Eu tinha muito medo de falar em público, mas com a prática contínua, consegui superar esse medo.",
+    category: "fear",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "Encontrar a motivação para estudar todos os dias tem sido uma grande dificuldade para mim.",
+    category: "difficulty",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "Aprendi a importância de gerenciar meu tempo de forma eficaz para melhorar minha produtividade.",
+    category: "learning",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "Percebi que fazer pausas regulares durante o estudo me ajuda a manter o foco e a absorver melhor o material.",
+    category: "insight",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "Receber feedback construtivo dos meus colegas tem sido muito útil para o meu desenvolvimento.",
+    category: "feedback",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "No início, eu tinha medo de cometer erros, mas percebi que eles são uma parte importante do processo de aprendizagem.",
+    category: "fear",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "A dificuldade de entender novos conceitos tem diminuído à medida que me torno mais confiante.",
+    category: "difficulty",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "Aprendi a importância de estabelecer metas claras e realistas para mim mesmo.",
+    category: "learning",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "Percebi que a prática constante é a chave para dominar qualquer habilidade.",
+    category: "insight",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "O feedback que recebi me ajudou a identificar áreas em que preciso melhorar.",
+    category: "feedback",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "Eu tinha medo de não ser bom o suficiente, mas percebi que todos estão no mesmo barco.",
+    category: "fear",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
+  Experience.create(
+    content: "A maior dificuldade que enfrentei foi manter a consistência nos meus hábitos de estudo.",
+    category: "difficulty",
+    level: rand(1..8),
+    week: rand(1..4),
+    student: student
+  )
 end
 

@@ -38,3 +38,11 @@ pt-BR:
         create_success: Pergunta cadastrada com sucesso
         update_success: Pergunta atualizada com sucesso
         destroy_success: Pergunta apagada com sucesso
+  activerecord:
+    attributes:
+      objective:
+        title: Título
+      objective_question:
+        type_question: Tipo de pergunta
+        description: Pergunta
+        answer: Resposta

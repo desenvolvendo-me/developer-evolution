@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   scope 'level' do
     scope 'zero' do
       resources :routines
+      resources :experiences
       resources :objectives do
         resources :objective_questions
       end
@@ -23,9 +24,16 @@ Rails.application.routes.draw do
       end  
     end
   end
-  
+
   resources :thoughts
-  resources :experiences
+
+  resources :scripts do
+    resources :script_questions
+  end
+
+  resources :interviews do
+    resources :interview_videos
+  end
 
   resources :scripts do
     resources :script_questions
@@ -53,5 +61,4 @@ Rails.application.routes.draw do
     resources :preparations_releases do
       resources :preparations_issues
     end
-  end
 end
