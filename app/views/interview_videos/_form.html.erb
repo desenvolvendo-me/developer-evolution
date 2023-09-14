@@ -1,7 +1,7 @@
 <%= form_with(model: [@interview_video.interview, @interview_video]) do |form| %>
   <% if @interview_video.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@interview_video.errors.count, "error") %> <%= I18n.t('interview.interview_videos.view_form.error') %>:</h2>
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded" role="alert">
+      <h2 class="text-lg"><%= pluralize(@interview_video.errors.count, "error") %> <%= I18n.t('interview.interview_videos.view_form.error') %>:</h2>
 
       <ul>
         <% @interview_video.errors.each do |error| %>
@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :video_link, style: "display: block" %>
-    <%= form.text_field :video_link %>
+  <div class="mb-4">
+    <%= form.label :video_link, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :video_link, class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500', placeholder: 'Type video link', required: true %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="flex items-center space-x-4">
+    <%= form.submit @interview_video.persisted? ? t('helpers.submit.update') : t('helpers.submit.create'), class: "#{@interview_video.persisted? ? 'bg-yellow-500 hover:bg-yellow-700' : 'bg-green-700 hover:bg-green-900'} text-white font-bold py-2 px-4 rounded-full cursor-pointer" %>
   </div>
+
 <% end %>

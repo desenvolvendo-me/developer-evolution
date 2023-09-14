@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'workouts/lesson'
 
+
   get ':login', to: 'students#show', as: :profile
   get ':login/edit', to: 'students#edit'
   patch ':login', to: 'students#update'
@@ -35,13 +36,16 @@ Rails.application.routes.draw do
     resources :interview_videos
   end
 
+  scope path: 'vacancy-generator' do
+    resources :interviews do
+      resources :interview_videos
+    end
+  end
+
   resources :scripts do
     resources :script_questions
   end
 
-  resources :interviews do
-    resources :interview_videos
-  end
 
   resources :purposes do
     resources :purpose_questions, module: :purposes

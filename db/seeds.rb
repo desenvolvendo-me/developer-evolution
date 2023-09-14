@@ -58,13 +58,19 @@ if Rails.env.development?
   # Job Position Generator
 
   # Create interviews with student relation
-  video_urls = %w[https://vimeo.com/190479606 https://vimeo.com/76979871 https://vimeo.com/195085022]
+  video_urls = %w[https://vimeo.com/190479606 https://vimeo.com/76979871 https://vimeo.com/195085022 https://vimeo.com/190360482]
 
-  interview = Interview.create(interview_type: "Vida", student: student)
-  interview.interview_videos.create(video_link: "https://vimeo.com/123456")
+  # Create interviews
+  interview1 = Interview.create(interview_type: "Vida", student: student)
+  interview2 = Interview.create(interview_type: "Resiliência", student: student)
+  interview3 = Interview.create(interview_type: "Superação", student: student)
+  interview4 = Interview.create(interview_type: "Empresa", student: student)
 
-  # Exemplo de criação de outro vídeo associado à mesma entrevista
-  interview.interview_videos.create(video_link: "https://vimeo.com/789012")
+  # Create interview videos
+  interview1.interview_videos.create(video_link: video_urls.sample)
+  interview2.interview_videos.create(video_link: video_urls.sample)
+  interview3.interview_videos.create(video_link: video_urls.sample)
+  interview4.interview_videos.create(video_link: video_urls.sample)
 
   # Create Scripts
   script = Script.create(category: "Empresa", student: student)
