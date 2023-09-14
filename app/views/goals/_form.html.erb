@@ -1,27 +1,21 @@
-<%= form_with(model: goal) do |form| %>
-  <% if goal.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(goal.errors.count, "error") %> <%= t('goal.form.prohibited_this_goal_from_being_saved') %>:</h2>
-
-      <ul>
-        <% goal.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+<%= form_with(model: @goal) do |form| %>
+  <% if @goal.errors.any? %>
+    <div class="text-red-600 mb-4">
+      <h2 class="text-lg font-bold"><%= pluralize(@goal.errors.count, "error") %> <%= I18n.t('goal.form.prohibited_this_goal_from_being_saved') %>:</h2>
+      <ul class="list-disc pl-5">
+        <% @goal.errors.each do |error| %>
+          <li class="text-sm"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :description, t('goal.form.description'),  style: "display: block" %>
-    <%= form.text_field :description %>
+  <div class="mb-4">
+    <%= form.label :description, t('goal.goal.description'),class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :description, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
   </div>
 
-<!--  <div>-->
-    <%#= form.label :student_id, style: "display: block" %>
-    <%#= form.text_field :student_id %>
-<!--  </div>-->
-
   <div>
-    <%= form.submit button_label %>
+    <%= form.submit @goal.persisted? ? t('helpers.submit.update') : t('helpers.submit.create'), class: (@goal.persisted? ? "bg-yellow-500 text-white font-bold py-2 px-4 rounded-full cursor-pointer" : "bg-green-500 text-white font-bold py-2 px-4 rounded-full cursor-pointer") %>
   </div>
 <% end %>

@@ -16,7 +16,7 @@ class ObjectiveQuestionsController < ObjectivesController
     @objective_question = @objective.objective_questions.build(objective_question_params)
 
     if @objective_question.save
-      redirect_to @objective, notice: I18n.t('objective.question.controller.create_success')
+      redirect_to objective_objective_questions_path(@objective), notice: I18n.t('objective.question.controller.create_success')
     else
       render :new
     end

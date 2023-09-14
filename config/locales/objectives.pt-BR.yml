@@ -5,19 +5,25 @@ pt-BR:
     edit_title: Editando
     form_view:
       error: proibiu esse objetivo de ser salvo
-    show: Mostrar esse objetivo
+    index_view:
+      type_question: Tipo de questão
+      description: Pergunta
+      answer: Resposta
+      actions: Ações
+      are_you_sure: Tem certeza?
+    show: Mostrar
     new: Criar novo objetivo
-    edit: Editar nome do objetivo
+    edit: Editar
     back: Voltar para objetivos
-    destroy: Apagar objetivo
+    destroy: Apagar
     controller:
       destroy: Objetivo e questões associadas a ele foram apagadas com sucesso.
-      notice_create: Objetivo cadastrada com sucesso
-      notice_update: Objetivo atualizada com sucesso
+      notice_create: Objetivo cadastrado com sucesso
+      notice_update: Objetivo atualizado com sucesso
     question:
       new_question: Criar nova pergunta
-      show_this_question: Mostrar essa pergunta
-      edit_this_question: Editar essa pergunta
+      show_this_question: Mostrar
+      edit_this_question: Editar
       destroy_this_question: Apagar essa pergunta
       add_question: Adicionar perguntas para esse objetivo
       show_question: Mostrar perguntas desse objetivo

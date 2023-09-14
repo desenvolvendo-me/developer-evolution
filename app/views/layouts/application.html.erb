@@ -7,9 +7,8 @@
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_importmap_tags %>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.turbo.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+  <%= javascript_importmap_tags %>
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" charset="utf-8"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
@@ -55,22 +54,43 @@
 
                   <hr class="border-gray-200"/>
 
-                  <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-white rounded-lg hover:bg-indigo-600 group" onclick="toggleSubMenu(event)">
-                    <div class="flex items-center">
-                      <svg class="flex-shrink-0 w-5 h-5 mr-4 w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
-                        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
-                      </svg>
-                      Future Generator
+                  <nav  class="flex-1 space-y-2 cursor-pointer" >
+                    <div  class="relative flex flex-col items-center px-4 py-2.5 text-sm font-medium transition-all hover:text-white rounded-lg hover:bg-indigo-600 group">
+                        <button onclick="showFutureMenu()" class="text-left flex justify-between items-center w-full">
+                          <svg class="flex-shrink-0 w-5 h-5 mr-4 w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+                            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+                          </svg>
+                          Future Generator
+                          <svg id="iconFuture" class="ml-2 w-5 h-5 group-hover:text-white hover:bg-indigo-600 transition ease-in-out duration-150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </button>
+                      <div id="futureMenu" class="relative hidden left-0 w-48 mt-2 origin-top-left rounded-md md:w-48">
+                        <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2  w-full md:w-52">
+                          <%= link_to objectives_path, class: "text-left flex justify-between items-center w-full" do %>
+                            Cadastrar Objetivo
+                          <% end %>
+                        </button>
+                        <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2 w-full md:w-52">
+                          <%= link_to routines_path, class: "text-left flex justify-between items-center w-full" do %>
+                            <%= t('application.routine') %>
+                          <% end %>
+                        </button>
+                      </div>
                     </div>
                     <svg class="submenu-arrow flex-shrink-0 w-4 h-4 ml-auto transition-transform transform rotate-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                       <path d="M19 9l-7 7-7-7"/>
                     </svg>
                   </a>
 
-                    <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
-                      <li><a href="<%= routines_path %>"><%= t('application.routine') %></a></li>
-                    </ul>
+                  <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
+                    <li><%= link_to t('application.routine'), routines_path %></li>
+                  </ul>
+
+                  <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
+                    <li><%= link_to t('application.goals'), goals_path %></li>
+                  </ul>
                   </nav>
 
                   <nav  class="flex-1 space-y-2 cursor-pointer" >
@@ -222,32 +242,20 @@
             close.classList.toggle("hidden");
         }
     };
+
     let iconBase = document.getElementById("iconBase");
     let baseMenu = document.getElementById("baseMenu");
     const showBaseMenu = () => {
         iconBase.classList.toggle("rotate-180");
         baseMenu.classList.toggle("hidden");
+
+    let iconFuture = document.getElementById("iconFuture");
+    let futureMenu = document.getElementById("futureMenu");
+    const showFutureMenu = () => {
+        iconFuture.classList.toggle("rotate-180");
+        futureMenu.classList.toggle("hidden");
     };
 </script>
-<script>
-    function toggleSubMenu(event) {
-        event.preventDefault();
-        var submenu = document.getElementById("submenu");
-        var arrowIcon = event.currentTarget.querySelector(".submenu-arrow");
-        var isOpen = submenu.style.display === "block";
 
-        submenu.style.display = isOpen ? "none" : "block";
-        arrowIcon.style.transform = isOpen ? "rotate(0deg)" : "rotate(180deg)";
-    }
-
-    // Add this code to hide the submenu when the page loads
-    document.addEventListener("DOMContentLoaded", function () {
-        var submenu = document.getElementById("submenu");
-        var arrowIcon = document.querySelector(".submenu-arrow");
-
-        submenu.style.display = "none";
-        arrowIcon.style.transform = "rotate(0deg)";
-    });
-</script>
 </body>
 </html>
