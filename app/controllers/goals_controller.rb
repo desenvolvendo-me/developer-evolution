@@ -14,7 +14,7 @@ class GoalsController < ApplicationController
     @goal = current_user.student.goals.build(goal_params)
 
     if @goal.save
-      flash[:notice] = 'goal.controller.flash_create'
+      flash[:notice] = t('goal.controller.successfully_created')
       redirect_to action: :show, id: @goal.id
     else
       flash[:alert] = @goal.errors.full_messages.join('. ')
@@ -26,7 +26,7 @@ class GoalsController < ApplicationController
 
   def update
     if @goal.update(goal_params)
-      flash[:notice] = 'Micro-meta atualizada com sucesso.'
+      flash[:notice] = t('goal.controller.successfully_updated')
       redirect_to action: :show, id: @goal.id
     else
       redirect_to action: :edit
@@ -35,7 +35,7 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    redirect_to goals_path, notice: 'Goal and associated questions were successfully desctroyed.'
+    redirect_to goals_path, notice: t('goal.controller.successfully_destroyed')
   end
 
   private
