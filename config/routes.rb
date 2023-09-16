@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'workouts/lesson'
 
-
   get ':login', to: 'students#show', as: :profile
   get ':login/edit', to: 'students#edit'
   patch ':login', to: 'students#update'
@@ -17,19 +16,17 @@ Rails.application.routes.draw do
     scope 'zero' do
       resources :routines
       resources :experiences
+      resources :thoughts
       resources :objectives do
         resources :objective_questions
       end
       resources :goals do
        resources :goal_questions, module: :goals
-      end  
+      end
+      resources :micro_goals do
+        resources :micro_goal_tasks, module: :micro_goals
+      end
     end
-  end
-
-  resources :thoughts
-
-  resources :scripts do
-    resources :script_questions
   end
 
   resources :interviews do
@@ -47,13 +44,13 @@ Rails.application.routes.draw do
   end
 
 
-  resources :purposes do
-    resources :purpose_questions, module: :purposes
-  end
+    resources :purposes do
+      resources :purpose_questions, module: :purposes
+    end
 
-  resources :courses do
-    resources :course_basics, module: :courses
-  end
+    resources :courses do
+      resources :course_basics, module: :courses
+    end
 
   resources :tests do
     resources :tests_battles do
@@ -64,10 +61,6 @@ Rails.application.routes.draw do
   resources :preparations do
     resources :preparations_releases do
       resources :preparations_issues
-    end
-
-    resources :micro_goals do
-      resources :micro_goal_tasks, module: :micro_goals
     end
   end
 end
