@@ -1,7 +1,7 @@
 pt-BR:
   enums:
-    thought:
-      type_thoughts:
+    thoughts:
+      types:
         positive: "Positivo"
         negative: "Negativo"
   thoughts:
@@ -13,11 +13,15 @@ pt-BR:
     destroy:
       success: 'Pensamento exlcuido com sucesso'
     view:
-      new: "Novo pensamento"
-      destroy: "Deletar pensamento"
-      edit: "Editando pensamento"
+      index:
+        delete_confirmation: 'Tem certeza de que deseja excluir este pensamento?'
+      new: "Criar novo pensamento"
+      destroy: "Apagar pensamento"
+      edit: "Editar"
       show: "Mostrar pensamento"
       back: "Voltar para pensamentos"
+      form:
+        new_thought: "Novo pensamento"
     # End of the 'feature/20-cadastrar-pensamentos' translation.
   activerecord:
     models:
@@ -35,3 +39,7 @@ pt-BR:
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
+  ellipsis:
+    show: 'Mostrar'
+    edit: 'Editar'
+    delete: 'Excluir'
