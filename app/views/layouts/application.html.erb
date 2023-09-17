@@ -7,11 +7,11 @@
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
   <%= javascript_importmap_tags %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.turbo.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </head>
 
 <body>
@@ -84,7 +84,6 @@
                     </svg>
                   </a>
 
-<<<<<<< HEAD
                   <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
                     <li><%= link_to t('application.routine'), routines_path %></li>
                   </ul>
@@ -92,11 +91,10 @@
                   <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
                     <li><%= link_to t('application.goals'), goals_path %></li>
                   </ul>
-=======
-                    <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
-                      <li><a href="<%= micro_goals_path %>"><%= t('application.micro_goals') %></a></li>
+
+                  <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
+                    <li><%= link_to t('application.micro_goals'), micro_goals_path %></li>
                     </ul>
->>>>>>> feat(micro_goals.pt-BR): Add 'micro_gaol' submenu translation in 'app/views/layouts/application.html.erb' file.
                   </nav>
 
                   <nav  class="flex-1 space-y-2 cursor-pointer" >
@@ -271,22 +269,29 @@
     let iconVacancy = document.getElementById("iconVacancy");
     let vacancyMenu = document.getElementById("vacancyMenu");
     const showVacancyMenu = () => {
-        iconVacancy.classList.toggle("rotate-180");
-        vacancyMenu.classList.toggle("hidden");
+        if (iconVacancy && vacancyMenu) {
+            iconVacancy.classList.toggle("rotate-180");
+            vacancyMenu.classList.toggle("hidden");
+        }
+    };
 
     let iconBase = document.getElementById("iconBase");
     let baseMenu = document.getElementById("baseMenu");
     const showBaseMenu = () => {
-        iconBase.classList.toggle("rotate-180");
-        baseMenu.classList.toggle("hidden");
+        if (iconBase && baseMenu) {
+            iconBase.classList.toggle("rotate-180");
+            baseMenu.classList.toggle("hidden");
+        }
+    };
 
     let iconFuture = document.getElementById("iconFuture");
     let futureMenu = document.getElementById("futureMenu");
     const showFutureMenu = () => {
-        iconFuture.classList.toggle("rotate-180");
-        futureMenu.classList.toggle("hidden");
+        if (iconFuture && futureMenu) {
+            iconFuture.classList.toggle("rotate-180");
+            futureMenu.classList.toggle("hidden");
+        }
     };
 </script>
-
 </body>
 </html>
