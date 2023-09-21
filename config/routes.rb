@@ -14,18 +14,22 @@ Rails.application.routes.draw do
 
   scope 'level' do
     scope 'zero' do
-      resources :routines
-      resources :experiences
-      resources :thoughts
+      resources :purposes do
+        resources :purpose_questions, module: :purposes
+      end
       resources :objectives do
         resources :objective_questions
       end
       resources :goals do
-       resources :goal_questions, module: :goals
+        resources :goal_questions, module: :goals
       end
       resources :micro_goals do
         resources :micro_goal_tasks, module: :micro_goals
       end
+      resources :routines
+      resources :thoughts
+
+      resources :experiences
     end
   end
 
@@ -36,17 +40,9 @@ Rails.application.routes.draw do
   resources :scripts do
     resources :script_questions
   end
-  
-  resources :purposes do
-    resources :purpose_questions, module: :purposes
-  end
-  
+
   resources :courses do
     resources :course_basics, module: :courses
-  end
-
-  resources :objectives do
-    resources :objective_questions
   end
 
   resources :tests do
