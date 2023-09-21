@@ -68,8 +68,23 @@
                       </button>
                       <div id="futureMenu" class="relative hidden left-0 w-48 mt-2 origin-top-left rounded-md md:w-48">
                         <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2  w-full md:w-52">
+                          <%= link_to purposes_path, class: "text-left flex justify-between items-center w-full" do %>
+                            <%= t('application.purpose') %>
+                          <% end %>
+                        </button>
+                        <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2  w-full md:w-52">
                           <%= link_to objectives_path, class: "text-left flex justify-between items-center w-full" do %>
-                            Cadastrar Objetivo
+                            <%= t('application.objective') %>
+                          <% end %>
+                        </button>
+                        <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2 w-full md:w-52">
+                          <%= link_to goals_path, class: "text-left flex justify-between items-center w-full" do %>
+                            <%= t('application.goals') %>
+                          <% end %>
+                        </button>
+                        <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2 w-full md:w-52">
+                          <%= link_to micro_goals_path, class: "text-left flex justify-between items-center w-full" do %>
+                            <%= t('application.micro_goals') %>
                           <% end %>
                         </button>
                         <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2 w-full md:w-52">
@@ -77,24 +92,13 @@
                             <%= t('application.routine') %>
                           <% end %>
                         </button>
+                        <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2 w-full md:w-52">
+                          <%= link_to thoughts_path, class: "text-left flex justify-between items-center w-full" do %>
+                            <%= t('application.thoughts') %>
+                          <% end %>
+                        </button>
                       </div>
                     </div>
-                   </a>
-                    <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
-                      <li><%= link_to t('application.routine'), routines_path %></li>
-                    </ul>
-                    <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
-                      <li><%= link_to t('application.goals'), goals_path %></li>
-                    </ul>
-                    <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
-                      <li><%= link_to t('application.goals'), goals_path %></li>
-                    </ul>
-                    <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
-                      <li><%= link_to t('application.micro_goals'), micro_goals_path %></li>
-                    </ul>
-                    <ul class="pl-8" id="submenu"> <!-- Submenu lateral -->
-                      <li><%= link_to t('application.thoughts'), thoughts_path %></li>
-                    </ul>
                   </nav>
 
 
