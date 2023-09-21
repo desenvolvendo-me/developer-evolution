@@ -46,3 +46,5 @@ pt-BR:
         type_question: Tipo de pergunta
         description: Pergunta
         answer: Resposta
+  application:
+    objective: 'Objetivos'

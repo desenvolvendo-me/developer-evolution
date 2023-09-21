@@ -48,3 +48,5 @@ pt-BR:
     type_question: "Tipo de pergunta:"
     question: "Pergunta:"
     answer: "Resposta: "
+  application:
+    purpose: 'Propósito'

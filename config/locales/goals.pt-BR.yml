@@ -90,3 +90,5 @@ pt-BR:
       show: Mostrar
       edit: Editar
       destroy: Excluir
+  application:
+    goals: 'Metas'
