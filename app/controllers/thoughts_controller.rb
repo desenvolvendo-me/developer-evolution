@@ -1,28 +1,42 @@
 class ThoughtsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_thought, only: [:show, :edit, :update, :destroy]
+  before_action :set_student
+  before_action :set_thought, only: [:show]
 
   def index
-    @thoughts = Thought.all
+    if current_user.nil?
+      redirect_to new_user_session_path
+    else
+      @thoughts = @student.thoughts.all
+    end
   end
+
+  def show;end
 
   def new
     @thought = Thought.new
   end
 
   def create
-    @thought = current_user.student.thoughts.build(thought_params)
+    @thought = Thought.new(thought_params)
+    @thought.student_id = current_user.student.id
 
     if @thought.save
-      redirect_to action: :show, id: @thought.id, notice: t('.success')
+      flash[:notice] = t('thoughts.create.success')
+      redirect_to thought_path(@thought)
     else
-      render :new, flash[:notice] = t('.fail')
+      logger.error @thought.errors.full_messages
+      flash[:error] = @thought.errors.full_messages.join(", ")
+      render :new
     end
   end
 
-  def show;end
+  def edit
+    @thought = Thought.find(params[:id])
+  end
 
   def update
+    @thought = Thought.find(params[:id])
     if @thought.update(thought_params)
       redirect_to thought_path(@thought), notice: t('.success')
     else
@@ -30,19 +44,24 @@ class ThoughtsController < ApplicationController
     end
   end
 
-    def destroy
-      @thought.destroy
-      redirect_to thoughts_path, notice: t('.success')
-    end
+  def destroy
+    @thought = current_user.student.thoughts.find(params[:id])
+    @thought.destroy
+
+    redirect_to thoughts_path, notice: I18n.t('thoughts.destroy.success')
+  end
 
   private
 
+  def set_student
+    @student = current_user.student
+  end
+
   def set_thought
-    @thought = current_user.student.thoughts.find(params[:id])
-    # end
+    @thought = current_user.student.thoughts.find_by(id: params[:id])
   end
 
   def thought_params
-    params.require(:thought).permit(:level, :positive, :negative, :student_id)
+    params.require(:thought).permit(:level, :description, :type_thought, :student_id)
   end
 end

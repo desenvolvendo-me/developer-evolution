@@ -33,24 +33,21 @@ Rails.application.routes.draw do
     resources :interview_videos
   end
 
-  scope path: 'vacancy-generator' do
-    resources :interviews do
-      resources :interview_videos
-    end
-  end
-
   resources :scripts do
     resources :script_questions
   end
+  
+  resources :purposes do
+    resources :purpose_questions, module: :purposes
+  end
+  
+  resources :courses do
+    resources :course_basics, module: :courses
+  end
 
-
-    resources :purposes do
-      resources :purpose_questions, module: :purposes
-    end
-
-    resources :courses do
-      resources :course_basics, module: :courses
-    end
+  resources :objectives do
+    resources :objective_questions
+  end
 
   resources :tests do
     resources :tests_battles do

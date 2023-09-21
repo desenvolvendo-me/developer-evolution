@@ -1,8 +1,0 @@
-<div id="<%= dom_id thought %>">
-  <div class="thought">
-    <p><strong><%= Thought.human_attribute_name("level") %>:</strong> <%= thought.level %></p>
-    <p><strong><%= Thought.human_attribute_name("type_thought") %>:</strong> <%= Thought.human_enum_name(:type_thoughts, thought.type_thought) %></p>
-    <p><strong><%= Thought.human_attribute_name("description") %>:</strong> <%= thought.description %></p>
-  </div>
-
-</div>
