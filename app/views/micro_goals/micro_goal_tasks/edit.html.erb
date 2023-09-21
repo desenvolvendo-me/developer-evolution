@@ -1,6 +1,11 @@
-<h1><%= t('views.micro_goal_tasks.edit.edit_title') %>:</h1>
-<hr>
+<h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+  <%= I18n.t('views.micro_goal_tasks.edit.edit_title') %> <%= @micro_goal.micro_goal %>
+</h2>
 
-<%= render 'form' %>
-<hr>
-<%= link_to t('views.micro_goal_tasks.edit.show_task'), [@micro_goal, @micro_goal_task] %>
+<%= render "form", micro_goal_task: @micro_goal_task %>
+
+<div class="flex items-center space-x-4 mt-4">
+  <%= link_to I18n.t('views.micro_goal_tasks.edit.show_this_micro_goal_task'), micro_goal_micro_goal_task_path, class: "text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" %>
+
+  <%= link_to I18n.t('views.micro_goal_tasks.edit.back_to_micro_goal_tasks'), micro_goal_micro_goal_tasks_path, class: "text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-blue-900" %>
+</div>

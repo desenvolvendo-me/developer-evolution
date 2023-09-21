@@ -23,31 +23,30 @@ Rails.application.routes.draw do
       resources :goals do
        resources :goal_questions, module: :goals
       end
+      resources :micro_goals do
+        resources :micro_goal_tasks, module: :micro_goals
+      end
     end
-  end
-
-  resources :scripts do
-    resources :script_questions
   end
 
   resources :interviews do
     resources :interview_videos
   end
 
+  resources :scripts do
+    resources :script_questions
+  end
+  
   resources :purposes do
     resources :purpose_questions, module: :purposes
   end
-
+  
   resources :courses do
     resources :course_basics, module: :courses
   end
 
   resources :objectives do
     resources :objective_questions
-  end
-
-  resources :goals do
-    resources :goal_questions, module: :goals
   end
 
   resources :tests do

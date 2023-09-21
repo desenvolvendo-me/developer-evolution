@@ -1,34 +1,66 @@
-<%= link_to t('views.micro_goal_tasks.index.back_to_micro_goals'), micro_goals_path %>
-<h1><%= t('views.micro_goal_tasks.index.tasks_title') %>:</h1>
-<hr>
-<table>
-  <thead>
-  <tr>
-    <th><%= t('views.micro_goal_tasks.index.task_label') %></th>
-    <th><%= t('views.micro_goal_tasks.index.start_date_label') %></th>
-    <th><%= t('views.micro_goal_tasks.index.end_date_label') %></th>
-    <th><%= t('views.micro_goal_tasks.index.percentage_label') %></th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
 
-  <tbody>
-  <% @micro_goal_tasks.each do |task| %>
-    <tr>
-      <td><%= task.task %></td>
-      <td><%= task.start_date %></td>
-      <td><%= task.end_date %></td>
-      <td><%= task.percentage %></td>
-      <td><%= link_to t('views.micro_goal_tasks.index.show_micro_goal_for_this_task'), [@micro_goal] %> |</td>
-      <td><%= link_to t('views.micro_goal_tasks.index.show_this_task'), micro_goal_micro_goal_task_path(task.micro_goal, task) %> |</td>
-      <td><%= link_to t('views.micro_goal_tasks.index.edit'), edit_micro_goal_micro_goal_task_path(task.micro_goal, task) %> |</td>
-      <td><%= link_to t('views.micro_goal_tasks.index.destroy'), micro_goal_micro_goal_task_path(task.micro_goal, task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-<hr>
+  <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+    <h1 class="text-xl font-bold text-gray-900 dark:text-white">
+      <%= @micro_goal.micro_goal %>
+    </h1>
+  </div>
 
-<br>
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <tr>
+        <th scope="col" class="px-4 py-3"><%= I18n.t('views.micro_goal_tasks.micro_goal_task.task_label') %></th>
+        <th scope="col" class="px-4 py-3"><%= I18n.t('views.micro_goal_tasks.micro_goal_task.start_date_label') %></th>
+        <th scope="col" class="px-4 py-3"><%= I18n.t('views.micro_goal_tasks.micro_goal_task.end_date_label') %></th>
+        <th scope="col" class="px-4 py-3"><%= I18n.t('views.micro_goal_tasks.micro_goal_task.percentage_label') %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @micro_goal_tasks.each do |micro_goal_task| %>
+        <tr class="border-b dark:border-gray-700">
+          <td class="px-4 py-3">
+            <%= micro_goal_task.task %>
+          </td>
+          <td class="px-4 py-3">
+            <%= micro_goal_task.start_date %>
+          </td>
+          <td class="px-4 py-3">
+            <%= micro_goal_task.end_date %>
+          </td>
+          <td class="px-4 py-3">
+            <%= micro_goal_task.percentage %>
+          </td>
+          <td class="px-4 py-3 flex items-center justify-end">
+            <button id="micro_goal_task-<%= micro_goal_task.id %>-dropdown-button" data-dropdown-toggle="micro_goal_task-<%= micro_goal_task.id %>-dropdown" class="inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100" type="button">
+              <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+              </svg>
+            </button>
+            <div id="micro_goal_task-<%= micro_goal_task.id %>-dropdown" class="hidden z-10 w-24 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+              <ul class="py-1 text-sm text-gray-700 dark:text-gray-200 flex flex-col md:items-center" aria-labelledby="micro_goal_task-<%= micro_goal_task.id %>-dropdown-button">
+                <li>
+                  <%= link_to I18n.t('views.ellipsis.show'), [@micro_goal, micro_goal_task], class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                </li>
+                <li>
+                  <%= link_to I18n.t('views.ellipsis.edit'), edit_micro_goal_micro_goal_task_path(@micro_goal, micro_goal_task), class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                </li>
+                <li>
+                  <%= button_to I18n.t('views.ellipsis.destroy'), { action: "destroy", id: micro_goal_task.id }, method: :delete, data: { confirm: I18n.t('objective.index_view.are_you_sure') }, class: "block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" %>
+                </li>
+              </ul>
+            </div>
+          </td>
 
-<%= link_to t('views.micro_goal_tasks.index.create_new_task'), new_micro_goal_micro_goal_task_path(@micro_goal) %>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  <div class="p-4 flex space-x-4">
+    <%= link_to I18n.t('views.micro_goal_tasks.index.create_new_task'), new_micro_goal_micro_goal_task_path, class: "inline-block px-4 py-2 bg-green-700 text-white rounded-md hover:bg-primary-800 dark:hover:bg-primary-600 transition duration-200" %>
+
+    <%= link_to I18n.t('views.micro_goal_tasks.index.back_to_micro_goals'), micro_goals_path, class: "text-blue-600 inline-flex items-center hover:text-white border border-blue-600 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-blue-900" %>
+  </div>

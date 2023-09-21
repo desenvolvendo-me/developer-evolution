@@ -1,22 +1,22 @@
-<%= form_with(model: micro_goal) do |form| %>
-  <% if micro_goal.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(micro_goal.errors.count, "error") %> <%= t('views.micro_goals.form.errors_prohibited') %>:</h2>
+<%= form_with(model: @micro_goal) do |form| %>
+  <% if @micro_goal.errors.any? %>
+    <div class="text-red-600 mb-4">
+      <h2 class="text-lg font-bold"><%= pluralize(micro_goal.errors.count, "error") %> <%= t('views.micro_goals.form.errors_prohibited', count: @micro_goal.errors.count) %>:</h2>
 
-      <ul>
+      <ul class="list-disc pl-5">
         <% micro_goal.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class="text-sm"><%= error %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :micro_goa, t('views.micro_goals.form.micro_goal_label'), style: "display: block" %>
-    <%= form.text_field :micro_goal %>
+  <div class="mb-4">
+    <%= form.label :micro_goal, t('views.micro_goals.form.micro_goal_label'), class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+    <%= form.text_field :micro_goal, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit @micro_goal.persisted? ? t('helpers.submit.update') : t('helpers.submit.create'), class: (@micro_goal.persisted? ? "bg-yellow-500 text-white font-bold py-2 px-4 rounded-full cursor-pointer" : "bg-green-500 text-white font-bold py-2 px-4 rounded-full cursor-pointer") %>
   </div>
 <% end %>
