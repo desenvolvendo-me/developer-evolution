@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'workouts/lesson'
 
-
   get ':login', to: 'students#show', as: :profile
   get ':login/edit', to: 'students#edit'
   patch ':login', to: 'students#update'
@@ -17,16 +16,15 @@ Rails.application.routes.draw do
     scope 'zero' do
       resources :routines
       resources :experiences
+      resources :thoughts
       resources :objectives do
         resources :objective_questions
       end
       resources :goals do
        resources :goal_questions, module: :goals
-      end  
+      end
     end
   end
-
-  resources :thoughts
 
   resources :scripts do
     resources :script_questions
@@ -36,23 +34,20 @@ Rails.application.routes.draw do
     resources :interview_videos
   end
 
-  scope path: 'vacancy-generator' do
-    resources :interviews do
-      resources :interview_videos
-    end
-  end
-
-  resources :scripts do
-    resources :script_questions
-  end
-
-
   resources :purposes do
     resources :purpose_questions, module: :purposes
   end
 
   resources :courses do
     resources :course_basics, module: :courses
+  end
+
+  resources :objectives do
+    resources :objective_questions
+  end
+
+  resources :goals do
+    resources :goal_questions, module: :goals
   end
 
   resources :tests do
@@ -65,4 +60,5 @@ Rails.application.routes.draw do
     resources :preparations_releases do
       resources :preparations_issues
     end
+  end
 end
