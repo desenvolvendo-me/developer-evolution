@@ -9,7 +9,7 @@ pt-BR:
         show_ellipsis_label: Mostrar
         edit_ellipsis_label: Editar
         delete_ellipsis_label: Excluir
-        new_label: Nova Rotina
+        new_label: Criar nova rotina
         delete_confirmation: Tem certeza de que deseja excluir esta rotina?
       new:
         back_to_routines: Voltar para rotinas
