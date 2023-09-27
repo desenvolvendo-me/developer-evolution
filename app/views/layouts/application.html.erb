@@ -55,18 +55,18 @@
                   <hr class="border-gray-200"/>
 
                   <nav  class="flex-1 space-y-2 cursor-pointer" >
-                    <div  class="relative flex flex-col items-center px-4 py-2.5 text-sm font-medium transition-all hover:text-white rounded-lg hover:bg-indigo-600 group">
-                      <button onclick="showFutureMenu()" class="text-left flex justify-between items-center w-full">
+                    <div onclick="toggleDropdown('button1', 'menu1', 'icon1')" class="relative flex flex-col items-center px-4 py-2.5 text-sm font-medium transition-all hover:text-white rounded-lg hover:bg-indigo-600 group">
+                      <button id="button1" class="text-left flex justify-between items-center w-full">
                         <svg class="flex-shrink-0 w-5 h-5 mr-4 w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                           <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
                           <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
                         </svg>
                         Future Generator
-                        <svg id="iconFuture" class="ml-2 w-5 h-5 group-hover:text-white hover:bg-indigo-600 transition ease-in-out duration-150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <svg id="icon1" class="ml-2 w-5 h-5 group-hover:text-white hover:bg-indigo-600 transition ease-in-out duration-150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                           <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                       </button>
-                      <div id="futureMenu" class="relative hidden left-0 w-48 mt-2 origin-top-left rounded-md md:w-48">
+                      <div id="menu1" class="relative hidden left-0 w-48 mt-2 origin-top-left rounded-md md:w-48">
                         <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2  w-full md:w-52">
                           <%= link_to purposes_path, class: "text-left flex justify-between items-center w-full" do %>
                             <%= t('application.purpose') %>
@@ -103,14 +103,14 @@
 
 
                   <nav  class="flex-1 space-y-2 cursor-pointer" >
-                    <div  class="relative flex flex-col items-center px-4 py-2.5 text-sm font-medium transition-all hover:text-white rounded-lg hover:bg-indigo-600 group">
-                      <button onclick="showBaseMenu()" class="text-left flex justify-between items-center w-full">
+                    <div onclick="toggleDropdown('button2', 'menu2', 'icon2')" class="relative flex flex-col items-center px-4 py-2.5 text-sm font-medium transition-all hover:text-white rounded-lg hover:bg-indigo-600 group">
+                      <button id="button2" class="text-left flex justify-between items-center w-full">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M469.3 19.3l23.4 23.4c25 25 25 65.5 0 90.5l-56.4 56.4L322.3 75.7l56.4-56.4c25-25 65.5-25 90.5 0zM44.9 353.2L299.7 98.3 413.7 212.3 158.8 467.1c-6.7 6.7-15.1 11.6-24.2 14.2l-104 29.7c-8.4 2.4-17.4 .1-23.6-6.1s-8.5-15.2-6.1-23.6l29.7-104c2.6-9.2 7.5-17.5 14.2-24.2zM249.4 103.4L103.4 249.4 16 161.9c-18.7-18.7-18.7-49.1 0-67.9L94.1 16c18.7-18.7 49.1-18.7 67.9 0l19.8 19.8c-.3 .3-.7 .6-1 .9l-64 64c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l64-64c.3-.3 .6-.7 .9-1l45.1 45.1zM408.6 262.6l45.1 45.1c-.3 .3-.7 .6-1 .9l-64 64c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l64-64c.3-.3 .6-.7 .9-1L496 350.1c18.7 18.7 18.7 49.1 0 67.9L417.9 496c-18.7 18.7-49.1 18.7-67.9 0l-87.4-87.4L408.6 262.6z"/></svg>Base Generator
-                        <svg id="iconBase" class="ml-2 w-5 h-5 group-hover:text-white hover:bg-indigo-600 transition ease-in-out duration-150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <svg id="icon2" class="ml-2 w-5 h-5 group-hover:text-white hover:bg-indigo-600 transition ease-in-out duration-150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                           <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                       </button>
-                      <div id="baseMenu" class="relative hidden left-0 w-48 mt-2 origin-top-left rounded-md md:w-48">
+                      <div id="menu2" class="relative hidden left-0 w-48 mt-2 origin-top-left rounded-md md:w-48">
                         <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2  w-full md:w-52">
                           <%= link_to experiences_path, class: "text-left flex justify-between items-center w-full" do %>
                             Cadastrar Experiência
@@ -120,15 +120,15 @@
                     </div>
                   </nav>
                   <nav class="flex-1 space-y-2 cursor-pointer" >
-                    <div class="relative flex flex-col items-center px-4 py-2.5 text-sm font-medium transition-all hover:text-white rounded-lg hover:bg-indigo-600 group">
-                      <button onclick="showVacancyMenu()" class="text-left flex justify-between items-center w-full">
+                    <div onclick="toggleDropdown('button3', 'menu3', 'icon3')" class="relative flex flex-col items-center px-4 py-2.5 text-sm font-medium transition-all hover:text-white rounded-lg hover:bg-indigo-600 group">
+                      <button id="button3" class="text-left flex justify-between items-center w-full">
                         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M184 48H328c4.4 0 8 3.6 8 8V96H176V56c0-4.4 3.6-8 8-8zm-56 8V96H64C28.7 96 0 124.7 0 160v96H192 320 512V160c0-35.3-28.7-64-64-64H384V56c0-30.9-25.1-56-56-56H184c-30.9 0-56 25.1-56 56zM512 288H320v32c0 17.7-14.3 32-32 32H224c-17.7 0-32-14.3-32-32V288H0V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V288z"/></svg>
                         Vacancy generator
-                        <svg id="iconVacancy" class="ml-2 w-5 h-5 group-hover:text-white hover:bg-indigo-600 transition ease-in-out duration-150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <svg id="icon3" class="ml-2 w-5 h-5 group-hover:text-white hover:bg-indigo-600 transition ease-in-out duration-150" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                           <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                       </button>
-                      <div id="vacancyMenu" class="relative hidden left-0 w-48 mt-2 origin-top-left rounded-md md:w-48">
+                      <div id="menu3" class="relative hidden left-0 w-48 mt-2 origin-top-left rounded-md md:w-48">
                         <button class="flex justify-start items-center space-x-6 hover:text-white rounded px-3 py-2 w-full md:w-52">
                           <%= link_to interviews_path, class: "text-left flex justify-between items-center w-full" do %>
                             Cadastrar vaga
@@ -248,85 +248,17 @@
 </div>
 
 <script>
-    let icon1 = document.getElementById("icon1");
-    let menu1 = document.getElementById("menu1");
-    const showMenu1 = (flag) => {
-        if (flag) {
-            icon1.classList.toggle("rotate-180");
-            menu1.classList.toggle("hidden");
-        }
-    };
+    const toggleDropdown = (buttonId, menuId, iconId) => {
+        const button = document.getElementById(buttonId);
+        const menu = document.getElementById(menuId);
+        const icon = document.getElementById(iconId);
 
-    let Main = document.getElementById("Main");
-    let open = document.getElementById("open");
-    let close = document.getElementById("close");
-
-    const showNav = (flag) => {
-        if (flag) {
-            Main.classList.toggle("-translate-x-full");
-            Main.classList.toggle("translate-x-0");
-            open.classList.toggle("hidden");
-            close.classList.toggle("hidden");
-        }
-    };
-
-    let iconVacancy = document.getElementById("iconVacancy");
-    let vacancyMenu = document.getElementById("vacancyMenu");
-    const showVacancyMenu = () => {
-        if (iconVacancy && vacancyMenu) {
-            iconVacancy.classList.toggle("rotate-180");
-            vacancyMenu.classList.toggle("hidden");
-        }
-    };
-
-    let iconBase = document.getElementById("iconBase");
-    let baseMenu = document.getElementById("baseMenu");
-    const showBaseMenu = () => {
-        if (iconBase && baseMenu) {
-            iconBase.classList.toggle("rotate-180");
-            baseMenu.classList.toggle("hidden");
-        }
-    };
-
-    let iconFuture = document.getElementById("iconFuture");
-    let futureMenu = document.getElementById("futureMenu");
-    const showFutureMenu = () => {
-        if (iconFuture && futureMenu) {
-            iconFuture.classList.toggle("rotate-180");
-            futureMenu.classList.toggle("hidden");
+        if (button && menu && icon) {
+            menu.classList.toggle("hidden");
+            icon.classList.toggle("rotate-180");
         }
     };
 </script>
-<script>
-    function toggleSubMenu(event) {
-        event.preventDefault();
-        var submenu = document.getElementById("submenu");
-        var arrowIcon = event.currentTarget.querySelector(".submenu-arrow");
-        var isOpen = submenu.style.display === "block";
 
-        let iconVacancy = document.getElementById("iconVacancy");
-        let vacancyMenu = document.getElementById("vacancyMenu");
-        const showVacancyMenu = () => {
-            iconVacancy.classList.toggle("rotate-180");
-            vacancyMenu.classList.toggle("hidden");
-        };
-
-        let iconBase = document.getElementById("iconBase");
-        let baseMenu = document.getElementById("baseMenu");
-        const showBaseMenu = () => {
-            iconBase.classList.toggle("rotate-180");
-            baseMenu.classList.toggle("hidden");
-        };
-
-        let iconFuture = document.getElementById("iconFuture");
-        let futureMenu = document.getElementById("futureMenu");
-        const showFutureMenu = () => {
-            iconFuture.classList.toggle("rotate-180");
-            futureMenu.classList.toggle("hidden");
-        };
-        submenu.style.display = "none";
-        arrowIcon.style.transform = "rotate(0deg)";
-    }
-</script>
 </body>
 </html>
